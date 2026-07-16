@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* Reveal on scroll */
-  const revealTargets = document.querySelectorAll('.reveal, .card');
+  const revealTargets = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -51,27 +51,5 @@ document.addEventListener('DOMContentLoaded', () => {
   /* Duplicate marquee content for seamless loop */
   document.querySelectorAll('.marquee__track').forEach((track) => {
     track.innerHTML += track.innerHTML;
-  });
-
-  /* Drag-to-scroll for product rails (desktop mouse users) */
-  document.querySelectorAll('.rail').forEach((rail) => {
-    let isDown = false;
-    let startX = 0;
-    let scrollLeft = 0;
-
-    rail.addEventListener('mousedown', (e) => {
-      isDown = true;
-      startX = e.pageX - rail.offsetLeft;
-      scrollLeft = rail.scrollLeft;
-    });
-    ['mouseleave', 'mouseup'].forEach((evt) =>
-      rail.addEventListener(evt, () => { isDown = false; })
-    );
-    rail.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - rail.offsetLeft;
-      rail.scrollLeft = scrollLeft - (x - startX) * 1.4;
-    });
   });
 });
