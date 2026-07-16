@@ -52,4 +52,56 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.marquee__track').forEach((track) => {
     track.innerHTML += track.innerHTML;
   });
+
+  /* Line sliders (Essential / Operative / Executive): highlight the item nearest center */
+  document.querySelectorAll('.line-slider').forEach((slider) => {
+    const items = Array.from(slider.querySelectorAll('.line-slider__item'));
+    let ticking = false;
+
+    const update = () => {
+      const box = slider.getBoundingClientRect();
+      const center = box.left + box.width / 2;
+      let closest = null;
+      let minDist = Infinity;
+      items.forEach((item) => {
+        const r = item.getBoundingClientRect();
+        const dist = Math.abs(r.left + r.width / 2 - center);
+        if (dist < minDist) {
+          minDist = dist;
+          closest = item;
+        }
+      });
+      items.forEach((item) => item.classList.toggle('is-active', item === closest));
+      ticking = false;
+    };
+
+    slider.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', update);
+    update();
+
+    /* Drag-to-scroll for mouse users */
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+    ['mouseleave', 'mouseup'].forEach((evt) =>
+      slider.addEventListener(evt, () => { isDown = false; })
+    );
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      slider.scrollLeft = scrollLeft - (x - startX) * 1.4;
+    });
+  });
 });
