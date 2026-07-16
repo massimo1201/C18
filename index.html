@@ -14,7 +14,7 @@
 
 <header class="site-header">
   <div class="header-side header-side--left">
-    <span class="tag-mini">Since 1954</span>
+    <button class="lang-btn" id="langBtn" aria-expanded="false" aria-label="Choose language">UK</button>
   </div>
   <a href="#top" class="brand"><img src="assets/img/logo-mark.png" alt="Codutti"></a>
   <div class="header-side header-side--right">
@@ -23,6 +23,21 @@
     </button>
   </div>
 </header>
+
+<div class="lang-overlay" id="langOverlay">
+  <div class="lang-overlay__list">
+    <button class="lang-overlay__item is-active" data-lang="UK">UK</button>
+    <button class="lang-overlay__item" data-lang="US">US</button>
+    <button class="lang-overlay__item" data-lang="IT">IT</button>
+    <button class="lang-overlay__item" data-lang="FR">FR</button>
+    <button class="lang-overlay__item" data-lang="DE">DE</button>
+    <button class="lang-overlay__item" data-lang="SP">SP</button>
+    <button class="lang-overlay__item" data-lang="RU">RU</button>
+    <button class="lang-overlay__item" data-lang="AR">AR</button>
+    <button class="lang-overlay__item" data-lang="JP">JP</button>
+    <button class="lang-overlay__item" data-lang="CH">CH</button>
+  </div>
+</div>
 
 <nav class="nav-overlay" id="navOverlay">
   <ul class="nav-list">
@@ -63,42 +78,35 @@
 <main>
 
   <section class="hero">
-    <div class="wrap">
-      <div class="hero-stage">
-        <div class="hero-stage__anim"></div>
-        <div class="hero-stage__grain"></div>
-        <!-- Replace with: <video autoplay muted loop playsinline poster="assets/img/poster.jpg"><source src="assets/video/hero.mp4" type="video/mp4"></video> -->
-        <div class="hero-stage__label">
-          <span class="mono">Company Video</span>
-          <span class="play">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 5l12 7-12 7V5z"/></svg>
-          </span>
-        </div>
-        <div class="hero-stage__corner">
-          <span class="big">Executive design, tailored to you.</span>
-          <span class="meta">00:45 — Codutti Film</span>
-        </div>
+    <div class="hero-stage">
+      <div class="hero-stage__anim"></div>
+      <div class="hero-stage__grain"></div>
+      <!-- Replace with: <video autoplay muted loop playsinline poster="assets/img/poster.jpg"><source src="assets/video/hero.mp4" type="video/mp4"></video> -->
+      <div class="hero-stage__label">
+        <span class="mono">Company Video</span>
+        <span class="play">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 5l12 7-12 7V5z"/></svg>
+        </span>
+      </div>
+      <div class="hero-stage__corner">
+        <span class="big">Executive design, tailored to you.</span>
+        <span class="meta">00:45 — Codutti Film</span>
       </div>
     </div>
     <div class="marquee">
       <div class="marquee__track">
-        <span>Since 1954</span><span>&mdash;</span>
         <span>Contemporary</span><span>&mdash;</span>
         <span>Crafted</span><span>&mdash;</span>
         <span>Contract</span><span>&mdash;</span>
-        <span>Made in Italy</span><span>&mdash;</span>
       </div>
     </div>
   </section>
 
   <!-- 01 — About Us -->
   <section class="manifesto wrap reveal" id="about">
-    <h2 class="mix-title">
-      <span class="lg">We're Codutti:</span><br>
-      <span class="sm">more than 70 years of workspaces.</span>
-    </h2>
+    <h2 class="manifesto-title">We're Codutti: more than 70 years of workspaces.</h2>
     <p class="lede" style="max-width:64ch">
-      The story of Codutti began in 1954, when three brothers joined forces in a modest
+      The story of Codutti began in the 1950s, when three brothers joined forces in a modest
       village workshop. Since then, Codutti has built a legacy of quality and prestige,
       becoming a benchmark brand in the luxury furniture market. Attention to detail and
       product reliability led the company to provide the furnishings for two icons of the
@@ -113,7 +121,6 @@
   <section class="wrap" id="made-in-italy" style="padding-block: clamp(20px,4vw,40px)">
     <div class="photo-box reveal" style="background-image:url('assets/img/photos/made-in-italy.jpg')">
       <div class="photo-box__content">
-        <p class="eyebrow">02 — Heritage</p>
         <h2 class="mix-title"><span class="lg">Made in Italy</span> <span class="sm">since</span></h2>
         <h2 class="mix-title" style="margin-top:-14px"><span class="lg">1954.</span></h2>
         <p class="lede" style="margin-top:6px">
@@ -131,26 +138,34 @@
   </section>
 
   <!-- 03 — Vision, Mission, Values -->
-  <section class="section" id="vision">
-    <div class="wrap">
-      <div class="triptych">
-        <div class="triptych-col reveal">
-          <p class="eyebrow">03 — Vision</p>
-          <h3>Contemporary Vision</h3>
-          <p>To be the international benchmark for Made-in-Italy luxury executive furniture,
-            where craftsmanship and innovation coexist.</p>
-        </div>
-        <div class="triptych-col reveal">
-          <p class="eyebrow">Mission</p>
-          <h3>Crafted Mission</h3>
-          <p>To transform every office into a high-end space, uniting functionality and
-            impeccable aesthetics in furniture built to last.</p>
-        </div>
-        <div class="triptych-col reveal">
-          <p class="eyebrow">Values</p>
-          <h3>Contract Values</h3>
-          <p>Uncompromising quality, attention to detail, respect for materials and people,
-            Italian roots.</p>
+  <section class="vision-scroll" id="vision">
+    <div class="vision-scroll__sticky">
+      <div class="wrap">
+        <div class="vision-scroll__inner">
+          <div class="vs-stage" data-stage="0">
+            <h2 class="vs-heading font-display">
+              <span class="vs-word" data-order="0">Contemporary</span>
+              <span class="vs-word" data-order="1">Vision</span>
+            </h2>
+            <p class="vs-body lede" data-order="2">To be the international benchmark for Made-in-Italy luxury executive furniture,
+              where craftsmanship and innovation coexist.</p>
+          </div>
+          <div class="vs-stage" data-stage="1">
+            <h2 class="vs-heading font-display">
+              <span class="vs-word" data-order="0">Crafted</span>
+              <span class="vs-word" data-order="1">Mission</span>
+            </h2>
+            <p class="vs-body lede" data-order="2">To transform every office into a high-end space, uniting functionality and
+              impeccable aesthetics in furniture built to last.</p>
+          </div>
+          <div class="vs-stage" data-stage="2">
+            <h2 class="vs-heading font-display">
+              <span class="vs-word" data-order="0">Contract</span>
+              <span class="vs-word" data-order="1">Values</span>
+            </h2>
+            <p class="vs-body lede" data-order="2">Uncompromising quality, attention to detail, respect for materials and people,
+              Italian roots.</p>
+          </div>
         </div>
       </div>
     </div>
