@@ -85,19 +85,15 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 5l12 7-12 7V5z"/></svg>
         </span>
       </div>
-      <div class="hero-stage__corner">
-        <span class="big">Executive design, tailored to you.</span>
-        <span class="meta">00:45 — Codutti Film</span>
-      </div>
     </div>
     <div class="marquee">
       <div class="marquee__track">
         <img src="assets/img/logo-words/word-contemporary.png" alt="Contemporary">
-        <span>&mdash;</span>
+        <span class="dash"></span>
         <img src="assets/img/logo-words/word-crafted.png" alt="Crafted">
-        <span>&mdash;</span>
+        <span class="dash"></span>
         <img src="assets/img/logo-words/word-contract.png" alt="Contract">
-        <span>&mdash;</span>
+        <span class="dash"></span>
       </div>
     </div>
   </section>
@@ -119,11 +115,11 @@
   </section>
 
   <!-- 02 — Made in Italy since 1954 -->
-  <section class="wrap" id="made-in-italy" style="padding-block: clamp(20px,4vw,40px)">
-    <div class="photo-box reveal" style="background-image:url('assets/img/photos/made-in-italy.jpg')">
+  <section class="wrap" id="made-in-italy" style="padding-block: clamp(20px,4vw,40px) clamp(8px,1.2vw,16px)">
+    <div class="photo-box photo-box--tall reveal" style="background-image:url('assets/img/photos/made-in-italy.jpg')">
       <div class="photo-box__content">
         <h2 class="mix-title"><span class="lg">Made in Italy</span> <span class="sm">since</span></h2>
-        <h2 class="mix-title" style="margin-top:-14px"><span class="lg">1954.</span></h2>
+        <h2 class="mix-title" style="margin-top:-14px"><span class="lg">1954</span></h2>
         <p class="lede" style="margin-top:6px">
           Founded in 1954, the company has become a benchmark in the office furniture sector,
           offering a comprehensive range of solutions ranging from managerial desks to meeting
@@ -131,8 +127,8 @@
           each element, ensuring a unique and incomparable office experience.
         </p>
         <div class="photo-box__meta">
-          <span>Headquarters — Pasian di Prato (UD), Italy</span>
-          <span>Production Site — Martignacco (UD), Italy</span>
+          <a href="https://www.google.com/maps/search/?api=1&query=Via+Bonavilla+34%2C+33037+Pasian+di+Prato+UD+Italy" target="_blank" rel="noopener">Headquarters — Pasian di Prato (UD), Italy</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Martignacco+UD+Italy" target="_blank" rel="noopener">Production Site — Martignacco (UD), Italy</a>
         </div>
       </div>
     </div>
@@ -189,6 +185,9 @@
           metal components are shaped with CNC machines for precision, while leather details
           are hand-finished following traditional techniques.
         </p>
+        <div class="photo-box__meta">
+          <a href="#" title="Virtual tour link to be provided">Discover Our Factory with the Virtual Tour</a>
+        </div>
       </div>
     </div>
   </section>
@@ -223,7 +222,7 @@
   <section class="line-band line-band--executive" id="executive">
     <div class="wrap">
       <h2 class="mix-title reveal"><span class="lg">Executive</span></h2>
-      <div class="collection-grid reveal">
+      <div class="collection-grid collection-grid--carousel reveal" id="executiveCarousel">
         <a class="collection-box" href="#"><span class="collection-box__media"></span><span class="collection-box__label">AlfaOmega</span></a>
         <a class="collection-box" href="#"><span class="collection-box__media"></span><span class="collection-box__label">Ginza</span></a>
         <a class="collection-box" href="#"><span class="collection-box__media"></span><span class="collection-box__label">Cloud</span></a>
@@ -231,9 +230,19 @@
         <a class="collection-box" href="#"><span class="collection-box__media"></span><span class="collection-box__label">iSixty</span></a>
         <a class="collection-box" href="#"><span class="collection-box__media"></span><span class="collection-box__label">One</span></a>
         <a class="collection-box" href="#"><span class="collection-box__media"></span><span class="collection-box__label">Genesis</span></a>
-        <a class="collection-box" href="#"><span class="collection-box__media"></span><span class="collection-box__label">Meeting Tables</span></a>
-        <a class="collection-box" href="#"><span class="collection-box__media"></span><span class="collection-box__label">Receptions</span></a>
         <a class="collection-box" href="#"><span class="collection-box__media"></span><span class="collection-box__label">Contract</span></a>
+      </div>
+      <div class="carousel-dots" data-carousel-dots="executiveCarousel">
+        <button class="carousel-dots__dot is-active" data-page="0" aria-label="Page 1"></button>
+        <button class="carousel-dots__dot" data-page="1" aria-label="Page 2"></button>
+      </div>
+
+      <div class="line-band__subfamily">
+        <h3 class="mix-title reveal"><span class="lg">Meeting Tables</span> <span class="sm">and Receptions.</span></h3>
+        <div class="collection-grid reveal">
+          <a class="collection-box" href="#"><span class="collection-box__media"></span><span class="collection-box__label">Meeting Tables</span></a>
+          <a class="collection-box" href="#"><span class="collection-box__media"></span><span class="collection-box__label">Receptions</span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -242,15 +251,16 @@
   <section class="wrap" id="bespoke" style="padding-block: clamp(40px,6vw,60px)">
     <div class="photo-box reveal" style="background-image:url('assets/img/photos/bespoke.jpg')">
       <div class="photo-box__content">
-        <p class="eyebrow">08 — Bespoke</p>
-        <h2 class="mix-title"><span class="lg">Bespoke.</span></h2>
-        <p class="lede" style="margin-top:6px">
+        <h2 class="mix-title"><span class="lg">Bespoke</span></h2>
+        <p class="lede lede--center" style="margin-top:clamp(22px,3.4vw,36px)">
           Codutti offers the possibility to customize each element, providing added value
           that goes well beyond mere functionality. This custom-made approach allows for a
           work environment that not only meets practical needs, but is also a true symbol
           of elegance and professionalism.
         </p>
-        <a href="assets/docs/Codutti-Company-Profile-2026.pdf" download class="btn btn--solid" style="margin-top:8px">Discover Our Projects</a>
+        <div class="photo-box__meta">
+          <a href="assets/docs/Codutti-Company-Profile-2026.pdf" download>Discover Our Projects</a>
+        </div>
       </div>
     </div>
   </section>
@@ -259,14 +269,15 @@
   <section class="wrap" id="contract" style="padding-block: clamp(20px,4vw,40px)">
     <div class="photo-box photo-box--placeholder reveal">
       <div class="photo-box__content">
-        <p class="eyebrow">09 — Partnership</p>
-        <h2 class="mix-title"><span class="lg">Contract.</span></h2>
-        <p class="lede" style="margin-top:6px">
+        <h2 class="mix-title"><span class="lg">Contract</span></h2>
+        <p class="lede lede--center" style="margin-top:clamp(22px,3.4vw,36px)">
           We work alongside architecture firms, general contractors, and companies on
           turnkey projects — from space planning to supply and installation, coordinating
           executive, operative, meeting rooms, and acoustics into a single vision.
         </p>
-        <a href="assets/docs/Codutti-Company-Profile-2026.pdf" download class="btn btn--solid" style="margin-top:8px">Discover Our Projects</a>
+        <div class="photo-box__meta">
+          <a href="assets/docs/Codutti-Company-Profile-2026.pdf" download>Discover Our Projects</a>
+        </div>
       </div>
     </div>
   </section>
@@ -276,52 +287,76 @@
     <div class="wrap">
       <div class="section-head reveal">
         <div>
-          <p class="eyebrow">10 — Fairs &amp; Events</p>
-          <h2 class="section-title mix-title"><span class="lg">News</span> <span class="sm">and Events.</span></h2>
+          <h2 class="section-title mix-title"><span class="lg">News</span> <span class="lg">and Events.</span></h2>
         </div>
       </div>
       <div class="news-list reveal">
-        <div class="news-row">
-          <span class="news-year">2023</span>
-          <p>Salone del Mobile, Milan · Workspace Dubai · China International Import Expo, Shanghai</p>
+        <div class="news-year-group">
+          <span class="news-year-group__year">2023</span>
+          <div class="news-year-group__events">
+            <button class="news-event-box" data-event="Salone del Mobile, Milan"></button>
+            <button class="news-event-box" data-event="Workspace Dubai"></button>
+            <button class="news-event-box" data-event="China International Import Expo, Shanghai"></button>
+          </div>
         </div>
-        <div class="news-row">
-          <span class="news-year">2024</span>
-          <p>Oltre il Festival, Sanremo · Fuori Salone, Milan · ICFF New York · Index Workspace, Dubai · Lunch&amp;Learn, Riyadh · BNDY New York</p>
+        <div class="news-year-group">
+          <span class="news-year-group__year">2024</span>
+          <div class="news-year-group__events">
+            <button class="news-event-box" data-event="Oltre il Festival, Sanremo"></button>
+            <button class="news-event-box" data-event="Fuori Salone, Milan"></button>
+            <button class="news-event-box" data-event="ICFF New York"></button>
+            <button class="news-event-box" data-event="Index Workspace, Dubai"></button>
+            <button class="news-event-box" data-event="Lunch&amp;Learn, Riyadh"></button>
+            <button class="news-event-box" data-event="BNDY New York"></button>
+          </div>
         </div>
-        <div class="news-row">
-          <span class="news-year">2025</span>
-          <p>Workspace Design Show, London · Fuori Salone, Milan · Masters of Building, Rovinj · INDEX Saudi Arabia, Riyadh · BNDY New York</p>
+        <div class="news-year-group">
+          <span class="news-year-group__year">2025</span>
+          <div class="news-year-group__events">
+            <button class="news-event-box" data-event="Workspace Design Show, London"></button>
+            <button class="news-event-box" data-event="Fuori Salone, Milan"></button>
+            <button class="news-event-box" data-event="Masters of Building, Rovinj"></button>
+            <button class="news-event-box" data-event="INDEX Saudi Arabia, Riyadh"></button>
+            <button class="news-event-box" data-event="BNDY New York"></button>
+          </div>
         </div>
-        <div class="news-row">
-          <span class="news-year">2026</span>
-          <p>Workspace Expo, Paris · Clerkenwell Design Week, London</p>
+        <div class="news-year-group">
+          <span class="news-year-group__year">2026</span>
+          <div class="news-year-group__events">
+            <button class="news-event-box" data-event="Workspace Expo, Paris"></button>
+            <button class="news-event-box" data-event="Clerkenwell Design Week, London"></button>
+          </div>
         </div>
       </div>
 
       <div class="news-updates reveal">
-        <p class="eyebrow">Last Updates</p>
+        <h2 class="section-title mix-title"><span class="lg">Last</span> <span class="lg">Updates.</span></h2>
         <div class="news-updates__grid">
           <div class="update-card">
             <h3 class="font-display">A New Chapter</h3>
-            <p>Codutti unveils its 2026 brand identity, uniting design, usability and sustainability.</p>
+            <p>Codutti unveils its 2026 brand identity, uniting design, usability and sustainability. The new visual language reflects seventy years of craftsmanship while looking firmly toward the future of workspace design, bringing together every collection — Essential, Operative and Executive — under one coherent identity built for the international contract market.</p>
           </div>
           <div class="update-card">
             <h3 class="font-display">On the Road</h3>
-            <p>Catch Codutti at the next international fairs and design weeks around the world.</p>
+            <p>Catch Codutti at the next international fairs and design weeks around the world. From Milan's Salone del Mobile to Workspace Dubai and the fairs across the US and Saudi Arabia, our team is on the ground meeting architects, dealers and clients face to face throughout the year.</p>
           </div>
           <div class="update-card">
             <h3 class="font-display">Crafted to Last</h3>
-            <p>Inside the Codutti method: how CNC precision meets hand-finished leather.</p>
+            <p>Inside the Codutti method: how CNC precision meets hand-finished leather. Every piece begins with technical drawings and ends in the hands of our artisans, who hand-stitch and hand-finish each leather detail following techniques passed down for generations in Friuli Venezia Giulia.</p>
           </div>
         </div>
         <div class="news-updates__actions">
           <a href="#" class="btn btn--solid">Discover All the News</a>
-          <a href="assets/docs/Codutti-Company-Profile-2026.pdf" download class="btn btn--solid">Download Our Journals</a>
         </div>
       </div>
     </div>
   </section>
+
+  <div class="news-lightbox" id="newsLightbox">
+    <button class="news-lightbox__close" id="newsLightboxClose">Close</button>
+    <div class="news-lightbox__box"></div>
+    <p class="news-lightbox__name" id="newsLightboxName"></p>
+  </div>
 
   <!-- Newsletter -->
   <section class="wrap" style="padding-block: clamp(40px,6vw,60px) clamp(60px,8vw,100px)">
@@ -345,38 +380,40 @@
       <h2 class="footer-title font-display">Let's design your next office.</h2>
       <div class="footer-cols">
         <div class="footer-col">
-          <span class="col-title">Collections</span>
+          <span class="col-title">Spaces</span>
           <a href="#essential">Essential</a>
           <a href="#operative">Operative</a>
           <a href="#executive">Executive</a>
+          <a href="#executive">Meeting Table and Receptions</a>
         </div>
         <div class="footer-col">
           <span class="col-title">Company</span>
           <a href="#about">About Us</a>
-          <a href="#method">Codutti Method</a>
+          <a href="#">Our Story</a>
+          <a href="#method">The Codutti Method</a>
           <a href="#bespoke">Bespoke</a>
           <a href="#contract">Contract</a>
+          <a href="#">Our Projects</a>
         </div>
         <div class="footer-col">
           <span class="col-title">Resources</span>
           <a href="#news">News</a>
-        </div>
-        <div class="footer-col">
-          <span class="col-title">Contact</span>
-          <a href="mailto:codutti@codutti.it">codutti@codutti.it</a>
-          <a href="tel:+390432541414">+39 0432 541414</a>
+          <a href="#">Catalogues</a>
+          <a href="#">Material Books</a>
+          <a href="#">Price Lists</a>
         </div>
       </div>
     </div>
   </div>
 
   <div class="footer-contact" id="contact">
-    <p class="eyebrow">11 — Contact Us</p>
+    <h2 class="footer-title font-display">Contact Us.</h2>
     <div class="contact-lead">
       <a href="tel:+390432541414">+39 0432 541414</a>
       <a href="mailto:codutti@codutti.it">codutti@codutti.it</a>
     </div>
-    <div class="team-list">
+    <button class="footer-contact__reveal" id="contactReveal" aria-expanded="false">View All Contacts</button>
+    <div class="team-list" id="teamList">
       <div class="team-row">
         <span class="name">Marco Rossi</span>
         <span class="role">Sales Director</span>

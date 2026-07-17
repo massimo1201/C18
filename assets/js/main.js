@@ -138,4 +138,69 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', updateVision);
     updateVision();
   }
+
+  /* Executive: horizontal carousel + pagination dots */
+  const execTrack = document.getElementById('executiveCarousel');
+  const execDots = document.querySelectorAll('[data-carousel-dots="executiveCarousel"] .carousel-dots__dot');
+  if (execTrack && execDots.length) {
+    execDots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const page = Number(dot.dataset.page);
+        const target = page === 0 ? 0 : execTrack.scrollWidth - execTrack.clientWidth;
+        execTrack.scrollTo({ left: target, behavior: 'smooth' });
+      });
+    });
+    let execTicking = false;
+    execTrack.addEventListener('scroll', () => {
+      if (execTicking) return;
+      execTicking = true;
+      requestAnimationFrame(() => {
+        const max = execTrack.scrollWidth - execTrack.clientWidth;
+        const progress = max > 0 ? execTrack.scrollLeft / max : 0;
+        const activePage = progress > 0.5 ? 1 : 0;
+        execDots.forEach((dot) => dot.classList.toggle('is-active', Number(dot.dataset.page) === activePage));
+        execTicking = false;
+      });
+    }, { passive: true });
+  }
+
+  /* News: year/event boxes -> fullscreen lightbox */
+  const newsLightbox = document.getElementById('newsLightbox');
+  const newsLightboxName = document.getElementById('newsLightboxName');
+  const newsLightboxClose = document.getElementById('newsLightboxClose');
+  if (newsLightbox && newsLightboxName) {
+    const openLightbox = (name) => {
+      newsLightboxName.textContent = name;
+      newsLightbox.classList.add('is-open');
+    };
+    const closeLightbox = () => {
+      newsLightbox.classList.remove('is-open');
+    };
+    document.querySelectorAll('.news-event-box').forEach((box) => {
+      box.addEventListener('click', () => openLightbox(box.dataset.event));
+    });
+    if (newsLightboxClose) newsLightboxClose.addEventListener('click', closeLightbox);
+    newsLightbox.addEventListener('click', (e) => {
+      if (e.target === newsLightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  }
+
+  /* Last Updates: expand clamped card on click */
+  document.querySelectorAll('.update-card').forEach((card) => {
+    card.addEventListener('click', () => card.classList.toggle('is-expanded'));
+  });
+
+  /* Footer: reveal full team directory */
+  const contactReveal = document.getElementById('contactReveal');
+  const teamList = document.getElementById('teamList');
+  if (contactReveal && teamList) {
+    contactReveal.addEventListener('click', () => {
+      const isOpen = teamList.classList.toggle('is-open');
+      contactReveal.setAttribute('aria-expanded', String(isOpen));
+      contactReveal.textContent = isOpen ? 'Hide All Contacts' : 'View All Contacts';
+    });
+  }
 });
