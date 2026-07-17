@@ -6,15 +6,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const langOverlay = document.querySelector('.lang-overlay');
   const body = document.body;
 
-  /* Header stays fixed/visible always; switches from light-on-video to dark-on-cream once the hero video scrolls past */
-  const heroStage = document.querySelector('.hero-stage');
+  /* Header stays fixed/always cream+black; only its border-bottom appears once scrolled */
   const onScroll = () => {
-    const pastHero = heroStage ? heroStage.getBoundingClientRect().bottom <= 90 : window.scrollY > 20;
-    header.classList.toggle('is-scrolled', pastHero);
+    header.classList.toggle('is-scrolled', window.scrollY > 20);
   };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
+
+  /* Hero video: replay button */
+  const heroVideo = document.querySelector('.hero-stage__video');
+  const heroReplay = document.getElementById('heroReplay');
+  if (heroVideo && heroReplay) {
+    heroReplay.addEventListener('click', () => {
+      heroVideo.currentTime = 0;
+      heroVideo.play();
+    });
+  }
 
   /* Off-canvas menu toggle */
   if (menuBtn && navOverlay) {
@@ -118,6 +125,12 @@ document.addEventListener('DOMContentLoaded', () => {
       bgLayers.forEach((layer) => {
         layer.classList.toggle('is-active', Number(layer.dataset.bg) === currentStage);
       });
+
+      if (visionSection.classList.contains('collections-scroll')) {
+        const inView = rect.top <= 1 && rect.bottom >= window.innerHeight - 1;
+        header.classList.toggle('is-on-essential', inView && currentStage === 0);
+        header.classList.toggle('is-on-executive', inView && currentStage === 2);
+      }
     };
 
     let ticking = false;

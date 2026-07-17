@@ -129,21 +129,20 @@ p.lede {
   align-items: center;
   justify-content: space-between;
   padding: var(--header-pad-y) var(--pad);
-  color: var(--white);
+  color: var(--black);
+  background: var(--cream);
   transition: background-color .4s var(--ease), color .3s var(--ease);
-}
-.site-header .brand img {
-  filter: invert(1);
-  transition: filter .3s var(--ease);
 }
 
 .site-header.is-scrolled {
-  background: var(--cream);
   border-bottom: 1px solid var(--line);
-  color: var(--black);
 }
-.site-header.is-scrolled .brand img {
-  filter: none;
+
+.site-header.is-on-essential {
+  background: var(--sage);
+}
+.site-header.is-on-executive {
+  background: var(--taupe);
 }
 
 .brand {
@@ -223,7 +222,7 @@ p.lede {
 }
 
 body.lang-open { overflow: hidden; }
-body.lang-open .site-header { color: var(--white); }
+body.lang-open .site-header { background: transparent; color: var(--white); }
 body.lang-open .brand img { filter: invert(1); }
 
 /* Hamburger */
@@ -257,6 +256,7 @@ body.lang-open .brand img { filter: invert(1); }
 
 /* Keep logo + hamburger legible when the black off-canvas panel sits behind the (transparent) header */
 body.nav-open .site-header {
+  background: transparent;
   color: var(--white);
 }
 body.nav-open .brand img {
@@ -358,6 +358,31 @@ body.nav-open { overflow: hidden; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.hero-stage__replay {
+  position: absolute;
+  right: var(--pad);
+  bottom: clamp(20px, 3vw, 36px);
+  z-index: 2;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,253,245,0.4);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .25s var(--ease), border-color .25s var(--ease);
+  opacity: 0.75;
+}
+.hero-stage__replay:hover {
+  opacity: 1;
+  border-color: var(--white);
+}
+.hero-stage__replay svg {
+  width: 18px;
+  height: 18px;
 }
 
 /* Marquee strip */
@@ -603,11 +628,11 @@ p.vs-body {
   margin-top: clamp(22px, 3vw, 34px);
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 28px;
+  gap: 10px 32px;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 11.5px;
-  letter-spacing: 0.14em;
+  font-size: clamp(16px, 1.8vw, 21px);
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--black);
   opacity: 0;
@@ -636,7 +661,7 @@ p.vs-body {
 .collection-grid {
   margin-top: clamp(40px, 6vw, 64px);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: clamp(18px, 2.4vw, 30px);
 }
 
@@ -661,7 +686,7 @@ p.vs-body {
 .collection-box__label {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(13px, 1.3vw, 16px);
+  font-size: clamp(15px, 1.6vw, 19px);
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--black);
@@ -777,7 +802,7 @@ p.vs-body {
 .update-card p {
   font-family: var(--font-body);
   font-size: 14.5px;
-  color: rgba(255,253,245,0.85);
+  color: var(--white);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -881,14 +906,14 @@ p.vs-body {
 .newsletter-form input[type="email"] {
   width: 100%;
   background: transparent;
-  border: 1px solid rgba(255,253,245,0.6);
+  border: 1px solid var(--white);
   border-radius: 999px;
   padding: 15px 20px;
   color: var(--white);
   font-family: var(--font-body);
   font-size: 15px;
 }
-.newsletter-form input::placeholder { color: rgba(255,253,245,0.6); }
+.newsletter-form input::placeholder { color: rgba(255,253,245,0.85); }
 .newsletter-form input:focus {
   outline: none;
   border-color: var(--white);
@@ -1021,19 +1046,17 @@ p.vs-body {
 }
 .footer-contact .team-row .role {
   color: var(--white);
-  opacity: 0.85;
+  opacity: 1;
 }
 .footer-contact .team-row a {
   color: var(--white);
-  opacity: 0.9;
+  opacity: 1;
 }
 .footer-contact .team-row a:hover {
-  opacity: 1;
+  opacity: 0.7;
 }
 
 .footer-company {
-  border-top: 1px solid var(--line-on-black);
-  padding-top: clamp(24px, 3.4vw, 34px);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
