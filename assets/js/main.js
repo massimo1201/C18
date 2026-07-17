@@ -6,20 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const langOverlay = document.querySelector('.lang-overlay');
   const body = document.body;
 
-  /* Header background on scroll + auto-hide on scroll direction */
-  let lastY = window.scrollY;
+  /* Header background on scroll (header itself always stays fixed/visible) */
   const onScroll = () => {
-    const y = window.scrollY;
-    header.classList.toggle('is-scrolled', y > 20);
-    const anyOverlayOpen = body.classList.contains('nav-open') || body.classList.contains('lang-open');
-    if (!anyOverlayOpen) {
-      if (y > lastY && y > 140) {
-        header.classList.add('is-hidden');
-      } else {
-        header.classList.remove('is-hidden');
-      }
-    }
-    lastY = y;
+    header.classList.toggle('is-scrolled', window.scrollY > 20);
   };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -139,29 +128,18 @@ document.addEventListener('DOMContentLoaded', () => {
     updateVision();
   }
 
-  /* Executive: horizontal carousel + pagination dots */
-  const execTrack = document.getElementById('executiveCarousel');
-  const execDots = document.querySelectorAll('[data-carousel-dots="executiveCarousel"] .carousel-dots__dot');
-  if (execTrack && execDots.length) {
-    execDots.forEach((dot) => {
-      dot.addEventListener('click', () => {
-        const page = Number(dot.dataset.page);
-        const target = page === 0 ? 0 : execTrack.scrollWidth - execTrack.clientWidth;
-        execTrack.scrollTo({ left: target, behavior: 'smooth' });
-      });
+  /* News: stacked event boxes -> spread on interaction (tap on touch, hover on desktop) */
+  const isTouchDevice = window.matchMedia('(hover: none)').matches;
+  if (isTouchDevice) {
+    document.querySelectorAll('.news-year-group__events').forEach((group) => {
+      group.addEventListener('click', (e) => {
+        if (!group.classList.contains('is-expanded')) {
+          group.classList.add('is-expanded');
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      }, true);
     });
-    let execTicking = false;
-    execTrack.addEventListener('scroll', () => {
-      if (execTicking) return;
-      execTicking = true;
-      requestAnimationFrame(() => {
-        const max = execTrack.scrollWidth - execTrack.clientWidth;
-        const progress = max > 0 ? execTrack.scrollLeft / max : 0;
-        const activePage = progress > 0.5 ? 1 : 0;
-        execDots.forEach((dot) => dot.classList.toggle('is-active', Number(dot.dataset.page) === activePage));
-        execTicking = false;
-      });
-    }, { passive: true });
   }
 
   /* News: year/event boxes -> fullscreen lightbox */
