@@ -26,16 +26,16 @@
 
 <div class="lang-overlay" id="langOverlay">
   <div class="lang-overlay__list">
-    <button class="lang-overlay__item is-active" data-lang="UK">UK</button>
-    <button class="lang-overlay__item" data-lang="US">US</button>
-    <button class="lang-overlay__item" data-lang="IT">IT</button>
-    <button class="lang-overlay__item" data-lang="FR">FR</button>
-    <button class="lang-overlay__item" data-lang="DE">DE</button>
-    <button class="lang-overlay__item" data-lang="SP">SP</button>
-    <button class="lang-overlay__item" data-lang="RU">RU</button>
-    <button class="lang-overlay__item" data-lang="AR">AR</button>
-    <button class="lang-overlay__item" data-lang="JP">JP</button>
-    <button class="lang-overlay__item" data-lang="CH">CH</button>
+    <button class="lang-overlay__item" data-lang="IT">Italian</button>
+    <button class="lang-overlay__item is-active" data-lang="UK">English UK</button>
+    <button class="lang-overlay__item" data-lang="US">English US</button>
+    <button class="lang-overlay__item" data-lang="FR">French</button>
+    <button class="lang-overlay__item" data-lang="DE">German</button>
+    <button class="lang-overlay__item" data-lang="SP">Spanish</button>
+    <button class="lang-overlay__item" data-lang="RU">Russian</button>
+    <button class="lang-overlay__item" data-lang="AR">Arabic</button>
+    <button class="lang-overlay__item" data-lang="JP">Japanese</button>
+    <button class="lang-overlay__item" data-lang="CH">Chinese</button>
   </div>
 </div>
 
@@ -46,7 +46,7 @@
     <li><a href="#made-in-italy"><span class="num">02</span> Made in Italy</a></li>
     <li><a href="#vision"><span class="num">03</span> Vision &amp; Values</a></li>
     <li><a href="#method"><span class="num">04</span> Codutti Method</a></li>
-    <li><a href="#essential"><span class="num">05</span> Essential</a></li>
+    <li><a href="#essential"><span class="num">05</span> Collections</a></li>
     <li><a href="#our-products"><span class="num">06</span> Our Products</a></li>
     <li><a href="#bespoke"><span class="num">07</span> Bespoke</a></li>
     <li><a href="#contract"><span class="num">08</span> Contract</a></li>
@@ -114,7 +114,7 @@
   </section>
 
   <!-- 02 — Made in Italy since 1954 -->
-  <section class="wrap" id="made-in-italy" style="padding-block: clamp(20px,4vw,40px) 0">
+  <section class="wrap" id="made-in-italy" style="padding-block: clamp(20px,4vw,40px) clamp(4px,0.6vw,8px)">
     <div class="photo-box photo-box--tall reveal" style="background-image:url('assets/img/photos/made-in-italy.jpg')">
       <div class="photo-box__content">
         <h2 class="mix-title"><span class="lg">Made in Italy</span> <span class="sm">since</span></h2>
@@ -191,15 +191,61 @@
     </div>
   </section>
 
-  <!-- 05 — Essential -->
-  <section class="line-band line-band--essential" id="essential">
-    <div class="wrap">
-      <h2 class="mix-title reveal"><span class="lg">Essential</span></h2>
-      <div class="collection-grid reveal">
-        <a class="collection-box" href="#"><span class="collection-box__media"></span><span class="collection-box__label">Seatings</span></a>
-        <a class="collection-box" href="#"><span class="collection-box__media"></span><span class="collection-box__label">Tables</span></a>
-        <a class="collection-box" href="#"><span class="collection-box__media"></span><span class="collection-box__label">Storage Units</span></a>
-        <a class="collection-box" href="#"><span class="collection-box__media"></span><span class="collection-box__label">Acoustic Solutions</span></a>
+  <!-- 05 — Essential / Operative / Executive -->
+  <section class="vision-scroll collections-scroll" id="essential">
+    <div class="vision-scroll__sticky">
+      <div class="collections-scroll__bg" data-bg="0"></div>
+      <div class="collections-scroll__bg" data-bg="1"></div>
+      <div class="collections-scroll__bg" data-bg="2"></div>
+      <div class="wrap">
+        <div class="vision-scroll__inner">
+          <div class="vs-stage" data-stage="0">
+            <h2 class="vs-heading font-display">
+              <span class="vs-word" data-order="0">Essential</span>
+            </h2>
+            <p class="vs-body lede" data-order="1">The entry point to the Codutti world: clean lines and durable
+              materials built for everyday operative spaces, where comfort and function come together without
+              compromise.</p>
+            <div class="vs-meta" data-order="2">
+              <span>Seatings</span>
+              <span>Tables</span>
+              <span>Storage Units</span>
+              <span>Acoustic Solutions</span>
+            </div>
+          </div>
+          <div class="vs-stage" data-stage="1">
+            <h2 class="vs-heading font-display">
+              <span class="vs-word" data-order="0">Operative</span>
+            </h2>
+            <p class="vs-body lede" data-order="1">Furniture designed for shared, dynamic workspaces — desks,
+              benches and adjustable systems shaped around teamwork and the way modern offices actually move.</p>
+            <div class="vs-meta" data-order="2">
+              <span>2BE</span>
+              <span>Team</span>
+              <span>Attiva</span>
+              <span>Adjustable Desks</span>
+            </div>
+          </div>
+          <div class="vs-stage" data-stage="2">
+            <h2 class="vs-heading font-display">
+              <span class="vs-word" data-order="0">Executive</span>
+            </h2>
+            <p class="vs-body lede" data-order="1">Codutti's flagship collection for management offices and
+              boardrooms — director desks, meeting tables and reception furniture crafted for a refined, high-end
+              presence.</p>
+            <div class="vs-meta" data-order="2">
+              <span>AlfaOmega</span>
+              <span>Ginza</span>
+              <span>Cloud</span>
+              <span>Mithos</span>
+              <span>iSixty</span>
+              <span>One</span>
+              <span>Genesis</span>
+              <span>Meeting Tables</span>
+              <span>Receptions</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -225,7 +271,7 @@
     <div class="photo-box reveal" style="background-image:url('assets/img/photos/bespoke.jpg')">
       <div class="photo-box__content">
         <h2 class="mix-title"><span class="lg">Bespoke</span></h2>
-        <p class="lede lede--center" style="margin-top:clamp(22px,3.4vw,36px)">
+        <p class="lede" style="margin-top:clamp(22px,3.4vw,36px)">
           Codutti offers the possibility to customize each element, providing added value
           that goes well beyond mere functionality. This custom-made approach allows for a
           work environment that not only meets practical needs, but is also a true symbol
@@ -243,7 +289,7 @@
     <div class="photo-box reveal" style="background-image:url('assets/img/photos/contract.jpg')">
       <div class="photo-box__content">
         <h2 class="mix-title"><span class="lg">Contract</span></h2>
-        <p class="lede lede--center" style="margin-top:clamp(22px,3.4vw,36px)">
+        <p class="lede" style="margin-top:clamp(22px,3.4vw,36px)">
           We work alongside architecture firms, general contractors, and companies on
           turnkey projects — from space planning to supply and installation, coordinating
           executive, operative, meeting rooms, and acoustics into a single vision.
@@ -267,37 +313,37 @@
         <div class="news-year-group">
           <span class="news-year-group__year">2023</span>
           <div class="news-year-group__events">
-            <button class="news-event-box" data-event="Salone del Mobile, Milan"></button>
-            <button class="news-event-box" data-event="Workspace Dubai"></button>
-            <button class="news-event-box" data-event="China International Import Expo, Shanghai"></button>
+            <a class="news-event-box" href="#" data-event="Salone del Mobile, Milan"><span class="news-event-box__label">Salone del Mobile, Milan</span></a>
+            <a class="news-event-box" href="#" data-event="Workspace Dubai"><span class="news-event-box__label">Workspace Dubai</span></a>
+            <a class="news-event-box" href="#" data-event="China International Import Expo, Shanghai"><span class="news-event-box__label">China International Import Expo, Shanghai</span></a>
           </div>
         </div>
         <div class="news-year-group">
           <span class="news-year-group__year">2024</span>
           <div class="news-year-group__events">
-            <button class="news-event-box" data-event="Oltre il Festival, Sanremo"></button>
-            <button class="news-event-box" data-event="Fuori Salone, Milan"></button>
-            <button class="news-event-box" data-event="ICFF New York"></button>
-            <button class="news-event-box" data-event="Index Workspace, Dubai"></button>
-            <button class="news-event-box" data-event="Lunch&amp;Learn, Riyadh"></button>
-            <button class="news-event-box" data-event="BNDY New York"></button>
+            <a class="news-event-box" href="#" data-event="Oltre il Festival, Sanremo"><span class="news-event-box__label">Oltre il Festival, Sanremo</span></a>
+            <a class="news-event-box" href="#" data-event="Fuori Salone, Milan"><span class="news-event-box__label">Fuori Salone, Milan</span></a>
+            <a class="news-event-box" href="#" data-event="ICFF New York"><span class="news-event-box__label">ICFF New York</span></a>
+            <a class="news-event-box" href="#" data-event="Index Workspace, Dubai"><span class="news-event-box__label">Index Workspace, Dubai</span></a>
+            <a class="news-event-box" href="#" data-event="Lunch&amp;Learn, Riyadh"><span class="news-event-box__label">Lunch&amp;Learn, Riyadh</span></a>
+            <a class="news-event-box" href="#" data-event="BNDY New York"><span class="news-event-box__label">BNDY New York</span></a>
           </div>
         </div>
         <div class="news-year-group">
           <span class="news-year-group__year">2025</span>
           <div class="news-year-group__events">
-            <button class="news-event-box" data-event="Workspace Design Show, London"></button>
-            <button class="news-event-box" data-event="Fuori Salone, Milan"></button>
-            <button class="news-event-box" data-event="Masters of Building, Rovinj"></button>
-            <button class="news-event-box" data-event="INDEX Saudi Arabia, Riyadh"></button>
-            <button class="news-event-box" data-event="BNDY New York"></button>
+            <a class="news-event-box" href="#" data-event="Workspace Design Show, London"><span class="news-event-box__label">Workspace Design Show, London</span></a>
+            <a class="news-event-box" href="#" data-event="Fuori Salone, Milan"><span class="news-event-box__label">Fuori Salone, Milan</span></a>
+            <a class="news-event-box" href="#" data-event="Masters of Building, Rovinj"><span class="news-event-box__label">Masters of Building, Rovinj</span></a>
+            <a class="news-event-box" href="#" data-event="INDEX Saudi Arabia, Riyadh"><span class="news-event-box__label">INDEX Saudi Arabia, Riyadh</span></a>
+            <a class="news-event-box" href="#" data-event="BNDY New York"><span class="news-event-box__label">BNDY New York</span></a>
           </div>
         </div>
         <div class="news-year-group">
           <span class="news-year-group__year">2026</span>
           <div class="news-year-group__events">
-            <button class="news-event-box" data-event="Workspace Expo, Paris"></button>
-            <button class="news-event-box" data-event="Clerkenwell Design Week, London"></button>
+            <a class="news-event-box" href="#" data-event="Workspace Expo, Paris"><span class="news-event-box__label">Workspace Expo, Paris</span></a>
+            <a class="news-event-box" href="#" data-event="Clerkenwell Design Week, London"><span class="news-event-box__label">Clerkenwell Design Week, London</span></a>
           </div>
         </div>
       </div>
@@ -330,12 +376,6 @@
       </div>
     </div>
   </section>
-
-  <div class="news-lightbox" id="newsLightbox">
-    <button class="news-lightbox__close" id="newsLightboxClose">Close</button>
-    <div class="news-lightbox__box"></div>
-    <p class="news-lightbox__name" id="newsLightboxName"></p>
-  </div>
 
   <!-- Newsletter -->
   <section class="wrap" style="padding-block: clamp(40px,6vw,60px) clamp(60px,8vw,100px)">

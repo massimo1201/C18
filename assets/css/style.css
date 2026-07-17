@@ -129,13 +129,22 @@ p.lede {
   align-items: center;
   justify-content: space-between;
   padding: var(--header-pad-y) var(--pad);
-  transition: background-color .4s var(--ease), backdrop-filter .4s var(--ease), transform .45s var(--ease);
+  color: var(--white);
+  transition: background-color .4s var(--ease), backdrop-filter .4s var(--ease), color .3s var(--ease);
+}
+.site-header .brand img {
+  filter: invert(1);
+  transition: filter .3s var(--ease);
 }
 
 .site-header.is-scrolled {
   background: rgba(254, 247, 218, 0.86);
   backdrop-filter: blur(10px) saturate(1.1);
   border-bottom: 1px solid var(--line);
+  color: var(--black);
+}
+.site-header.is-scrolled .brand img {
+  filter: none;
 }
 
 .brand {
@@ -201,16 +210,18 @@ p.lede {
 
 .lang-overlay__list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: clamp(20px, 4vw, 44px) clamp(28px, 5vw, 56px);
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 1.6vw, 18px);
   max-width: 760px;
+  max-height: 86vh;
+  overflow-y: auto;
   padding: var(--pad);
 }
 .lang-overlay__item {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(1.6rem, 3.6vw, 2.6rem);
+  font-size: clamp(1.5rem, 3.4vw, 2.4rem);
   text-transform: uppercase;
   color: var(--white);
   opacity: 0.4;
@@ -331,14 +342,13 @@ body.nav-open { overflow: hidden; }
 /* ---------- Hero ---------- */
 
 .hero {
-  padding-top: calc(var(--header-pad-y) * 3 + var(--header-logo-h));
-  padding-bottom: clamp(40px, 6vw, 80px);
+  padding: 0;
 }
 
 .hero-stage {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 100vh;
   overflow: hidden;
   background: var(--black);
   isolation: isolate;
@@ -416,7 +426,7 @@ body.nav-open { overflow: hidden; }
 }
 .marquee__track img.dash {
   height: clamp(20px, 2.6vw, 30px);
-  opacity: 0.35;
+  opacity: 1;
 }
 @keyframes marquee {
   from { transform: translateX(0); }
@@ -443,11 +453,11 @@ body.nav-open { overflow: hidden; }
   max-width: none;
   width: 100%;
   margin-inline: auto;
-  margin-top: clamp(8px, 1.4vw, 16px);
+  margin-top: clamp(28px, 4vw, 44px);
   text-align: left;
 }
 .manifesto > a.btn {
-  margin-top: clamp(8px, 1.4vw, 16px);
+  margin-top: clamp(28px, 4vw, 44px);
 }
 @media (max-width: 720px) {
   .manifesto-title {
@@ -573,7 +583,6 @@ body.nav-open { overflow: hidden; }
   position: relative;
   height: 260vh;
   background: var(--cream);
-  margin-top: clamp(-24px, -2.4vw, -10px);
 }
 
 .vision-scroll__sticky {
@@ -590,7 +599,21 @@ body.nav-open { overflow: hidden; }
   position: relative;
   width: 100%;
   height: clamp(380px, 58vh, 540px);
+  z-index: 1;
 }
+
+/* Collections scroll: full-bleed background swap behind the pinned content */
+.collections-scroll__bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .6s var(--ease);
+  z-index: 0;
+}
+.collections-scroll__bg.is-active { opacity: 1; }
+.collections-scroll__bg[data-bg="0"] { background: var(--sage); }
+.collections-scroll__bg[data-bg="1"] { background: var(--cream); }
+.collections-scroll__bg[data-bg="2"] { background: var(--taupe); }
 
 .vs-stage {
   position: absolute;
@@ -625,7 +648,28 @@ p.vs-body {
 }
 .vs-body.is-visible { opacity: 1; transform: translateY(0); }
 
-/* ---------- Line bands (Essential / Operative / Executive) ---------- */
+.vs-meta {
+  margin-top: clamp(22px, 3vw, 34px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--black);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .5s var(--ease), transform .5s var(--ease);
+}
+.vs-meta.is-visible { opacity: 1; transform: translateY(0); }
+.vs-meta span {
+  border-bottom: 1px solid rgba(10,10,10,0.35);
+  padding-bottom: 2px;
+}
+
+/* ---------- Line bands (Operative catch-all) ---------- */
 
 .line-band {
   padding-top: clamp(64px, 9vw, 120px);
@@ -700,6 +744,7 @@ p.vs-body {
   position: absolute;
   top: 0;
   left: 0;
+  display: block;
   width: var(--news-box);
   height: var(--news-box);
   background: var(--white);
@@ -707,6 +752,27 @@ p.vs-body {
   border-radius: calc(var(--radius) - 14px);
   cursor: pointer;
   transition: transform .45s var(--ease), box-shadow .35s var(--ease);
+}
+.news-event-box__label {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  width: max-content;
+  max-width: 150px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--black);
+  line-height: 1.3;
+  opacity: 0;
+  transition: opacity .3s var(--ease);
+  pointer-events: none;
+}
+.news-year-group__events:hover .news-event-box__label,
+.news-year-group__events.is-expanded .news-event-box__label {
+  opacity: 0.85;
 }
 .news-event-box:nth-child(1) { --i: 0; }
 .news-event-box:nth-child(2) { --i: 1; }
@@ -729,54 +795,6 @@ p.vs-body {
   box-shadow: 0 14px 28px rgba(10,10,10,0.14);
 }
 
-.news-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 300;
-  background: var(--black);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(24px, 3vw, 36px);
-  padding: var(--pad);
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(1.04);
-  transition: opacity .4s var(--ease), transform .4s var(--ease);
-}
-.news-lightbox.is-open {
-  opacity: 1;
-  pointer-events: auto;
-  transform: scale(1);
-}
-.news-lightbox__box {
-  width: min(60vw, 60vh);
-  aspect-ratio: 1 / 1;
-  background: var(--white);
-  border-radius: var(--radius);
-}
-.news-lightbox__name {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(1.2rem, 2.4vw, 2rem);
-  color: var(--white);
-  text-align: center;
-  max-width: 30ch;
-}
-.news-lightbox__close {
-  position: absolute;
-  top: var(--pad);
-  right: var(--pad);
-  color: var(--white);
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  opacity: 0.6;
-}
-.news-lightbox__close:hover { opacity: 1; }
 
 /* ---------- News: Last Updates ---------- */
 
@@ -1035,7 +1053,7 @@ p.vs-body {
   opacity: 0.95;
   margin-bottom: clamp(8px, 1.2vw, 14px);
 }
-.footer-col a { font-size: 14.5px; opacity: 0.8; color: var(--white); }
+.footer-col a { font-size: 13.5px; letter-spacing: 0.03em; text-transform: uppercase; opacity: 0.8; color: var(--white); }
 .footer-col a:hover { opacity: 1; }
 
 .footer-contact {

@@ -6,12 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const langOverlay = document.querySelector('.lang-overlay');
   const body = document.body;
 
-  /* Header background on scroll (header itself always stays fixed/visible) */
+  /* Header stays fixed/visible always; switches from light-on-video to dark-on-cream once the hero video scrolls past */
+  const heroStage = document.querySelector('.hero-stage');
   const onScroll = () => {
-    header.classList.toggle('is-scrolled', window.scrollY > 20);
+    const pastHero = heroStage ? heroStage.getBoundingClientRect().bottom <= 90 : window.scrollY > 20;
+    header.classList.toggle('is-scrolled', pastHero);
   };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
 
   /* Off-canvas menu toggle */
   if (menuBtn && navOverlay) {
@@ -84,11 +87,11 @@ document.addEventListener('DOMContentLoaded', () => {
     track.innerHTML += track.innerHTML;
   });
 
-  /* Vision / Mission / Values: pinned scroll-reveal */
-  const visionSection = document.querySelector('.vision-scroll');
-  if (visionSection) {
+  /* Pinned scroll-reveal sections (Vision/Mission/Values, Essential/Operative/Executive) */
+  document.querySelectorAll('.vision-scroll').forEach((visionSection) => {
     const stages = Array.from(visionSection.querySelectorAll('.vs-stage'));
-    const subCount = 3; /* word 1, word 2, body */
+    const bgLayers = Array.from(visionSection.querySelectorAll('.collections-scroll__bg'));
+    const subCount = 3;
 
     const updateVision = () => {
       const rect = visionSection.getBoundingClientRect();
@@ -106,27 +109,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
       stages.forEach((stage, i) => {
         stage.classList.toggle('is-active', i === currentStage);
-        stage.querySelectorAll('.vs-word, .vs-body').forEach((el) => {
+        stage.querySelectorAll('.vs-word, .vs-body, .vs-meta').forEach((el) => {
           const order = Number(el.dataset.order);
           const visible = i < currentStage || (i === currentStage && order <= visibleIndex);
           el.classList.toggle('is-visible', visible);
         });
       });
+      bgLayers.forEach((layer) => {
+        layer.classList.toggle('is-active', Number(layer.dataset.bg) === currentStage);
+      });
     };
 
-    let visionTicking = false;
+    let ticking = false;
     window.addEventListener('scroll', () => {
-      if (!visionTicking) {
+      if (!ticking) {
         requestAnimationFrame(() => {
           updateVision();
-          visionTicking = false;
+          ticking = false;
         });
-        visionTicking = true;
+        ticking = true;
       }
     }, { passive: true });
     window.addEventListener('resize', updateVision);
     updateVision();
-  }
+  });
 
   /* News: stacked event boxes -> spread on interaction (tap on touch, hover on desktop) */
   const isTouchDevice = window.matchMedia('(hover: none)').matches;
@@ -139,30 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
           e.stopPropagation();
         }
       }, true);
-    });
-  }
-
-  /* News: year/event boxes -> fullscreen lightbox */
-  const newsLightbox = document.getElementById('newsLightbox');
-  const newsLightboxName = document.getElementById('newsLightboxName');
-  const newsLightboxClose = document.getElementById('newsLightboxClose');
-  if (newsLightbox && newsLightboxName) {
-    const openLightbox = (name) => {
-      newsLightboxName.textContent = name;
-      newsLightbox.classList.add('is-open');
-    };
-    const closeLightbox = () => {
-      newsLightbox.classList.remove('is-open');
-    };
-    document.querySelectorAll('.news-event-box').forEach((box) => {
-      box.addEventListener('click', () => openLightbox(box.dataset.event));
-    });
-    if (newsLightboxClose) newsLightboxClose.addEventListener('click', closeLightbox);
-    newsLightbox.addEventListener('click', (e) => {
-      if (e.target === newsLightbox) closeLightbox();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLightbox();
     });
   }
 
