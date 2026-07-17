@@ -134,33 +134,9 @@ document.addEventListener('DOMContentLoaded', () => {
     updateVision();
   });
 
-  /* News: stacked event boxes -> spread on interaction (tap on touch, hover on desktop) */
-  const isTouchDevice = window.matchMedia('(hover: none)').matches;
-  if (isTouchDevice) {
-    document.querySelectorAll('.news-year-group__events').forEach((group) => {
-      group.addEventListener('click', (e) => {
-        if (!group.classList.contains('is-expanded')) {
-          group.classList.add('is-expanded');
-          e.preventDefault();
-          e.stopPropagation();
-        }
-      }, true);
-    });
-  }
-
   /* Last Updates: expand clamped card on click */
   document.querySelectorAll('.update-card').forEach((card) => {
     card.addEventListener('click', () => card.classList.toggle('is-expanded'));
   });
 
-  /* Footer: reveal full team directory */
-  const contactReveal = document.getElementById('contactReveal');
-  const teamList = document.getElementById('teamList');
-  if (contactReveal && teamList) {
-    contactReveal.addEventListener('click', () => {
-      const isOpen = teamList.classList.toggle('is-open');
-      contactReveal.setAttribute('aria-expanded', String(isOpen));
-      contactReveal.textContent = isOpen ? 'Hide All Contacts' : 'View All Contacts';
-    });
-  }
 });
