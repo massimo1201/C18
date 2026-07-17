@@ -130,7 +130,7 @@ p.lede {
   justify-content: space-between;
   padding: var(--header-pad-y) var(--pad);
   color: var(--white);
-  transition: background-color .4s var(--ease), backdrop-filter .4s var(--ease), color .3s var(--ease);
+  transition: background-color .4s var(--ease), color .3s var(--ease);
 }
 .site-header .brand img {
   filter: invert(1);
@@ -138,8 +138,7 @@ p.lede {
 }
 
 .site-header.is-scrolled {
-  background: rgba(254, 247, 218, 0.86);
-  backdrop-filter: blur(10px) saturate(1.1);
+  background: var(--cream);
   border-bottom: 1px solid var(--line);
   color: var(--black);
 }
@@ -173,24 +172,15 @@ p.lede {
 .lang-btn {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  font-size: clamp(15px, 1.6vw, 19px);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  opacity: 0.75;
+  opacity: 0.9;
   display: flex;
   align-items: center;
-  gap: 8px;
   transition: opacity .25s var(--ease);
 }
 .lang-btn:hover { opacity: 1; }
-.lang-btn::after {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: currentColor;
-  opacity: 0.6;
-}
 
 /* ---------- Language overlay ---------- */
 
@@ -615,6 +605,15 @@ body.nav-open { overflow: hidden; }
 .collections-scroll__bg[data-bg="1"] { background: var(--cream); }
 .collections-scroll__bg[data-bg="2"] { background: var(--taupe); }
 
+.collections-scroll__label {
+  position: absolute;
+  top: calc(var(--header-pad-y) * 2 + var(--header-logo-h) + clamp(20px, 3vw, 36px));
+  left: var(--pad);
+  z-index: 1;
+  margin-bottom: 0;
+  opacity: 0.7;
+}
+
 .vs-stage {
   position: absolute;
   inset: 0;
@@ -730,7 +729,7 @@ p.vs-body {
   margin-bottom: clamp(14px, 2vw, 20px);
 }
 :root {
-  --news-box: clamp(90px, 11vw, 130px);
+  --news-box: clamp(120px, 14vw, 168px);
   --news-gap: clamp(14px, 2vw, 20px);
 }
 
@@ -757,8 +756,8 @@ p.vs-body {
   position: absolute;
   top: calc(100% + 12px);
   left: 0;
-  width: max-content;
-  max-width: 150px;
+  width: var(--news-box);
+  max-width: var(--news-box);
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 11px;
@@ -769,6 +768,11 @@ p.vs-body {
   opacity: 0;
   transition: opacity .3s var(--ease);
   pointer-events: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .news-year-group__events:hover .news-event-box__label,
 .news-year-group__events.is-expanded .news-event-box__label {
