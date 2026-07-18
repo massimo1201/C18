@@ -1,8 +1,17 @@
 /* ==========================================================================
    Codutti — Redesign
    Palette: #fef7da (cream) su nero. Titoli Clash Display Semibold,
-   corpo testo Minion Variable Concept.
+   corpo testo Source Serif 4.
    ========================================================================== */
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('../fonts/ClashDisplay-Semibold.woff2') format('woff2'),
+       url('../fonts/ClashDisplay-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --cream: #fef7da;
@@ -15,7 +24,7 @@
   --line-on-black: rgba(255, 253, 245, 0.16);
 
   --font-display: 'Clash Display', 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
-  --font-body: 'Minion Variable Concept', 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
 
   --container: 1440px;
   --pad: clamp(24px, 4vw, 64px);
