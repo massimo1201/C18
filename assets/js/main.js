@@ -171,7 +171,11 @@ document.addEventListener('DOMContentLoaded', () => {
         layer.classList.toggle('is-active', Number(layer.dataset.bg) === currentStage);
       });
 
-      if (currentStage !== twLastStage) {
+      /* Only start typing once the section has actually scrolled into view —
+         otherwise stage 0 would type itself out instantly while still off-screen,
+         so by the time the user scrolls to it the heading is already fully typed. */
+      const sectionInView = rect.top < window.innerHeight && rect.bottom > 0;
+      if (sectionInView && currentStage !== twLastStage) {
         if (twLastStage !== -1 && twStages[twLastStage]) twReset(twStages[twLastStage]);
         if (twStages[currentStage]) twPlay(twStages[currentStage]);
         twLastStage = currentStage;

@@ -288,7 +288,7 @@ body.nav-open .brand img {
   color: var(--white);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: clamp(90px, 12vw, 140px) var(--pad) clamp(30px, 4vw, 50px);
   transform: translateX(100%);
   transition: transform .6s var(--ease);
@@ -436,7 +436,7 @@ body.nav-open { overflow: hidden; }
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* Mobile: no fullscreen — the video adapts to the page width, keeping its
@@ -517,7 +517,7 @@ body.nav-open { overflow: hidden; }
   gap: clamp(24px, 3.4vw, 36px);
 }
 .manifesto-title {
-  font-size: clamp(3.4rem, 11vw, 10.5rem);
+  font-size: clamp(2.4rem, 10vw, 9rem);
   line-height: 1.02;
   max-width: 100%;
   width: 100%;
@@ -532,11 +532,6 @@ body.nav-open { overflow: hidden; }
 }
 .manifesto > a.btn {
   margin-top: clamp(28px, 4vw, 44px);
-}
-@media (max-width: 720px) {
-  .manifesto-title {
-    font-size: clamp(1.9rem, 8.4vw, 2.6rem);
-  }
 }
 
 /* ---------- Product sections ---------- */
@@ -699,12 +694,14 @@ body.nav-open { overflow: hidden; }
 .vs-stage.is-active { opacity: 1; pointer-events: auto; }
 
 .vs-heading {
-  font-size: clamp(3.4rem, 11vw, 10.5rem);
+  font-size: clamp(2.4rem, 10vw, 9rem);
   line-height: 1.02;
 }
 .vs-word {
   display: block;
+  max-width: 100%;
   opacity: 0;
+  overflow-wrap: break-word;
   transform: translateY(24px);
   transition: opacity .5s var(--ease), transform .5s var(--ease);
 }
