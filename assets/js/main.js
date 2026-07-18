@@ -100,50 +100,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const bgLayers = Array.from(visionSection.querySelectorAll('.collections-scroll__bg'));
     const subCount = 3;
 
-    /* Typewriter reveal for Vision/Mission/Values only (not Essential/Operative/Executive) */
-    const isTypewriter = !visionSection.classList.contains('collections-scroll');
-    let twStages = null;
+    /* Typewriter reveal for headings only, on every pinned-scroll section.
+       Body copy keeps the original scroll-linked blur/fade reveal below.
+       Headings type with no cursor ("macchina da scrivere"), except the
+       Executive stage which types with a blinking cursor ("scrittura computer"). */
+    visionSection.classList.add('is-typewriter');
+    const twStages = stages.map((stage, i) => {
+      const words = Array.from(stage.querySelectorAll('.vs-word')).map((el) => ({ el, text: el.textContent }));
+      words.forEach((w) => { w.el.textContent = ''; });
+      const cursor = visionSection.id === 'essential' && i === 2;
+      return { words, cursor, started: false, timers: [] };
+    });
     let twLastStage = -1;
-    if (isTypewriter) {
-      visionSection.classList.add('is-typewriter');
-      twStages = stages.map((stage) => {
-        const words = Array.from(stage.querySelectorAll('.vs-word')).map((el) => ({ el, text: el.textContent }));
-        const bodyEl = stage.querySelector('.vs-body');
-        const body = bodyEl ? { el: bodyEl, text: bodyEl.textContent } : null;
-        words.forEach((w) => { w.el.textContent = ''; });
-        if (body) body.el.textContent = '';
-        return { words, body, started: false, timers: [] };
-      });
-    }
     const twReset = (s) => {
       s.timers.forEach((t) => clearInterval(t));
       s.timers = [];
       s.started = false;
-      s.words.forEach((w) => { w.el.textContent = ''; });
-      if (s.body) s.body.el.textContent = '';
+      s.words.forEach((w) => { w.el.textContent = ''; w.el.classList.remove('has-cursor'); });
     };
     const twPlay = (s) => {
       if (s.started) return;
       s.started = true;
       const queue = [...s.words];
-      if (s.body) queue.push(s.body);
       let qi = 0;
       const typeNext = () => {
         if (qi >= queue.length) return;
         const item = queue[qi];
         let ci = 0;
         item.el.classList.add('is-typing');
-        const speed = item === s.body ? 7 : 38;
+        if (s.cursor) item.el.classList.add('has-cursor');
         const timer = setInterval(() => {
           ci++;
           item.el.textContent = item.text.slice(0, ci);
           if (ci >= item.text.length) {
             clearInterval(timer);
             item.el.classList.remove('is-typing');
+            item.el.classList.remove('has-cursor');
             qi++;
             typeNext();
           }
-        }, speed);
+        }, 38);
         s.timers.push(timer);
       };
       typeNext();
@@ -175,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
         layer.classList.toggle('is-active', Number(layer.dataset.bg) === currentStage);
       });
 
-      if (isTypewriter && currentStage !== twLastStage) {
+      if (currentStage !== twLastStage) {
         if (twLastStage !== -1 && twStages[twLastStage]) twReset(twStages[twLastStage]);
         if (twStages[currentStage]) twPlay(twStages[currentStage]);
         twLastStage = currentStage;

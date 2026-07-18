@@ -197,6 +197,8 @@ p.lede {
 .lang-overlay {
   position: fixed;
   inset: 0;
+  height: 100vh;
+  height: 100dvh;
   z-index: 195;
   background: var(--black);
   color: var(--white);
@@ -279,6 +281,8 @@ body.nav-open .brand img {
 .nav-overlay {
   position: fixed;
   inset: 0;
+  height: 100vh;
+  height: 100dvh;
   z-index: 190;
   background: var(--black);
   color: var(--white);
@@ -288,6 +292,7 @@ body.nav-open .brand img {
   padding: clamp(90px, 12vw, 140px) var(--pad) clamp(30px, 4vw, 50px);
   transform: translateX(100%);
   transition: transform .6s var(--ease);
+  -webkit-overflow-scrolling: touch;
 }
 .nav-overlay.is-open { transform: translateX(0); }
 
@@ -431,18 +436,21 @@ body.nav-open { overflow: hidden; }
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
-/* Desktop: hero opens fullscreen on load, but the video itself always keeps a 16:9
-   frame (letterboxed within the fullscreen stage) rather than being cropped to fill. */
+/* Mobile: no fullscreen — the video adapts to the page width, keeping its
+   native ratio (no distortion, no forced crop) instead of filling the viewport. */
 @media (max-width: 720px) {
   .hero-stage {
     height: auto;
-    aspect-ratio: 16 / 9;
   }
   .hero-stage video {
-    object-fit: cover;
+    position: static;
+    width: 100%;
+    height: auto;
+    object-fit: initial;
+    display: block;
   }
 }
 
@@ -509,7 +517,8 @@ body.nav-open { overflow: hidden; }
   gap: clamp(24px, 3.4vw, 36px);
 }
 .manifesto-title {
-  font-size: clamp(3.2rem, 10.5vw, 10rem);
+  font-size: clamp(3.4rem, 11vw, 10.5rem);
+  line-height: 1.02;
   max-width: 100%;
   width: 100%;
   text-align: left;
@@ -706,10 +715,11 @@ p.vs-body {
   max-width: none;
   width: 100%;
   opacity: 0;
+  filter: blur(8px);
   transform: translateY(16px);
-  transition: opacity .5s var(--ease), transform .5s var(--ease);
+  transition: opacity .6s var(--ease), filter .6s var(--ease), transform .6s var(--ease);
 }
-.vs-body.is-visible { opacity: 1; transform: translateY(0); }
+.vs-body.is-visible { opacity: 1; filter: blur(0); transform: translateY(0); }
 
 .vs-meta {
   margin-top: clamp(22px, 3vw, 34px);
@@ -728,14 +738,15 @@ p.vs-body {
 }
 .vs-meta.is-visible { opacity: 1; transform: translateY(0); }
 
-/* Typewriter stages (Vision/Mission/Values): text reveal is driven by JS
-   appending characters, so cancel the fade/translate reveal used elsewhere. */
-.vision-scroll.is-typewriter .vs-word,
-.vision-scroll.is-typewriter p.vs-body {
+/* Typewriter headings: text reveal is driven by JS appending characters,
+   so cancel the fade/translate reveal used elsewhere. Body copy keeps the
+   scroll-linked blur/fade reveal above. A blinking cursor is only shown
+   where JS adds .has-cursor (the Executive stage's "computer" effect). */
+.vision-scroll.is-typewriter .vs-word {
   opacity: 1;
   transform: none;
 }
-.vision-scroll.is-typewriter .is-typing::after {
+.vision-scroll.is-typewriter .has-cursor.is-typing::after {
   content: "|";
   margin-left: 2px;
   animation: twBlink 0.9s steps(1) infinite;
@@ -775,8 +786,20 @@ p.vs-body {
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x proximity;
-  padding-bottom: 8px;
+  padding-bottom: clamp(28px, 4vw, 40px);
   -webkit-overflow-scrolling: touch;
+  scrollbar-color: var(--black) transparent;
+  scrollbar-width: thin;
+}
+.collection-grid--scroll::-webkit-scrollbar {
+  height: 4px;
+}
+.collection-grid--scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.collection-grid--scroll::-webkit-scrollbar-thumb {
+  background: var(--black);
+  border-radius: 999px;
 }
 .collection-grid--scroll .collection-box {
   flex: 0 0 auto;
@@ -1063,7 +1086,8 @@ p.vs-body {
   flex: 1 1 0;
 }
 .newsletter-form input[type="text"],
-.newsletter-form input[type="email"] {
+.newsletter-form input[type="email"],
+.newsletter-form input[type="password"] {
   width: 100%;
   background: transparent;
   border: 1px solid var(--white);
@@ -1078,6 +1102,17 @@ p.vs-body {
   outline: none;
   border-color: var(--white);
 }
+
+/* Variant for forms placed on light (cream/white) backgrounds instead of
+   the black newsletter panel — e.g. Contact Us request form, Reserved Area. */
+.form-on-light input[type="text"],
+.form-on-light input[type="email"],
+.form-on-light input[type="password"] {
+  border-color: var(--line);
+  color: var(--black);
+}
+.form-on-light input::placeholder { color: rgba(10,10,10,0.45); }
+.form-on-light input:focus { border-color: var(--black); }
 .newsletter-form button {
   align-self: flex-start;
 }
