@@ -152,4 +152,16 @@ document.addEventListener('DOMContentLoaded', () => {
     card.addEventListener('click', () => card.classList.toggle('is-expanded'));
   });
 
+  /* Category tab bar: desktop arrow slider, scroll active item into view */
+  document.querySelectorAll('.cat-tabs').forEach((tabs) => {
+    const track = tabs.querySelector('.cat-tabs__track');
+    const prev = tabs.querySelector('.cat-tabs__arrow--prev');
+    const next = tabs.querySelector('.cat-tabs__arrow--next');
+    if (!track) return;
+    if (prev) prev.addEventListener('click', () => track.scrollBy({ left: -track.clientWidth * 0.8, behavior: 'smooth' }));
+    if (next) next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth * 0.8, behavior: 'smooth' }));
+    const active = track.querySelector('.is-active');
+    if (active) active.scrollIntoView({ block: 'nearest', inline: 'center' });
+  });
+
 });
