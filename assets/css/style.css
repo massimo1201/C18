@@ -114,11 +114,13 @@ h1, h2, h3, h4,
   vertical-align: middle;
   opacity: 0.9;
 }
+.page-home .mix-title .lg { font-size: clamp(3.2rem, 10.5vw, 10rem); }
 
 .section-title {
   font-size: clamp(2.4rem, 6.6vw, 5.6rem);
 }
 .section-title .sm { font-size: clamp(1rem, 2.2vw, 2rem); opacity: 0.5; }
+.page-home .section-title { font-size: clamp(2.8rem, 7.8vw, 6.8rem); }
 
 p.lede {
   font-family: var(--font-body);
@@ -429,7 +431,19 @@ body.nav-open { overflow: hidden; }
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+}
+
+/* Desktop: hero opens fullscreen on load, but the video itself always keeps a 16:9
+   frame (letterboxed within the fullscreen stage) rather than being cropped to fill. */
+@media (max-width: 720px) {
+  .hero-stage {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+  .hero-stage video {
+    object-fit: cover;
+  }
 }
 
 .hero-stage__replay {
@@ -495,7 +509,7 @@ body.nav-open { overflow: hidden; }
   gap: clamp(24px, 3.4vw, 36px);
 }
 .manifesto-title {
-  font-size: clamp(2.8rem, 9vw, 8rem);
+  font-size: clamp(3.2rem, 10.5vw, 10rem);
   max-width: 100%;
   width: 100%;
   text-align: left;
@@ -512,7 +526,7 @@ body.nav-open { overflow: hidden; }
 }
 @media (max-width: 720px) {
   .manifesto-title {
-    font-size: clamp(1.6rem, 7vw, 2.1rem);
+    font-size: clamp(1.9rem, 8.4vw, 2.6rem);
   }
 }
 
@@ -646,7 +660,7 @@ body.nav-open { overflow: hidden; }
 .vision-scroll__inner {
   position: relative;
   width: 100%;
-  height: clamp(380px, 58vh, 540px);
+  height: clamp(420px, 68vh, 620px);
   z-index: 1;
 }
 
@@ -676,7 +690,8 @@ body.nav-open { overflow: hidden; }
 .vs-stage.is-active { opacity: 1; pointer-events: auto; }
 
 .vs-heading {
-  font-size: clamp(3rem, 9.5vw, 8.5rem);
+  font-size: clamp(3.4rem, 11vw, 10.5rem);
+  line-height: 1.02;
 }
 .vs-word {
   display: block;
@@ -712,6 +727,23 @@ p.vs-body {
   transition: opacity .5s var(--ease), transform .5s var(--ease);
 }
 .vs-meta.is-visible { opacity: 1; transform: translateY(0); }
+
+/* Typewriter stages (Vision/Mission/Values): text reveal is driven by JS
+   appending characters, so cancel the fade/translate reveal used elsewhere. */
+.vision-scroll.is-typewriter .vs-word,
+.vision-scroll.is-typewriter p.vs-body {
+  opacity: 1;
+  transform: none;
+}
+.vision-scroll.is-typewriter .is-typing::after {
+  content: "|";
+  margin-left: 2px;
+  animation: twBlink 0.9s steps(1) infinite;
+}
+@keyframes twBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
 .vs-meta a {
   transition: opacity .25s var(--ease);
 }
@@ -735,6 +767,21 @@ p.vs-body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: clamp(18px, 2.4vw, 30px);
+}
+
+.collection-grid--scroll {
+  display: flex;
+  grid-template-columns: none;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+.collection-grid--scroll .collection-box {
+  flex: 0 0 auto;
+  width: clamp(210px, 24vw, 300px);
+  scroll-snap-align: start;
 }
 
 .collection-box {
@@ -831,16 +878,20 @@ p.vs-body {
 .news-updates > .section-title { margin-bottom: clamp(24px, 3.4vw, 36px); }
 
 .news-updates__grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
   gap: clamp(18px, 2.4vw, 24px);
-}
-@media (min-width: 760px) {
-  .news-updates__grid { grid-template-columns: repeat(3, 1fr); }
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .update-card {
   position: relative;
+  flex: 0 0 auto;
+  width: clamp(230px, 26vw, 320px);
+  scroll-snap-align: start;
   aspect-ratio: 3 / 4;
   display: flex;
   align-items: flex-end;
@@ -892,6 +943,43 @@ p.vs-body {
   gap: 14px;
   margin-top: clamp(32px, 5vw, 48px);
 }
+
+/* ---------- Minimal event map ---------- */
+
+.event-map {
+  margin-top: clamp(32px, 5vw, 48px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(16px, 2.6vw, 28px);
+  background: var(--cream);
+}
+.event-map__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.event-map__land {
+  fill: none;
+  stroke: var(--black);
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  opacity: 0.82;
+}
+.event-map__pin circle {
+  fill: var(--black);
+  transition: fill .25s var(--ease), r .25s var(--ease);
+}
+.event-map__pin text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  fill: var(--black);
+  text-transform: uppercase;
+}
+.event-map__pin:hover circle { fill: var(--taupe); r: 8; }
+.event-map__pin:hover text { fill: var(--taupe); }
 
 /* ---------- Contact / team list (compact) ---------- */
 
@@ -1386,7 +1474,7 @@ p.vs-body {
 @media (min-width: 760px) {
   .news-featured { grid-template-columns: repeat(3, 1fr); }
 }
-.news-featured .update-card { cursor: default; }
+.news-featured .update-card { cursor: default; width: 100%; }
 
 /* ---------- Reveal animation ---------- */
 
