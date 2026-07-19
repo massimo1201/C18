@@ -1083,6 +1083,23 @@ p.vs-body {
   outline: none;
   border-color: var(--white);
 }
+.newsletter-form textarea {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--white);
+  border-radius: 22px;
+  padding: 15px 20px;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  min-height: 96px;
+  resize: vertical;
+}
+.newsletter-form textarea::placeholder { color: rgba(255,253,245,0.85); }
+.newsletter-form textarea:focus {
+  outline: none;
+  border-color: var(--white);
+}
 
 /* Variant for forms placed on light (cream/white) backgrounds instead of
    the black newsletter panel — e.g. Contact Us request form, Reserved Area. */
@@ -1094,15 +1111,18 @@ p.vs-body {
 }
 .form-on-light input::placeholder { color: rgba(10,10,10,0.45); }
 .form-on-light input:focus { border-color: var(--black); }
+.form-on-light textarea {
+  border-color: var(--line);
+  color: var(--black);
+}
+.form-on-light textarea::placeholder { color: rgba(10,10,10,0.45); }
+.form-on-light textarea:focus { border-color: var(--black); }
 .newsletter-form button {
   align-self: flex-start;
 }
 
 /* ---------- Legal accordion (compact, lives inside the black footer) ---------- */
 
-.legal-accordion {
-  border-top: 1px solid var(--line-on-black);
-}
 .legal-accordion details {
   border-bottom: 1px solid var(--line-on-black);
 }
@@ -1139,6 +1159,8 @@ p.vs-body {
   max-width: 70ch;
   padding-bottom: 16px;
 }
+.legal-accordion p a { color: var(--white); }
+.legal-accordion p a:hover { opacity: 0.7; }
 
 /* ---------- Footer (black / policies) ---------- */
 
@@ -1153,21 +1175,14 @@ p.vs-body {
 }
 
 .footer-logo {
-  display: flex;
-  justify-content: flex-end;
+  margin-left: auto;
 }
 .footer-logo img {
-  height: clamp(36px, 5vw, 56px);
+  height: clamp(18px, 2vw, 24px);
   width: auto;
   display: block;
 }
 
-.footer-top {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 32px;
-}
 .footer-title {
   color: var(--white);
   font-size: clamp(2.2rem, 6vw, 4.4rem);
@@ -1175,24 +1190,6 @@ p.vs-body {
   text-wrap: balance;
   margin-bottom: clamp(20px, 3vw, 32px);
 }
-.footer-cols {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 48px;
-}
-.footer-col { display: flex; flex-direction: column; gap: 10px; min-width: 160px; }
-.footer-col .col-title {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(20px, 2.3vw, 27px);
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-  color: var(--white);
-  opacity: 1;
-  margin-bottom: clamp(8px, 1.2vw, 14px);
-}
-.footer-col a { font-size: 13.5px; letter-spacing: 0.03em; text-transform: uppercase; opacity: 1; color: var(--white); }
-.footer-col a:hover { opacity: 0.7; }
 
 .footer-contact {
   border-top: 1px solid var(--line-on-black);
