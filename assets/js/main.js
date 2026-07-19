@@ -147,6 +147,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateVision = () => {
       const rect = visionSection.getBoundingClientRect();
+      /* Do nothing at all until the section actually reaches its pinned position
+         (rect.top <= 0) — otherwise stage 0 (heading typing, background colour)
+         would already be applied while still scrolling toward it, so there'd be
+         no visible transition: it would just already be green/typed on arrival. */
+      if (rect.top > 0) return;
       const total = visionSection.offsetHeight - window.innerHeight;
       if (total <= 0) return;
       let progress = -rect.top / total;
@@ -171,11 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
         layer.classList.toggle('is-active', Number(layer.dataset.bg) === currentStage);
       });
 
-      /* Only start typing once the section has actually scrolled into view —
-         otherwise stage 0 would type itself out instantly while still off-screen,
-         so by the time the user scrolls to it the heading is already fully typed. */
-      const sectionInView = rect.top < window.innerHeight && rect.bottom > 0;
-      if (sectionInView && currentStage !== twLastStage) {
+      if (currentStage !== twLastStage) {
         if (twLastStage !== -1 && twStages[twLastStage]) twReset(twStages[twLastStage]);
         if (twStages[currentStage]) twPlay(twStages[currentStage]);
         twLastStage = currentStage;

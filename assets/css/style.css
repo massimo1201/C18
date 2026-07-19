@@ -267,9 +267,10 @@ body.lang-open .brand img { filter: invert(1); }
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Keep logo + hamburger legible when the black off-canvas panel sits behind the (transparent) header */
+/* Header stays a solid fixed bar while the menu is open, so nav items scrolling
+   up inside the off-canvas panel disappear behind it instead of showing through. */
 body.nav-open .site-header {
-  background: transparent;
+  background: var(--black);
   color: var(--white);
 }
 body.nav-open .brand img {
@@ -1169,13 +1170,12 @@ p.vs-body {
 }
 
 .footer-logo {
-  text-align: center;
+  display: flex;
+  justify-content: flex-end;
 }
 .footer-logo img {
-  height: clamp(26px, 3.4vw, 36px);
+  height: clamp(36px, 5vw, 56px);
   width: auto;
-  filter: invert(1);
-  margin: 0 auto;
   display: block;
 }
 
