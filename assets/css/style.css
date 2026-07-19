@@ -635,7 +635,7 @@ body.nav-open { overflow: hidden; }
 
 .vision-scroll {
   position: relative;
-  height: 260vh;
+  height: 440vh;
   background: var(--cream);
 }
 
@@ -643,8 +643,6 @@ body.nav-open { overflow: hidden; }
   position: sticky;
   top: 0;
   height: 100vh;
-  display: flex;
-  align-items: center;
   overflow: hidden;
   background: var(--cream);
 }
@@ -652,7 +650,7 @@ body.nav-open { overflow: hidden; }
 .vision-scroll__inner {
   position: relative;
   width: 100%;
-  height: clamp(480px, 85vh, 760px);
+  height: 100%;
   z-index: 1;
 }
 
@@ -674,7 +672,8 @@ body.nav-open { overflow: hidden; }
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: clamp(140px, 16vw, 200px);
   opacity: 0;
   pointer-events: none;
   transition: opacity .5s var(--ease);
@@ -956,9 +955,6 @@ p.vs-body {
 
 .event-map {
   margin-top: clamp(32px, 5vw, 48px);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: clamp(16px, 2.6vw, 28px);
   background: var(--cream);
 }
 .event-map__svg {
