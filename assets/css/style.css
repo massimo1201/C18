@@ -149,11 +149,8 @@ p.lede {
   border-bottom: 1px solid var(--line);
 }
 
-.site-header.is-on-essential {
+.site-header.is-on-collections-reading {
   background: var(--sage);
-}
-.site-header.is-on-executive {
-  background: var(--taupe);
 }
 
 .brand {
@@ -639,6 +636,13 @@ body.nav-open { overflow: hidden; }
   background: var(--cream);
 }
 
+/* Contemporary Vision / Mission / Values: hold each stage a little longer
+   than Essential/Operative/Executive so there's time to read without the
+   next stage rushing in. */
+#vision.vision-scroll {
+  height: 600vh;
+}
+
 .vision-scroll__sticky {
   position: sticky;
   top: 0;
@@ -663,9 +667,8 @@ body.nav-open { overflow: hidden; }
   z-index: 0;
 }
 .collections-scroll__bg.is-active { opacity: 1; }
-.collections-scroll__bg[data-bg="0"] { background: var(--sage); }
-.collections-scroll__bg[data-bg="1"] { background: var(--cream); }
-.collections-scroll__bg[data-bg="2"] { background: var(--taupe); }
+.collections-scroll__bg[data-bg="reading"] { background: var(--sage); }
+.collections-scroll__bg[data-bg="done"] { background: var(--cream); }
 
 .vs-stage {
   position: absolute;
@@ -1161,6 +1164,23 @@ p.vs-body {
 }
 .legal-accordion p a { color: var(--white); }
 .legal-accordion p a:hover { opacity: 0.7; }
+.legal-accordion__addresses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin-top: -6px;
+  padding-bottom: 16px;
+}
+.legal-accordion__addresses a {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  transition: opacity .3s var(--ease);
+}
+.legal-accordion__addresses a:hover { opacity: 0.7; }
 
 /* ---------- Footer (black / policies) ---------- */
 
@@ -1192,7 +1212,6 @@ p.vs-body {
 }
 
 .footer-contact {
-  border-top: 1px solid var(--line-on-black);
   padding-top: clamp(28px, 4vw, 40px);
 }
 .footer-contact > .footer-title {
@@ -1237,7 +1256,7 @@ p.vs-body {
 }
 .footer-company .lines {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 13px;
   line-height: 1.7;
   color: var(--white);
 }
