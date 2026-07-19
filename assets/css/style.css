@@ -418,7 +418,7 @@ body.nav-open { overflow: hidden; }
 .hero-stage {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: auto;
   overflow: hidden;
   background: var(--black);
   isolation: isolate;
@@ -432,27 +432,14 @@ body.nav-open { overflow: hidden; }
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>");
 }
 
+/* The hero box always matches the video's own native ratio (never forced
+   into a taller/shorter frame), so the full original frame always shows
+   at its real proportions — never cropped, never letterboxed. */
 .hero-stage video {
-  position: absolute;
-  inset: 0;
+  position: static;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* Mobile: no fullscreen — the video adapts to the page width, keeping its
-   native ratio (no distortion, no forced crop) instead of filling the viewport. */
-@media (max-width: 720px) {
-  .hero-stage {
-    height: auto;
-  }
-  .hero-stage video {
-    position: static;
-    width: 100%;
-    height: auto;
-    object-fit: initial;
-    display: block;
-  }
+  height: auto;
+  display: block;
 }
 
 .hero-stage__replay {
@@ -518,7 +505,7 @@ body.nav-open { overflow: hidden; }
   gap: clamp(24px, 3.4vw, 36px);
 }
 .manifesto-title {
-  font-size: clamp(2.4rem, 10vw, 9rem);
+  font-size: clamp(2.6rem, 12vw, 11rem);
   line-height: 1.02;
   max-width: 100%;
   width: 100%;
@@ -665,7 +652,7 @@ body.nav-open { overflow: hidden; }
 .vision-scroll__inner {
   position: relative;
   width: 100%;
-  height: clamp(420px, 68vh, 620px);
+  height: clamp(480px, 85vh, 760px);
   z-index: 1;
 }
 
@@ -982,10 +969,10 @@ p.vs-body {
 .event-map__land {
   fill: none;
   stroke: var(--black);
-  stroke-width: 1.4;
+  stroke-width: 1;
   stroke-linejoin: round;
   stroke-linecap: round;
-  opacity: 0.82;
+  opacity: 0.85;
 }
 .event-map__pin circle {
   fill: var(--black);
