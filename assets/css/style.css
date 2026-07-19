@@ -149,8 +149,11 @@ p.lede {
   border-bottom: 1px solid var(--line);
 }
 
-.site-header.is-on-collections-reading {
+.site-header.is-on-essential {
   background: var(--sage);
+}
+.site-header.is-on-executive {
+  background: var(--taupe);
 }
 
 .brand {
@@ -667,8 +670,9 @@ body.nav-open { overflow: hidden; }
   z-index: 0;
 }
 .collections-scroll__bg.is-active { opacity: 1; }
-.collections-scroll__bg[data-bg="reading"] { background: var(--sage); }
-.collections-scroll__bg[data-bg="done"] { background: var(--cream); }
+.collections-scroll__bg[data-bg="0"] { background: var(--sage); }
+.collections-scroll__bg[data-bg="1"] { background: var(--cream); }
+.collections-scroll__bg[data-bg="2"] { background: var(--taupe); }
 
 .vs-stage {
   position: absolute;

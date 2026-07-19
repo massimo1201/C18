@@ -172,12 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
           el.classList.toggle('is-visible', visible);
         });
       });
-      /* Each stage reads: sage while the heading/body are being revealed and
-         read, then cream once read (subProgress >= 2 of 3) as a breather
-         before the next stage begins — same rhythm for every stage. */
-      const isDone = subProgress >= 2;
       bgLayers.forEach((layer) => {
-        layer.classList.toggle('is-active', (layer.dataset.bg === 'done') === isDone);
+        layer.classList.toggle('is-active', Number(layer.dataset.bg) === currentStage);
       });
 
       if (currentStage !== twLastStage) {
@@ -188,7 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (visionSection.classList.contains('collections-scroll')) {
         const inView = rect.top <= 1 && rect.bottom >= window.innerHeight - 1;
-        header.classList.toggle('is-on-collections-reading', inView && !isDone);
+        header.classList.toggle('is-on-essential', inView && currentStage === 0);
+        header.classList.toggle('is-on-executive', inView && currentStage === 2);
       }
     };
 
