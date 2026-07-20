@@ -738,7 +738,7 @@ body.nav-open { overflow: hidden; }
 .vs-stage.is-active { opacity: 1; pointer-events: auto; }
 
 .vs-heading {
-  font-size: clamp(2.6rem, 11vw, 10rem);
+  font-size: clamp(2.4rem, 10vw, 9.3rem);
   line-height: 1.02;
 }
 .vs-word {
