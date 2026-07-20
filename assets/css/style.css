@@ -467,6 +467,36 @@ body.nav-open { overflow: hidden; }
   height: 18px;
 }
 
+.hero-stage__discover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 18px 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,253,245,0.55);
+  background: rgba(10,10,10,0.08);
+  backdrop-filter: blur(2px);
+  color: var(--white);
+  font-weight: 600;
+  font-size: clamp(13px, 1.4vw, 16px);
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease);
+  opacity: 0.9;
+}
+.hero-stage__discover:hover {
+  opacity: 1;
+  border-color: var(--white);
+  background: rgba(10,10,10,0.18);
+}
+
 /* Marquee strip */
 .marquee {
   padding: 16px 0;
