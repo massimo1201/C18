@@ -409,6 +409,48 @@ body.nav-open { overflow: hidden; }
 }
 .nav-mega__sub a:hover { color: var(--white); }
 
+/* ---------- Products mega menu (light bg, "Our Products" section) ---------- */
+
+.products-mega { border: none; width: 100%; }
+.products-mega summary {
+  list-style: none;
+  cursor: pointer;
+}
+.products-mega summary::-webkit-details-marker { display: none; }
+.products-mega[open] summary { background: var(--black); color: var(--white); }
+.products-mega__panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: clamp(20px, 3vw, 32px);
+  margin-top: clamp(20px, 3vw, 32px);
+  padding: clamp(24px, 3.4vw, 36px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+.products-mega__cat { display: flex; flex-direction: column; gap: 10px; }
+.products-mega__cat-link {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  color: var(--black);
+  transition: opacity .25s var(--ease);
+}
+.products-mega__cat-link:hover { opacity: 0.65; }
+.products-mega__sub {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.products-mega__sub a {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: rgba(10,10,10,0.6);
+  transition: color .25s var(--ease);
+}
+.products-mega__sub a:hover { color: var(--black); }
+
 /* ---------- Hero ---------- */
 
 .hero {
@@ -469,25 +511,26 @@ body.nav-open { overflow: hidden; }
 
 .hero-stage__discover {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  right: calc(var(--pad) + 46px + 12px);
+  bottom: clamp(20px, 3vw, 36px);
   z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 18px 34px;
+  min-height: 46px;
+  padding: 10px 22px;
   border-radius: 999px;
   border: 1px solid rgba(255,253,245,0.55);
   background: rgba(10,10,10,0.08);
   backdrop-filter: blur(2px);
   color: var(--white);
   font-weight: 600;
-  font-size: clamp(13px, 1.4vw, 16px);
-  letter-spacing: 0.03em;
+  font-size: clamp(11px, 1.2vw, 14px);
+  letter-spacing: 0.02em;
+  line-height: 1.3;
   text-decoration: none;
-  white-space: nowrap;
+  max-width: min(58vw, 320px);
   transition: opacity .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease);
   opacity: 0.9;
 }
@@ -1153,6 +1196,24 @@ p.vs-body {
   color: var(--black);
 }
 .form-on-light textarea::placeholder { color: rgba(10,10,10,0.45); }
+
+/* Horizontal Contact Us layout: intro (title + general contacts) beside the
+   request form, with Name/Surname/Email developed in a single row. */
+.footer-contact__top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: flex-start;
+}
+.footer-contact__intro { flex: 0 0 auto; min-width: 220px; }
+.footer-contact__intro .footer-title { margin-bottom: clamp(16px, 2.4vw, 24px); }
+.contact-request-form--horizontal {
+  flex: 1 1 420px;
+  max-width: 640px;
+  margin-top: 0;
+}
+.newsletter-form__row--triple { flex-wrap: wrap; }
+.newsletter-form__row--triple input { flex: 1 1 160px; }
 .form-on-light textarea:focus { border-color: var(--black); }
 .newsletter-form button {
   align-self: flex-start;
@@ -1232,7 +1293,7 @@ p.vs-body {
   margin-left: auto;
 }
 .footer-logo img {
-  height: clamp(18px, 2vw, 24px);
+  height: clamp(24px, 2.8vw, 32px);
   width: auto;
   display: block;
 }
@@ -1247,9 +1308,6 @@ p.vs-body {
 
 .footer-contact {
   padding-top: clamp(28px, 4vw, 40px);
-}
-.footer-contact > .footer-title {
-  margin-bottom: clamp(20px, 3vw, 32px);
 }
 .footer-contact .contact-lead a {
   border-bottom-color: var(--line-on-black);
@@ -1288,11 +1346,31 @@ p.vs-body {
   align-items: flex-end;
   gap: 20px;
 }
+.footer-company__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 .footer-company .lines {
   font-family: var(--font-body);
   font-size: 13px;
   line-height: 1.7;
   color: var(--white);
+}
+.footer-social {
+  display: flex;
+  gap: 16px;
+}
+.footer-social a {
+  color: var(--white);
+  opacity: 0.8;
+  transition: opacity .25s var(--ease);
+}
+.footer-social a:hover { opacity: 1; }
+.footer-social svg {
+  width: 18px;
+  height: 18px;
+  display: block;
 }
 
 /* ---------- Category tab bar (product category pages) ---------- */

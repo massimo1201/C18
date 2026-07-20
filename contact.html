@@ -122,13 +122,13 @@
       <a href="mailto:codutti@codutti.it">codutti@codutti.it</a>
     </div>
 
-    <form class="newsletter-form form-on-light contact-request-form" onsubmit="return false;" style="max-width:520px">
-      <div class="newsletter-form__row">
+    <form class="newsletter-form form-on-light contact-request-form contact-request-form--horizontal" onsubmit="return false;">
+      <div class="newsletter-form__row newsletter-form__row--triple">
         <input type="text" placeholder="Name" required aria-label="Name">
         <input type="text" placeholder="Surname" required aria-label="Surname">
+        <input type="email" placeholder="Your email" required aria-label="Email">
       </div>
-      <input type="email" placeholder="Your email" required aria-label="Email">
-      <textarea placeholder="Your Request" required aria-label="Your Request" rows="4"></textarea>
+      <textarea placeholder="Your Request" required aria-label="Your Request" rows="3"></textarea>
       <button type="submit" class="btn btn--dark">Send Request</button>
     </form>
 
@@ -191,21 +191,25 @@
 
 <footer class="site-footer wrap">
   <div class="footer-contact" id="contact">
-    <h2 class="footer-title font-display">Contact Us</h2>
-    <div class="contact-lead contact-lead--compact">
-      <a href="tel:+390432541414">+39 0432 541414</a>
-      <a href="mailto:codutti@codutti.it">codutti@codutti.it</a>
-    </div>
-
-    <form class="newsletter-form contact-request-form" onsubmit="return false;">
-      <div class="newsletter-form__row">
-        <input type="text" placeholder="Name" required aria-label="Name">
-        <input type="text" placeholder="Surname" required aria-label="Surname">
+    <div class="footer-contact__top">
+      <div class="footer-contact__intro">
+        <h2 class="footer-title font-display">Contact Us</h2>
+        <div class="contact-lead contact-lead--compact">
+          <a href="tel:+390432541414">+39 0432 541414</a>
+          <a href="mailto:codutti@codutti.it">codutti@codutti.it</a>
+        </div>
       </div>
-      <input type="email" placeholder="Your email" required aria-label="Email">
-      <textarea placeholder="Your Request" required aria-label="Your Request" rows="4"></textarea>
-      <button type="submit" class="btn btn--light">Send Request</button>
-    </form>
+
+      <form class="newsletter-form contact-request-form contact-request-form--horizontal" onsubmit="return false;">
+        <div class="newsletter-form__row newsletter-form__row--triple">
+          <input type="text" placeholder="Name" required aria-label="Name">
+          <input type="text" placeholder="Surname" required aria-label="Surname">
+          <input type="email" placeholder="Your email" required aria-label="Email">
+        </div>
+        <textarea placeholder="Your Request" required aria-label="Your Request" rows="3"></textarea>
+        <button type="submit" class="btn btn--light">Send Request</button>
+      </form>
+    </div>
 
     <div class="team-list">
       <div class="team-row">
