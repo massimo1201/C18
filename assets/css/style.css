@@ -729,9 +729,7 @@ body.nav-open { overflow: hidden; }
   inset: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: flex-start;
-  text-align: center;
   padding-top: clamp(140px, 16vw, 200px);
   opacity: 0;
   pointer-events: none;
@@ -755,9 +753,8 @@ body.nav-open { overflow: hidden; }
 
 p.vs-body {
   margin-top: clamp(14px, 2vw, 22px);
-  max-width: min(760px, 82%);
+  max-width: none;
   width: 100%;
-  margin-inline: auto;
   opacity: 0;
   filter: blur(8px);
   transform: translateY(16px);
