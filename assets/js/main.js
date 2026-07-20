@@ -13,16 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  /* Hero video: replay button */
-  const heroVideo = document.querySelector('.hero-stage__video');
-  const heroReplay = document.getElementById('heroReplay');
-  if (heroVideo && heroReplay) {
-    heroReplay.addEventListener('click', () => {
-      heroVideo.currentTime = 0;
-      heroVideo.play();
-    });
-  }
-
   /* Off-canvas menu toggle */
   if (menuBtn && navOverlay) {
     const closeMenu = () => {
@@ -151,7 +141,14 @@ document.addEventListener('DOMContentLoaded', () => {
          (rect.top <= 0) — otherwise stage 0 (heading typing, background colour)
          would already be applied while still scrolling toward it, so there'd be
          no visible transition: it would just already be green/typed on arrival. */
-      if (rect.top > 0) return;
+      if (rect.top > 0) {
+        /* Above the section: make sure the header never stays stuck on a
+           stage colour picked up before scrolling back up past it. */
+        if (visionSection.classList.contains('collections-scroll')) {
+          header.classList.remove('is-on-essential', 'is-on-executive');
+        }
+        return;
+      }
       const total = visionSection.offsetHeight - window.innerHeight;
       if (total <= 0) return;
       let progress = -rect.top / total;
