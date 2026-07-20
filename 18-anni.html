@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Festeggiamo i miei 18 anni — Massimo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f6f0e4;
+    --cream-dark:#ece3d0;
+    --olive:#4d5a3d;
+    --olive-dark:#333f28;
+    --gold:#b3903f;
+    --ink:#2c2718;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Cormorant Garamond', serif;
+    font-size:19px;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Playfair Display', serif;}
+  a{color:inherit;}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px;}
+
+  /* decorative corner branches */
+  .branch{position:absolute;width:150px;height:150px;opacity:.55;pointer-events:none;}
+  .branch svg{width:100%;height:100%;}
+  .branch.tl{top:12px;left:12px;}
+  .branch.br{bottom:12px;right:12px;transform:rotate(180deg);}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:80px 24px 60px;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(179,144,63,0.10), transparent 60%),
+      var(--cream);
+  }
+  .eyebrow{
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    font-size:13px;
+    color:var(--olive);
+    font-weight:600;
+    margin-bottom:22px;
+  }
+  .num18{
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-weight:700;
+    font-size:clamp(120px,22vw,220px);
+    line-height:.9;
+    color:var(--olive-dark);
+    letter-spacing:-.02em;
+  }
+  .num18 span{color:var(--gold);}
+  .hero-name{
+    font-size:clamp(26px,4vw,38px);
+    letter-spacing:.06em;
+    margin-top:6px;
+    color:var(--ink);
+  }
+  .divider{
+    width:90px;height:2px;background:var(--gold);
+    margin:26px auto;
+    position:relative;
+  }
+  .divider::before,.divider::after{
+    content:'';position:absolute;top:50%;width:6px;height:6px;
+    background:var(--gold);border-radius:50%;transform:translateY(-50%);
+  }
+  .divider::before{left:-14px;}
+  .divider::after{right:-14px;}
+  .invite-text{
+    max-width:560px;
+    font-size:21px;
+    color:var(--ink);
+  }
+  .invite-date{
+    margin-top:18px;
+    font-family:'Playfair Display',serif;
+    font-weight:600;
+    font-size:22px;
+    color:var(--olive-dark);
+  }
+
+  .cta-row{
+    display:flex;gap:18px;flex-wrap:wrap;justify-content:center;
+    margin-top:38px;
+  }
+  .btn{
+    display:inline-block;
+    padding:14px 30px;
+    border:1px solid var(--olive-dark);
+    border-radius:2px;
+    text-decoration:none;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:13px;
+    font-weight:600;
+    color:var(--olive-dark);
+    background:transparent;
+    transition:background .25s, color .25s;
+  }
+  .btn:hover{background:var(--olive-dark);color:var(--cream);}
+  .btn.solid{background:var(--olive-dark);color:var(--cream);}
+  .btn.solid:hover{background:var(--olive);}
+
+  /* COUNTDOWN */
+  .countdown-section{
+    background:var(--olive-dark);
+    color:var(--cream);
+    padding:56px 24px;
+    text-align:center;
+  }
+  .countdown-section .eyebrow{color:var(--gold);}
+  .countdown{
+    display:flex;justify-content:center;gap:32px;margin-top:22px;flex-wrap:wrap;
+  }
+  .countdown div{min-width:80px;}
+  .countdown .n{
+    font-family:'Playfair Display',serif;
+    font-size:44px;font-weight:700;color:var(--gold);
+    display:block;
+  }
+  .countdown .l{
+    text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:var(--cream-dark);
+  }
+
+  /* GENERIC SECTION */
+  section.info{
+    padding:90px 24px;
+    text-align:center;
+    border-bottom:1px solid var(--cream-dark);
+  }
+  section.info:nth-of-type(even){background:var(--cream-dark);}
+  .info h2{
+    font-size:clamp(30px,4vw,42px);
+    font-style:italic;
+    color:var(--olive-dark);
+    margin-bottom:18px;
+  }
+  .info p{max-width:520px;margin:0 auto 10px;}
+  .card{
+    display:inline-block;
+    margin-top:26px;
+    padding:28px 40px;
+    background:var(--cream);
+    border:1px solid var(--gold);
+  }
+  section.info:nth-of-type(even) .card{background:var(--cream-dark);}
+  .venue-name{
+    font-family:'Playfair Display',serif;
+    font-size:24px;
+    color:var(--olive-dark);
+    margin-bottom:6px;
+  }
+  .venue-address{letter-spacing:.03em;}
+
+  .dress-icons{
+    display:flex;gap:40px;justify-content:center;margin-top:30px;flex-wrap:wrap;
+  }
+  .dress-icons div{font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--olive-dark);}
+
+  /* RSVP */
+  .rsvp{
+    padding:100px 24px;
+    text-align:center;
+    background:var(--cream);
+  }
+  .rsvp h2{
+    font-size:clamp(28px,4vw,40px);
+    color:var(--olive-dark);
+    letter-spacing:.02em;
+  }
+  .rsvp p.sub{margin-top:14px;color:#5a5340;}
+  form{
+    max-width:480px;margin:40px auto 0;text-align:left;
+  }
+  .field{margin-bottom:22px;}
+  label{
+    display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--olive-dark);margin-bottom:8px;font-weight:600;
+  }
+  input,textarea{
+    width:100%;padding:12px 4px;
+    border:none;border-bottom:1px solid var(--olive-dark);
+    background:transparent;
+    font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--ink);
+    outline:none;
+  }
+  input:focus,textarea:focus{border-bottom:1px solid var(--gold);}
+  textarea{resize:vertical;min-height:90px;}
+  .submit-row{text-align:center;margin-top:30px;}
+  .form-msg{
+    margin-top:20px;font-style:italic;color:var(--olive-dark);min-height:24px;
+  }
+
+  footer{
+    text-align:center;padding:40px 24px;background:var(--olive-dark);color:var(--cream-dark);
+    font-size:14px;letter-spacing:.08em;
+  }
+  footer span{color:var(--gold);}
+
+  @media(max-width:600px){
+    .countdown{gap:18px;}
+    .countdown .n{font-size:32px;}
+    .card{padding:22px 24px;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="branch tl">
+    <svg viewBox="0 0 100 100" fill="none" stroke="#4d5a3d" stroke-width="1.4">
+      <path d="M5 5 Q 40 5 40 40 Q 40 70 70 70" />
+      <path d="M14 14 q 8 -2 10 6" /><path d="M22 24 q 8 -2 10 6" />
+      <path d="M30 34 q 8 -2 10 6" /><path d="M50 55 q 8 -2 10 6" />
+      <circle cx="70" cy="70" r="2" fill="#b3903f" stroke="none"/>
+    </svg>
+  </div>
+  <div class="branch br">
+    <svg viewBox="0 0 100 100" fill="none" stroke="#4d5a3d" stroke-width="1.4">
+      <path d="M5 5 Q 40 5 40 40 Q 40 70 70 70" />
+      <path d="M14 14 q 8 -2 10 6" /><path d="M22 24 q 8 -2 10 6" />
+      <path d="M30 34 q 8 -2 10 6" /><path d="M50 55 q 8 -2 10 6" />
+      <circle cx="70" cy="70" r="2" fill="#b3903f" stroke="none"/>
+    </svg>
+  </div>
+
+  <div class="eyebrow">Save the date</div>
+  <div class="num18">1<span>8</span></div>
+  <div class="hero-name">Massimo</div>
+  <div class="divider"></div>
+  <p class="invite-text">
+    Venerdì 25 settembre 2026 alle ore 19:00 vi aspetto all'Agriturismo Stekar
+    a Giasbana 25, San Floriano del Collio per festeggiare i miei
+    meravigliosi 18 anni.
+  </p>
+  <p class="invite-date">25 Settembre 2026 · ore 19:00</p>
+
+  <div class="cta-row">
+    <a href="#luogo" class="btn">Luogo della festa</a>
+    <a href="#dresscode" class="btn">Dress code</a>
+    <a href="#rsvp" class="btn solid">Conferma presenza</a>
+  </div>
+</section>
+
+<section class="countdown-section">
+  <div class="eyebrow">Mancano solo</div>
+  <div class="countdown" id="countdown">
+    <div><span class="n" id="cd-days">--</span><span class="l">Giorni</span></div>
+    <div><span class="n" id="cd-hours">--</span><span class="l">Ore</span></div>
+    <div><span class="n" id="cd-mins">--</span><span class="l">Minuti</span></div>
+    <div><span class="n" id="cd-secs">--</span><span class="l">Secondi</span></div>
+  </div>
+</section>
+
+<section class="info" id="luogo">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--gold)">Location</div>
+    <h2>Luogo della festa</h2>
+    <p>Vi aspetto in un angolo di campagna tra le colline del Collio, al confine tra Italia e Slovenia.</p>
+    <div class="card">
+      <div class="venue-name">Agriturismo Stekar</div>
+      <div class="venue-address">Giasbana 25, San Floriano del Collio (GO)</div>
+    </div>
+    <div style="margin-top:26px">
+      <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Agriturismo+Stekar+Giasbana+25+San+Floriano+del+Collio">Apri in Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<section class="info" id="dresscode">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--gold)">Dress code</div>
+    <h2>Dress code</h2>
+    <p>Un abbigliamento elegante e curato, in armonia con l'atmosfera country-chic dell'agriturismo tra le vigne.</p>
+    <div class="dress-icons">
+      <div>Elegante</div>
+      <div>Country&nbsp;chic</div>
+      <div>Niente&nbsp;jeans</div>
+    </div>
+  </div>
+</section>
+
+<section class="rsvp" id="rsvp">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--gold)">RSVP</div>
+    <h2>Conferma la tua presenza</h2>
+    <p class="sub">Compila il form qui sotto per farmi sapere che ci sarai — non vedo l'ora di festeggiare con te.</p>
+    <form id="rsvp-form">
+      <div class="field">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+      </div>
+      <div class="field">
+        <label for="cognome">Cognome</label>
+        <input type="text" id="cognome" name="cognome" required>
+      </div>
+      <div class="field">
+        <label for="messaggio">Messaggio</label>
+        <textarea id="messaggio" name="messaggio" placeholder="Scrivimi due righe (facoltativo)"></textarea>
+      </div>
+      <div class="submit-row">
+        <button type="submit" class="btn solid" style="cursor:pointer;font-family:inherit;">Invia</button>
+      </div>
+      <p class="form-msg" id="form-msg"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  Ti aspetto per festeggiare insieme — <span>Massimo</span>
+</footer>
+
+<script>
+  // Countdown to the event
+  var eventDate = new Date("2026-09-25T19:00:00");
+  function updateCountdown(){
+    var now = new Date();
+    var diff = eventDate - now;
+    if(diff < 0) diff = 0;
+    var days = Math.floor(diff / (1000*60*60*24));
+    var hours = Math.floor((diff / (1000*60*60)) % 24);
+    var mins = Math.floor((diff / (1000*60)) % 60);
+    var secs = Math.floor((diff / 1000) % 60);
+    document.getElementById('cd-days').textContent = days;
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-mins').textContent = String(mins).padStart(2,'0');
+    document.getElementById('cd-secs').textContent = String(secs).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // RSVP form -> opens a pre-filled email to confirm attendance
+  document.getElementById('rsvp-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var nome = document.getElementById('nome').value.trim();
+    var cognome = document.getElementById('cognome').value.trim();
+    var messaggio = document.getElementById('messaggio').value.trim();
+    var subject = encodeURIComponent('Conferma presenza - 18 anni di Massimo');
+    var body = encodeURIComponent(
+      'Nome: ' + nome + '\n' +
+      'Cognome: ' + cognome + '\n' +
+      'Messaggio: ' + (messaggio || '-') + '\n\n' +
+      'Confermo la mia presenza alla festa del 25 settembre 2026.'
+    );
+    window.location.href = 'mailto:donatomassimo2004@gmail.com?subject=' + subject + '&body=' + body;
+    document.getElementById('form-msg').textContent = 'Si è aperto il tuo client email: invia per confermare la presenza!';
+  });
+</script>
+
+</body>
+</html>
