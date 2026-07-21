@@ -4,9 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Festeggiamo i miei 18 anni — Massimo</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@700&display=swap" rel="stylesheet">
 <style>
   :root{
     --pink:#f45fae;
@@ -17,7 +16,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{
-    font-family:'DM Sans', sans-serif;
+    font-family:'Minion Variable Concept','Minion Variable','Minion Pro',Minion,Georgia,'Times New Roman',serif;
     color:var(--bordeaux);
     background:var(--pink);
     -webkit-font-smoothing:antialiased;
@@ -25,27 +24,40 @@
   a{color:inherit;text-decoration:none;}
   ul{list-style:none;}
 
-  /* ---------- ANIMATED BACKGROUND FLOWERS ---------- */
+  .title-font{
+    font-family:'Clash Display', sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+  }
+
+  /* ---------- CONTINUOUS PAGE BACKGROUND ---------- */
+  .page{
+    position:relative;
+    background:var(--pink);
+    overflow:hidden;
+  }
   .bg-flowers{
     position:absolute;
     inset:0;
-    z-index:0;
+    z-index:1;
     overflow:hidden;
     pointer-events:none;
   }
-  .rsvp-section .bg-flowers{ left:-24px; right:-24px; }
   .bgf{ position:absolute; display:block; }
   .bgf svg{ width:100%; height:100%; display:block; }
 
-  /* ---------- HERO ---------- */
-  .hero{
-    position:relative;
-    overflow:hidden;
-    background:var(--pink);
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  @keyframes drift{
+    0%,100%{ transform:translateY(0) rotate(0deg); }
+    50%{ transform:translateY(-9px) rotate(10deg); }
   }
+  .spin-cw{ animation:spin 20s linear infinite; }
+  .spin-ccw{ animation:spin 24s linear infinite reverse; }
+  .drift{ animation:drift 6.5s ease-in-out infinite; }
+
+  /* ---------- HERO ---------- */
+  .hero{ position:relative; z-index:2; }
   .hero-content{
-    position:relative;
-    z-index:1;
     padding:52px 24px 76px;
     display:flex;
     flex-direction:column;
@@ -53,9 +65,8 @@
     text-align:center;
   }
   .logo{
-    font-family:'Abril Fatface', serif;
-    font-size:clamp(40px,10.5vw,60px);
-    letter-spacing:.04em;
+    font-size:clamp(52px,15vw,92px);
+    letter-spacing:.03em;
     color:var(--bordeaux);
     margin-bottom:38px;
     text-wrap:balance;
@@ -71,26 +82,17 @@
   .mark{display:block;width:62px;height:62px;}
   .mark svg{width:100%;height:100%;display:block;}
 
-  @keyframes spin{ to{ transform:rotate(360deg); } }
-  @keyframes drift{
-    0%,100%{ transform:translateY(0) rotate(0deg); }
-    50%{ transform:translateY(-9px) rotate(10deg); }
-  }
-  .spin-cw{ animation:spin 20s linear infinite; }
-  .spin-ccw{ animation:spin 24s linear infinite reverse; }
-  .drift{ animation:drift 6.5s ease-in-out infinite; }
-
   .invite{
     max-width:320px;
     font-weight:700;
-    font-size:16px;
+    font-size:17px;
     line-height:1.6;
     margin:0 auto;
   }
   .invite-sub{
     max-width:300px;
     font-weight:500;
-    font-size:15px;
+    font-size:16px;
     line-height:1.6;
     margin:20px auto 0;
   }
@@ -105,10 +107,8 @@
     margin-top:44px;
   }
   .btn{
-    font-family:'Fraunces', serif;
-    font-weight:700;
-    font-size:15px;
-    letter-spacing:.01em;
+    font-size:14px;
+    letter-spacing:.04em;
     width:100%;
     padding:17px 20px;
     border-radius:999px;
@@ -134,8 +134,8 @@
   .countdown-item{ flex:1; text-align:center; }
   .countdown-num{
     display:block;
-    font-family:'Fraunces', serif;
-    font-weight:900;
+    font-family:'Clash Display', sans-serif;
+    font-weight:700;
     font-size:24px;
     color:var(--bordeaux);
     font-variant-numeric:tabular-nums;
@@ -152,13 +152,24 @@
   }
 
   /* ---------- DIVIDER (pink -> bordeaux dome) ---------- */
-  .divider{ display:block; width:100%; margin-bottom:-1px; }
+  .divider{ position:relative; z-index:2; display:block; width:100%; margin-bottom:-1px; }
   .divider svg{ width:100%; height:auto; display:block; }
 
-  /* ---------- RSVP SECTION ---------- */
-  .rsvp-section{
-    position:relative;
+  /* ---------- RSVP (bordeaux canvas sits behind the flower layer, card sits above it) ---------- */
+  .rsvp-stack{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+  .bordeaux-fill{
+    grid-column:1;
+    grid-row:1;
     background:var(--bordeaux);
+  }
+  .rsvp-section{
+    grid-column:1;
+    grid-row:1;
+    position:relative;
+    z-index:2;
     overflow:hidden;
     padding:0 24px 0;
     display:flex;
@@ -186,8 +197,6 @@
     text-align:left;
   }
   .card h2{
-    font-family:'Fraunces', serif;
-    font-weight:900;
     font-size:clamp(28px,6vw,34px);
     line-height:1.1;
     color:var(--bordeaux);
@@ -204,8 +213,8 @@
   }
   .field input,.field textarea{
     width:100%;
-    font-family:'DM Sans', sans-serif;
-    font-size:15px;
+    font-family:inherit;
+    font-size:16px;
     color:var(--bordeaux);
     background:var(--cream);
     border:1.4px solid var(--bordeaux);
@@ -268,8 +277,6 @@
     cursor:pointer;
   }
   .modal h3{
-    font-family:'Fraunces', serif;
-    font-weight:900;
     font-size:26px;
     margin-bottom:14px;
   }
@@ -308,148 +315,151 @@
   </defs>
 </svg>
 
-<header class="hero">
+<div class="page">
+
   <div class="bg-flowers" aria-hidden="true">
-    <span class="bgf spin-cw" style="width:190px;height:190px;top:-3%;left:-9%;opacity:.32;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
-    <span class="bgf spin-ccw" style="width:140px;height:140px;top:5%;left:76%;opacity:.26;animation-delay:-4s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
-    <span class="bgf drift" style="width:160px;height:160px;top:16%;left:34%;opacity:.2;animation-delay:-8s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
-    <span class="bgf drift" style="width:150px;height:150px;top:26%;left:-10%;opacity:.28;animation-delay:-2s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
-    <span class="bgf spin-cw" style="width:220px;height:220px;top:35%;left:80%;opacity:.22;animation-delay:-11s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
-    <span class="bgf spin-ccw" style="width:130px;height:130px;top:50%;left:6%;opacity:.3;animation-delay:-7s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
-    <span class="bgf drift" style="width:180px;height:180px;top:62%;left:52%;opacity:.24;animation-delay:-5s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
-    <span class="bgf spin-ccw" style="width:170px;height:170px;top:80%;left:-10%;opacity:.26;animation-delay:-9s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
-    <span class="bgf spin-cw" style="width:150px;height:150px;top:88%;left:70%;opacity:.28;animation-delay:-13s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
+    <span class="bgf spin-cw" style="width:190px;height:190px;top:-2%;left:-9%;opacity:.3;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
+    <span class="bgf spin-ccw" style="width:140px;height:140px;top:4%;left:74%;opacity:.24;animation-delay:-4s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
+    <span class="bgf drift" style="width:150px;height:150px;top:12%;left:32%;opacity:.18;animation-delay:-8s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
+    <span class="bgf drift" style="width:150px;height:150px;top:20%;left:-10%;opacity:.26;animation-delay:-2s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
+    <span class="bgf spin-cw" style="width:210px;height:210px;top:27%;left:80%;opacity:.2;animation-delay:-11s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
+    <span class="bgf spin-ccw" style="width:130px;height:130px;top:36%;left:6%;opacity:.28;animation-delay:-7s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
+    <span class="bgf drift" style="width:170px;height:170px;top:44%;left:52%;opacity:.22;animation-delay:-5s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
+    <span class="bgf spin-ccw" style="width:160px;height:160px;top:52%;left:-10%;opacity:.24;animation-delay:-9s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
+    <span class="bgf spin-cw" style="width:150px;height:150px;top:60%;left:72%;opacity:.26;animation-delay:-13s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
+    <span class="bgf drift" style="width:180px;height:180px;top:68%;left:20%;opacity:.22;animation-delay:-1s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
+    <span class="bgf drift" style="width:140px;height:140px;top:76%;left:-8%;opacity:.26;animation-delay:-3s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
+    <span class="bgf spin-cw" style="width:200px;height:200px;top:83%;left:66%;opacity:.2;animation-delay:-10s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
+    <span class="bgf spin-ccw" style="width:150px;height:150px;top:90%;left:-6%;opacity:.24;animation-delay:-6s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
+    <span class="bgf drift" style="width:170px;height:170px;top:96%;left:56%;opacity:.2;animation-delay:-12s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
   </div>
 
-  <div class="hero-content">
-    <div class="logo">CHANTAL</div>
+  <header class="hero">
+    <div class="hero-content">
+      <div class="logo title-font">CHANTAL</div>
 
-    <div class="marks">
-      <span class="mark spin-cw">
-        <svg viewBox="0 0 100 100">
-          <path d="M50,50 Q50,6 94,6 Q94,50 50,50 Z" fill="var(--bordeaux)"/>
-          <path d="M50,50 Q94,50 94,94 Q50,94 50,50 Z" fill="var(--pink-light)"/>
-          <path d="M50,50 Q50,94 6,94 Q6,50 50,50 Z" fill="var(--bordeaux)"/>
-          <path d="M50,50 Q6,50 6,6 Q50,6 50,50 Z" fill="var(--pink-light)"/>
-        </svg>
-      </span>
-      <span class="mark drift">
-        <svg viewBox="0 0 100 100">
-          <clipPath id="ec1"><circle cx="50" cy="50" r="46"/></clipPath>
-          <g clip-path="url(#ec1)">
-            <rect width="100" height="100" fill="var(--bordeaux)"/>
-            <circle cx="26" cy="50" r="46" fill="var(--cream)"/>
-          </g>
-        </svg>
-      </span>
-    </div>
-
-    <p class="invite">
-      Venerdì 25 settembre 2026 alle ore 19:00 vi aspetto all'agriturismo
-      Stekar a Giasbana 25, San Floriano del Collio per festeggiare i miei
-      meravigliosi 18 anni.
-    </p>
-    <p class="invite-sub">
-      Per scoprire maggiori informazioni consultate i link sottostanti e
-      compilate il form per confermare la vostra presenza.
-    </p>
-
-    <div class="marks">
-      <span class="mark drift" style="animation-delay:-2s">
-        <svg viewBox="0 0 100 100">
-          <clipPath id="ec2"><circle cx="50" cy="50" r="46"/></clipPath>
-          <g clip-path="url(#ec2)">
-            <rect width="100" height="100" fill="var(--cream)"/>
-            <circle cx="74" cy="50" r="46" fill="var(--bordeaux)"/>
-          </g>
-        </svg>
-      </span>
-      <span class="mark spin-ccw">
-        <svg viewBox="0 0 100 100">
-          <path d="M50,50 Q50,6 94,6 Q94,50 50,50 Z" fill="var(--pink-light)"/>
-          <path d="M50,50 Q94,50 94,94 Q50,94 50,50 Z" fill="var(--bordeaux)"/>
-          <path d="M50,50 Q50,94 6,94 Q6,50 50,50 Z" fill="var(--pink-light)"/>
-          <path d="M50,50 Q6,50 6,6 Q50,6 50,50 Z" fill="var(--bordeaux)"/>
-        </svg>
-      </span>
-    </div>
-
-    <div class="countdown" aria-live="polite">
-      <div class="countdown-item">
-        <span class="countdown-num" id="cd-days">00</span>
-        <span class="countdown-label">Giorni</span>
+      <div class="marks">
+        <span class="mark spin-cw">
+          <svg viewBox="0 0 100 100">
+            <path d="M50,50 Q50,6 94,6 Q94,50 50,50 Z" fill="var(--bordeaux)"/>
+            <path d="M50,50 Q94,50 94,94 Q50,94 50,50 Z" fill="var(--pink-light)"/>
+            <path d="M50,50 Q50,94 6,94 Q6,50 50,50 Z" fill="var(--bordeaux)"/>
+            <path d="M50,50 Q6,50 6,6 Q50,6 50,50 Z" fill="var(--pink-light)"/>
+          </svg>
+        </span>
+        <span class="mark drift">
+          <svg viewBox="0 0 100 100">
+            <clipPath id="ec1"><circle cx="50" cy="50" r="46"/></clipPath>
+            <g clip-path="url(#ec1)">
+              <rect width="100" height="100" fill="var(--bordeaux)"/>
+              <circle cx="26" cy="50" r="46" fill="var(--cream)"/>
+            </g>
+          </svg>
+        </span>
       </div>
-      <div class="countdown-item">
-        <span class="countdown-num" id="cd-hours">00</span>
-        <span class="countdown-label">Ore</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-num" id="cd-mins">00</span>
-        <span class="countdown-label">Min</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-num" id="cd-secs">00</span>
-        <span class="countdown-label">Sec</span>
-      </div>
-    </div>
 
-    <div class="cta">
-      <a class="btn btn-cream" target="_blank" rel="noopener"
-         href="https://www.google.com/maps/search/?api=1&query=Agriturismo+Stekar+Giasbana+25+San+Floriano+del+Collio">
-        Luogo della festa
-      </a>
-      <button type="button" class="btn btn-bordeaux" id="dresscode-open">
-        Dress code
-      </button>
+      <p class="invite">
+        Venerdì 25 settembre 2026 alle ore 19:00 vi aspetto all'agriturismo
+        Stekar a Giasbana 25, San Floriano del Collio per festeggiare i miei
+        meravigliosi 18 anni.
+      </p>
+      <p class="invite-sub">
+        Per scoprire maggiori informazioni consultate i link sottostanti e
+        compilate il form per confermare la vostra presenza.
+      </p>
+
+      <div class="marks">
+        <span class="mark drift" style="animation-delay:-2s">
+          <svg viewBox="0 0 100 100">
+            <clipPath id="ec2"><circle cx="50" cy="50" r="46"/></clipPath>
+            <g clip-path="url(#ec2)">
+              <rect width="100" height="100" fill="var(--cream)"/>
+              <circle cx="74" cy="50" r="46" fill="var(--bordeaux)"/>
+            </g>
+          </svg>
+        </span>
+        <span class="mark spin-ccw">
+          <svg viewBox="0 0 100 100">
+            <path d="M50,50 Q50,6 94,6 Q94,50 50,50 Z" fill="var(--pink-light)"/>
+            <path d="M50,50 Q94,50 94,94 Q50,94 50,50 Z" fill="var(--bordeaux)"/>
+            <path d="M50,50 Q50,94 6,94 Q6,50 50,50 Z" fill="var(--pink-light)"/>
+            <path d="M50,50 Q6,50 6,6 Q50,6 50,50 Z" fill="var(--bordeaux)"/>
+          </svg>
+        </span>
+      </div>
+
+      <div class="countdown" aria-live="polite">
+        <div class="countdown-item">
+          <span class="countdown-num" id="cd-days">00</span>
+          <span class="countdown-label">Giorni</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="cd-hours">00</span>
+          <span class="countdown-label">Ore</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="cd-mins">00</span>
+          <span class="countdown-label">Min</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-num" id="cd-secs">00</span>
+          <span class="countdown-label">Sec</span>
+        </div>
+      </div>
+
+      <div class="cta">
+        <a class="btn btn-cream title-font" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/search/?api=1&query=Agriturismo+Stekar+Giasbana+25+San+Floriano+del+Collio">
+          Luogo della festa
+        </a>
+        <button type="button" class="btn btn-bordeaux title-font" id="dresscode-open">
+          Dress code
+        </button>
+      </div>
     </div>
+  </header>
+
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 600 110" preserveAspectRatio="none">
+      <path d="M0,0 L600,0 L600,18 C600,18 430,110 300,110 C170,110 0,18 0,18 Z" fill="var(--bordeaux)"/>
+    </svg>
   </div>
-</header>
 
-<div class="divider" aria-hidden="true">
-  <svg viewBox="0 0 600 110" preserveAspectRatio="none">
-    <path d="M0,0 L600,0 L600,18 C600,18 430,110 300,110 C170,110 0,18 0,18 Z" fill="var(--bordeaux)"/>
-  </svg>
+  <div class="rsvp-stack">
+    <div class="bordeaux-fill" aria-hidden="true"></div>
+    <section class="rsvp-section">
+      <div class="tri tri-left" aria-hidden="true"></div>
+      <div class="tri tri-right" aria-hidden="true"></div>
+
+      <div class="card">
+        <h2 class="title-font">Conferma la tua presenza</h2>
+        <form id="rsvp-form">
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" required>
+          </div>
+          <div class="field">
+            <label for="cognome">Cognome</label>
+            <input type="text" id="cognome" name="cognome" required>
+          </div>
+          <div class="field">
+            <label for="messaggio">Messaggio</label>
+            <textarea id="messaggio" name="messaggio"></textarea>
+          </div>
+          <button type="submit" class="btn btn-bordeaux submit-btn title-font" id="submit-btn">Invia</button>
+          <p class="form-msg" id="form-msg" aria-live="polite"></p>
+        </form>
+        <p class="fine-print">I tuoi dati verranno usati solo per organizzare la festa e non saranno condivisi con nessuno.</p>
+      </div>
+    </section>
+  </div>
+
 </div>
-
-<section class="rsvp-section">
-  <div class="bg-flowers" aria-hidden="true">
-    <span class="bgf spin-ccw" style="width:170px;height:170px;top:-6%;left:66%;opacity:.26;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
-    <span class="bgf drift" style="width:140px;height:140px;top:6%;left:-8%;opacity:.28;animation-delay:-3s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
-    <span class="bgf spin-cw" style="width:200px;height:200px;top:26%;left:80%;opacity:.2;animation-delay:-9s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
-    <span class="bgf spin-ccw" style="width:150px;height:150px;top:46%;left:-9%;opacity:.26;animation-delay:-6s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
-    <span class="bgf drift" style="width:180px;height:180px;top:66%;left:74%;opacity:.22;animation-delay:-1s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
-    <span class="bgf spin-cw" style="width:150px;height:150px;top:86%;left:2%;opacity:.24;animation-delay:-10s;"><svg viewBox="0 0 100 100"><use href="#flowerDark"/></svg></span>
-  </div>
-
-  <div class="tri tri-left" aria-hidden="true"></div>
-  <div class="tri tri-right" aria-hidden="true"></div>
-
-  <div class="card">
-    <h2>Conferma la tua presenza</h2>
-    <form id="rsvp-form">
-      <div class="field">
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome" required>
-      </div>
-      <div class="field">
-        <label for="cognome">Cognome</label>
-        <input type="text" id="cognome" name="cognome" required>
-      </div>
-      <div class="field">
-        <label for="messaggio">Messaggio</label>
-        <textarea id="messaggio" name="messaggio"></textarea>
-      </div>
-      <button type="submit" class="btn btn-bordeaux submit-btn" id="submit-btn">Invia</button>
-      <p class="form-msg" id="form-msg" aria-live="polite"></p>
-    </form>
-    <p class="fine-print">I tuoi dati verranno usati solo per organizzare la festa e non saranno condivisi con nessuno.</p>
-  </div>
-</section>
 
 <div class="modal-backdrop" id="dresscode-modal" hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="dresscode-title">
     <button class="modal-close" id="dresscode-close" aria-label="Chiudi">&times;</button>
-    <h3 id="dresscode-title">Dress code</h3>
+    <h3 id="dresscode-title" class="title-font">Dress code</h3>
     <p>È preferibilmente richiesto un abbigliamento elegante. Vi chiediamo cortesemente di evitare colori che richiamino in modo eccessivo il rosa e il fucsia, per non confondersi con la palette della serata.</p>
     <ul>
       <li>Abbigliamento elegante</li>
