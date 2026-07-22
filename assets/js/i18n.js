@@ -37,7 +37,7 @@ EN: {
 "contract.body":"We work alongside architecture firms, general contractors, and companies on turnkey projects — from space planning to supply and installation, coordinating executive, operative, meeting rooms, and acoustics into a single vision.",
 "cta.discoverProjects":"Discover Our Projects",
 "news.word1":"News","news.word2":"and Events","news.discoverAll":"Discover All the Events",
-"lastUpdates.word1":"Last","lastUpdates.word2":"Updates",
+"lastUpdates.word1":"Last","lastUpdates.word2":"Updates","lastUpdates.discoverAll":"Discover All the News",
 "newsletter.word1":"Stay","newsletter.word2":"Tuned",
 "newsletter.body":"News, collections, and projects from Codutti straight to your inbox.",
 "newsletter.subscribe":"Subscribe to the Newsletter",
@@ -81,7 +81,7 @@ IT: {
 "contract.body":"Lavoriamo al fianco di studi di architettura, general contractor e aziende su progetti chiavi in mano — dalla progettazione degli spazi alla fornitura e installazione, coordinando executive, operative, sale riunioni e acustica in un'unica visione.",
 "cta.discoverProjects":"Scopri i Nostri Progetti",
 "news.word1":"News","news.word2":"ed Eventi","news.discoverAll":"Scopri Tutti gli Eventi",
-"lastUpdates.word1":"Ultimi","lastUpdates.word2":"Aggiornamenti",
+"lastUpdates.word1":"Ultimi","lastUpdates.word2":"Aggiornamenti","lastUpdates.discoverAll":"Scopri Tutte le Novità",
 "newsletter.word1":"Resta","newsletter.word2":"Aggiornato",
 "newsletter.body":"News, collezioni e progetti Codutti direttamente nella tua casella di posta.",
 "newsletter.subscribe":"Iscriviti alla Newsletter",
@@ -125,7 +125,7 @@ FR: {
 "contract.body":"Nous travaillons aux côtés de cabinets d'architecture, d'entreprises générales et de sociétés sur des projets clés en main — de la planification des espaces à la fourniture et à l'installation, en coordonnant executive, operative, salles de réunion et acoustique en une seule vision.",
 "cta.discoverProjects":"Découvrez Nos Projets",
 "news.word1":"Actualités","news.word2":"et Événements","news.discoverAll":"Découvrir Tous les Événements",
-"lastUpdates.word1":"Dernières","lastUpdates.word2":"Actualités",
+"lastUpdates.word1":"Dernières","lastUpdates.word2":"Actualités","lastUpdates.discoverAll":"Découvrir Toutes les Actualités",
 "newsletter.word1":"Restez","newsletter.word2":"Informé",
 "newsletter.body":"Actualités, collections et projets Codutti directement dans votre boîte mail.",
 "newsletter.subscribe":"S'abonner à la Newsletter",
@@ -169,7 +169,7 @@ DE: {
 "contract.body":"Wir arbeiten gemeinsam mit Architekturbüros, Generalunternehmern und Unternehmen an schlüsselfertigen Projekten — von der Raumplanung über Lieferung und Installation bis zur Koordination von Executive-, Operative-, Besprechungs- und Akustikbereichen in einer einzigen Vision.",
 "cta.discoverProjects":"Entdecken Sie Unsere Projekte",
 "news.word1":"Neuigkeiten","news.word2":"und Veranstaltungen","news.discoverAll":"Alle Veranstaltungen Ansehen",
-"lastUpdates.word1":"Neueste","lastUpdates.word2":"Beiträge",
+"lastUpdates.word1":"Neueste","lastUpdates.word2":"Beiträge","lastUpdates.discoverAll":"Alle Neuigkeiten Ansehen",
 "newsletter.word1":"Bleiben","newsletter.word2":"Sie Informiert",
 "newsletter.body":"Neuigkeiten, Kollektionen und Projekte von Codutti direkt in Ihr Postfach.",
 "newsletter.subscribe":"Newsletter Abonnieren",
@@ -213,7 +213,7 @@ SP: {
 "contract.body":"Trabajamos junto a estudios de arquitectura, contratistas generales y empresas en proyectos llave en mano — desde la planificación de espacios hasta el suministro e instalación, coordinando executive, operative, salas de reuniones y acústica en una sola visión.",
 "cta.discoverProjects":"Descubre Nuestros Proyectos",
 "news.word1":"Noticias","news.word2":"y Eventos","news.discoverAll":"Descubre Todos los Eventos",
-"lastUpdates.word1":"Últimas","lastUpdates.word2":"Novedades",
+"lastUpdates.word1":"Últimas","lastUpdates.word2":"Novedades","lastUpdates.discoverAll":"Descubre Todas las Novedades",
 "newsletter.word1":"Mantente","newsletter.word2":"Informado",
 "newsletter.body":"Noticias, colecciones y proyectos de Codutti directamente en tu correo.",
 "newsletter.subscribe":"Suscribirse al Newsletter",
@@ -257,7 +257,7 @@ RU: {
 "contract.body":"Мы работаем совместно с архитектурными бюро, генеральными подрядчиками и компаниями над проектами «под ключ» — от планировки пространства до поставки и монтажа, объединяя решения Executive, Operative, переговорные зоны и акустику в единую концепцию.",
 "cta.discoverProjects":"Узнать о Наших Проектах",
 "news.word1":"Новости","news.word2":"и события","news.discoverAll":"Смотреть Все События",
-"lastUpdates.word1":"Последние","lastUpdates.word2":"Новости",
+"lastUpdates.word1":"Последние","lastUpdates.word2":"Новости","lastUpdates.discoverAll":"Смотреть Все Новости",
 "newsletter.word1":"Будьте","newsletter.word2":"в Курсе",
 "newsletter.body":"Новости, коллекции и проекты Codutti прямо в вашей почте.",
 "newsletter.subscribe":"Подписаться на Рассылку",
@@ -301,7 +301,7 @@ AR: {
 "contract.body":"نعمل جنبًا إلى جنب مع مكاتب الهندسة المعمارية والمقاولين العامين والشركات في مشاريع متكاملة التسليم — من تخطيط المساحات إلى التوريد والتركيب، مع تنسيق حلول Executive وOperative وقاعات الاجتماعات والصوتيات ضمن رؤية واحدة موحدة.",
 "cta.discoverProjects":"اكتشف مشاريعنا",
 "news.word1":"الأخبار","news.word2":"والفعاليات","news.discoverAll":"اكتشف جميع الفعاليات",
-"lastUpdates.word1":"آخر","lastUpdates.word2":"التحديثات",
+"lastUpdates.word1":"آخر","lastUpdates.word2":"التحديثات","lastUpdates.discoverAll":"اكتشف جميع الأخبار",
 "newsletter.word1":"ابقَ","newsletter.word2":"على اطلاع",
 "newsletter.body":"أحدث الأخبار والمجموعات ومشاريع Codutti مباشرة إلى بريدك الإلكتروني.",
 "newsletter.subscribe":"اشترك في النشرة الإخبارية",
@@ -345,7 +345,7 @@ CH: {
 "contract.body":"我们与建筑设计公司、总承包商及企业携手合作,承接交钥匙项目——从空间规划到供货与安装,将行政、运营、会议室与声学方案协调统一为一体化愿景。",
 "cta.discoverProjects":"探索我们的项目",
 "news.word1":"新闻","news.word2":"与活动","news.discoverAll":"查看所有活动",
-"lastUpdates.word1":"最新","lastUpdates.word2":"动态",
+"lastUpdates.word1":"最新","lastUpdates.word2":"动态","lastUpdates.discoverAll":"查看所有新闻",
 "newsletter.word1":"保持","newsletter.word2":"关注",
 "newsletter.body":"Codutti 的最新消息、系列与项目,直接送达您的邮箱。",
 "newsletter.subscribe":"订阅新闻通讯",
@@ -389,7 +389,7 @@ JP: {
 "contract.body":"私たちは建築事務所、ゼネコン、企業とともにターンキープロジェクトに取り組んでいます——スペースプランニングから納品、設置に至るまで、エグゼクティブ、オペレーティブ、会議室、音響を一つのビジョンへと統合します。",
 "cta.discoverProjects":"私たちのプロジェクトを見る",
 "news.word1":"ニュース","news.word2":"&イベント","news.discoverAll":"すべてのイベントを見る",
-"lastUpdates.word1":"最新","lastUpdates.word2":"アップデート",
+"lastUpdates.word1":"最新","lastUpdates.word2":"アップデート","lastUpdates.discoverAll":"すべてのニュースを見る",
 "newsletter.word1":"最新情報を","newsletter.word2":"お届けします",
 "newsletter.body":"Coduttiのニュース、コレクション、プロジェクト情報をメールでお届けします。",
 "newsletter.subscribe":"ニュースレターを購読する",
@@ -430,6 +430,27 @@ function applyLanguage(code) {
   document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
     const value = dict[el.dataset.i18nAria];
     if (value !== undefined) el.setAttribute("aria-label", value);
+  });
+
+  /* Some short headings (Stay Tuned, Last Updates) stay translated, so a
+     longer translation needs to shrink to stay on at most two horizontal
+     lines instead of wrapping mid-word into a tall vertical stack. Scale
+     font-size down from the CSS-computed baseline in proportion to how
+     many more characters the translation has than the English original
+     (data-i18n-autofit holds that English character count). */
+  document.querySelectorAll("[data-i18n-autofit]").forEach((el) => {
+    el.style.fontSize = "";
+  });
+  requestAnimationFrame(() => {
+    document.querySelectorAll("[data-i18n-autofit]").forEach((el) => {
+      const baseLen = Number(el.dataset.i18nAutofit) || el.textContent.length;
+      const curLen = el.textContent.length;
+      if (curLen > baseLen) {
+        const computedSize = parseFloat(getComputedStyle(el).fontSize);
+        const scale = Math.max(0.4, baseLen / curLen);
+        el.style.fontSize = (computedSize * scale) + "px";
+      }
+    });
   });
 
   try { localStorage.setItem("codutti_lang", code); } catch (e) {}

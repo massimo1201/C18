@@ -1094,6 +1094,8 @@ p.vs-body {
 
 .event-map {
   margin-top: clamp(32px, 5vw, 48px);
+  max-width: 880px;
+  margin-inline: auto;
   background: var(--cream);
 }
 .event-map__svg {
@@ -1189,7 +1191,7 @@ p.vs-body {
   align-items: center;
   gap: 28px;
 }
-.newsletter h2 { color: var(--white); max-width: 12ch; }
+.newsletter h2 { color: var(--white); max-width: 560px; }
 .newsletter p { color: var(--white); font-family: var(--font-body); max-width: 34ch; margin-top: 10px; }
 .newsletter-form {
   display: flex;
