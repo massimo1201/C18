@@ -656,8 +656,8 @@ body.nav-open { overflow: hidden; }
   gap: clamp(14px, 2vw, 20px);
 }
 .photo-box .eyebrow { color: var(--white); opacity: 0.65; }
-.photo-box h2 { color: var(--white); }
-.photo-box h2 .sm { color: var(--white); opacity: 0.55; }
+.photo-box h1, .photo-box h2 { color: var(--white); }
+.photo-box h1 .sm, .photo-box h2 .sm { color: var(--white); opacity: 0.55; }
 .photo-box p.lede { color: rgba(255,253,245,0.82); max-width: 56ch; }
 .photo-box__meta {
   display: flex;

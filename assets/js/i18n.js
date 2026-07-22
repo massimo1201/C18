@@ -48,7 +48,7 @@ EN: {
 },
 IT: {
 "nav.company":"Azienda","nav.news":"News ed Eventi","nav.products":"I Nostri Prodotti","nav.collections":"Collezioni e Cataloghi","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.contact":"Contattaci",
-"cat.desks":"Scrivanie","cat.tables":"Tavoli Riunione e Sharing","cat.seatings":"Sedute","cat.coffeeTables":"Tavolini","cat.storage":"Contenitori","cat.receptions":"Reception","cat.acoustic":"Soluzioni Acustiche",
+"cat.desks":"Scrivanie","cat.tables":"Tavoli Riunione e Sharing","cat.seatings":"Sedute","cat.coffeeTables":"Tavolini","cat.storage":"Archiviazione","cat.receptions":"Reception","cat.acoustic":"Soluzioni Acustiche",
 "hero.discover":"Scopri la Collezione iSixty",
 "about.title":"Siamo Codutti: più di 70 anni di spazi di lavoro.",
 "about.body":"La storia di Codutti inizia negli anni '50, quando tre fratelli unirono le forze in una modesta bottega di paese. Da allora, Codutti ha costruito un'eredità di qualità e prestigio, diventando un marchio di riferimento nel mercato dell'arredamento di lusso. L'attenzione al dettaglio e l'affidabilità dei prodotti portarono l'azienda a fornire gli arredi per due icone della flotta italiana negli anni '60: le navi da crociera Raffaello e Michelangelo. Nel corso degli anni, Codutti ha affinato la propria passione per la produzione di arredi di alta gamma, specializzandosi in particolare nel settore ufficio — introducendo una lavorazione meticolosa di pelli e cuoi accanto alle tradizionali proposte in legno.",
