@@ -437,18 +437,56 @@ function applyLanguage(code) {
      lines instead of wrapping mid-word into a tall vertical stack. Scale
      font-size down from the CSS-computed baseline in proportion to how
      many more characters the translation has than the English original
-     (data-i18n-autofit holds that English character count). */
+     (data-i18n-autofit holds that English character count). All words that
+     belong to the same heading (e.g. "Last" / "Updates") must end up at the
+     same font-size, so the scale is computed per group, not per word. */
   document.querySelectorAll("[data-i18n-autofit]").forEach((el) => {
     el.style.fontSize = "";
   });
   requestAnimationFrame(() => {
+    const groups = new Map();
     document.querySelectorAll("[data-i18n-autofit]").forEach((el) => {
-      const baseLen = Number(el.dataset.i18nAutofit) || el.textContent.length;
-      const curLen = el.textContent.length;
-      if (curLen > baseLen) {
-        const computedSize = parseFloat(getComputedStyle(el).fontSize);
-        const scale = Math.max(0.4, baseLen / curLen);
-        el.style.fontSize = (computedSize * scale) + "px";
+      const group = el.closest(".mix-title") || el.parentElement;
+      if (!groups.has(group)) groups.set(group, []);
+      groups.get(group).push(el);
+    });
+
+    /* Count the heading's real rendered line count (not per-word: the two
+       spans wrap together as one line flow), by clustering the top offsets
+       of every line fragment across all words in the group. */
+    function countLines(els) {
+      const tops = [];
+      els.forEach((el) => {
+        Array.from(el.getClientRects()).forEach((r) => tops.push(r.top));
+      });
+      tops.sort((a, b) => a - b);
+      let lines = 0, last = null;
+      tops.forEach((t) => {
+        if (last === null || t - last > 4) { lines++; last = t; }
+      });
+      return lines;
+    }
+
+    groups.forEach((els) => {
+      let scale = 1;
+      els.forEach((el) => {
+        const baseLen = Number(el.dataset.i18nAutofit) || el.textContent.length;
+        const curLen = el.textContent.length;
+        const s = curLen > baseLen ? Math.max(0.4, baseLen / curLen) : 1;
+        scale = Math.min(scale, s);
+      });
+      const baseComputedSize = parseFloat(getComputedStyle(els[0]).fontSize);
+      const apply = (s) => els.forEach((el) => { el.style.fontSize = (baseComputedSize * s) + "px"; });
+      if (scale < 1) apply(scale);
+
+      /* Some scripts (CJK, Arabic) don't shrink proportionally to Latin
+         character counts, so keep trimming until it actually fits on two
+         lines, with a sane floor so text never becomes unreadable. */
+      let guard = 0;
+      while (countLines(els) > 2 && scale > 0.4 && guard < 20) {
+        scale = Math.max(0.4, scale - 0.05);
+        apply(scale);
+        guard++;
       }
     });
   });

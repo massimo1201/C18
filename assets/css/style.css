@@ -108,6 +108,10 @@ h1, h2, h3, h4,
   display: inline;
   overflow-wrap: break-word;
 }
+/* The natural inter-word space can render almost invisibly small when the
+   line wraps right after it (font shaping quirk), so guarantee a real gap
+   between the two words of the heading explicitly. */
+.mix-title .lg:first-child { margin-right: 0.22em; }
 .mix-title .sm {
   display: inline-block;
   max-width: 100%;
@@ -620,6 +624,12 @@ body.nav-open { overflow: hidden; }
   border-color: var(--black);
 }
 .btn--solid:hover { opacity: 0.82; }
+.btn--white-fill {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--white);
+}
+.btn--white-fill:hover { opacity: 0.82; }
 
 .section--split { display: grid; gap: clamp(24px, 4vw, 32px); }
 @media (min-width: 900px) { .section--split.two { grid-template-columns: repeat(2,1fr); } }
