@@ -354,68 +354,7 @@ body.nav-open .brand img {
 
 body.nav-open { overflow: hidden; }
 
-/* ---------- Off-canvas nav: mega menu (Our Products) ---------- */
-
 .nav-overlay { overflow-y: auto; }
-
-.nav-mega { border: none; }
-.nav-mega summary {
-  display: flex;
-  align-items: baseline;
-  gap: 18px;
-  font-family: var(--font-display);
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: clamp(1.8rem, 6vw, 3.6rem);
-  padding: clamp(10px, 1.6vw, 16px) 0;
-  transition: opacity .3s var(--ease);
-  opacity: 0.92;
-  cursor: pointer;
-  list-style: none;
-}
-.nav-mega summary::-webkit-details-marker { display: none; }
-.nav-mega summary:hover { opacity: 1; }
-.nav-mega summary .num { font-size: 13px; opacity: 0.5; letter-spacing: 0.1em; }
-.nav-mega summary::after {
-  content: "+";
-  margin-left: auto;
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  font-weight: 400;
-  opacity: 0.5;
-  transition: transform .3s var(--ease);
-}
-.nav-mega[open] summary::after { transform: rotate(45deg); }
-
-.nav-mega__panel {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(18px, 2.4vw, 26px);
-  padding: clamp(6px, 1vw, 12px) 0 clamp(24px, 3.4vw, 36px);
-}
-.nav-mega__cat { display: flex; flex-direction: column; gap: 10px; }
-.nav-mega__cat-link {
-  font-family: var(--font-display);
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: clamp(1.1rem, 2.4vw, 1.5rem);
-  color: var(--white);
-  opacity: 0.85;
-  transition: opacity .25s var(--ease);
-}
-.nav-mega__cat-link:hover { opacity: 1; }
-.nav-mega__sub {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 24px;
-}
-.nav-mega__sub a {
-  font-family: var(--font-body);
-  font-size: 14px;
-  letter-spacing: 0.02em;
-  color: rgba(255,253,245,0.6);
-  transition: color .25s var(--ease);
-}
-.nav-mega__sub a:hover { color: var(--white); }
 
 /* ---------- Products mega menu (light bg, "Our Products" section) ---------- */
 
@@ -1039,8 +978,20 @@ p.vs-body {
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x proximity;
-  padding-bottom: 8px;
+  padding-bottom: clamp(28px, 4vw, 40px);
   -webkit-overflow-scrolling: touch;
+  scrollbar-color: var(--black) transparent;
+  scrollbar-width: thin;
+}
+.news-updates__grid::-webkit-scrollbar {
+  height: 4px;
+}
+.news-updates__grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+.news-updates__grid::-webkit-scrollbar-thumb {
+  background: var(--black);
+  border-radius: 999px;
 }
 
 .update-card {
@@ -1380,6 +1331,8 @@ p.vs-body {
 }
 .footer-contact .contact-lead--compact a {
   font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  border-bottom: none;
+  padding-bottom: 0;
 }
 .contact-request-form {
   margin-top: clamp(24px, 3.4vw, 36px);
