@@ -94,6 +94,20 @@ h1, h2, h3, h4,
   margin-bottom: clamp(16px, 2.4vw, 28px);
 }
 
+/* Titles and headings stay in English regardless of language (see i18n),
+   so they must keep their flush-left "bandiera sinistra" reading order even
+   when the page direction flips to RTL for Arabic. */
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] .mix-title,
+html[dir="rtl"] .section-title,
+html[dir="rtl"] .eyebrow {
+  text-align: left;
+  direction: ltr;
+}
+html[dir="rtl"] .eyebrow { justify-content: flex-start; }
+
 .eyebrow::before {
   content: "";
   width: 34px;
@@ -1299,6 +1313,7 @@ p.vs-body {
 /* ---------- Footer (black / policies) ---------- */
 
 .site-footer {
+  width: 100%;
   background: var(--black);
   color: var(--white);
   padding-top: clamp(56px, 7vw, 84px);
@@ -1306,6 +1321,12 @@ p.vs-body {
   display: flex;
   flex-direction: column;
   gap: clamp(36px, 5vw, 56px);
+}
+.site-footer > div {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--pad);
 }
 
 .footer-logo img {
