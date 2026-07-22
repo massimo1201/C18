@@ -94,19 +94,15 @@ h1, h2, h3, h4,
   margin-bottom: clamp(16px, 2.4vw, 28px);
 }
 
-/* Titles and headings stay in English regardless of language (see i18n),
-   so they must keep their flush-left "bandiera sinistra" reading order even
-   when the page direction flips to RTL for Arabic. */
-html[dir="rtl"] h1,
-html[dir="rtl"] h2,
-html[dir="rtl"] h3,
-html[dir="rtl"] .mix-title,
-html[dir="rtl"] .section-title,
-html[dir="rtl"] .eyebrow {
-  text-align: left;
-  direction: ltr;
+/* The page layout, nav, titles and controls always stay left-to-right —
+   even for Arabic — so the structure never mirrors. Only actual prose /
+   body-copy paragraphs read right-to-left, matching customary Arabic
+   typesetting; everything else (headings, buttons, forms, nav) is
+   unaffected by language. */
+html[lang="ar"] p[data-i18n] {
+  direction: rtl;
+  text-align: right;
 }
-html[dir="rtl"] .eyebrow { justify-content: flex-start; }
 
 .eyebrow::before {
   content: "";

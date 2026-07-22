@@ -406,7 +406,12 @@ const LANG_HTML_CODE = { IT: "it", EN: "en", FR: "fr", DE: "de", SP: "es", RU: "
 function applyLanguage(code) {
   const dict = I18N[code] || I18N.EN;
   document.documentElement.lang = LANG_HTML_CODE[code] || "en";
-  document.documentElement.dir = code === "AR" ? "rtl" : "ltr";
+  /* Layout, nav and titles stay LTR for every language, including Arabic —
+     only the translated body copy itself should read right-to-left, so we
+     never flip the page's own direction (that would mirror the whole
+     layout via the browser's RTL defaults). See the [lang="ar"] rules in
+     style.css for the scoped body-text-only RTL treatment. */
+  document.documentElement.dir = "ltr";
 
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const value = dict[el.dataset.i18n];
