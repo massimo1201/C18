@@ -779,6 +779,32 @@ p.vs-body {
 }
 .vs-meta.is-visible { opacity: 1; transform: translateY(0); }
 
+.vs-cta {
+  margin-top: clamp(28px, 4vw, 44px);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  min-height: 46px;
+  padding: 10px 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(10,10,10,0.4);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(13px, 1.1vw, 15px);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--black);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .5s var(--ease), transform .5s var(--ease), background .25s var(--ease), border-color .25s var(--ease);
+}
+.vs-cta.is-visible { opacity: 1; transform: translateY(0); }
+.vs-cta:hover {
+  background: rgba(10,10,10,0.08);
+  border-color: var(--black);
+}
+
 /* Typewriter headings: text reveal is driven by JS appending characters,
    so cancel the fade/translate reveal used elsewhere. Body copy keeps the
    scroll-linked blur/fade reveal above. A blinking cursor is only shown
@@ -801,6 +827,18 @@ p.vs-body {
 }
 .vs-meta a:hover {
   opacity: 0.55;
+}
+
+/* ---------- Spaces & Catalogues ---------- */
+
+.spaces-catalogue__group {
+  margin-top: clamp(48px, 6vw, 72px);
+}
+.spaces-catalogue__group h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  margin-bottom: clamp(16px, 2.2vw, 24px);
 }
 
 /* ---------- Line bands (Operative catch-all) ---------- */

@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+  /* Apply the saved/default language before anything below reads text
+     content (e.g. the typewriter setup caches each heading's text). */
+  let savedLang = 'EN';
+  try { savedLang = localStorage.getItem('codutti_lang') || 'EN'; } catch (e) {}
+  if (window.applyLanguage) window.applyLanguage(savedLang);
+
   const header = document.querySelector('.site-header');
   const menuBtn = document.querySelector('.menu-btn');
   const navOverlay = document.querySelector('.nav-overlay');
@@ -12,6 +18,28 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* Hero video: force-start on load. The muted/autoplay/playsinline attributes
+     usually suffice, but some browsers only honour autoplay once the muted
+     property is also set at runtime — this makes the first play attempt
+     explicit instead of relying on the attribute alone, and retries once on
+     the first user interaction if the browser still blocked it. */
+  const heroVideo = document.querySelector('.hero-stage__video');
+  if (heroVideo) {
+    heroVideo.muted = true;
+    heroVideo.playsInline = true;
+    const tryPlay = () => heroVideo.play().catch(() => {});
+    tryPlay();
+    heroVideo.addEventListener('loadedmetadata', tryPlay, { once: true });
+    heroVideo.addEventListener('canplay', tryPlay, { once: true });
+    const retryOnInteraction = () => {
+      if (heroVideo.paused) tryPlay();
+      window.removeEventListener('pointerdown', retryOnInteraction);
+      window.removeEventListener('keydown', retryOnInteraction);
+    };
+    window.addEventListener('pointerdown', retryOnInteraction, { once: true });
+    window.addEventListener('keydown', retryOnInteraction, { once: true });
+  }
 
   /* Off-canvas menu toggle */
   if (menuBtn && navOverlay) {
@@ -51,11 +79,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const isOpen = langOverlay.classList.contains('is-open');
       isOpen ? closeLang() : openLang();
     });
+    const savedLangItem = langOverlay.querySelector(`.lang-overlay__item[data-lang="${savedLang}"]`);
+    if (savedLangItem) {
+      langOverlay.querySelectorAll('.lang-overlay__item').forEach((el) => el.classList.remove('is-active'));
+      savedLangItem.classList.add('is-active');
+      langBtn.textContent = savedLang;
+    }
     langOverlay.querySelectorAll('.lang-overlay__item').forEach((item) => {
       item.addEventListener('click', () => {
         langOverlay.querySelectorAll('.lang-overlay__item').forEach((el) => el.classList.remove('is-active'));
         item.classList.add('is-active');
         langBtn.textContent = item.dataset.lang;
+        if (window.applyLanguage) window.applyLanguage(item.dataset.lang);
         closeLang();
       });
     });
@@ -96,7 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
        Executive stage which types with a blinking cursor ("scrittura computer"). */
     visionSection.classList.add('is-typewriter');
     const twStages = stages.map((stage, i) => {
-      const words = Array.from(stage.querySelectorAll('.vs-word')).map((el) => ({ el, text: el.textContent }));
+      const words = Array.from(stage.querySelectorAll('.vs-word')).map((el) => {
+        if (!el.dataset.fullText) el.dataset.fullText = el.textContent;
+        return { el };
+      });
       words.forEach((w) => { w.el.textContent = ''; });
       const cursor = visionSection.id === 'essential' && i === 2;
       return { words, cursor, started: false, timers: [] };
@@ -116,13 +154,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const typeNext = () => {
         if (qi >= queue.length) return;
         const item = queue[qi];
+        const text = item.el.dataset.fullText || '';
         let ci = 0;
         item.el.classList.add('is-typing');
         if (s.cursor) item.el.classList.add('has-cursor');
         const timer = setInterval(() => {
           ci++;
-          item.el.textContent = item.text.slice(0, ci);
-          if (ci >= item.text.length) {
+          item.el.textContent = text.slice(0, ci);
+          if (ci >= text.length) {
             clearInterval(timer);
             item.el.classList.remove('is-typing');
             item.el.classList.remove('has-cursor');
@@ -163,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       stages.forEach((stage, i) => {
         stage.classList.toggle('is-active', i === currentStage);
-        stage.querySelectorAll('.vs-word, .vs-body, .vs-meta').forEach((el) => {
+        stage.querySelectorAll('.vs-word, .vs-body, .vs-meta, .vs-cta').forEach((el) => {
           const order = Number(el.dataset.order);
           const visible = i < currentStage || (i === currentStage && order <= visibleIndex);
           el.classList.toggle('is-visible', visible);
