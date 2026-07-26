@@ -244,6 +244,19 @@ document.addEventListener('DOMContentLoaded', () => {
     card.addEventListener('click', () => card.classList.toggle('is-expanded'));
   });
 
+  /* News page: reveal the full news grid on button click */
+  const newsMoreToggle = document.getElementById('newsMoreToggle');
+  const newsMoreGrid = document.getElementById('newsMoreGrid');
+  if (newsMoreToggle && newsMoreGrid) {
+    newsMoreToggle.addEventListener('click', () => {
+      const isHidden = newsMoreGrid.hasAttribute('hidden');
+      newsMoreGrid.toggleAttribute('hidden', !isHidden);
+      newsMoreToggle.textContent = isHidden
+        ? newsMoreToggle.dataset.labelLess
+        : newsMoreToggle.dataset.labelMore;
+    });
+  }
+
   /* Category tab bar: desktop arrow slider, scroll active item into view */
   document.querySelectorAll('.cat-tabs').forEach((tabs) => {
     const track = tabs.querySelector('.cat-tabs__track');
