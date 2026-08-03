@@ -302,6 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const section = document.getElementById(sectionId);
     if (!section) return;
     const preview = section.querySelector('.line-stage__preview');
+    const intro = section.querySelector('.line-stage__intro');
     const descEl = preview.querySelector('.line-stage__text p');
     const linkEl = preview.querySelector('.line-stage__text a');
     const items = Array.from(section.querySelectorAll(itemSelector));
@@ -310,18 +311,21 @@ document.addEventListener('DOMContentLoaded', () => {
     /* On desktop the preview panel's layout space is reserved even while
        hidden (see CSS), so showing/hiding it never shifts the menu column —
        a shift there would move the hovered item out from under a
-       stationary cursor. */
+       stationary cursor. The intro copy (if any) sits behind the preview
+       in the same slot and is covered whenever the preview is active. */
     function show(item) {
       items.forEach((i) => i.classList.toggle('is-active', i === item));
       if (dynamicBg) section.style.backgroundColor = item.dataset.color === 'taupe' ? 'var(--taupe)' : 'var(--cream)';
       descEl.textContent = item.dataset.desc || '';
       if (linkEl) linkEl.href = item.dataset.href || '#';
       preview.classList.add('is-visible');
+      if (intro) intro.classList.add('is-covered');
     }
     function hide() {
       items.forEach((i) => i.classList.remove('is-active'));
       if (dynamicBg) section.style.backgroundColor = '';
       preview.classList.remove('is-visible');
+      if (intro) intro.classList.remove('is-covered');
     }
 
     let pinned = null;

@@ -1584,16 +1584,6 @@ p.vs-body {
   margin-top: clamp(18px, 2.4vw, 24px);
   cursor: default;
 }
-.line-showcase__btn .caret {
-  display: inline-block;
-  width: 2px;
-  height: 1em;
-  background: currentColor;
-  margin-left: 1px;
-  vertical-align: -0.15em;
-  animation: caret-blink 1s step-end infinite;
-}
-@keyframes caret-blink { 50% { opacity: 0; } }
 
 /* ---------- Category page: full-bleed line stage (product types / collections) ---------- */
 
@@ -1615,21 +1605,45 @@ p.vs-body {
 @media (min-width: 900px) {
   .line-stage { flex-direction: row; align-items: flex-start; }
 }
+/* The slot stacks the default intro copy and the category preview in the
+   same grid area so one can sit "behind" the other — activating a category
+   covers the intro instead of pushing it around. */
+.line-stage__slot {
+  display: grid;
+  grid-template-areas: "stage";
+}
+@media (min-width: 900px) { .line-stage__slot { flex: 1 1 auto; min-width: 0; } }
+.line-stage__intro,
+.line-stage__preview {
+  grid-area: stage;
+}
+.line-stage__intro {
+  align-self: start;
+  transition: opacity .3s var(--ease);
+}
+.line-stage__intro p {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  max-width: 46ch;
+  opacity: 0.82;
+}
+.line-stage__intro.is-covered { opacity: 0; pointer-events: none; }
 /* The preview's layout space is reserved even while hidden (opacity/visibility,
    not display:none), so showing it on hover or tap never shifts the menu —
    a shift there would move the hovered/tapped item out from under the
    pointer mid-interaction. */
 .line-stage__preview {
+  z-index: 2;
   display: flex;
   flex-direction: column;
   gap: clamp(16px, 2vw, 22px);
+  background: var(--cream);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity .3s var(--ease);
 }
 .line-stage__preview.is-visible { opacity: 1; visibility: visible; pointer-events: auto; }
-@media (min-width: 900px) { .line-stage__preview { flex: 1 1 auto; min-width: 0; } }
 .line-stage__photo {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -1681,26 +1695,17 @@ p.vs-body {
 .line-menu__item.is-pinned .line-menu__row { opacity: .55; }
 
 /* Our Collections: one shared index, big vertical rotated titles, laid out
-   right-to-left. The index is split into two colored zones (operative /
-   executive) that sit side by side within the same scrollable row. */
-.vertical-menu-section { width: 100%; margin-top: clamp(28px, 3.6vw, 40px); }
+   left-to-right on a single cream band. */
+.vertical-menu-section { width: 100%; margin-top: clamp(28px, 3.6vw, 40px); background: var(--cream); }
 .vertical-menu {
   display: flex;
-  direction: rtl;
-  align-items: stretch;
+  align-items: flex-end;
+  gap: clamp(22px, 3.2vw, 40px);
+  padding: clamp(40px, 6vw, 64px) clamp(28px, 4vw, 48px);
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
-.vertical-menu__group {
-  display: flex;
-  align-items: flex-end;
-  flex: 0 0 auto;
-  gap: clamp(22px, 3.2vw, 40px);
-  padding: clamp(40px, 6vw, 64px) clamp(28px, 4vw, 48px);
-}
-.vertical-menu__group--operative { background: var(--cream); }
-.vertical-menu__group--executive { background: var(--taupe); }
-.vertical-menu__item { flex: 0 0 auto; text-align: center; direction: ltr; }
+.vertical-menu__item { flex: 0 0 auto; text-align: center; }
 .vertical-menu__num {
   display: block;
   font-family: var(--font-display);
