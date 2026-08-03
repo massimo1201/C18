@@ -257,6 +257,89 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* Category page: showcase CTA cycles through collection names with a typewriter effect */
+  document.querySelectorAll('.line-showcase__btn').forEach((btn) => {
+    let items;
+    try { items = JSON.parse(btn.dataset.items || '[]'); } catch (e) { items = []; }
+    if (!items.length) return;
+    const textEl = btn.querySelector('.line-showcase__btn-text');
+    let idx = 0;
+
+    function typeText(text, cb) {
+      let i = 0;
+      const timer = setInterval(() => {
+        i++;
+        textEl.textContent = text.slice(0, i);
+        if (i >= text.length) { clearInterval(timer); if (cb) cb(); }
+      }, 45);
+    }
+    function deleteText(cb) {
+      const timer = setInterval(() => {
+        const current = textEl.textContent;
+        textEl.textContent = current.slice(0, -1);
+        if (current.length <= 1) { clearInterval(timer); if (cb) cb(); }
+      }, 25);
+    }
+    function showItem() {
+      const item = items[idx];
+      btn.href = item.href;
+      typeText(`Discover the ${item.name} Collection`);
+    }
+
+    showItem();
+    setInterval(() => {
+      deleteText(() => {
+        idx = (idx + 1) % items.length;
+        showItem();
+      });
+    }, 20000);
+  });
+
+  /* Category page: full-bleed line stage — hover previews, click pins it open */
+  function initLineStage(sectionId, itemSelector) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    const preview = section.querySelector('.line-stage__preview');
+    const titleEl = preview.querySelector('.line-stage__text h3');
+    const descEl = preview.querySelector('.line-stage__text p');
+    const linkEl = preview.querySelector('.line-stage__text a');
+    const items = Array.from(section.querySelectorAll(itemSelector));
+    if (!items.length) return;
+
+    /* The preview panel is always rendered (populated with the pinned item)
+       so hovering never changes the section's layout/height — a shift there
+       would move the hovered item out from under the cursor mid-hover. */
+    function render(item) {
+      items.forEach((i) => i.classList.toggle('is-active', i === item));
+      section.style.backgroundColor = item.dataset.color === 'taupe' ? 'var(--taupe)' : 'var(--cream)';
+      titleEl.textContent = item.dataset.title || '';
+      descEl.textContent = item.dataset.desc || '';
+      if (linkEl) linkEl.href = item.dataset.href || '#';
+    }
+
+    let pinned = items[0];
+    preview.classList.add('is-visible');
+    render(pinned);
+    pinned.classList.add('is-pinned');
+
+    items.forEach((item) => {
+      const trigger = item.querySelector('button, a') || item;
+      trigger.addEventListener('mouseenter', () => render(item));
+      trigger.addEventListener('mouseleave', () => render(pinned));
+      trigger.addEventListener('focus', () => render(item));
+      trigger.addEventListener('blur', () => render(pinned));
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        items.forEach((i) => i.classList.remove('is-pinned'));
+        pinned = item;
+        pinned.classList.add('is-pinned');
+        render(item);
+      });
+    });
+  }
+  initLineStage('deskCategoryStage', '.line-menu__item');
+  initLineStage('deskCollectionsStage', '.vertical-menu__item');
+
   /* Category tab bar: desktop arrow slider, scroll active item into view */
   document.querySelectorAll('.cat-tabs').forEach((tabs) => {
     const track = tabs.querySelector('.cat-tabs__track');
