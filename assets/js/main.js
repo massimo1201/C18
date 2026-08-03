@@ -317,9 +317,14 @@ document.addEventListener('DOMContentLoaded', () => {
        strip both carry their own opaque background — so whichever stage
        is active must drive both of them directly, not only its own,
        otherwise the *other* one keeps showing through as a stray cream
-       patch while the rest of the page has already turned taupe. */
-    const categorySection = document.getElementById('deskCategoryStage');
-    const collectionsBand = document.querySelector('#deskCollectionsStage .vertical-menu-section');
+       patch while the rest of the page has already turned taupe. Both
+       stages on a given page share one prefix (e.g. "desk" for
+       deskCategoryStage/deskCollectionsStage), so the sibling is derived
+       from sectionId rather than hardcoded — each product page has its
+       own pair of IDs. */
+    const prefix = sectionId.replace(/(Category|Collections)Stage$/, '');
+    const categorySection = document.getElementById(prefix + 'CategoryStage');
+    const collectionsBand = document.querySelector('#' + prefix + 'CollectionsStage .vertical-menu-section');
     const header = document.querySelector('.site-header');
 
     /* On desktop the preview panel's layout space is reserved even while
@@ -333,7 +338,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function show(item) {
       current = item;
       items.forEach((i) => i.classList.toggle('is-active', i === item));
-      const color = item.dataset.color === 'taupe' ? 'var(--taupe)' : 'var(--cream)';
+      const colorMap = { taupe: 'var(--taupe)', sage: 'var(--sage)', cream: 'var(--cream)' };
+      const color = colorMap[item.dataset.color] || 'var(--cream)';
       document.body.style.backgroundColor = color;
       if (header) header.style.backgroundColor = color;
       if (categorySection) categorySection.style.backgroundColor = color;
@@ -417,6 +423,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initLineStage('deskCategoryStage', '.line-menu__item');
   initLineStage('deskCollectionsStage', '.vertical-menu__item');
+  initLineStage('tablesCategoryStage', '.line-menu__item');
+  initLineStage('tablesCollectionsStage', '.vertical-menu__item');
+  initLineStage('seatingsCategoryStage', '.line-menu__item');
+  initLineStage('coffeeCategoryStage', '.line-menu__item');
+  initLineStage('coffeeCollectionsStage', '.vertical-menu__item');
+  initLineStage('storageCategoryStage', '.line-menu__item');
+  initLineStage('storageCollectionsStage', '.vertical-menu__item');
+  initLineStage('receptionsCategoryStage', '.line-menu__item');
+  initLineStage('acousticCategoryStage', '.line-menu__item');
 
   /* The page always ends in the black footer, but html/body default to
      cream — on an elastic/rubber-band overscroll past the bottom edge that
