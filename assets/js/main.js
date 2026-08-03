@@ -303,8 +303,14 @@ document.addEventListener('DOMContentLoaded', () => {
   function initLineStage(sectionId, itemSelector, bgTarget) {
     const section = document.getElementById(sectionId);
     if (!section) return;
-    const preview = section.querySelector('.line-stage__preview');
+    /* A modal-style preview (Our Collections) lives outside the section,
+       as a direct child of body — position:fixed only centers on the true
+       viewport when nothing between it and body has a CSS transform, and
+       .reveal (the scroll-fade-in class on these sections) sets one. */
+    const preview = document.getElementById(sectionId + '-preview') || section.querySelector('.line-stage__preview');
     const intro = section.querySelector('.line-stage__intro');
+    const backdrop = document.getElementById(sectionId + '-backdrop');
+    const titleEl = preview.querySelector('.line-stage__text h3');
     const descEl = preview.querySelector('.line-stage__text p');
     const linkEl = preview.querySelector('.line-stage__text a');
     const items = Array.from(section.querySelectorAll(itemSelector));
@@ -314,34 +320,50 @@ document.addEventListener('DOMContentLoaded', () => {
        hidden (see CSS), so showing/hiding it never shifts the menu column —
        a shift there would move the hovered item out from under a
        stationary cursor. The intro copy (if any) sits behind the preview
-       in the same slot and is covered whenever the preview is active. */
+       in the same slot and is covered whenever the preview is active.
+       When a backdrop is present (Our Collections), the preview is a
+       centered popup instead of an inline panel. */
+    let current = null;
     function show(item) {
+      current = item;
       items.forEach((i) => i.classList.toggle('is-active', i === item));
       const color = item.dataset.color === 'taupe' ? 'var(--taupe)' : 'var(--cream)';
       if (bgTarget === 'section') section.style.backgroundColor = color;
       if (bgTarget === 'preview') preview.style.backgroundColor = color;
+      if (titleEl) titleEl.textContent = item.dataset.title || '';
       descEl.textContent = item.dataset.desc || '';
       if (linkEl) linkEl.href = item.dataset.href || '#';
       preview.classList.add('is-visible');
       if (intro) intro.classList.add('is-covered');
+      if (backdrop) backdrop.classList.add('is-visible');
     }
     function hide() {
+      current = null;
       items.forEach((i) => i.classList.remove('is-active'));
       if (bgTarget === 'section') section.style.backgroundColor = '';
       if (bgTarget === 'preview') preview.style.backgroundColor = '';
       preview.classList.remove('is-visible');
       if (intro) intro.classList.remove('is-covered');
+      if (backdrop) backdrop.classList.remove('is-visible');
     }
 
     let pinned = null;
     items.forEach((item) => {
       const trigger = item.querySelector('button, a') || item;
       trigger.addEventListener('mouseenter', () => show(item));
-      trigger.addEventListener('mouseleave', () => (pinned ? show(pinned) : hide()));
+      /* Moving fast from one item straight to the next can fire the old
+         item's mouseleave after the new item's mouseenter (adjacent-element
+         boundary quirk) — ignore it if something else has taken over since. */
+      trigger.addEventListener('mouseleave', () => {
+        if (current !== item) return;
+        pinned ? show(pinned) : hide();
+      });
       trigger.addEventListener('focus', () => show(item));
-      trigger.addEventListener('blur', () => (pinned ? show(pinned) : hide()));
-      trigger.addEventListener('click', (e) => {
-        e.preventDefault();
+      trigger.addEventListener('blur', () => {
+        if (current !== item) return;
+        pinned ? show(pinned) : hide();
+      });
+      const togglePin = () => {
         items.forEach((i) => i.classList.remove('is-pinned'));
         if (pinned === item) {
           pinned = null;
@@ -351,8 +373,35 @@ document.addEventListener('DOMContentLoaded', () => {
           item.classList.add('is-pinned');
           show(item);
         }
+      };
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        togglePin();
+      });
+      /* Touch devices synthesize mouseenter/mouseleave from a tap's hit-test
+         before dispatching "click" — on a writing-mode:vertical-rl rotated
+         element that synthesis can flicker (enter, leave, enter, leave) and
+         drop the click entirely. touchend always fires reliably, so handle
+         the tap directly here and suppress the unreliable synthetic mouse
+         sequence that would otherwise follow it. */
+      trigger.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        togglePin();
       });
     });
+
+    /* The backdrop is pointer-events:none (see CSS) so it never swallows
+       hover as the cursor crosses it to reach another item — clicking
+       anywhere outside the popup and the index itself dismisses a pin. */
+    if (backdrop) {
+      document.addEventListener('click', (e) => {
+        if (!pinned) return;
+        if (preview.contains(e.target) || section.contains(e.target)) return;
+        items.forEach((i) => i.classList.remove('is-pinned'));
+        pinned = null;
+        hide();
+      });
+    }
   }
   initLineStage('deskCategoryStage', '.line-menu__item', 'section');
   initLineStage('deskCollectionsStage', '.vertical-menu__item', 'preview');
