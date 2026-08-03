@@ -1574,7 +1574,7 @@ p.vs-body {
 
 /* ---------- Category page: single showcase + rotating typewriter CTA ---------- */
 
-.line-showcase { margin-top: clamp(32px, 5vw, 48px); }
+.line-showcase { margin-top: clamp(32px, 5vw, 48px); text-align: center; }
 .line-showcase__media {
   aspect-ratio: 21 / 9;
   border-radius: var(--radius);
@@ -1615,15 +1615,27 @@ p.vs-body {
 @media (min-width: 900px) {
   .line-stage { flex-direction: row; align-items: flex-start; }
 }
-.line-stage__preview { display: none; flex: 1 1 auto; min-width: 0; }
-.line-stage__preview.is-visible { display: flex; flex-direction: column; gap: clamp(16px, 2vw, 22px); }
+/* The preview's layout space is reserved even while hidden (opacity/visibility,
+   not display:none), so showing it on hover or tap never shifts the menu —
+   a shift there would move the hovered/tapped item out from under the
+   pointer mid-interaction. */
+.line-stage__preview {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2vw, 22px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .3s var(--ease);
+}
+.line-stage__preview.is-visible { opacity: 1; visibility: visible; pointer-events: auto; }
+@media (min-width: 900px) { .line-stage__preview { flex: 1 1 auto; min-width: 0; } }
 .line-stage__photo {
   width: 100%;
   aspect-ratio: 16 / 9;
   background: var(--white);
   border-radius: calc(var(--radius) - 10px);
 }
-.line-stage__text h3 { font-size: clamp(1.3rem, 2vw, 1.8rem); margin-bottom: 10px; }
 .line-stage__text p { font-family: var(--font-body); font-size: 15px; max-width: 56ch; opacity: 0.78; margin-bottom: 14px; }
 .line-stage__text > a:not(.btn) {
   display: inline-block;
@@ -1641,12 +1653,19 @@ p.vs-body {
   flex: 0 0 auto;
 }
 @media (min-width: 900px) { .line-menu { width: clamp(280px, 32vw, 420px); } }
+.line-menu__heading {
+  color: var(--black);
+  text-transform: uppercase;
+  margin-bottom: clamp(20px, 2.6vw, 28px);
+}
+@media (min-width: 900px) { .line-menu__heading { text-align: right; } }
 .line-menu__item { border-bottom: 1px solid var(--line); }
 .line-menu__row {
   display: block;
   width: 100%;
   padding: clamp(18px, 2.4vw, 26px) 4px;
   text-align: left;
+  text-transform: uppercase;
   background: none;
   border: none;
   color: var(--black);
@@ -1661,16 +1680,17 @@ p.vs-body {
 .line-menu__item.is-active .line-menu__row,
 .line-menu__item.is-pinned .line-menu__row { opacity: .55; }
 
-/* Our Collections: big vertical rotated titles */
+/* Our Collections: big vertical rotated titles, laid out right-to-left */
 .vertical-menu {
   display: flex;
+  direction: rtl;
   align-items: flex-end;
   gap: clamp(22px, 3.2vw, 40px);
   overflow-x: auto;
   padding-bottom: 8px;
   -webkit-overflow-scrolling: touch;
 }
-.vertical-menu__item { flex: 0 0 auto; text-align: center; }
+.vertical-menu__item { flex: 0 0 auto; text-align: center; direction: ltr; }
 .vertical-menu__num {
   display: block;
   font-family: var(--font-display);
@@ -1685,6 +1705,7 @@ p.vs-body {
   border: none;
   padding: 0;
   color: var(--black);
+  text-transform: uppercase;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(1.8rem, 3.6vw, 3.2rem);
@@ -1697,6 +1718,11 @@ p.vs-body {
 .vertical-menu__title:hover { opacity: .65; }
 .vertical-menu__item.is-active .vertical-menu__title,
 .vertical-menu__item.is-pinned .vertical-menu__title { opacity: .55; }
+
+.vertical-band { width: 100%; }
+.vertical-band .wrap { padding-block: 0; }
+.vertical-band .line-stage { margin-top: clamp(28px, 3.6vw, 40px); }
+.vertical-band + .vertical-band { padding-top: clamp(40px, 5.5vw, 64px); }
 
 .product-grid {
   margin-top: clamp(40px, 6vw, 64px);

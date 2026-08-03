@@ -295,50 +295,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 20000);
   });
 
-  /* Category page: full-bleed line stage — hover previews, click pins it open */
-  function initLineStage(sectionId, itemSelector) {
+  /* Category page: full-bleed line stage — nothing shows until hover/click.
+     dynamicBg: true recolors the whole section per item (Product Categories);
+     false leaves the section's own fixed band color alone (Our Collections). */
+  function initLineStage(sectionId, itemSelector, dynamicBg) {
     const section = document.getElementById(sectionId);
     if (!section) return;
     const preview = section.querySelector('.line-stage__preview');
-    const titleEl = preview.querySelector('.line-stage__text h3');
     const descEl = preview.querySelector('.line-stage__text p');
     const linkEl = preview.querySelector('.line-stage__text a');
     const items = Array.from(section.querySelectorAll(itemSelector));
     if (!items.length) return;
 
-    /* The preview panel is always rendered (populated with the pinned item)
-       so hovering never changes the section's layout/height — a shift there
-       would move the hovered item out from under the cursor mid-hover. */
-    function render(item) {
+    /* On desktop the preview panel's layout space is reserved even while
+       hidden (see CSS), so showing/hiding it never shifts the menu column —
+       a shift there would move the hovered item out from under a
+       stationary cursor. */
+    function show(item) {
       items.forEach((i) => i.classList.toggle('is-active', i === item));
-      section.style.backgroundColor = item.dataset.color === 'taupe' ? 'var(--taupe)' : 'var(--cream)';
-      titleEl.textContent = item.dataset.title || '';
+      if (dynamicBg) section.style.backgroundColor = item.dataset.color === 'taupe' ? 'var(--taupe)' : 'var(--cream)';
       descEl.textContent = item.dataset.desc || '';
       if (linkEl) linkEl.href = item.dataset.href || '#';
+      preview.classList.add('is-visible');
+    }
+    function hide() {
+      items.forEach((i) => i.classList.remove('is-active'));
+      if (dynamicBg) section.style.backgroundColor = '';
+      preview.classList.remove('is-visible');
     }
 
-    let pinned = items[0];
-    preview.classList.add('is-visible');
-    render(pinned);
-    pinned.classList.add('is-pinned');
-
+    let pinned = null;
     items.forEach((item) => {
       const trigger = item.querySelector('button, a') || item;
-      trigger.addEventListener('mouseenter', () => render(item));
-      trigger.addEventListener('mouseleave', () => render(pinned));
-      trigger.addEventListener('focus', () => render(item));
-      trigger.addEventListener('blur', () => render(pinned));
+      trigger.addEventListener('mouseenter', () => show(item));
+      trigger.addEventListener('mouseleave', () => (pinned ? show(pinned) : hide()));
+      trigger.addEventListener('focus', () => show(item));
+      trigger.addEventListener('blur', () => (pinned ? show(pinned) : hide()));
       trigger.addEventListener('click', (e) => {
         e.preventDefault();
         items.forEach((i) => i.classList.remove('is-pinned'));
-        pinned = item;
-        pinned.classList.add('is-pinned');
-        render(item);
+        if (pinned === item) {
+          pinned = null;
+          hide();
+        } else {
+          pinned = item;
+          item.classList.add('is-pinned');
+          show(item);
+        }
       });
     });
   }
-  initLineStage('deskCategoryStage', '.line-menu__item');
-  initLineStage('deskCollectionsStage', '.vertical-menu__item');
+  initLineStage('deskCategoryStage', '.line-menu__item', true);
+  initLineStage('deskCollectionsOperative', '.vertical-menu__item', false);
+  initLineStage('deskCollectionsExecutive', '.vertical-menu__item', false);
 
   /* Category tab bar: desktop arrow slider, scroll active item into view */
   document.querySelectorAll('.cat-tabs').forEach((tabs) => {
