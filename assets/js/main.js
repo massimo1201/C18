@@ -295,12 +295,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 20000);
   });
 
-  /* Category page: full-bleed line stage — nothing shows until hover/click.
-     bgTarget: 'section' recolors the whole section per item (Product
-     Categories); 'preview' recolors just the reveal panel itself (Our
-     Collections, whose index band always stays cream); falsy leaves both
-     alone. */
-  function initLineStage(sectionId, itemSelector, bgTarget) {
+  /* Category page: full-bleed line stage — nothing shows until hover/click. */
+  function initLineStage(sectionId, itemSelector) {
     const section = document.getElementById(sectionId);
     if (!section) return;
     /* A modal-style preview (Our Collections) lives outside the section,
@@ -316,11 +312,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const items = Array.from(section.querySelectorAll(itemSelector));
     if (!items.length) return;
     /* The active line's color takes over the whole page, not just this
-       component — body covers the areas with no background of their own,
-       while the band (if this stage has one, e.g. the collections index
-       strip) has its own opaque background and needs to be driven directly
-       since body showing through wouldn't reach it. */
-    const band = section.querySelector('.vertical-menu-section');
+       component. body covers the areas with no background of their own,
+       but the Product Categories section and the Our Collections index
+       strip both carry their own opaque background — so whichever stage
+       is active must drive both of them directly, not only its own,
+       otherwise the *other* one keeps showing through as a stray cream
+       patch while the rest of the page has already turned taupe. */
+    const categorySection = document.getElementById('deskCategoryStage');
+    const collectionsBand = document.querySelector('#deskCollectionsStage .vertical-menu-section');
     const header = document.querySelector('.site-header');
 
     /* On desktop the preview panel's layout space is reserved even while
@@ -337,9 +336,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const color = item.dataset.color === 'taupe' ? 'var(--taupe)' : 'var(--cream)';
       document.body.style.backgroundColor = color;
       if (header) header.style.backgroundColor = color;
-      if (bgTarget === 'section') section.style.backgroundColor = color;
+      if (categorySection) categorySection.style.backgroundColor = color;
+      if (collectionsBand) collectionsBand.style.backgroundColor = color;
       preview.style.backgroundColor = color;
-      if (band) band.style.backgroundColor = color;
       if (titleEl) titleEl.textContent = item.dataset.title || '';
       descEl.textContent = item.dataset.desc || '';
       if (linkEl) linkEl.href = item.dataset.href || '#';
@@ -352,9 +351,9 @@ document.addEventListener('DOMContentLoaded', () => {
       items.forEach((i) => i.classList.remove('is-active'));
       document.body.style.backgroundColor = '';
       if (header) header.style.backgroundColor = '';
-      if (bgTarget === 'section') section.style.backgroundColor = '';
+      if (categorySection) categorySection.style.backgroundColor = '';
+      if (collectionsBand) collectionsBand.style.backgroundColor = '';
       preview.style.backgroundColor = '';
-      if (band) band.style.backgroundColor = '';
       preview.classList.remove('is-visible');
       if (intro) intro.classList.remove('is-covered');
       if (backdrop) backdrop.classList.remove('is-visible');
@@ -416,8 +415,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
-  initLineStage('deskCategoryStage', '.line-menu__item', 'section');
-  initLineStage('deskCollectionsStage', '.vertical-menu__item', 'preview');
+  initLineStage('deskCategoryStage', '.line-menu__item');
+  initLineStage('deskCollectionsStage', '.vertical-menu__item');
 
   /* The page always ends in the black footer, but html/body default to
      cream — on an elastic/rubber-band overscroll past the bottom edge that
