@@ -1694,25 +1694,19 @@ p.vs-body {
 .line-menu__item.is-active .line-menu__row,
 .line-menu__item.is-pinned .line-menu__row { opacity: .55; }
 
-/* Our Collections: one shared index, big vertical rotated titles, laid out
-   left-to-right on a single cream band. */
+/* Our Collections: one shared index, big vertical rotated titles, spread
+   left-to-right across the full page width on a single cream band. */
 .vertical-menu-section { width: 100%; margin-top: clamp(28px, 3.6vw, 40px); background: var(--cream); }
 .vertical-menu {
   display: flex;
   align-items: flex-end;
-  gap: clamp(22px, 3.2vw, 40px);
-  padding: clamp(40px, 6vw, 64px) clamp(28px, 4vw, 48px);
+  justify-content: space-between;
+  gap: clamp(16px, 2vw, 28px);
+  padding: clamp(40px, 6vw, 64px) var(--pad);
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
 .vertical-menu__item { flex: 0 0 auto; text-align: center; }
-.vertical-menu__num {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 13px;
-  margin-bottom: clamp(10px, 1.4vw, 16px);
-  opacity: .55;
-}
 .vertical-menu__title {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
@@ -1723,7 +1717,7 @@ p.vs-body {
   text-transform: uppercase;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(1.8rem, 3.6vw, 3.2rem);
+  font-size: clamp(2.4rem, 5.2vw, 4.6rem);
   line-height: 0.95;
   letter-spacing: -0.01em;
   white-space: nowrap;
@@ -1740,6 +1734,7 @@ p.vs-body {
    instead of off-screen above the fold. */
 .vertical-menu-preview {
   margin-top: clamp(28px, 3.6vw, 40px);
+  transition: background-color .4s var(--ease);
 }
 .vertical-menu-preview .wrap { padding-block: 0; }
 .vertical-menu-preview .line-stage__photo { max-width: 560px; }

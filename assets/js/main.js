@@ -296,9 +296,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* Category page: full-bleed line stage — nothing shows until hover/click.
-     dynamicBg: true recolors the whole section per item (Product Categories);
-     false leaves the section's own fixed band color alone (Our Collections). */
-  function initLineStage(sectionId, itemSelector, dynamicBg) {
+     bgTarget: 'section' recolors the whole section per item (Product
+     Categories); 'preview' recolors just the reveal panel itself (Our
+     Collections, whose index band always stays cream); falsy leaves both
+     alone. */
+  function initLineStage(sectionId, itemSelector, bgTarget) {
     const section = document.getElementById(sectionId);
     if (!section) return;
     const preview = section.querySelector('.line-stage__preview');
@@ -315,7 +317,9 @@ document.addEventListener('DOMContentLoaded', () => {
        in the same slot and is covered whenever the preview is active. */
     function show(item) {
       items.forEach((i) => i.classList.toggle('is-active', i === item));
-      if (dynamicBg) section.style.backgroundColor = item.dataset.color === 'taupe' ? 'var(--taupe)' : 'var(--cream)';
+      const color = item.dataset.color === 'taupe' ? 'var(--taupe)' : 'var(--cream)';
+      if (bgTarget === 'section') section.style.backgroundColor = color;
+      if (bgTarget === 'preview') preview.style.backgroundColor = color;
       descEl.textContent = item.dataset.desc || '';
       if (linkEl) linkEl.href = item.dataset.href || '#';
       preview.classList.add('is-visible');
@@ -323,7 +327,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     function hide() {
       items.forEach((i) => i.classList.remove('is-active'));
-      if (dynamicBg) section.style.backgroundColor = '';
+      if (bgTarget === 'section') section.style.backgroundColor = '';
+      if (bgTarget === 'preview') preview.style.backgroundColor = '';
       preview.classList.remove('is-visible');
       if (intro) intro.classList.remove('is-covered');
     }
@@ -349,8 +354,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-  initLineStage('deskCategoryStage', '.line-menu__item', true);
-  initLineStage('deskCollectionsStage', '.vertical-menu__item', false);
+  initLineStage('deskCategoryStage', '.line-menu__item', 'section');
+  initLineStage('deskCollectionsStage', '.vertical-menu__item', 'preview');
 
   /* Category tab bar: desktop arrow slider, scroll active item into view */
   document.querySelectorAll('.cat-tabs').forEach((tabs) => {
