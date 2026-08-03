@@ -3,7 +3,7 @@
    scope covers shared chrome + homepage copy, not every subpage. */
 const I18N = {
 EN: {
-"nav.company":"Company","nav.news":"News and Events","nav.products":"Our Products","nav.collections":"Collections and Catalogues","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.materials":"Materials & Finishes","nav.contact":"Contact Us",
+"nav.company":"Company","nav.news":"News and Events","nav.products":"Our Products","nav.resources":"Resources","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.contact":"Contact Us",
 "cat.desks":"Desks","cat.tables":"Meeting Tables and Sharings","cat.seatings":"Seatings","cat.coffeeTables":"Coffee Tables","cat.storage":"Storage Units","cat.receptions":"Receptions","cat.acoustic":"Acoustic Solutions",
 "hero.discover":"Discover the iSixty Collection",
 "about.title":"We're Codutti: more than 70 years of workspaces.",
@@ -48,7 +48,7 @@ EN: {
 "footer.rights":"All rights reserved"
 },
 IT: {
-"nav.company":"Azienda","nav.news":"News ed Eventi","nav.products":"I Nostri Prodotti","nav.collections":"Collezioni e Cataloghi","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.materials":"Materiali e Finiture","nav.contact":"Contattaci",
+"nav.company":"Azienda","nav.news":"News ed Eventi","nav.products":"I Nostri Prodotti","nav.resources":"Risorse","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.contact":"Contattaci",
 "cat.desks":"Scrivanie","cat.tables":"Tavoli Riunione e Sharing","cat.seatings":"Sedute","cat.coffeeTables":"Tavolini","cat.storage":"Archiviazione","cat.receptions":"Reception","cat.acoustic":"Soluzioni Acustiche",
 "hero.discover":"Scopri la Collezione iSixty",
 "about.title":"Siamo Codutti: più di 70 anni di spazi di lavoro.",
@@ -93,7 +93,7 @@ IT: {
 "footer.rights":"Tutti i diritti riservati"
 },
 FR: {
-"nav.company":"Entreprise","nav.news":"Actualités et Événements","nav.products":"Nos Produits","nav.collections":"Collections et Catalogues","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.materials":"Matériaux et Finitions","nav.contact":"Contactez-nous",
+"nav.company":"Entreprise","nav.news":"Actualités et Événements","nav.products":"Nos Produits","nav.resources":"Ressources","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.contact":"Contactez-nous",
 "cat.desks":"Bureaux","cat.tables":"Tables de Réunion et de Partage","cat.seatings":"Sièges","cat.coffeeTables":"Tables Basses","cat.storage":"Rangements","cat.receptions":"Banques d'Accueil","cat.acoustic":"Solutions Acoustiques",
 "hero.discover":"Découvrez la Collection iSixty",
 "about.title":"Nous sommes Codutti : plus de 70 ans d'espaces de travail.",
@@ -138,7 +138,7 @@ FR: {
 "footer.rights":"Tous droits réservés"
 },
 DE: {
-"nav.company":"Unternehmen","nav.news":"Neuigkeiten und Veranstaltungen","nav.products":"Unsere Produkte","nav.collections":"Kollektionen und Kataloge","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.materials":"Materialien & Oberflächen","nav.contact":"Kontakt",
+"nav.company":"Unternehmen","nav.news":"Neuigkeiten und Veranstaltungen","nav.products":"Unsere Produkte","nav.resources":"Ressourcen","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.contact":"Kontakt",
 "cat.desks":"Schreibtische","cat.tables":"Besprechungs- und Sharing-Tische","cat.seatings":"Sitzmöbel","cat.coffeeTables":"Couchtische","cat.storage":"Aufbewahrungssysteme","cat.receptions":"Empfangstheken","cat.acoustic":"Akustiklösungen",
 "hero.discover":"Entdecken Sie die iSixty Kollektion",
 "about.title":"Wir sind Codutti: mehr als 70 Jahre Arbeitswelten.",
@@ -183,7 +183,7 @@ DE: {
 "footer.rights":"Alle Rechte vorbehalten"
 },
 SP: {
-"nav.company":"Empresa","nav.news":"Noticias y Eventos","nav.products":"Nuestros Productos","nav.collections":"Colecciones y Catálogos","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.materials":"Materiales y Acabados","nav.contact":"Contáctanos",
+"nav.company":"Empresa","nav.news":"Noticias y Eventos","nav.products":"Nuestros Productos","nav.resources":"Recursos","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.contact":"Contáctanos",
 "cat.desks":"Escritorios","cat.tables":"Mesas de Reuniones y Sharing","cat.seatings":"Asientos","cat.coffeeTables":"Mesas de Centro","cat.storage":"Unidades de Almacenaje","cat.receptions":"Recepciones","cat.acoustic":"Soluciones Acústicas",
 "hero.discover":"Descubre la Colección iSixty",
 "about.title":"Somos Codutti: más de 70 años de espacios de trabajo.",
@@ -228,7 +228,7 @@ SP: {
 "footer.rights":"Todos los derechos reservados"
 },
 RU: {
-"nav.company":"Компания","nav.news":"Новости и события","nav.products":"Наша продукция","nav.collections":"Коллекции и каталоги","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.materials":"Материалы и Отделка","nav.contact":"Связаться с нами",
+"nav.company":"Компания","nav.news":"Новости и события","nav.products":"Наша продукция","nav.resources":"Ресурсы","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.contact":"Связаться с нами",
 "cat.desks":"Столы","cat.tables":"Переговорные и общие столы","cat.seatings":"Кресла и стулья","cat.coffeeTables":"Журнальные столики","cat.storage":"Системы хранения","cat.receptions":"Ресепшн-стойки","cat.acoustic":"Акустические решения",
 "hero.discover":"Откройте для себя коллекцию iSixty",
 "about.title":"Мы — Codutti: более 70 лет создаём рабочие пространства.",
@@ -273,7 +273,7 @@ RU: {
 "footer.rights":"Все права защищены"
 },
 AR: {
-"nav.company":"الشركة","nav.news":"الأخبار والفعاليات","nav.products":"منتجاتنا","nav.collections":"المجموعات والكتالوجات","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.materials":"المواد والتشطيبات","nav.contact":"اتصل بنا",
+"nav.company":"الشركة","nav.news":"الأخبار والفعاليات","nav.products":"منتجاتنا","nav.resources":"الموارد","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.contact":"اتصل بنا",
 "cat.desks":"المكاتب","cat.tables":"طاولات الاجتماعات والمشاركة","cat.seatings":"المقاعد","cat.coffeeTables":"طاولات القهوة","cat.storage":"وحدات التخزين","cat.receptions":"أثاث الاستقبال","cat.acoustic":"الحلول الصوتية",
 "hero.discover":"اكتشف مجموعة iSixty",
 "about.title":"نحن Codutti: أكثر من 70 عامًا من تصميم بيئات العمل.",
@@ -318,7 +318,7 @@ AR: {
 "footer.rights":"جميع الحقوق محفوظة"
 },
 CH: {
-"nav.company":"公司","nav.news":"新闻与活动","nav.products":"我们的产品","nav.collections":"系列与目录","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.materials":"材料与饰面","nav.contact":"联系我们",
+"nav.company":"公司","nav.news":"新闻与活动","nav.products":"我们的产品","nav.resources":"资源","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.contact":"联系我们",
 "cat.desks":"办公桌","cat.tables":"会议与共享桌","cat.seatings":"座椅","cat.coffeeTables":"咖啡桌","cat.storage":"储物单元","cat.receptions":"前台接待","cat.acoustic":"声学解决方案",
 "hero.discover":"探索 iSixty 系列",
 "about.title":"我们是 Codutti:70 余年的办公空间缔造者。",
@@ -363,7 +363,7 @@ CH: {
 "footer.rights":"版权所有"
 },
 JP: {
-"nav.company":"会社概要","nav.news":"ニュース&イベント","nav.products":"製品情報","nav.collections":"コレクション&カタログ","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.materials":"マテリアル&フィニッシュ","nav.contact":"お問い合わせ",
+"nav.company":"会社概要","nav.news":"ニュース&イベント","nav.products":"製品情報","nav.resources":"リソース","nav.contract":"Contract","nav.bespoke":"Bespoke","nav.contact":"お問い合わせ",
 "cat.desks":"デスク","cat.tables":"ミーティング&シェアリングテーブル","cat.seatings":"チェア","cat.coffeeTables":"コーヒーテーブル","cat.storage":"収納ユニット","cat.receptions":"レセプション","cat.acoustic":"音響ソリューション",
 "hero.discover":"iSixty コレクションを見る",
 "about.title":"私たちCoduttiは、70年以上にわたりワークスペースを創造してきました。",

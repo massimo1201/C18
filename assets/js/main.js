@@ -321,6 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
        strip) has its own opaque background and needs to be driven directly
        since body showing through wouldn't reach it. */
     const band = section.querySelector('.vertical-menu-section');
+    const header = document.querySelector('.site-header');
 
     /* On desktop the preview panel's layout space is reserved even while
        hidden (see CSS), so showing/hiding it never shifts the menu column —
@@ -335,8 +336,9 @@ document.addEventListener('DOMContentLoaded', () => {
       items.forEach((i) => i.classList.toggle('is-active', i === item));
       const color = item.dataset.color === 'taupe' ? 'var(--taupe)' : 'var(--cream)';
       document.body.style.backgroundColor = color;
+      if (header) header.style.backgroundColor = color;
       if (bgTarget === 'section') section.style.backgroundColor = color;
-      if (bgTarget === 'preview') preview.style.backgroundColor = color;
+      preview.style.backgroundColor = color;
       if (band) band.style.backgroundColor = color;
       if (titleEl) titleEl.textContent = item.dataset.title || '';
       descEl.textContent = item.dataset.desc || '';
@@ -349,8 +351,9 @@ document.addEventListener('DOMContentLoaded', () => {
       current = null;
       items.forEach((i) => i.classList.remove('is-active'));
       document.body.style.backgroundColor = '';
+      if (header) header.style.backgroundColor = '';
       if (bgTarget === 'section') section.style.backgroundColor = '';
-      if (bgTarget === 'preview') preview.style.backgroundColor = '';
+      preview.style.backgroundColor = '';
       if (band) band.style.backgroundColor = '';
       preview.classList.remove('is-visible');
       if (intro) intro.classList.remove('is-covered');
@@ -415,6 +418,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initLineStage('deskCategoryStage', '.line-menu__item', 'section');
   initLineStage('deskCollectionsStage', '.vertical-menu__item', 'preview');
+
+  /* The page always ends in the black footer, but html/body default to
+     cream — on an elastic/rubber-band overscroll past the bottom edge that
+     exposes cream instead of black, breaking the illusion that the page
+     has entered a black section. Swap html's background to match only
+     once the footer is actually the thing on screen. */
+  if (document.querySelector('.site-footer')) {
+    const setOverscrollColor = () => {
+      const nearBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+      document.documentElement.style.backgroundColor = nearBottom ? 'var(--black)' : '';
+    };
+    window.addEventListener('scroll', setOverscrollColor, { passive: true });
+    setOverscrollColor();
+  }
 
   /* Category tab bar: desktop arrow slider, scroll active item into view */
   document.querySelectorAll('.cat-tabs').forEach((tabs) => {
