@@ -346,8 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   initLineStage('deskCategoryStage', '.line-menu__item', true);
-  initLineStage('deskCollectionsOperative', '.vertical-menu__item', false);
-  initLineStage('deskCollectionsExecutive', '.vertical-menu__item', false);
+  initLineStage('deskCollectionsStage', '.vertical-menu__item', false);
 
   /* Category tab bar: desktop arrow slider, scroll active item into view */
   document.querySelectorAll('.cat-tabs').forEach((tabs) => {

@@ -1680,16 +1680,26 @@ p.vs-body {
 .line-menu__item.is-active .line-menu__row,
 .line-menu__item.is-pinned .line-menu__row { opacity: .55; }
 
-/* Our Collections: big vertical rotated titles, laid out right-to-left */
+/* Our Collections: one shared index, big vertical rotated titles, laid out
+   right-to-left. The index is split into two colored zones (operative /
+   executive) that sit side by side within the same scrollable row. */
+.vertical-menu-section { width: 100%; margin-top: clamp(28px, 3.6vw, 40px); }
 .vertical-menu {
   display: flex;
   direction: rtl;
-  align-items: flex-end;
-  gap: clamp(22px, 3.2vw, 40px);
+  align-items: stretch;
   overflow-x: auto;
-  padding-bottom: 8px;
   -webkit-overflow-scrolling: touch;
 }
+.vertical-menu__group {
+  display: flex;
+  align-items: flex-end;
+  flex: 0 0 auto;
+  gap: clamp(22px, 3.2vw, 40px);
+  padding: clamp(40px, 6vw, 64px) clamp(28px, 4vw, 48px);
+}
+.vertical-menu__group--operative { background: var(--cream); }
+.vertical-menu__group--executive { background: var(--taupe); }
 .vertical-menu__item { flex: 0 0 auto; text-align: center; direction: ltr; }
 .vertical-menu__num {
   display: block;
@@ -1719,10 +1729,8 @@ p.vs-body {
 .vertical-menu__item.is-active .vertical-menu__title,
 .vertical-menu__item.is-pinned .vertical-menu__title { opacity: .55; }
 
-.vertical-band { width: 100%; }
-.vertical-band .wrap { padding-block: 0; }
-.vertical-band .line-stage { margin-top: clamp(28px, 3.6vw, 40px); }
-.vertical-band + .vertical-band { padding-top: clamp(40px, 5.5vw, 64px); }
+.vertical-menu-preview { margin-top: clamp(28px, 3.6vw, 40px); }
+.vertical-menu-preview .wrap { padding-block: 0; }
 
 .product-grid {
   margin-top: clamp(40px, 6vw, 64px);
