@@ -1729,8 +1729,15 @@ p.vs-body {
 .vertical-menu__item.is-active .vertical-menu__title,
 .vertical-menu__item.is-pinned .vertical-menu__title { opacity: .55; }
 
-.vertical-menu-preview { margin-top: clamp(28px, 3.6vw, 40px); }
+/* Sits directly below the index (not above it) so a reveal triggered
+   anywhere in the index — including items scrolled off to the left —
+   always appears right next to where the visitor is already looking,
+   instead of off-screen above the fold. */
+.vertical-menu-preview {
+  margin-top: clamp(28px, 3.6vw, 40px);
+}
 .vertical-menu-preview .wrap { padding-block: 0; }
+.vertical-menu-preview .line-stage__photo { max-width: 560px; }
 
 .product-grid {
   margin-top: clamp(40px, 6vw, 64px);
