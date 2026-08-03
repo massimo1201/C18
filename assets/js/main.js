@@ -315,6 +315,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const linkEl = preview.querySelector('.line-stage__text a');
     const items = Array.from(section.querySelectorAll(itemSelector));
     if (!items.length) return;
+    /* The active line's color takes over the whole page, not just this
+       component — body covers the areas with no background of their own,
+       while the band (if this stage has one, e.g. the collections index
+       strip) has its own opaque background and needs to be driven directly
+       since body showing through wouldn't reach it. */
+    const band = section.querySelector('.vertical-menu-section');
 
     /* On desktop the preview panel's layout space is reserved even while
        hidden (see CSS), so showing/hiding it never shifts the menu column —
@@ -328,8 +334,10 @@ document.addEventListener('DOMContentLoaded', () => {
       current = item;
       items.forEach((i) => i.classList.toggle('is-active', i === item));
       const color = item.dataset.color === 'taupe' ? 'var(--taupe)' : 'var(--cream)';
+      document.body.style.backgroundColor = color;
       if (bgTarget === 'section') section.style.backgroundColor = color;
       if (bgTarget === 'preview') preview.style.backgroundColor = color;
+      if (band) band.style.backgroundColor = color;
       if (titleEl) titleEl.textContent = item.dataset.title || '';
       descEl.textContent = item.dataset.desc || '';
       if (linkEl) linkEl.href = item.dataset.href || '#';
@@ -340,8 +348,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function hide() {
       current = null;
       items.forEach((i) => i.classList.remove('is-active'));
+      document.body.style.backgroundColor = '';
       if (bgTarget === 'section') section.style.backgroundColor = '';
       if (bgTarget === 'preview') preview.style.backgroundColor = '';
+      if (band) band.style.backgroundColor = '';
       preview.classList.remove('is-visible');
       if (intro) intro.classList.remove('is-covered');
       if (backdrop) backdrop.classList.remove('is-visible');
