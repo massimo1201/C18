@@ -1552,6 +1552,32 @@ p.vs-body {
 @media (max-width: 720px) {
   .cat-tabs__arrow { display: none; }
 }
+/* A second tab bar right under the macro-category one (subcategory
+   slider on product-listing pages) shouldn't repeat the huge top padding
+   reserved for the fixed header — just a small gap between the two. */
+.cat-tabs + .cat-tabs {
+  padding-top: 0;
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+/* ---------- Product listing pages (macro + subcategory tabs, grey placeholder grid) ---------- */
+
+.product-listing__count {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+  opacity: 0.55;
+}
+.product-grid--listing {
+  margin-top: clamp(20px, 2.6vw, 28px);
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 560px) { .product-grid--listing { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 900px) { .product-grid--listing { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1240px) { .product-grid--listing { grid-template-columns: repeat(5, 1fr); } }
+.product-box__media--placeholder { background: #ececea; border: none; }
 
 /* ---------- Product category / detail pages ---------- */
 
