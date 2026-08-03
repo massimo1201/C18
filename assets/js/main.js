@@ -326,6 +326,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const categorySection = document.getElementById(prefix + 'CategoryStage');
     const collectionsBand = document.querySelector('#' + prefix + 'CollectionsStage .vertical-menu-section');
     const header = document.querySelector('.site-header');
+    const colorMap = { taupe: 'var(--taupe)', sage: 'var(--sage)', cream: 'var(--cream)' };
+    /* Pages that are overwhelmingly one color (Seatings, Storage Units,
+       Coffee Tables are mostly/all sage) show that color immediately on
+       load instead of the neutral cream default, via a data-default-color
+       attribute on the category section — read from there regardless of
+       which stage instance this is, since both share the same section. */
+    const defaultColor = (categorySection && colorMap[categorySection.dataset.defaultColor]) || '';
 
     /* On desktop the preview panel's layout space is reserved even while
        hidden (see CSS), so showing/hiding it never shifts the menu column —
@@ -338,7 +345,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function show(item) {
       current = item;
       items.forEach((i) => i.classList.toggle('is-active', i === item));
-      const colorMap = { taupe: 'var(--taupe)', sage: 'var(--sage)', cream: 'var(--cream)' };
       const color = colorMap[item.dataset.color] || 'var(--cream)';
       document.body.style.backgroundColor = color;
       if (header) header.style.backgroundColor = color;
@@ -355,15 +361,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function hide() {
       current = null;
       items.forEach((i) => i.classList.remove('is-active'));
-      document.body.style.backgroundColor = '';
-      if (header) header.style.backgroundColor = '';
-      if (categorySection) categorySection.style.backgroundColor = '';
-      if (collectionsBand) collectionsBand.style.backgroundColor = '';
-      preview.style.backgroundColor = '';
+      document.body.style.backgroundColor = defaultColor;
+      if (header) header.style.backgroundColor = defaultColor;
+      if (categorySection) categorySection.style.backgroundColor = defaultColor;
+      if (collectionsBand) collectionsBand.style.backgroundColor = defaultColor;
+      preview.style.backgroundColor = defaultColor;
       preview.classList.remove('is-visible');
       if (intro) intro.classList.remove('is-covered');
       if (backdrop) backdrop.classList.remove('is-visible');
     }
+    hide();
 
     let pinned = null;
     items.forEach((item) => {
