@@ -1681,7 +1681,7 @@ p.vs-body {
   margin-bottom: clamp(20px, 2.6vw, 28px);
 }
 @media (min-width: 900px) { .line-menu__heading { text-align: right; } }
-.line-menu__item { border-bottom: 1px solid var(--line); }
+.line-menu__item { border-bottom: none; }
 .line-menu__row {
   display: block;
   width: 100%;
@@ -1704,7 +1704,7 @@ p.vs-body {
 
 /* Our Collections: one shared index, big vertical rotated titles, spread
    left-to-right across the full page width on a single cream band. */
-.vertical-menu-section { width: 100%; margin-top: clamp(28px, 3.6vw, 40px); background: var(--cream); transition: background-color .4s var(--ease); }
+.vertical-menu-section { width: 100%; margin-top: 0; background: var(--cream); transition: background-color .4s var(--ease); }
 .vertical-menu {
   display: flex;
   align-items: flex-end;
@@ -1731,6 +1731,13 @@ p.vs-body {
   white-space: nowrap;
   cursor: pointer;
   transition: opacity .25s var(--ease);
+}
+/* Bigger on desktop, where the vw-based size guarantees the full row
+   still spans edge to edge without overflowing; mobile keeps the smaller
+   size plus horizontal scroll (.vertical-menu above), since 10 titles
+   genuinely can't share one small screen. */
+@media (min-width: 900px) {
+  .vertical-menu__title { font-size: clamp(3.2rem, 6.6vw, 6rem); }
 }
 .vertical-menu__title:hover { opacity: .65; }
 .vertical-menu__item.is-active .vertical-menu__title,
