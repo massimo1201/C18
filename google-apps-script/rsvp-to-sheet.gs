@@ -4,7 +4,7 @@
  * 2. Estensioni > Apps Script, incolla questo file, salva.
  * 3. Deploy > Nuova implementazione > Tipo: Web app.
  *    Esegui come: Io | Chi ha accesso: Chiunque.
- * 4. Copia l'URL generato in SHEET_ENDPOINT dentro 18-anni.html.
+ * 4. Copia l'URL generato in SHEET_ENDPOINT dentro festa18.html.
  * 5. Per ottenere il file Excel: nel foglio, File > Scarica > Microsoft Excel (.xlsx).
  */
 function doPost(e) {
