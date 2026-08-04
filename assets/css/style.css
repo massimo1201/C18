@@ -1016,6 +1016,94 @@ p.vs-body {
   line-height: 1.3;
 }
 
+/* ---------- Contract / Bespoke: Our Projects grid + project detail pages ---------- */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(20px, 2.6vw, 28px);
+  margin-top: clamp(28px, 4vw, 40px);
+}
+@media (min-width: 700px) {
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.project-box {
+  position: relative;
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.project-box__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(18px, 2.4vw, 26px);
+  background-size: cover;
+  background-position: center;
+  transition: transform .4s var(--ease);
+}
+.project-box:hover .project-box__media { transform: scale(1.03); }
+.project-box__media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,10,0) 45%, rgba(10,10,10,0.72) 100%);
+}
+.project-box__label {
+  position: relative;
+  z-index: 1;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: clamp(14px, 1.4vw, 17px);
+  letter-spacing: 0.02em;
+}
+
+.project-gallery {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(20px, 2.6vw, 28px);
+}
+.project-gallery__track {
+  display: flex;
+  gap: clamp(12px, 1.6vw, 18px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.project-gallery__track::-webkit-scrollbar { display: none; }
+.project-gallery__slide {
+  flex: 0 0 min(560px, 82%);
+  aspect-ratio: 4 / 3;
+  border-radius: calc(var(--radius) - 12px);
+  scroll-snap-align: start;
+}
+.project-gallery__arrows {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: clamp(14px, 2vw, 20px);
+}
+.project-gallery__arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background-color .25s var(--ease);
+}
+.project-gallery__arrow:hover { background: var(--cream); }
+.project-detail__description { margin-top: clamp(32px, 4.4vw, 48px); }
+
 
 /* ---------- News: Last Updates ---------- */
 

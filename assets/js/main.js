@@ -593,6 +593,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (next) next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth * 0.8, behavior: 'smooth' }));
   });
 
+  /* Project detail pages (Contract/Bespoke): same arrow-scroll pattern for
+     the white photo gallery box. */
+  document.querySelectorAll('.project-gallery').forEach((gallery) => {
+    const track = gallery.querySelector('.project-gallery__track');
+    const prev = gallery.querySelector('.project-gallery__arrow--prev');
+    const next = gallery.querySelector('.project-gallery__arrow--next');
+    if (!track) return;
+    if (prev) prev.addEventListener('click', () => track.scrollBy({ left: -track.clientWidth * 0.8, behavior: 'smooth' }));
+    if (next) next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth * 0.8, behavior: 'smooth' }));
+  });
+
   /* Product-listing pages: clicking a product box expands that box itself in
      place into a full-row panel (the little square is replaced by the big
      one, not covered by a sibling) with an auto-rotating image carousel,
