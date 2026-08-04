@@ -888,45 +888,10 @@ p.vs-body {
 .line-band--operative { background: var(--cream); }
 .line-band--executive { background: var(--taupe); border-top-color: rgba(10,10,10,0.16); }
 
-/* Spaces & Catalogues: big vertical collection cards on a single scrollable row,
-   sized like the homepage's Last Updates cards. */
-.space-collection-grid {
-  margin-top: clamp(24px, 3.4vw, 36px);
-  display: flex;
-  gap: clamp(18px, 2.4vw, 24px);
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x proximity;
-  padding-bottom: clamp(28px, 4vw, 40px);
-  -webkit-overflow-scrolling: touch;
-  scrollbar-color: var(--black) transparent;
-  scrollbar-width: thin;
-}
-.space-collection-grid::-webkit-scrollbar { height: 4px; }
-.space-collection-grid::-webkit-scrollbar-track { background: transparent; }
-.space-collection-grid::-webkit-scrollbar-thumb { background: var(--black); border-radius: 999px; }
-.space-collection-card {
-  position: relative;
-  flex: 0 0 auto;
-  width: clamp(230px, 26vw, 320px);
-  scroll-snap-align: start;
-  aspect-ratio: 3 / 4;
-  display: flex;
-  align-items: flex-end;
-  border: 1px solid rgba(10,10,10,0.14);
-  border-radius: calc(var(--radius) - 10px);
-  overflow: hidden;
-  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
-}
-.space-collection-card:hover { transform: translateY(-5px); box-shadow: 0 16px 32px rgba(10,10,10,0.14); }
-.space-collection-card__label {
-  padding: clamp(20px, 2.6vw, 28px);
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
-  text-transform: uppercase;
-  color: var(--black);
-}
+/* Spaces, Products and Solutions: reuses the same white product-box grid
+   as the listing pages (see .product-grid--listing further down), just
+   dropped onto each line's colored band. */
+.line-band .product-grid--listing { margin-top: clamp(24px, 3.4vw, 36px); }
 
 .collection-grid {
   margin-top: clamp(40px, 6vw, 64px);
@@ -2043,6 +2008,7 @@ p.vs-body {
   font-size: clamp(15px, 1.6vw, 19px);
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  text-align: center;
   color: var(--black);
 }
 
@@ -2076,6 +2042,74 @@ p.vs-body {
 .product-drilldown[open] > .product-drilldown__summary::after { transform: rotate(45deg); }
 a.product-drilldown__summary::after { content: "\2192"; }
 .product-drilldown__panel { padding: 0 0 clamp(32px, 4vw, 48px); }
+
+/* ---------- Collection detail pages (e.g. Mithos, iSixty...) ---------- */
+
+.collection-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(120px, 14vw, 160px) var(--pad) clamp(40px, 6vw, 64px);
+}
+.collection-hero__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(4rem, 19vw, 20rem);
+  line-height: 0.86;
+  text-align: center;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+.collection-detail {
+  display: grid;
+  gap: clamp(28px, 4vw, 48px);
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .collection-detail { grid-template-columns: 1fr 1fr; }
+}
+.collection-detail__media {
+  aspect-ratio: 4 / 3;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.collection-detail__text p {
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  line-height: 1.6;
+  opacity: 0.82;
+}
+.collection-detail-boxes {
+  display: grid;
+  gap: clamp(20px, 3vw, 28px);
+  margin-top: clamp(40px, 6vw, 64px);
+}
+@media (min-width: 700px) {
+  .collection-detail-boxes { grid-template-columns: repeat(3, 1fr); }
+}
+.collection-detail-box {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(24px, 3vw, 32px);
+}
+.collection-detail-box h3 { font-size: clamp(1.1rem, 1.6vw, 1.3rem); margin-bottom: 10px; }
+.collection-detail-box p { font-family: var(--font-body); opacity: 0.78; }
+.collection-banner {
+  padding-block: clamp(64px, 9vw, 120px);
+  text-align: center;
+}
+.collection-banner p {
+  max-width: 60ch;
+  margin-inline: auto;
+  font-family: var(--font-body);
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  line-height: 1.5;
+}
+.collection-cta { text-align: center; padding-bottom: clamp(48px, 7vw, 80px); }
+.collection-products__label { text-align: center; margin-bottom: clamp(24px, 3.4vw, 36px); }
 .product-drilldown__panel .product-grid { margin-top: 0; }
 .product-drilldown__panel .product-drilldown { border-bottom: 1px solid var(--line); }
 .product-drilldown__panel .product-drilldown__summary {
