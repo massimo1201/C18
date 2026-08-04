@@ -1868,6 +1868,14 @@ p.vs-body {
 }
 .line-stage__text h3 { font-size: clamp(1.3rem, 2vw, 1.8rem); margin-bottom: 4px; }
 .line-stage__text p { font-family: var(--font-body); font-size: 15px; line-height: 1.5; min-height: 67.5px; max-width: 56ch; opacity: 0.78; margin-bottom: 14px; }
+.line-stage__link2 {
+  margin-top: 12px;
+}
+.line-stage__link2[hidden] { display: none; }
+.line-stage__form { display: none; margin-top: 4px; }
+.line-stage__form.is-visible { display: block; }
+.line-stage__form .newsletter-form__row--triple { flex-wrap: wrap; }
+.line-stage__form .newsletter-form__row--triple input { flex: 1 1 140px; }
 .line-stage__text > a:not(.btn) {
   display: inline-block;
   font-family: var(--font-display);

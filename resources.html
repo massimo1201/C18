@@ -68,20 +68,33 @@
             <div class="line-stage__text">
               <p></p>
               <a href="#" class="btn btn--solid">Discover</a>
+              <a href="#" class="btn btn--solid line-stage__link2" title="Materials book to be provided" hidden>Download the Materials Book</a>
+              <div class="line-stage__form">
+                <form class="newsletter-form form-on-light" onsubmit="return false;">
+                  <div class="newsletter-form__row newsletter-form__row--triple">
+                    <input type="text" placeholder="Name" required aria-label="Name">
+                    <input type="text" placeholder="Surname" required aria-label="Surname">
+                    <input type="email" placeholder="Your email" required aria-label="Email">
+                  </div>
+                  <input type="text" value="Price List" disabled aria-label="Subject" style="margin-top:12px">
+                  <textarea class="autosize-textarea" placeholder="Your Request" required aria-label="Your Request" rows="3" maxlength="6000" style="margin-top:12px"></textarea>
+                  <button type="submit" class="btn btn--solid" style="margin-top:12px">Send Request</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
         <div class="line-menu">
-          <div class="line-menu__item" data-color="taupe" data-desc="A complete overview of Codutti — history, manufacturing, certifications and the full product range in one document." data-href="assets/docs/Codutti-Company-Profile-2026.pdf">
+          <div class="line-menu__item" data-color="cream" data-label="Download Our Company Profile" data-desc="A complete overview of Codutti — history, manufacturing, certifications and the full product range in one document." data-href="assets/docs/Codutti-Company-Profile-2026.pdf">
             <button type="button" class="line-menu__row">Company Profile</button>
           </div>
-          <div class="line-menu__item" data-color="cream" data-desc="Every veneer, leather, fabric and metal finish available across the Codutti range, with the pairings we recommend." data-href="materials.html">
+          <div class="line-menu__item" data-color="cream" data-label="Discover All the Materials and Finishings" data-href2="#" data-label2="Download the Materials Book" data-desc="Every veneer, leather, fabric and metal finish available across the Codutti range, with the pairings we recommend." data-href="materials.html">
             <button type="button" class="line-menu__row">Materials &amp; Finishings</button>
           </div>
-          <div class="line-menu__item" data-color="sage" data-desc="Our collections in detail, from Essential to Executive, with the full Spaces overview and every individual catalogue." data-href="spaces.html">
+          <div class="line-menu__item" data-color="cream" data-label="Discover All the Catalogues" data-desc="Our collections in detail, from Essential to Executive, with the full Spaces overview and every individual catalogue." data-href="spaces.html">
             <button type="button" class="line-menu__row">Catalogues</button>
           </div>
-          <div class="line-menu__item" data-color="taupe" data-desc="Pricing is quoted per project based on finishes, quantities and configuration — get in touch and our sales team will prepare it for you." data-href="contact.html">
+          <div class="line-menu__item" data-color="grey" data-label="Request the Price List" data-form="request" data-desc="Pricing is quoted per project based on finishes, quantities and configuration — get in touch and our sales team will prepare it for you." data-href="contact.html">
             <button type="button" class="line-menu__row">Price List</button>
             <span class="line-menu__note">On Request</span>
           </div>

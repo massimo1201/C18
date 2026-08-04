@@ -309,6 +309,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const titleEl = preview.querySelector('.line-stage__text h3');
     const descEl = preview.querySelector('.line-stage__text p');
     const linkEl = preview.querySelector('.line-stage__text a');
+    const link2El = preview.querySelector('.line-stage__text a.line-stage__link2');
+    const formEl = preview.querySelector('.line-stage__form');
     const items = Array.from(section.querySelectorAll(itemSelector));
     if (!items.length) return;
     /* The active line's color takes over the whole page, not just this
@@ -326,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const categorySection = document.getElementById(prefix + 'CategoryStage');
     const collectionsBand = document.querySelector('#' + prefix + 'CollectionsStage .vertical-menu-section');
     const header = document.querySelector('.site-header');
-    const colorMap = { taupe: 'var(--taupe)', sage: 'var(--sage)', cream: 'var(--cream)' };
+    const colorMap = { taupe: 'var(--taupe)', sage: 'var(--sage)', cream: 'var(--cream)', grey: '#d9d9d9' };
     /* Pages that are overwhelmingly one color (Seatings, Storage Units,
        Coffee Tables are mostly/all sage) show that color immediately on
        load instead of the neutral cream default, via a data-default-color
@@ -361,7 +363,24 @@ document.addEventListener('DOMContentLoaded', () => {
       preview.style.backgroundColor = color;
       if (titleEl) titleEl.textContent = item.dataset.title || '';
       descEl.textContent = item.dataset.desc || '';
-      if (linkEl) linkEl.href = item.dataset.href || '#';
+      if (linkEl) {
+        linkEl.href = item.dataset.href || '#';
+        if (item.dataset.label) linkEl.textContent = item.dataset.label;
+      }
+      if (link2El) {
+        if (item.dataset.href2) {
+          link2El.href = item.dataset.href2;
+          if (item.dataset.label2) link2El.textContent = item.dataset.label2;
+          link2El.hidden = false;
+        } else {
+          link2El.hidden = true;
+        }
+      }
+      /* Switching to a different item (or re-hovering the same one) always
+         resets an item's optional inline form back to its closed state —
+         the form is a per-item detour, not something that should still be
+         showing once you've moved on to a different item. */
+      if (formEl) formEl.classList.remove('is-visible');
       if (!backdrop && mobileCurtain.matches) {
         item.insertAdjacentElement('afterend', preview);
       }
@@ -382,6 +401,21 @@ document.addEventListener('DOMContentLoaded', () => {
       if (backdrop) backdrop.classList.remove('is-visible');
     }
     hide();
+
+    /* An item with data-form swaps the preview's primary button into an
+       inline form instead of navigating — e.g. "Request the Price List"
+       reveals a request form in place rather than leaving the page. The
+       description/photo/link stay in the DOM (just hidden), so switching
+       back to a normal item in show() above is a plain class toggle, not a
+       content rebuild. */
+    if (linkEl && formEl) {
+      linkEl.addEventListener('click', (e) => {
+        if (current && current.dataset.form) {
+          e.preventDefault();
+          formEl.classList.add('is-visible');
+        }
+      });
+    }
 
     /* On desktop, moving the cursor from the item name onto the popup itself
        shouldn't close it — there's often a small gap or the popup sits right
