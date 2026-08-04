@@ -74,6 +74,14 @@ document.addEventListener('DOMContentLoaded', () => {
       langOverlay.classList.add('is-open');
       langBtn.setAttribute('aria-expanded', 'true');
       body.classList.add('lang-open');
+      /* The off-canvas nav and the language overlay are mutually exclusive —
+         closing the nav here (rather than leaving it open behind the
+         language panel) keeps the header's menu icon in its plain
+         three-line state instead of stuck showing the "X" from an
+         still-technically-open nav, so it always reads as clickable. */
+      if (navOverlay) navOverlay.classList.remove('is-open');
+      if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+      body.classList.remove('nav-open');
     };
     langBtn.addEventListener('click', () => {
       const isOpen = langOverlay.classList.contains('is-open');
@@ -437,6 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
        description/photo/link stay in the DOM (just hidden), so switching
        back to a normal item in show() above is a plain class toggle, not a
        content rebuild. */
+    const formCloseBtn = preview.querySelector('.line-stage__form-close');
     if (linkEl && formEl) {
       linkEl.addEventListener('click', (e) => {
         if (current && current.dataset.form) {
@@ -444,6 +453,17 @@ document.addEventListener('DOMContentLoaded', () => {
           formEl.classList.add('is-visible');
           preview.classList.add('is-form-mode');
         }
+      });
+    }
+    /* Once the inline form is showing, it's a real form the visitor is
+       filling in — it must not vanish just because the cursor drifts off
+       it, the way the plain description popup does. It only closes when
+       explicitly dismissed via its own close button. */
+    if (formCloseBtn) {
+      formCloseBtn.addEventListener('click', () => {
+        formEl.classList.remove('is-visible');
+        preview.classList.remove('is-form-mode');
+        hide();
       });
     }
 
@@ -457,6 +477,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let hideTimer = null;
     function cancelHide() { clearTimeout(hideTimer); hideTimer = null; }
     function scheduleHide() {
+      if (preview.classList.contains('is-form-mode')) return;
       clearTimeout(hideTimer);
       const forItem = current;
       hideTimer = setTimeout(() => {

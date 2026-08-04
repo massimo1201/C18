@@ -151,6 +151,10 @@ html[lang="ar"] p[data-i18n] {
    here — a shorter aspect ratio keeps the row close to the menu's own
    height instead of towering over it. */
 #allProductsCategoryStage .line-stage__photo { aspect-ratio: 3 / 1; }
+/* A little extra breathing room between the category boxes above and the
+   Our Collections vertical index below, so the two don't read as one
+   crowded block. */
+#allProductsCollectionsStage .vertical-menu-section { margin-top: clamp(16px, 2.4vw, 28px); }
 
 .section-title {
   font-size: clamp(2.4rem, 6.6vw, 5.6rem);
@@ -622,14 +626,17 @@ body.nav-open { overflow: hidden; }
 .photo-box--tall {
   min-height: clamp(560px, 68vw, 800px);
 }
-/* Smaller, un-darkened variant for photo boxes that only carry a couple of
-   short address links rather than a title + body copy — the full-image
-   darkening gradient exists purely for that text's legibility, so without
-   it each link gets its own small solid chip instead. */
+/* Smaller variant for photo boxes that only carry a couple of short address
+   links rather than a title + body copy — same soft darkening gradient as
+   the landing page's Made in Italy box, just over a shorter box, with the
+   address block sitting further down toward the bottom edge instead of
+   close to the box's midpoint. */
 .photo-box--flat {
-  min-height: clamp(200px, 26vw, 300px);
+  min-height: clamp(240px, 30vw, 340px);
 }
-.photo-box--flat::before { display: none; }
+.photo-box--flat .photo-box__content {
+  padding-bottom: clamp(40px, 6vw, 72px);
+}
 .photo-box--flat .photo-box__meta a {
   text-shadow: 0 1px 3px rgba(10,10,10,0.55), 0 1px 10px rgba(10,10,10,0.4);
 }
@@ -1133,10 +1140,7 @@ p.vs-body {
 .event-map__pin:hover text { fill: var(--taupe); }
 
 .event-map--large {
-  max-width: 1160px;
-  padding: clamp(20px, 3vw, 36px);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
+  max-width: none;
 }
 .event-map--large .event-map__pin text { font-size: 13px; }
 
@@ -1611,7 +1615,13 @@ p.vs-body {
 }
 .product-grid.product-grid--listing {
   margin-top: clamp(20px, 2.6vw, 28px);
+  /* .wrap itself carries no vertical padding, so without this the last row
+     of results sits flush against the footer the moment it follows. */
+  padding-bottom: clamp(56px, 8vw, 96px);
   grid-template-columns: repeat(2, 1fr);
+  /* When a box opens and spans the full row, dense packing pulls the next
+     boxes back to fill the row above it instead of leaving a gap. */
+  grid-auto-flow: dense;
 }
 @media (min-width: 640px) { .product-grid.product-grid--listing { grid-template-columns: repeat(4, 1fr); } }
 .product-box__media--placeholder { background: var(--white); border: 1px solid var(--line); }
@@ -1863,8 +1873,21 @@ p.vs-body {
   margin-top: 12px;
 }
 .line-stage__link2[hidden] { display: none; }
-.line-stage__form { display: none; margin-top: 4px; }
+.line-stage__form { display: none; margin-top: 4px; position: relative; }
 .line-stage__form.is-visible { display: block; }
+.line-stage__form-close {
+  position: absolute;
+  top: -6px;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--white);
+  font-size: 13px;
+  transition: opacity .25s var(--ease);
+}
+.line-stage__form-close:hover { opacity: 0.7; }
 /* Requesting the price list swaps the popup straight into a contact form —
    no photo box or description sitting above it, just the form itself. */
 .line-stage__preview.is-form-mode .line-stage__photo,
@@ -1988,12 +2011,15 @@ p.vs-body {
 .collections-modal-backdrop.is-visible { opacity: 1; visibility: visible; }
 .collections-modal {
   position: fixed;
-  top: 50%;
+  /* Centered slightly below true middle and capped shorter than the full
+     viewport, so tall content never reaches up behind the fixed header
+     (the header sits above this modal in stacking order). */
+  top: calc(50% + 24px);
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  width: min(1000px, calc(100vw - 48px));
-  max-height: calc(100vh - 96px);
+  width: min(880px, calc(100vw - 48px));
+  max-height: calc(100vh - 180px);
   overflow-y: auto;
   box-shadow: 0 24px 64px rgba(10, 10, 10, 0.28);
 }
