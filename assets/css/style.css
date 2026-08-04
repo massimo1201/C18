@@ -1554,8 +1554,11 @@ p.vs-body {
 }
 /* A second tab bar right under the macro-category one (subcategory
    slider on product-listing pages) shouldn't repeat the huge top padding
-   reserved for the fixed header — just a small gap between the two. */
-.cat-tabs + .cat-tabs {
+   reserved for the fixed header — just a small gap between the two. Same
+   when the macro tab bar itself follows the page's own H1 hero instead
+   of sitting directly under the fixed header. */
+.cat-tabs + .cat-tabs,
+.page-hero + .cat-tabs {
   padding-top: 0;
   margin-bottom: clamp(28px, 4vw, 44px);
 }
@@ -1570,14 +1573,55 @@ p.vs-body {
   font-size: 13px;
   opacity: 0.55;
 }
-.product-grid--listing {
+.product-grid.product-grid--listing {
   margin-top: clamp(20px, 2.6vw, 28px);
   grid-template-columns: repeat(2, 1fr);
 }
-@media (min-width: 560px) { .product-grid--listing { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 900px) { .product-grid--listing { grid-template-columns: repeat(4, 1fr); } }
-@media (min-width: 1240px) { .product-grid--listing { grid-template-columns: repeat(5, 1fr); } }
+@media (min-width: 640px) { .product-grid.product-grid--listing { grid-template-columns: repeat(4, 1fr); } }
 .product-box__media--placeholder { background: #ececea; border: none; }
+.product-box--listing {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+  font: inherit;
+}
+.product-box--listing.is-active .product-box__media { transform: translateY(-5px); box-shadow: 0 16px 32px rgba(10,10,10,0.14); }
+
+/* Curtain reveal: clicking a product box opens this fixed (non-popup) panel
+   in place below the grid. overflow:hidden + max-height clips the inner
+   padded card entirely while closed, so it takes no visible space. */
+.product-detail-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .5s var(--ease);
+}
+.product-detail-panel.is-open {
+  max-height: 520px;
+  margin-top: clamp(20px, 2.6vw, 28px);
+}
+.product-detail-panel__inner {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: clamp(28px, 4vw, 44px);
+}
+.product-detail-panel__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.product-detail-panel__desc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 60ch;
+  opacity: 0.78;
+  margin-bottom: clamp(22px, 3vw, 30px);
+}
 
 /* ---------- Product category / detail pages ---------- */
 
