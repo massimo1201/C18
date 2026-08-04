@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ginza — Codutti</title>
-<meta name="description" content="Named for the precision of its namesake district, Ginza is Codutti's most minimal executive desk — a thin wood or lacquered top on a fine metal frame,">
+<title>Our Products — Codutti</title>
+<meta name="description" content="The complete Codutti product range: desks, meetings, seatings, coffee tables, storage units, receptions and acoustic solutions.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
@@ -51,32 +51,39 @@
 </nav>
 
 <main>
+  <section class="wrap page-hero">
+    <div class="reveal">
+      <h1 class="mix-title"><span class="lg">Our Products</span></h1>
+    </div>
+  </section>
+  <nav class="cat-tabs wrap" aria-label="Product categories" id="allProductsMacroTabs">
+    <button class="cat-tabs__arrow cat-tabs__arrow--prev" aria-label="Previous">‹</button>
+    <div class="cat-tabs__track">
+      <button type="button" class="cat-tabs__item" data-macro="desks">Desks</button>
+      <button type="button" class="cat-tabs__item" data-macro="tables-and-sharings">Meetings</button>
+      <button type="button" class="cat-tabs__item" data-macro="seatings">Seatings</button>
+      <button type="button" class="cat-tabs__item" data-macro="coffee-tables">Coffee Tables</button>
+      <button type="button" class="cat-tabs__item" data-macro="storage-units">Storage Units</button>
+      <button type="button" class="cat-tabs__item" data-macro="receptions">Receptions</button>
+      <button type="button" class="cat-tabs__item" data-macro="acoustic-solutions">Acoustic Solutions</button>
+    </div>
+    <button class="cat-tabs__arrow cat-tabs__arrow--next" aria-label="Next">›</button>
+  </nav>
+  <nav class="cat-tabs wrap" aria-label="Subcategories" id="allProductsSubTabs" hidden>
+    <button class="cat-tabs__arrow cat-tabs__arrow--prev" aria-label="Previous">‹</button>
+    <div class="cat-tabs__track" id="allProductsSubTrack"></div>
+    <button class="cat-tabs__arrow cat-tabs__arrow--next" aria-label="Next">›</button>
+  </nav>
   <section class="wrap">
-    <div class="category-hero reveal">
-      <span class="eyebrow"><a href="../spaces.html#executive">Executive</a></span>
-      <h1 class="mix-title"><span class="lg">Ginza</span></h1>
-    </div>
-    <p class="lede" style="margin-top:clamp(22px,3.4vw,32px)">Named for the precision of its namesake district, Ginza is Codutti's most minimal executive desk — a thin wood or lacquered top on a fine metal frame, built for leaders who prefer restraint over ornament. It pairs naturally with Codutti's Executive seating and storage lines for a fully coordinated office.</p>
-    <div class="product-gallery reveal">
-      <div class="product-gallery__main tint-0"></div>
-      <div class="product-gallery__thumbs">
-        <div class="tint-1"></div>
-        <div class="tint-2"></div>
-        <div class="tint-3"></div>
-      </div>
-    </div>
-    <div class="product-detail__actions reveal">
-      <a href="../assets/docs/Codutti-Company-Profile-2026.pdf" download class="btn btn--solid">Download the Collection Catalogue</a>
-    </div>
-    <div class="configurator-cta reveal">
-      <div>
-        <h2 class="font-display"><span data-i18n="collections.designPrefix">Design</span> Ginza <span data-i18n="collections.designSuffix">Around Your Space</span></h2>
-        <p>Explore materials, dimensions and finishes for Ginza with our team, or open the online configurator.</p>
-      </div>
-      <div class="configurator-cta__actions">
-        <a href="#" class="btn btn--white-fill" title="Configurator to be provided">Configurator</a>
-        <a href="#contact" class="btn btn--white-fill">Contact Us</a>
-      </div>
+    <p class="product-listing__count reveal" id="allProductsCount">7 Categories</p>
+    <div class="product-grid product-grid--listing reveal" id="allProductsGrid">
+      <a class="product-box product-box--listing" href="desks.html"><span class="product-box__media product-box__media--placeholder"></span><span class="product-box__label">Desks</span></a>
+      <a class="product-box product-box--listing" href="tables-and-sharings.html"><span class="product-box__media product-box__media--placeholder"></span><span class="product-box__label">Meetings</span></a>
+      <a class="product-box product-box--listing" href="seatings.html"><span class="product-box__media product-box__media--placeholder"></span><span class="product-box__label">Seatings</span></a>
+      <a class="product-box product-box--listing" href="coffee-tables.html"><span class="product-box__media product-box__media--placeholder"></span><span class="product-box__label">Coffee Tables</span></a>
+      <a class="product-box product-box--listing" href="storage-units.html"><span class="product-box__media product-box__media--placeholder"></span><span class="product-box__label">Storage Units</span></a>
+      <a class="product-box product-box--listing" href="receptions.html"><span class="product-box__media product-box__media--placeholder"></span><span class="product-box__label">Receptions</span></a>
+      <a class="product-box product-box--listing" href="acoustic-solutions.html"><span class="product-box__media product-box__media--placeholder"></span><span class="product-box__label">Acoustic Solutions</span></a>
     </div>
   </section>
 </main>
@@ -228,5 +235,84 @@
 </footer>
 
 <script src="../assets/js/main.js"></script>
+<script>
+  /* "Our Products" overview: nothing is pre-selected. Picking a macro
+     category in the first slider reveals its subcategories in the second
+     slider (real links to the existing listing pages) and swaps the grid
+     from the 7 macro tiles down to that macro's subcategory tiles.
+     Categories with no subcategory listing pages (Coffee Tables, Receptions)
+     just navigate straight to their own page instead. */
+  (function () {
+    var DATA = {
+      'desks': { href: 'desks.html', items: [
+        ['Executive Desks', 'desks/executive-desks.html'],
+        ['Operative Desks', 'desks/operative-desks.html'],
+        ['Adjustable Desks', 'desks/adjustable-desks.html'],
+        ['System Benches', 'desks/system-benches.html']
+      ] },
+      'tables-and-sharings': { href: 'tables-and-sharings.html', items: [
+        ['Meeting Tables', 'tables-and-sharings/meeting-tables.html'],
+        ['Sharing Tables', 'tables-and-sharings/sharing-tables.html']
+      ] },
+      'seatings': { href: 'seatings.html', items: [
+        ['Executive Chairs', 'seatings/executive-chairs.html'],
+        ['Meeting & Guest Chairs', 'seatings/meeting-guest-chairs.html'],
+        ['Task Chairs', 'seatings/task-chairs.html'],
+        ['Lounge Seatings', 'seatings/lounge-seatings.html'],
+        ['Privacy Seatings', 'seatings/privacy-seatings.html'],
+        ['Sofas', 'seatings/sofas.html'],
+        ['Stools', 'seatings/stools.html']
+      ] },
+      'coffee-tables': { href: 'coffee-tables.html', items: null },
+      'storage-units': { href: 'storage-units.html', items: [
+        ['Cabinets', 'storage-units/cabinets.html'],
+        ['Drawers', 'storage-units/drawers.html'],
+        ['Wardrobes', 'storage-units/wardrobes.html']
+      ] },
+      'receptions': { href: 'receptions.html', items: null },
+      'acoustic-solutions': { href: 'acoustic-solutions.html', items: [
+        ['Acoustic Pods', 'acoustic-solutions/acoustic-pods.html'],
+        ['Desk Panels', 'acoustic-solutions/desk-panels.html'],
+        ['Wall Panels', 'acoustic-solutions/wall-panels.html'],
+        ['Freestanding Panels', 'acoustic-solutions/freestanding-panels.html'],
+        ['Ceiling Panels', 'acoustic-solutions/ceiling-panels.html']
+      ] }
+    };
+
+    var macroTabs = document.getElementById('allProductsMacroTabs');
+    var subTabs = document.getElementById('allProductsSubTabs');
+    var subTrack = document.getElementById('allProductsSubTrack');
+    var grid = document.getElementById('allProductsGrid');
+    var count = document.getElementById('allProductsCount');
+    if (!macroTabs) return;
+
+    macroTabs.querySelectorAll('.cat-tabs__item').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var macro = btn.dataset.macro;
+        var entry = DATA[macro];
+        if (!entry) return;
+        if (!entry.items) {
+          window.location.href = entry.href;
+          return;
+        }
+        macroTabs.querySelectorAll('.cat-tabs__item').forEach(function (b) {
+          b.classList.toggle('is-active', b === btn);
+        });
+
+        subTrack.innerHTML = entry.items.map(function (item) {
+          return '<a href="' + item[1] + '" class="cat-tabs__item">' + item[0] + '</a>';
+        }).join('');
+        subTabs.hidden = false;
+
+        grid.innerHTML = entry.items.map(function (item) {
+          return '<a class="product-box product-box--listing" href="' + item[1] + '">' +
+            '<span class="product-box__media product-box__media--placeholder"></span>' +
+            '<span class="product-box__label">' + item[0] + '</span></a>';
+        }).join('');
+        count.textContent = entry.items.length + (entry.items.length === 1 ? ' Category' : ' Categories');
+      });
+    });
+  })();
+</script>
 </body>
 </html>

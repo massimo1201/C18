@@ -753,22 +753,20 @@ p.vs-body {
   min-height: 46px;
   padding: 10px 26px;
   border-radius: 999px;
-  border: 1px solid rgba(10,10,10,0.4);
+  border: 1px solid var(--black);
   font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(13px, 1.1vw, 15px);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--black);
+  background: var(--black);
+  color: var(--white);
   opacity: 0;
   transform: translateY(16px);
   transition: opacity .5s var(--ease), transform .5s var(--ease), background .25s var(--ease), border-color .25s var(--ease);
 }
 .vs-cta.is-visible { opacity: 1; transform: translateY(0); }
-.vs-cta:hover {
-  background: rgba(10,10,10,0.08);
-  border-color: var(--black);
-}
+.vs-cta:hover { opacity: 0.82; }
 
 /* Typewriter headings: text reveal is driven by JS appending characters,
    so cancel the fade/translate reveal used elsewhere. Body copy keeps the
@@ -1424,6 +1422,12 @@ p.vs-body {
   width: auto;
   display: block;
 }
+.footer-logo-link {
+  display: inline-block;
+  text-decoration: none;
+  transition: opacity .25s var(--ease);
+}
+.footer-logo-link:hover { opacity: 0.75; }
 
 .footer-title {
   color: var(--white);
@@ -1511,6 +1515,7 @@ p.vs-body {
   padding-top: clamp(120px, 14vw, 160px);
   margin-bottom: clamp(28px, 4vw, 44px);
 }
+.cat-tabs[hidden] { display: none; }
 .cat-tabs__track {
   display: flex;
   gap: clamp(22px, 3vw, 40px);
@@ -1578,49 +1583,124 @@ p.vs-body {
   grid-template-columns: repeat(2, 1fr);
 }
 @media (min-width: 640px) { .product-grid.product-grid--listing { grid-template-columns: repeat(4, 1fr); } }
-.product-box__media--placeholder { background: #ececea; border: none; }
-.product-box--listing {
-  cursor: pointer;
+.product-box__media--placeholder { background: var(--white); border: 1px solid var(--line); }
+.product-box--listing { position: relative; }
+.product-box__trigger {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
   background: none;
   border: none;
   padding: 0;
   text-align: left;
-  width: 100%;
+  cursor: pointer;
   font: inherit;
+  color: inherit;
 }
-.product-box--listing.is-active .product-box__media { transform: translateY(-5px); box-shadow: 0 16px 32px rgba(10,10,10,0.14); }
+.product-box__trigger:hover .product-box__media {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(10,10,10,0.14);
+}
 
-/* Curtain reveal: clicking a product box opens this fixed (non-popup) panel
-   in place below the grid. overflow:hidden + max-height clips the inner
-   padded card entirely while closed, so it takes no visible space. */
-.product-detail-panel {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height .5s var(--ease);
+/* Expanding box: the clicked square doesn't get covered by something else —
+   it becomes the big rectangle itself, spanning the full row so the grid
+   naturally pushes every later box down onto a fresh row below it. */
+.product-box--listing.is-open { grid-column: 1 / -1; }
+.product-box--listing.is-open .product-box__trigger { display: none; }
+.product-box__expanded { display: none; position: relative; }
+.product-box--listing.is-open .product-box__expanded {
+  display: grid;
+  gap: clamp(20px, 3vw, 32px);
 }
-.product-detail-panel.is-open {
-  max-height: 520px;
-  margin-top: clamp(20px, 2.6vw, 28px);
+.product-box__close {
+  position: absolute;
+  top: -6px;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  cursor: pointer;
+  z-index: 1;
+  transition: background-color .25s var(--ease), color .25s var(--ease);
 }
-.product-detail-panel__inner {
-  background: var(--cream);
+.product-box__close:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+@media (min-width: 700px) {
+  .product-box--listing.is-open .product-box__expanded {
+    grid-template-columns: 1.3fr 1fr;
+    align-items: center;
+  }
+}
+.product-box__carousel {
+  position: relative;
+  aspect-ratio: 4 / 3;
   border-radius: var(--radius);
-  padding: clamp(28px, 4vw, 44px);
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--line);
 }
-.product-detail-panel__title {
+.product-box__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .6s var(--ease);
+}
+.product-box__slide.is-active { opacity: 1; }
+.product-box__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color .25s var(--ease);
+}
+.product-box__arrow:hover { background: var(--white); }
+.product-box__arrow--prev { left: 12px; }
+.product-box__arrow--next { right: 12px; }
+.product-box__dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+.product-box__dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+}
+.product-box__dots span.is-active { background: var(--white); }
+.product-box__info { min-width: 0; }
+.product-box__title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
   text-transform: uppercase;
   margin-bottom: 14px;
 }
-.product-detail-panel__desc {
+.product-box__desc {
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
-  max-width: 60ch;
+  max-width: 48ch;
   opacity: 0.78;
-  margin-bottom: clamp(22px, 3vw, 30px);
+  margin-bottom: clamp(20px, 2.8vw, 28px);
 }
 
 /* ---------- Product category / detail pages ---------- */
@@ -1721,6 +1801,25 @@ p.vs-body {
   transition: opacity .3s var(--ease);
 }
 .line-stage__preview.is-visible { opacity: 1; visibility: visible; pointer-events: auto; }
+/* Mobile: the Product Categories preview (not the Our Collections modal,
+   which keeps its centered popup) gets moved next to the tapped item by JS
+   and switches from an opacity fade to a height-driven curtain, so it opens
+   by pushing the rest of the list down instead of floating over it. */
+@media (max-width: 899px) {
+  .line-stage__preview:not(.collections-modal) {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .5s var(--ease);
+  }
+  .line-stage__preview:not(.collections-modal).is-visible {
+    max-height: 640px;
+    margin-top: clamp(16px, 3vw, 22px);
+    margin-bottom: clamp(16px, 3vw, 22px);
+  }
+}
 .line-stage__photo {
   width: 100%;
   aspect-ratio: 16 / 9;

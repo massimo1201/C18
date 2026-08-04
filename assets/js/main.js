@@ -341,6 +341,14 @@ document.addEventListener('DOMContentLoaded', () => {
        in the same slot and is covered whenever the preview is active.
        When a backdrop is present (Our Collections), the preview is a
        centered popup instead of an inline panel. */
+    /* On mobile, the Product Categories preview (no backdrop — the Our
+       Collections popup is untouched) stops being a side panel and becomes
+       an inline curtain that opens directly under the tapped item, pushing
+       the rest of the list down. That means moving the shared preview node
+       to sit right after the active item every time it opens. Desktop keeps
+       the original reserved-slot side panel (mediaQuery below matches the
+       same breakpoint where .line-stage switches to a row layout). */
+    const mobileCurtain = window.matchMedia('(max-width: 899px)');
     let current = null;
     function show(item) {
       current = item;
@@ -354,6 +362,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (titleEl) titleEl.textContent = item.dataset.title || '';
       descEl.textContent = item.dataset.desc || '';
       if (linkEl) linkEl.href = item.dataset.href || '#';
+      if (!backdrop && mobileCurtain.matches) {
+        item.insertAdjacentElement('afterend', preview);
+      }
       preview.classList.add('is-visible');
       if (intro) intro.classList.add('is-covered');
       if (backdrop) backdrop.classList.add('is-visible');
@@ -466,32 +477,61 @@ document.addEventListener('DOMContentLoaded', () => {
     if (active) active.scrollIntoView({ block: 'nearest', inline: 'center' });
   });
 
-  /* Product-listing pages: clicking a product box opens a single shared
-     curtain panel below the grid with that product's name, description and
-     a Configure button — fixed in place (not a popup), re-draping with new
-     content if a different box is clicked, closing if the same box is
-     clicked again. */
+  /* Product-listing pages: clicking a product box expands that box itself in
+     place into a full-row panel (the little square is replaced by the big
+     one, not covered by a sibling) with an auto-rotating image carousel,
+     description and Configure button. Only one box open per grid at a time. */
   document.querySelectorAll('.product-grid--listing').forEach((grid) => {
-    const panel = grid.parentElement.querySelector('.product-detail-panel');
-    if (!panel) return;
-    const titleEl = panel.querySelector('.product-detail-panel__title');
-    const descEl = panel.querySelector('.product-detail-panel__desc');
-    let activeBox = null;
+    let openBox = null;
+    let carouselTimer = null;
+
+    function setSlide(box, index) {
+      const slides = Array.from(box.querySelectorAll('.product-box__slide'));
+      const dots = Array.from(box.querySelectorAll('.product-box__dots span'));
+      if (!slides.length) return;
+      const i = ((index % slides.length) + slides.length) % slides.length;
+      slides.forEach((s, si) => s.classList.toggle('is-active', si === i));
+      dots.forEach((d, di) => d.classList.toggle('is-active', di === i));
+      box.dataset.slideIndex = String(i);
+    }
+
+    function startCarousel(box) {
+      if (carouselTimer) clearInterval(carouselTimer);
+      carouselTimer = setInterval(() => {
+        setSlide(box, Number(box.dataset.slideIndex || 0) + 1);
+      }, 5000);
+    }
+
+    function closeBox(box) {
+      box.classList.remove('is-open');
+      if (carouselTimer) { clearInterval(carouselTimer); carouselTimer = null; }
+    }
+
     grid.querySelectorAll('.product-box--listing').forEach((box) => {
-      box.addEventListener('click', () => {
-        if (activeBox === box) {
-          activeBox.classList.remove('is-active');
-          activeBox = null;
-          panel.classList.remove('is-open');
-          return;
-        }
-        if (activeBox) activeBox.classList.remove('is-active');
-        activeBox = box;
-        box.classList.add('is-active');
-        if (titleEl) titleEl.textContent = box.dataset.name || '';
-        if (descEl) descEl.textContent = box.dataset.desc || '';
-        panel.classList.add('is-open');
-        panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      const trigger = box.querySelector('.product-box__trigger');
+      const closeBtn = box.querySelector('.product-box__close');
+      const prev = box.querySelector('.product-box__arrow--prev');
+      const next = box.querySelector('.product-box__arrow--next');
+      trigger.addEventListener('click', () => {
+        if (openBox) closeBox(openBox);
+        box.classList.add('is-open');
+        setSlide(box, 0);
+        startCarousel(box);
+        openBox = box;
+        box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+      if (closeBtn) closeBtn.addEventListener('click', () => {
+        closeBox(box);
+        openBox = null;
+        trigger.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+      if (prev) prev.addEventListener('click', () => {
+        setSlide(box, Number(box.dataset.slideIndex || 0) - 1);
+        startCarousel(box);
+      });
+      if (next) next.addEventListener('click', () => {
+        setSlide(box, Number(box.dataset.slideIndex || 0) + 1);
+        startCarousel(box);
       });
     });
   });
