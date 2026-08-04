@@ -381,6 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
          the form is a per-item detour, not something that should still be
          showing once you've moved on to a different item. */
       if (formEl) formEl.classList.remove('is-visible');
+      preview.classList.remove('is-form-mode');
       if (!backdrop && mobileCurtain.matches) {
         item.insertAdjacentElement('afterend', preview);
       }
@@ -413,6 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (current && current.dataset.form) {
           e.preventDefault();
           formEl.classList.add('is-visible');
+          preview.classList.add('is-form-mode');
         }
       });
     }
@@ -615,5 +617,34 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('input', resize);
     resize();
   });
+
+  /* Collection hero names (Alfaomega, Adjustable Desks, …) must always sit
+     on a single line and stretch to fill the available width — a fixed
+     vw-based font-size wraps long names and leaves short ones too small,
+     so measure each name's natural width at a reference size and scale it
+     to fit instead. */
+  const collectionHeroNames = document.querySelectorAll('.collection-hero__name');
+  if (collectionHeroNames.length) {
+    const fitCollectionHeroNames = () => {
+      const measureRange = document.createRange();
+      collectionHeroNames.forEach((el) => {
+        const targetWidth = el.clientWidth;
+        if (!targetWidth) return;
+        el.style.whiteSpace = 'nowrap';
+        el.style.overflowWrap = 'normal';
+        el.style.fontSize = '100px';
+        measureRange.selectNodeContents(el);
+        const naturalWidth = measureRange.getBoundingClientRect().width;
+        const maxFont = Math.min(window.innerHeight * 0.6, 320);
+        const fontSize = Math.max(32, Math.min((targetWidth / naturalWidth) * 100, maxFont));
+        el.style.fontSize = fontSize + 'px';
+      });
+    };
+    fitCollectionHeroNames();
+    window.addEventListener('resize', fitCollectionHeroNames);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(fitCollectionHeroNames);
+    }
+  }
 
 });

@@ -530,7 +530,7 @@ body.nav-open { overflow: hidden; }
   gap: clamp(24px, 3.4vw, 36px);
 }
 .manifesto-title {
-  font-size: clamp(2.6rem, 12vw, 11rem);
+  font-size: clamp(2.2rem, 8.6vw, 8rem);
   line-height: 1.02;
   max-width: 100%;
   width: 100%;
@@ -631,13 +631,9 @@ body.nav-open { overflow: hidden; }
 }
 .photo-box--flat::before { display: none; }
 .photo-box--flat .photo-box__meta a {
-  display: inline-block;
-  background: rgba(10,10,10,0.78);
-  color: var(--white);
-  padding: 9px 16px;
-  border-radius: 999px;
+  text-shadow: 0 1px 3px rgba(10,10,10,0.55), 0 1px 10px rgba(10,10,10,0.4);
 }
-.photo-box--flat .photo-box__meta a:hover { opacity: 0.82; }
+.photo-box--flat .photo-box__meta a:hover { opacity: 0.7; }
 .photo-box::before {
   content: "";
   position: absolute;
@@ -891,6 +887,7 @@ p.vs-body {
 /* Spaces, Products and Solutions: reuses the same white product-box grid
    as the listing pages (see .product-grid--listing further down), just
    dropped onto each line's colored band. */
+.line-band .lede { margin-top: clamp(12px, 1.8vw, 18px); max-width: 62ch; }
 .line-band .product-grid--listing { margin-top: clamp(24px, 3.4vw, 36px); }
 
 .collection-grid {
@@ -1839,6 +1836,13 @@ p.vs-body {
 .line-stage__link2[hidden] { display: none; }
 .line-stage__form { display: none; margin-top: 4px; }
 .line-stage__form.is-visible { display: block; }
+/* Requesting the price list swaps the popup straight into a contact form —
+   no photo box or description sitting above it, just the form itself. */
+.line-stage__preview.is-form-mode .line-stage__photo,
+.line-stage__preview.is-form-mode .line-stage__text > p,
+.line-stage__preview.is-form-mode .line-stage__text > a.btn {
+  display: none;
+}
 .line-stage__form .newsletter-form__row--triple { flex-wrap: wrap; }
 .line-stage__form .newsletter-form__row--triple input { flex: 1 1 140px; }
 .line-stage__text > a:not(.btn) {
