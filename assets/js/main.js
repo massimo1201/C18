@@ -296,7 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* Category page: full-bleed line stage — nothing shows until hover/click. */
-  function initLineStage(sectionId, itemSelector, navigateOnClick) {
+  function initLineStage(sectionId, itemSelector) {
     const section = document.getElementById(sectionId);
     if (!section) return;
     /* A modal-style preview (Our Collections) lives outside the section,
@@ -389,14 +389,6 @@ document.addEventListener('DOMContentLoaded', () => {
         pinned ? show(pinned) : hide();
       });
       const togglePin = () => {
-        /* Product Categories items go straight to their listing page instead
-           of pinning the preview — the hover/focus preview above still gives
-           a sneak peek, but the click/tap itself is the "go" action, not a
-           second confirm step the user has to discover. */
-        if (navigateOnClick) {
-          if (item.dataset.href) window.location.href = item.dataset.href;
-          return;
-        }
         items.forEach((i) => i.classList.remove('is-pinned'));
         if (pinned === item) {
           pinned = null;
@@ -436,17 +428,17 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
-  initLineStage('deskCategoryStage', '.line-menu__item', true);
+  initLineStage('deskCategoryStage', '.line-menu__item');
   initLineStage('deskCollectionsStage', '.vertical-menu__item');
-  initLineStage('tablesCategoryStage', '.line-menu__item', true);
+  initLineStage('tablesCategoryStage', '.line-menu__item');
   initLineStage('tablesCollectionsStage', '.vertical-menu__item');
-  initLineStage('seatingsCategoryStage', '.line-menu__item', true);
-  initLineStage('coffeeCategoryStage', '.line-menu__item', true);
+  initLineStage('seatingsCategoryStage', '.line-menu__item');
+  initLineStage('coffeeCategoryStage', '.line-menu__item');
   initLineStage('coffeeCollectionsStage', '.vertical-menu__item');
-  initLineStage('storageCategoryStage', '.line-menu__item', true);
+  initLineStage('storageCategoryStage', '.line-menu__item');
   initLineStage('storageCollectionsStage', '.vertical-menu__item');
-  initLineStage('receptionsCategoryStage', '.line-menu__item', true);
-  initLineStage('acousticCategoryStage', '.line-menu__item', true);
+  initLineStage('receptionsCategoryStage', '.line-menu__item');
+  initLineStage('acousticCategoryStage', '.line-menu__item');
 
   /* The page always ends in the black footer, but html/body default to
      cream — on an elastic/rubber-band overscroll past the bottom edge that
