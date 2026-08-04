@@ -134,6 +134,23 @@ html[lang="ar"] p[data-i18n] {
   opacity: 0.9;
 }
 .page-home .mix-title .lg { font-size: clamp(3.2rem, 10.5vw, 10rem); }
+/* Made in Italy box: a bit smaller than the rest of the landing page's
+   oversized titles, but keeping the same two-line "Made in Italy" /
+   "Since 1954" layout. */
+#made-in-italy .mix-title .lg { font-size: clamp(2.2rem, 6.6vw, 5.6rem); }
+/* Our Products overview: only 3 items (Essential/Operative/Executive) sit
+   in a row whose height is dictated by the much taller reserved preview
+   slot, top-aligned by default — that leaves a lot of visible dead air
+   below the short menu. Center just the menu column (the intro text stays
+   top-aligned, matching every other line-menu-section on the site). */
+@media (min-width: 900px) {
+  #allProductsCategoryStage .line-menu { align-self: center; }
+}
+/* Only 3 items means the 16:9 reserved preview photo (sized for the wider
+   4-item Product Categories menus elsewhere) is taller than it needs to be
+   here — a shorter aspect ratio keeps the row close to the menu's own
+   height instead of towering over it. */
+#allProductsCategoryStage .line-stage__photo { aspect-ratio: 3 / 1; }
 
 .section-title {
   font-size: clamp(2.4rem, 6.6vw, 5.6rem);
@@ -518,6 +535,7 @@ body.nav-open { overflow: hidden; }
   max-width: 100%;
   width: 100%;
   text-align: left;
+  overflow-wrap: break-word;
 }
 .manifesto p.lede {
   max-width: none;
@@ -604,6 +622,22 @@ body.nav-open { overflow: hidden; }
 .photo-box--tall {
   min-height: clamp(560px, 68vw, 800px);
 }
+/* Smaller, un-darkened variant for photo boxes that only carry a couple of
+   short address links rather than a title + body copy — the full-image
+   darkening gradient exists purely for that text's legibility, so without
+   it each link gets its own small solid chip instead. */
+.photo-box--flat {
+  min-height: clamp(200px, 26vw, 300px);
+}
+.photo-box--flat::before { display: none; }
+.photo-box--flat .photo-box__meta a {
+  display: inline-block;
+  background: rgba(10,10,10,0.78);
+  color: var(--white);
+  padding: 9px 16px;
+  border-radius: 999px;
+}
+.photo-box--flat .photo-box__meta a:hover { opacity: 0.82; }
 .photo-box::before {
   content: "";
   position: absolute;
