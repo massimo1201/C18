@@ -582,15 +582,52 @@ document.addEventListener('DOMContentLoaded', () => {
     if (active) active.scrollIntoView({ block: 'nearest', inline: 'center' });
   });
 
-  /* History & Brand Evolution: same arrow-scroll pattern as the category
-     tab bars, just scrolling by one card's width at a time. */
+  /* History & Brand Evolution: a draggable scrubber bar below the track
+     (no arrow buttons) — the thumb's width/position mirror how much of
+     the track is visible and how far it's scrolled, and dragging it (or
+     clicking anywhere on the bar) scrolls the track proportionally. A
+     proportional scrubber, rather than one dot per card, is what actually
+     works here: at most viewport widths several cards are visible at
+     once and the track can't scroll a full card-width per card, so
+     discrete per-card stops would be unreachable for the later cards. */
   document.querySelectorAll('.history-slider').forEach((slider) => {
     const track = slider.querySelector('.history-slider__track');
-    const prev = slider.querySelector('.history-slider__arrow--prev');
-    const next = slider.querySelector('.history-slider__arrow--next');
-    if (!track) return;
-    if (prev) prev.addEventListener('click', () => track.scrollBy({ left: -track.clientWidth * 0.8, behavior: 'smooth' }));
-    if (next) next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth * 0.8, behavior: 'smooth' }));
+    const scrubber = slider.querySelector('.history-slider__scrubber');
+    const thumb = slider.querySelector('.history-slider__scrubber-thumb');
+    if (!track || !scrubber || !thumb) return;
+    const update = () => {
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      const visibleRatio = Math.min(track.clientWidth / track.scrollWidth, 1);
+      thumb.style.width = (visibleRatio * 100) + '%';
+      const progress = maxScroll > 0 ? track.scrollLeft / maxScroll : 0;
+      thumb.style.left = (progress * (100 - visibleRatio * 100)) + '%';
+      scrubber.setAttribute('aria-valuenow', String(Math.round(progress * 100)));
+    };
+    update();
+    window.addEventListener('resize', update);
+    let ticking = false;
+    track.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => { update(); ticking = false; });
+    });
+    const seekTo = (clientX) => {
+      const rect = scrubber.getBoundingClientRect();
+      const thumbWidthPx = thumb.offsetWidth;
+      const travel = Math.max(rect.width - thumbWidthPx, 1);
+      const x = Math.min(Math.max(clientX - rect.left - thumbWidthPx / 2, 0), travel);
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      track.scrollLeft = (x / travel) * maxScroll;
+    };
+    let dragging = false;
+    scrubber.addEventListener('pointerdown', (e) => {
+      dragging = true;
+      scrubber.setPointerCapture(e.pointerId);
+      seekTo(e.clientX);
+    });
+    scrubber.addEventListener('pointermove', (e) => { if (dragging) seekTo(e.clientX); });
+    scrubber.addEventListener('pointerup', () => { dragging = false; });
+    scrubber.addEventListener('pointercancel', () => { dragging = false; });
   });
 
   /* Project detail pages (Contract/Bespoke): same arrow-scroll pattern for

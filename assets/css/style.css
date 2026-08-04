@@ -2264,30 +2264,6 @@ a.product-drilldown__summary::after { content: "\2192"; }
   gap: 12px;
   margin-top: clamp(22px, 3vw, 30px);
 }
-/* Vertical side tab back to the line's own page (Essential/Operative/
-   Executive), replacing the plain inline eyebrow link removed earlier. */
-.collection-line-tab {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  background: var(--black);
-  color: var(--white);
-  padding: 36px 22px;
-  border-radius: var(--radius) 0 0 var(--radius);
-  font-family: var(--font-display);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 17px;
-  transition: opacity .25s var(--ease);
-}
-.collection-line-tab:hover { opacity: 0.75; }
 /* Finishes: three named groups (Top / Structure / Details), each with its
    own swatch grid, sitting well clear of the media box above rather than
    flush against it. */
@@ -2474,25 +2450,23 @@ a.product-drilldown__summary::after { content: "\2192"; }
   line-height: 1.5;
   opacity: 0.78;
 }
-.history-slider__arrows {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
+.history-slider__scrubber {
+  position: relative;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(10,10,10,0.14);
+  cursor: pointer;
+  touch-action: none;
 }
-.history-slider__arrow {
-  flex: 0 0 auto;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  transition: background-color .25s var(--ease);
+.history-slider__scrubber-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  min-width: 40px;
+  border-radius: 999px;
+  background: var(--black);
 }
-.history-slider__arrow:hover { background: var(--cream); }
-@media (max-width: 720px) { .history-slider__arrows { display: none; } }
 
 .news-featured {
   margin-top: clamp(40px, 6vw, 64px);
