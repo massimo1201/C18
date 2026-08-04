@@ -531,6 +531,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (active) active.scrollIntoView({ block: 'nearest', inline: 'center' });
   });
 
+  /* History & Brand Evolution: same arrow-scroll pattern as the category
+     tab bars, just scrolling by one card's width at a time. */
+  document.querySelectorAll('.history-slider').forEach((slider) => {
+    const track = slider.querySelector('.history-slider__track');
+    const prev = slider.querySelector('.history-slider__arrow--prev');
+    const next = slider.querySelector('.history-slider__arrow--next');
+    if (!track) return;
+    if (prev) prev.addEventListener('click', () => track.scrollBy({ left: -track.clientWidth * 0.8, behavior: 'smooth' }));
+    if (next) next.addEventListener('click', () => track.scrollBy({ left: track.clientWidth * 0.8, behavior: 'smooth' }));
+  });
+
   /* Product-listing pages: clicking a product box expands that box itself in
      place into a full-row panel (the little square is replaced by the big
      one, not covered by a sibling) with an auto-rotating image carousel,
