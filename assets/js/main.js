@@ -383,21 +383,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     hide();
 
+    /* On desktop, moving the cursor from the item name onto the popup itself
+       shouldn't close it — there's often a small gap or the popup sits right
+       next to the trigger, and a plain mouseleave fires before the pointer
+       actually lands on the preview. Every leave schedules a short-delayed
+       hide instead of hiding immediately; entering the trigger OR the
+       preview cancels it. It only actually closes once the cursor leaves
+       both, or a different item's mouseenter takes over first. */
+    let hideTimer = null;
+    function cancelHide() { clearTimeout(hideTimer); hideTimer = null; }
+    function scheduleHide() {
+      clearTimeout(hideTimer);
+      const forItem = current;
+      hideTimer = setTimeout(() => {
+        if (current !== forItem) return;
+        pinned ? show(pinned) : hide();
+      }, 200);
+    }
+    preview.addEventListener('mouseenter', cancelHide);
+    preview.addEventListener('mouseleave', scheduleHide);
+
     let pinned = null;
     items.forEach((item) => {
       const trigger = item.querySelector('button, a') || item;
-      trigger.addEventListener('mouseenter', () => show(item));
-      /* Moving fast from one item straight to the next can fire the old
-         item's mouseleave after the new item's mouseenter (adjacent-element
-         boundary quirk) — ignore it if something else has taken over since. */
+      trigger.addEventListener('mouseenter', () => { cancelHide(); show(item); });
       trigger.addEventListener('mouseleave', () => {
         if (current !== item) return;
-        pinned ? show(pinned) : hide();
+        scheduleHide();
       });
-      trigger.addEventListener('focus', () => show(item));
+      trigger.addEventListener('focus', () => { cancelHide(); show(item); });
       trigger.addEventListener('blur', () => {
         if (current !== item) return;
-        pinned ? show(pinned) : hide();
+        scheduleHide();
       });
       const togglePin = () => {
         items.forEach((i) => i.classList.remove('is-pinned'));
@@ -450,6 +467,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initLineStage('storageCollectionsStage', '.vertical-menu__item');
   initLineStage('receptionsCategoryStage', '.line-menu__item');
   initLineStage('acousticCategoryStage', '.line-menu__item');
+  initLineStage('resourcesCategoryStage', '.line-menu__item');
+  initLineStage('allProductsCategoryStage', '.line-menu__item');
+  initLineStage('allProductsCollectionsStage', '.vertical-menu__item');
 
   /* The page always ends in the black footer, but html/body default to
      cream — on an elastic/rubber-band overscroll past the bottom edge that
@@ -509,6 +529,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     grid.querySelectorAll('.product-box--listing').forEach((box) => {
       const trigger = box.querySelector('.product-box__trigger');
+      if (!trigger) return;
       const closeBtn = box.querySelector('.product-box__close');
       const prev = box.querySelector('.product-box__arrow--prev');
       const next = box.querySelector('.product-box__arrow--next');
@@ -534,6 +555,20 @@ document.addEventListener('DOMContentLoaded', () => {
         startCarousel(box);
       });
     });
+  });
+
+  /* Textareas marked autosize-textarea grow with the typed content instead
+     of exposing a manual drag handle (see CSS: resize:none). Resetting
+     height to auto before reading scrollHeight lets it shrink back down
+     too, e.g. after deleting several lines. maxlength on the element itself
+     already caps the character count. */
+  document.querySelectorAll('.autosize-textarea').forEach((el) => {
+    const resize = () => {
+      el.style.height = 'auto';
+      el.style.height = el.scrollHeight + 'px';
+    };
+    el.addEventListener('input', resize);
+    resize();
   });
 
 });

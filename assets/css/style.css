@@ -1299,6 +1299,12 @@ p.vs-body {
   min-height: 96px;
   resize: vertical;
 }
+/* Grows with the typed text instead of a manual drag handle — height is set
+   directly on the element by JS (scrollHeight-driven), not by the resizer. */
+.newsletter-form textarea.autosize-textarea {
+  resize: none;
+  overflow: hidden;
+}
 .newsletter-form textarea::placeholder { color: rgba(255,253,245,0.85); }
 .newsletter-form textarea:focus {
   outline: none;
@@ -1870,6 +1876,18 @@ p.vs-body {
 .line-menu__row:hover { opacity: .65; }
 .line-menu__item.is-active .line-menu__row,
 .line-menu__item.is-pinned .line-menu__row { opacity: .55; }
+.line-menu__note {
+  display: block;
+  margin-top: -14px;
+  padding: 0 4px 18px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+@media (min-width: 900px) { .line-menu__note { text-align: right; } }
 
 /* Our Collections: one shared index, big vertical rotated titles, spread
    left-to-right across the full page width on a single cream band. */
