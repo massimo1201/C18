@@ -244,17 +244,45 @@ document.addEventListener('DOMContentLoaded', () => {
     card.addEventListener('click', () => card.classList.toggle('is-expanded'));
   });
 
-  /* News page: reveal the full news grid on button click */
-  const newsMoreToggle = document.getElementById('newsMoreToggle');
-  const newsMoreGrid = document.getElementById('newsMoreGrid');
-  if (newsMoreToggle && newsMoreGrid) {
-    newsMoreToggle.addEventListener('click', () => {
-      const isHidden = newsMoreGrid.hasAttribute('hidden');
-      newsMoreGrid.toggleAttribute('hidden', !isHidden);
-      newsMoreToggle.textContent = isHidden
-        ? newsMoreToggle.dataset.labelLess
-        : newsMoreToggle.dataset.labelMore;
+  /* News archive: 40 cards load 20 at a time, and searching overrides the
+     pagination to show every match regardless of how many pages have been
+     revealed so far. */
+  const newsArchiveGrid = document.getElementById('newsArchiveGrid');
+  const newsLoadMore = document.getElementById('newsLoadMore');
+  const newsSearchInput = document.getElementById('newsSearchInput');
+  const newsArchiveEmpty = document.getElementById('newsArchiveEmpty');
+  if (newsArchiveGrid && newsLoadMore) {
+    const allCards = Array.from(newsArchiveGrid.querySelectorAll('.news-grid__card'));
+    const pageSize = 20;
+    let revealed = allCards.filter((c) => !c.hasAttribute('hidden')).length;
+    const updateLoadMoreVisibility = () => {
+      newsLoadMore.hidden = revealed >= allCards.length;
+    };
+    updateLoadMoreVisibility();
+    newsLoadMore.addEventListener('click', () => {
+      allCards.slice(revealed, revealed + pageSize).forEach((c) => c.removeAttribute('hidden'));
+      revealed = Math.min(revealed + pageSize, allCards.length);
+      updateLoadMoreVisibility();
     });
+    if (newsSearchInput) {
+      newsSearchInput.addEventListener('input', () => {
+        const query = newsSearchInput.value.trim().toLowerCase();
+        if (!query) {
+          allCards.forEach((c, i) => c.toggleAttribute('hidden', i >= revealed));
+          newsLoadMore.hidden = revealed >= allCards.length;
+          if (newsArchiveEmpty) newsArchiveEmpty.classList.remove('is-visible');
+          return;
+        }
+        let matches = 0;
+        allCards.forEach((c) => {
+          const isMatch = (c.dataset.title || '').includes(query);
+          c.toggleAttribute('hidden', !isMatch);
+          if (isMatch) matches += 1;
+        });
+        newsLoadMore.hidden = true;
+        if (newsArchiveEmpty) newsArchiveEmpty.classList.toggle('is-visible', matches === 0);
+      });
+    }
   }
 
   /* Category page: showcase CTA cycles through collection names with a typewriter effect */
@@ -645,6 +673,61 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(fitCollectionHeroNames);
     }
+  }
+
+  /* Manifesto title (landing/company "70 years plus…") wraps between words
+     like any normal heading, but must never break a single word mid-way —
+     so size it off the widest individual word rather than a fixed vw clamp,
+     letting it run as large as the longest word allows before it would
+     have to split. */
+  const manifestoTitles = document.querySelectorAll('.manifesto-title');
+  if (manifestoTitles.length) {
+    const measureRange = document.createRange();
+    const fitManifestoTitles = () => {
+      manifestoTitles.forEach((el) => {
+        const textNode = el.firstChild;
+        if (!textNode || textNode.nodeType !== Node.TEXT_NODE) return;
+        const targetWidth = el.clientWidth;
+        if (!targetWidth) return;
+        el.style.overflowWrap = 'normal';
+        el.style.fontSize = '100px';
+        const text = textNode.textContent;
+        let offset = 0;
+        let maxWordWidth = 0;
+        text.split(/(\s+)/).forEach((token) => {
+          if (token.trim().length) {
+            measureRange.setStart(textNode, offset);
+            measureRange.setEnd(textNode, offset + token.length);
+            maxWordWidth = Math.max(maxWordWidth, measureRange.getBoundingClientRect().width);
+          }
+          offset += token.length;
+        });
+        if (!maxWordWidth) return;
+        const maxFont = Math.min(window.innerWidth * 0.14, 200);
+        /* A small safety margin absorbs sub-pixel rounding between this
+           Range measurement and the real layout pass — without it a word
+           landing even 1px over would trigger a mid-word break instead of
+           harmlessly touching the edge. overflow-wrap stays "normal" (not
+           reset to break-word) so, worst case, that margin shows up as
+           slack rather than a split word. */
+        const fontSize = Math.max(30, Math.min((targetWidth / maxWordWidth) * 100 * 0.97, maxFont));
+        el.style.fontSize = fontSize + 'px';
+      });
+    };
+    fitManifestoTitles();
+    window.addEventListener('resize', fitManifestoTitles);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(fitManifestoTitles);
+    }
+  }
+
+  /* Links like "Contact Us for Bespoke Finishings or Dimensions" on a
+     collection page pass the reason along as a ?subject= query param so
+     the Contact Us page arrives with it already filled in. */
+  const subjectField = document.getElementById('contactSubject');
+  if (subjectField) {
+    const subject = new URLSearchParams(window.location.search).get('subject');
+    if (subject) subjectField.value = subject;
   }
 
 });

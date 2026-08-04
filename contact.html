@@ -62,12 +62,13 @@
       <a href="mailto:codutti@codutti.it">codutti@codutti.it</a>
     </div>
 
-    <form class="newsletter-form form-on-light contact-request-form contact-request-form--horizontal" onsubmit="return false;">
+    <form class="newsletter-form form-on-light contact-request-form contact-request-form--horizontal" id="request-form" onsubmit="return false;">
       <div class="newsletter-form__row newsletter-form__row--triple">
         <input type="text" placeholder="Name" required aria-label="Name">
         <input type="text" placeholder="Surname" required aria-label="Surname">
         <input type="email" placeholder="Your email" required aria-label="Email">
       </div>
+      <input type="text" placeholder="Subject" aria-label="Subject" id="contactSubject" style="margin-top:12px">
       <textarea class="autosize-textarea" placeholder="Your Request" required aria-label="Your Request" rows="3" maxlength="6000"></textarea>
       <button type="submit" class="btn btn--solid">Send Request</button>
     </form>
