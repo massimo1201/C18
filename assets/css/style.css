@@ -626,6 +626,13 @@ body.nav-open { overflow: hidden; }
 .photo-box--tall {
   min-height: clamp(560px, 68vw, 800px);
 }
+.method-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 /* Smaller variant for photo boxes that only carry a couple of short address
    links rather than a title + body copy — same soft darkening gradient as
    the landing page's Made in Italy box, just over a shorter box, with the
@@ -635,7 +642,7 @@ body.nav-open { overflow: hidden; }
   min-height: clamp(240px, 30vw, 340px);
 }
 .photo-box--flat .photo-box__content {
-  padding-bottom: clamp(40px, 6vw, 72px);
+  padding-bottom: clamp(56px, 8vw, 96px);
 }
 .photo-box--flat .photo-box__meta a {
   text-shadow: 0 1px 3px rgba(10,10,10,0.55), 0 1px 10px rgba(10,10,10,0.4);
@@ -1228,7 +1235,9 @@ p.vs-body {
 .event-map__pin:hover text { fill: var(--taupe); }
 
 .event-map--large {
-  max-width: none;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: clamp(12px, 2vw, 24px);
 }
 .event-map--large .event-map__pin text { font-size: 13px; }
 
@@ -1689,6 +1698,9 @@ p.vs-body {
 .page-hero + .cat-tabs {
   padding-top: 0;
   margin-bottom: clamp(28px, 4vw, 44px);
+}
+.cat-tabs + .collection-hero {
+  padding-top: clamp(40px, 6vw, 64px);
 }
 
 /* ---------- Product listing pages (macro + subcategory tabs, grey placeholder grid) ---------- */
@@ -2252,15 +2264,16 @@ a.product-drilldown__summary::after { content: "\2192"; }
   top: 0;
   right: 0;
   writing-mode: vertical-rl;
+  transform: rotate(180deg);
   background: var(--black);
   color: var(--white);
-  padding: 20px 12px;
-  border-radius: 0 0 0 var(--radius);
+  padding: 26px 16px;
+  border-radius: var(--radius) 0 0 var(--radius);
   font-family: var(--font-display);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 13px;
+  font-size: 14px;
   transition: opacity .25s var(--ease);
 }
 .collection-line-tab:hover { opacity: 0.75; }
@@ -2410,10 +2423,9 @@ a.product-drilldown__summary::after { content: "\2192"; }
    scrollable, showing exactly 4 per row on desktop (fewer on smaller
    screens as the card width can't shrink past a readable minimum). */
 .history-slider {
-  position: relative;
   display: flex;
-  align-items: center;
-  gap: 14px;
+  flex-direction: column;
+  gap: clamp(14px, 2vw, 20px);
   margin-top: clamp(28px, 4vw, 40px);
 }
 .history-slider__track {
@@ -2451,6 +2463,11 @@ a.product-drilldown__summary::after { content: "\2192"; }
   line-height: 1.5;
   opacity: 0.78;
 }
+.history-slider__arrows {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
 .history-slider__arrow {
   flex: 0 0 auto;
   width: 36px;
@@ -2464,7 +2481,7 @@ a.product-drilldown__summary::after { content: "\2192"; }
   transition: background-color .25s var(--ease);
 }
 .history-slider__arrow:hover { background: var(--cream); }
-@media (max-width: 720px) { .history-slider__arrow { display: none; } }
+@media (max-width: 720px) { .history-slider__arrows { display: none; } }
 
 .news-featured {
   margin-top: clamp(40px, 6vw, 64px);
