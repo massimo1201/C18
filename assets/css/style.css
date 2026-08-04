@@ -2121,6 +2121,16 @@ a.product-drilldown__summary::after { content: "\2192"; }
   width: 100%;
   overflow-wrap: break-word;
 }
+/* Typewriter reveal on load: Operative lines type with no cursor ("macchina
+   da scrivere"), Executive lines type with a blinking cursor ("scrittura
+   computer") — same distinction as the landing page's pinned Essential/
+   Operative/Executive scroll section, just replayed once here on load. */
+.collection-hero__name.has-cursor.is-typing::after {
+  content: "|";
+  margin-left: 0.02em;
+  animation: twBlink 0.9s steps(1) infinite;
+}
+.collection-detail-section { position: relative; }
 .collection-detail {
   display: grid;
   gap: clamp(28px, 4vw, 48px);
@@ -2141,39 +2151,38 @@ a.product-drilldown__summary::after { content: "\2192"; }
   line-height: 1.6;
   opacity: 0.82;
 }
-.collection-dimensions { margin-top: clamp(24px, 3vw, 32px); }
-.collection-dimensions h3 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
-  margin-bottom: 8px;
-}
-.collection-dimensions p {
-  font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 1.5;
-  opacity: 0.78;
-}
 .collection-detail__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: clamp(22px, 3vw, 30px);
 }
-.collection-finishes-section__label { margin-bottom: clamp(4px, 1vw, 10px); }
-.collection-banner {
-  padding-block: clamp(64px, 9vw, 120px);
-  text-align: center;
+/* Vertical side tab back to the line's own page (Essential/Operative/
+   Executive), replacing the plain inline eyebrow link removed earlier. */
+.collection-line-tab {
+  position: absolute;
+  top: 0;
+  right: 0;
+  writing-mode: vertical-rl;
+  background: var(--black);
+  color: var(--white);
+  padding: 20px 12px;
+  border-radius: 0 0 0 var(--radius);
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+  transition: opacity .25s var(--ease);
 }
-.collection-banner p {
-  max-width: 60ch;
-  margin-inline: auto;
-  font-family: var(--font-body);
-  font-size: clamp(1.2rem, 2vw, 1.7rem);
-  line-height: 1.5;
-}
-.collection-cta { text-align: center; padding-bottom: clamp(48px, 7vw, 80px); }
+.collection-line-tab:hover { opacity: 0.75; }
+/* Finishes: three named groups (Top / Structure / Details), each with its
+   own swatch grid, sitting well clear of the media box above rather than
+   flush against it. */
+.collection-finishes-section { margin-top: clamp(56px, 8vw, 96px); }
+.collection-finish-group { margin-top: clamp(48px, 6.5vw, 80px); }
+.collection-finish-group:first-child { margin-top: 0; }
+.collection-finish-group .finish-grid { margin-top: clamp(24px, 3.4vw, 36px); }
 .collection-products__label { text-align: center; margin-bottom: clamp(24px, 3.4vw, 36px); }
 .product-drilldown__panel .product-grid { margin-top: 0; }
 .product-drilldown__panel .product-drilldown { border-bottom: 1px solid var(--line); }
@@ -2182,6 +2191,54 @@ a.product-drilldown__summary::after { content: "\2192"; }
   padding: 14px 0;
 }
 .product-drilldown__panel .product-drilldown__panel { padding-bottom: clamp(22px, 3vw, 32px); }
+
+/* Bespoke request modal: opened from a collection page's "Contact Us for
+   Bespoke…" buttons (both the page-level one and the one inside each
+   product's popup) — materializes in place over the page instead of
+   navigating to Contact Us, tinted with the same line colour as the page
+   behind it. */
+.bespoke-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 299;
+  background: rgba(10, 10, 10, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s var(--ease);
+}
+.bespoke-modal-backdrop.is-visible { opacity: 1; visibility: visible; }
+.bespoke-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 300;
+  width: min(560px, calc(100vw - 48px));
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  border-radius: var(--radius);
+  padding: clamp(28px, 4vw, 44px);
+  box-shadow: 0 24px 64px rgba(10, 10, 10, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .3s var(--ease);
+}
+.bespoke-modal.is-visible { opacity: 1; visibility: visible; pointer-events: auto; }
+.bespoke-modal h3 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); margin-bottom: clamp(18px, 2.4vw, 26px); }
+.bespoke-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--white);
+  font-size: 13px;
+  transition: opacity .25s var(--ease);
+}
+.bespoke-modal__close:hover { opacity: 0.7; }
 
 /* Placeholder tint rotation for category/product media boxes (no photography yet) */
 .tint-0 { background: var(--sage); }

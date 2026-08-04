@@ -674,11 +674,18 @@ document.addEventListener('DOMContentLoaded', () => {
      to fit instead. */
   const collectionHeroNames = document.querySelectorAll('.collection-hero__name');
   if (collectionHeroNames.length) {
+    const measureRange = document.createRange();
     const fitCollectionHeroNames = () => {
-      const measureRange = document.createRange();
       collectionHeroNames.forEach((el) => {
         const targetWidth = el.clientWidth;
         if (!targetWidth) return;
+        /* Typing (below) leaves only part of the name in textContent while
+           it's in progress — always measure the complete word, restoring
+           whatever was actually on screen straight after, so mid-type
+           resizes don't compute a font-size for a half-typed string. */
+        if (!el.dataset.fullText) el.dataset.fullText = el.textContent;
+        const shownText = el.textContent;
+        el.textContent = el.dataset.fullText;
         el.style.whiteSpace = 'nowrap';
         el.style.overflowWrap = 'normal';
         el.style.fontSize = '100px';
@@ -687,6 +694,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const maxFont = Math.min(window.innerHeight * 0.6, 320);
         const fontSize = Math.max(32, Math.min((targetWidth / naturalWidth) * 100, maxFont));
         el.style.fontSize = fontSize + 'px';
+        el.textContent = shownText;
       });
     };
     fitCollectionHeroNames();
@@ -694,6 +702,52 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(fitCollectionHeroNames);
     }
+
+    /* Type the name in once on load — a blinking cursor for the "computer"
+       feel on Executive collections (marked with .has-cursor in the HTML),
+       no cursor for the plain "typewriter" feel on Operative ones. */
+    collectionHeroNames.forEach((el) => {
+      const text = el.dataset.fullText || el.textContent;
+      el.textContent = '';
+      el.classList.add('is-typing');
+      let i = 0;
+      const timer = setInterval(() => {
+        i++;
+        el.textContent = text.slice(0, i);
+        if (i >= text.length) {
+          clearInterval(timer);
+          el.classList.remove('is-typing');
+        }
+      }, 55);
+    });
+  }
+
+  /* Bespoke request modal (collection pages): any button carrying
+     data-bespoke-modal-trigger opens the page's single shared modal instead
+     of navigating to Contact Us, with the Your Request field pre-filled in
+     capitals from that button's own data attribute. */
+  const bespokeModal = document.getElementById('bespokeModal');
+  if (bespokeModal) {
+    const bespokeBackdrop = document.getElementById('bespokeModalBackdrop');
+    const bespokeRequest = bespokeModal.querySelector('.bespoke-modal__request');
+    const closeBespokeModal = () => {
+      bespokeModal.classList.remove('is-visible');
+      if (bespokeBackdrop) bespokeBackdrop.classList.remove('is-visible');
+    };
+    document.querySelectorAll('[data-bespoke-modal-trigger]').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (bespokeRequest) bespokeRequest.value = (btn.dataset.bespokeModalTrigger || '').toUpperCase();
+        bespokeModal.classList.add('is-visible');
+        if (bespokeBackdrop) bespokeBackdrop.classList.add('is-visible');
+      });
+    });
+    const bespokeClose = bespokeModal.querySelector('.bespoke-modal__close');
+    if (bespokeClose) bespokeClose.addEventListener('click', closeBespokeModal);
+    if (bespokeBackdrop) bespokeBackdrop.addEventListener('click', closeBespokeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeBespokeModal();
+    });
   }
 
   /* Manifesto title (landing/company "70 years plus…") wraps between words
