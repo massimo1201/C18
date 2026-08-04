@@ -203,22 +203,37 @@
     text-wrap:balance;
     margin-bottom:32px;
   }
-  .card-sub{
-    font-size:15px;
-    font-weight:500;
-    line-height:1.5;
-    margin-bottom:20px;
-  }
-  .gform-frame{
-    border-radius:14px;
-    overflow:hidden;
-    border:1.4px solid var(--bordeaux);
-    background:#fff;
-  }
-  .gform-frame iframe{
+  .field{ margin-bottom:22px; }
+  .field label{
     display:block;
+    font-weight:700;
+    font-size:14px;
+    color:var(--bordeaux);
+    margin-bottom:8px;
+  }
+  .field input,.field textarea{
     width:100%;
-    border:none;
+    font-family:inherit;
+    font-size:16px;
+    color:var(--bordeaux);
+    background:var(--cream);
+    border:1.4px solid var(--bordeaux);
+    border-radius:8px;
+    padding:12px 14px;
+    outline:none;
+  }
+  .field input:focus,.field textarea:focus{ border-color:var(--pink); box-shadow:0 0 0 3px rgba(244,95,174,.25); }
+  .field textarea{ min-height:96px; resize:vertical; }
+
+  .submit-btn{
+    width:100%;
+    margin-top:6px;
+  }
+  .form-msg{
+    margin-top:14px;
+    font-size:14px;
+    font-weight:500;
+    min-height:20px;
   }
   .fine-print{
     margin-top:18px;
@@ -418,16 +433,32 @@
 
       <div class="card">
         <h2 class="title-font">Conferma la tua presenza</h2>
-        <p class="card-sub">Compila il modulo qui sotto per farmi sapere che ci sarai.</p>
-        <div class="gform-frame">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdwi0ofrJbu9YRQ1DdEXT-KOJKJi6cFKnRuRl_xnX9dDwDfQg/viewform?embedded=true" height="760">Caricamento…</iframe>
-        </div>
+        <form id="rsvp-form"
+              action="https://docs.google.com/forms/d/e/1FAIpQLSdwi0ofrJbu9YRQ1DdEXT-KOJKJi6cFKnRuRl_xnX9dDwDfQg/formResponse"
+              method="POST" target="hidden_iframe">
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="entry.1759353992" required>
+          </div>
+          <div class="field">
+            <label for="cognome">Cognome</label>
+            <input type="text" id="cognome" name="entry.1427409728" required>
+          </div>
+          <div class="field">
+            <label for="messaggio">Messaggio</label>
+            <textarea id="messaggio" name="entry.1280745845"></textarea>
+          </div>
+          <button type="submit" class="btn btn-bordeaux submit-btn title-font" id="submit-btn">Invia</button>
+          <p class="form-msg" id="form-msg" aria-live="polite"></p>
+        </form>
         <p class="fine-print">I tuoi dati verranno usati solo per organizzare la festa e non saranno condivisi con nessuno.</p>
       </div>
     </section>
   </div>
 
 </div>
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="invio modulo"></iframe>
 
 <div class="modal-backdrop" id="dresscode-modal" hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="dresscode-title">
@@ -482,6 +513,25 @@
   dcCloseBtn.addEventListener('click', closeModal);
   dcModal.addEventListener('click', function(e){
     if(e.target === dcModal) closeModal();
+  });
+
+  // ----- RSVP form: submits silently to the linked Google Form -----
+  var rsvpForm = document.getElementById('rsvp-form');
+  var rsvpMsg = document.getElementById('form-msg');
+  var hiddenFrame = document.getElementById('hidden_iframe');
+  var rsvpSubmitted = false;
+
+  rsvpForm.addEventListener('submit', function(){
+    rsvpSubmitted = true;
+    rsvpMsg.textContent = 'Invio in corso...';
+  });
+
+  hiddenFrame.addEventListener('load', function(){
+    if(rsvpSubmitted){
+      rsvpMsg.textContent = 'Grazie! La tua presenza è stata registrata.';
+      rsvpForm.reset();
+      rsvpSubmitted = false;
+    }
   });
 </script>
 
