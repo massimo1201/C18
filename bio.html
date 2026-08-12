@@ -17,13 +17,25 @@
   font-display: swap;
 }
 
+/* Minion Variable Concept not yet supplied — once the font file is added under
+   assets/fonts/, uncomment and point src at it. Falls back to Georgia until then. */
+/*
+@font-face {
+  font-family: 'Minion Variable Concept';
+  src: url('assets/fonts/MinionVariableConcept-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+*/
+
 :root {
   --cream: #fef7da;
   --black: #0a0a0a;
   --black-soft: #141414;
   --white: #fffdf5;
-  --line-on-black: rgba(255, 253, 245, 0.16);
   --font-display: 'Clash Display', 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --font-body-small: 'Minion Variable Concept', Georgia, 'Times New Roman', serif;
 }
 
 * { box-sizing: border-box; }
@@ -108,9 +120,9 @@ main {
 
 .stay-tuned p {
   margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-body-small);
   font-size: 0.95rem;
-  color: var(--line-on-black);
+  color: var(--white);
   line-height: 1.5;
   max-width: 320px;
 }
@@ -122,12 +134,51 @@ main {
   min-height: unset;
   padding: 16px 32px;
   font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-display);
 }
 
 .stay-tuned .pill--white:hover { background: var(--cream); }
 
+.newsletter-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.newsletter-form .row {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 1px solid rgba(255, 253, 245, 0.4);
+  border-radius: 16px;
+  padding: 14px 16px;
+  color: var(--white);
+  font-family: var(--font-body-small);
+  font-size: 0.95rem;
+}
+
+.newsletter-form input::placeholder { color: rgba(255, 253, 245, 0.55); }
+.newsletter-form input:focus { outline: none; border-color: var(--white); }
+
+.newsletter-form .form-msg {
+  margin: 0;
+  min-height: 1.1em;
+  font-family: var(--font-body-small);
+  font-size: 0.85rem;
+  color: var(--white);
+}
+
 .section-title {
   margin: 0;
+  margin-top: 20px;
   font-size: clamp(2rem, 8vw, 2.6rem);
   text-transform: uppercase;
   text-align: center;
@@ -170,23 +221,45 @@ main {
   text-transform: uppercase;
   font-size: 0.8rem;
   letter-spacing: 0.06em;
-  color: var(--line-on-black);
+  color: var(--white);
 }
 
 .contact-card .reach {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  gap: 6px;
 }
+
+.contact-card .phone-number {
+  font-family: var(--font-body-small);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--white);
+}
+
+.contact-card .actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-card .actions .dot { color: var(--white); opacity: 0.5; }
 
 .contact-card a {
   color: var(--white);
   text-decoration: none;
-  font-size: 0.95rem;
+  font-family: var(--font-body-small);
+  font-size: 0.9rem;
 }
 
+.contact-card a.action { text-decoration: underline; text-decoration-color: rgba(255, 253, 245, 0.5); }
 .contact-card a:hover { text-decoration: underline; }
-.contact-card .phone { font-weight: 600; }
+.contact-card a.email { font-size: 0.9rem; }
+
+.general-contact {
+  margin-top: -4px;
+}
 
 footer {
   width: 100%;
@@ -202,7 +275,7 @@ footer img {
 }
 
 footer .fine-print {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-body-small);
   font-size: 0.78rem;
   line-height: 1.6;
   color: rgba(10, 10, 10, 0.72);
@@ -227,10 +300,36 @@ footer .fine-print a { color: inherit; text-decoration: underline; }
   <div class="stay-tuned">
     <h2>Stay Tuned</h2>
     <p>News, collections, and projects from Codutti straight to your inbox.</p>
-    <a class="pill pill--white" href="https://www.codutti.it/#newsletter">Subscribe to the Newsletter</a>
+    <form class="newsletter-form" id="newsletter-form"
+          action="https://docs.google.com/forms/d/e/REPLACE_WITH_FORM_ID/formResponse"
+          method="POST" target="hidden_iframe">
+      <div class="row">
+        <input type="text" name="entry.REPLACE_NOME" placeholder="Name" required aria-label="Name">
+        <input type="text" name="entry.REPLACE_COGNOME" placeholder="Surname" required aria-label="Surname">
+      </div>
+      <input type="email" name="entry.REPLACE_EMAIL" placeholder="Your email" required aria-label="Email">
+      <button type="submit" class="pill pill--white">Subscribe to the Newsletter</button>
+      <p class="form-msg" id="newsletter-msg" aria-live="polite"></p>
+    </form>
   </div>
 
   <h2 class="section-title">Contact Us</h2>
+
+  <div class="contact-card general-contact">
+    <div class="who">
+      <span class="name">General Contacts</span>
+    </div>
+    <div class="reach">
+      <span class="phone-number">+39 0432 541414</span>
+      <div class="actions">
+        <a class="action" href="tel:+390432541414">Call</a>
+        <span class="dot" aria-hidden="true">&middot;</span>
+        <a class="action" href="https://wa.me/390432541414">WhatsApp</a>
+      </div>
+      <a class="email" href="mailto:marketing@codutti.it">marketing@codutti.it</a>
+      <a class="email" href="mailto:codutti@codutti.it">codutti@codutti.it</a>
+    </div>
+  </div>
 
   <div class="contacts">
     <div class="contact-card">
@@ -239,8 +338,13 @@ footer .fine-print a { color: inherit; text-decoration: underline; }
         <span class="role">Sales Director</span>
       </div>
       <div class="reach">
-        <a class="phone" href="tel:+393484714770">+39 348 4714770</a>
-        <a href="mailto:marco.rossi@codutti.it">marco.rossi@codutti.it</a>
+        <span class="phone-number">+39 348 4714770</span>
+        <div class="actions">
+          <a class="action" href="tel:+393484714770">Call</a>
+          <span class="dot" aria-hidden="true">&middot;</span>
+          <a class="action" href="https://wa.me/393484714770">WhatsApp</a>
+        </div>
+        <a class="email" href="mailto:marco.rossi@codutti.it">marco.rossi@codutti.it</a>
       </div>
     </div>
 
@@ -250,8 +354,13 @@ footer .fine-print a { color: inherit; text-decoration: underline; }
         <span class="role">Export Manager Europe</span>
       </div>
       <div class="reach">
-        <a class="phone" href="tel:+393240576967">+39 324 0576967</a>
-        <a href="mailto:valentina@codutti.it">valentina@codutti.it</a>
+        <span class="phone-number">+39 324 0576967</span>
+        <div class="actions">
+          <a class="action" href="tel:+393240576967">Call</a>
+          <span class="dot" aria-hidden="true">&middot;</span>
+          <a class="action" href="https://wa.me/393240576967">WhatsApp</a>
+        </div>
+        <a class="email" href="mailto:valentina@codutti.it">valentina@codutti.it</a>
       </div>
     </div>
 
@@ -261,8 +370,13 @@ footer .fine-print a { color: inherit; text-decoration: underline; }
         <span class="role">Italian Sales Department</span>
       </div>
       <div class="reach">
-        <a class="phone" href="tel:+393460451527">+39 346 0451527</a>
-        <a href="mailto:roberta@codutti.it">roberta@codutti.it</a>
+        <span class="phone-number">+39 346 0451527</span>
+        <div class="actions">
+          <a class="action" href="tel:+393460451527">Call</a>
+          <span class="dot" aria-hidden="true">&middot;</span>
+          <a class="action" href="https://wa.me/393460451527">WhatsApp</a>
+        </div>
+        <a class="email" href="mailto:roberta@codutti.it">roberta@codutti.it</a>
       </div>
     </div>
 
@@ -272,8 +386,13 @@ footer .fine-print a { color: inherit; text-decoration: underline; }
         <span class="role">Marketing Manager</span>
       </div>
       <div class="reach">
-        <a class="phone" href="tel:+393474752446">+39 347 4752446</a>
-        <a href="mailto:massimo.donato@codutti.it">massimo.donato@codutti.it</a>
+        <span class="phone-number">+39 347 4752446</span>
+        <div class="actions">
+          <a class="action" href="tel:+393474752446">Call</a>
+          <span class="dot" aria-hidden="true">&middot;</span>
+          <a class="action" href="https://wa.me/393474752446">WhatsApp</a>
+        </div>
+        <a class="email" href="mailto:massimo.donato@codutti.it">massimo.donato@codutti.it</a>
       </div>
     </div>
 
@@ -283,8 +402,13 @@ footer .fine-print a { color: inherit; text-decoration: underline; }
         <span class="role">Sales Commercial Office</span>
       </div>
       <div class="reach">
-        <a class="phone" href="tel:+393460224378">+39 346 0224378</a>
-        <a href="mailto:elena.pellegrini@codutti.it">elena.pellegrini@codutti.it</a>
+        <span class="phone-number">+39 346 0224378</span>
+        <div class="actions">
+          <a class="action" href="tel:+393460224378">Call</a>
+          <span class="dot" aria-hidden="true">&middot;</span>
+          <a class="action" href="https://wa.me/393460224378">WhatsApp</a>
+        </div>
+        <a class="email" href="mailto:elena.pellegrini@codutti.it">elena.pellegrini@codutti.it</a>
       </div>
     </div>
 
@@ -294,25 +418,19 @@ footer .fine-print a { color: inherit; text-decoration: underline; }
         <span class="role">Logistic Department</span>
       </div>
       <div class="reach">
-        <a class="phone" href="tel:+393484714776">+39 348 4714776</a>
-        <a href="mailto:alan.vidoni@codutti.it">alan.vidoni@codutti.it</a>
-      </div>
-    </div>
-
-    <div class="contact-card">
-      <div class="who">
-        <span class="name">General Contacts</span>
-      </div>
-      <div class="reach">
-        <a class="phone" href="tel:+390432541414">+39 0432 541414</a>
-        <a href="mailto:marketing@codutti.it">marketing@codutti.it</a>
-        <a href="mailto:codutti@codutti.it">codutti@codutti.it</a>
+        <span class="phone-number">+39 348 4714776</span>
+        <div class="actions">
+          <a class="action" href="tel:+393484714776">Call</a>
+          <span class="dot" aria-hidden="true">&middot;</span>
+          <a class="action" href="https://wa.me/393484714776">WhatsApp</a>
+        </div>
+        <a class="email" href="mailto:alan.vidoni@codutti.it">alan.vidoni@codutti.it</a>
       </div>
     </div>
   </div>
 
   <footer>
-    <img src="assets/img/logo-full.png" alt="Codutti">
+    <img src="assets/img/logo-mark.png" alt="Codutti">
     <p class="fine-print">
       &copy; 2026 All rights reserved.<br>
       Codutti Furniture srl<br>
@@ -322,6 +440,28 @@ footer .fine-print a { color: inherit; text-decoration: underline; }
     </p>
   </footer>
 
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form submission"></iframe>
+
 </main>
+
+<script>
+  var newsletterForm = document.getElementById('newsletter-form');
+  var newsletterMsg = document.getElementById('newsletter-msg');
+  var hiddenFrame = document.getElementById('hidden_iframe');
+  var newsletterSubmitted = false;
+
+  newsletterForm.addEventListener('submit', function () {
+    newsletterSubmitted = true;
+    newsletterMsg.textContent = 'Sending...';
+  });
+
+  hiddenFrame.addEventListener('load', function () {
+    if (newsletterSubmitted) {
+      newsletterMsg.textContent = 'Thank you! You are now subscribed.';
+      newsletterForm.reset();
+      newsletterSubmitted = false;
+    }
+  });
+</script>
 </body>
 </html>
