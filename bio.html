@@ -294,24 +294,23 @@ main {
   width: 100%;
   margin-top: clamp(44px, 11vw, 68px);
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .socials a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
-  flex: 0 0 auto;
-  border-radius: 50%;
+  flex: 1 1 0;
+  min-height: 60px;
+  border-radius: 30px;
   background: var(--black);
   color: var(--white);
 }
 
-.socials a svg { width: 22px; height: 22px; }
+.socials a svg { width: 24px; height: 24px; }
 .socials a:hover { background: var(--black-soft); }
 
 footer {
@@ -328,8 +327,9 @@ footer img {
 }
 
 footer .fine-print {
-  font-family: var(--font-body-small);
-  font-size: 0.78rem;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 0.8rem;
   line-height: 1.6;
   color: rgba(10, 10, 10, 0.72);
   text-align: center;
@@ -339,7 +339,7 @@ footer .fine-print a {
   color: inherit;
   text-decoration: none;
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 300;
 }
 footer .fine-print a:hover { text-decoration: underline; }
 </style>
@@ -351,16 +351,16 @@ footer .fine-print a:hover { text-decoration: underline; }
 
   <div class="socials">
     <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn link to be provided">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10v6.5M7.5 7.5v.01M12 16.5V13a2.5 2.5 0 0 1 5 0v3.5M12 16.5v-4"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6.9" cy="7" r="1.85"/><path d="M5.4 10.2h3v9.9h-3z"/><path d="M10.9 10.2h2.9v1.36h.04c.4-.76 1.4-1.56 2.9-1.56 3.1 0 3.67 2.04 3.67 4.7v5.4h-3v-4.79c0-1.14-.02-2.61-1.59-2.61-1.59 0-1.83 1.24-1.83 2.53v4.87h-3z"/></svg>
     </a>
     <a href="#" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram link to be provided">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="0.75" fill="currentColor" stroke="none"/></svg>
     </a>
     <a href="#" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook link to be provided">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 21v-7.5H17l.5-3.2h-3V8.2c0-.9.3-1.6 1.7-1.6H17.6V3.9c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.9H8v3.2h2.6V21"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 8.5h2.1V5.13c-.36-.05-1.6-.16-3.04-.16-3 0-5.06 1.88-5.06 5.34v2.94H6.3v3.77h3.2V23h3.79v-5.98h3.07l.49-3.77h-3.56v-2.57c0-1.09.3-1.83 1.86-1.83Z"/></svg>
     </a>
     <a href="#" target="_blank" rel="noopener" aria-label="Pinterest" title="Pinterest link to be provided">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 17.5c1.1-3.8 1.5-6.4 1.8-8a2.6 2.6 0 1 1 3 3c-.3 1.6-1.3 3.3-2.9 3.3-.7 0-1.2-.3-1.5-.7"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3.5a8.5 8.5 0 0 0-3.1 16.4c-.04-.66-.09-1.68.02-2.4.1-.66.65-4.2.65-4.2s-.16-.34-.16-.83c0-.78.45-1.36 1.02-1.36.48 0 .71.36.71.79 0 .48-.31 1.2-.46 1.87-.13.56.28 1.01.83 1.01 1 0 1.77-1.05 1.77-2.58 0-1.35-.97-2.29-2.35-2.29-1.6 0-2.54 1.2-2.54 2.44 0 .48.18.99.42 1.27.05.06.05.11.04.17l-.16.63c-.02.11-.08.13-.19.08-.7-.33-1.14-1.35-1.14-2.17 0-1.77 1.28-3.39 3.71-3.39 1.95 0 3.46 1.39 3.46 3.24 0 1.94-1.22 3.49-2.92 3.49-.57 0-1.11-.3-1.29-.65l-.35 1.34c-.13.49-.47 1.11-.7 1.48.53.16 1.09.25 1.68.25A8.5 8.5 0 0 0 12 3.5Z"/></svg>
     </a>
   </div>
 
