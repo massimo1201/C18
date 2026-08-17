@@ -10,9 +10,9 @@
 <style>
 @font-face {
   font-family: 'Clash Display';
-  src: url('assets/fonts/ClashDisplay-Semibold.woff2') format('woff2'),
-       url('assets/fonts/ClashDisplay-Semibold.woff') format('woff');
-  font-weight: 600;
+  src: url('assets/fonts/ClashDisplayVariable.ttf') format('truetype-variations'),
+       url('assets/fonts/ClashDisplayVariable.ttf') format('truetype');
+  font-weight: 200 700;
   font-style: normal;
   font-display: swap;
 }
@@ -70,7 +70,6 @@ main {
 
 .links {
   width: 100%;
-  margin-top: clamp(44px, 11vw, 68px);
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -115,7 +114,7 @@ main {
 
 .stay-tuned h2 {
   margin: 0;
-  font-size: clamp(1.8rem, 7vw, 2.2rem);
+  font-size: clamp(2.1rem, 8vw, 2.5rem);
   text-transform: uppercase;
   letter-spacing: 0.01em;
 }
@@ -163,8 +162,11 @@ main {
   border-radius: 16px;
   padding: 14px 16px;
   color: var(--white);
-  font-family: var(--font-body-small);
-  font-size: 0.95rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-size: 0.85rem;
 }
 
 .newsletter-form input::placeholder { color: rgba(255, 253, 245, 0.55); }
@@ -173,7 +175,8 @@ main {
 .newsletter-form .form-msg {
   margin: 0;
   min-height: 1.1em;
-  font-family: var(--font-body-small);
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: 0.85rem;
   color: var(--white);
 }
@@ -254,7 +257,8 @@ main {
 .contact-card a {
   color: var(--white);
   text-decoration: none;
-  font-family: var(--font-body-small);
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: 0.9rem;
 }
 
@@ -286,10 +290,29 @@ main {
 
 .contact-card a.whatsapp-btn:hover { background: var(--cream); }
 
-.pill--icon svg {
-  width: 22px;
-  height: 22px;
+.socials {
+  width: 100%;
+  margin-top: clamp(44px, 11vw, 68px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
 }
+
+.socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--black);
+  color: var(--white);
+}
+
+.socials a svg { width: 22px; height: 22px; }
+.socials a:hover { background: var(--black-soft); }
 
 footer {
   width: 100%;
@@ -312,7 +335,12 @@ footer .fine-print {
   text-align: center;
 }
 
-footer .fine-print a { color: inherit; text-decoration: none; }
+footer .fine-print a {
+  color: inherit;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 600;
+}
 footer .fine-print a:hover { text-decoration: underline; }
 </style>
 </head>
@@ -321,19 +349,22 @@ footer .fine-print a:hover { text-decoration: underline; }
 
   <img class="logo" src="assets/img/logo-full.png" alt="Codutti — Contemporary, Crafted, Contract">
 
-  <nav class="links">
-    <a class="pill pill--icon" href="#" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn link to be provided">
+  <div class="socials">
+    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn link to be provided">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10v6.5M7.5 7.5v.01M12 16.5V13a2.5 2.5 0 0 1 5 0v3.5M12 16.5v-4"/></svg>
     </a>
-    <a class="pill pill--icon" href="#" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram link to be provided">
+    <a href="#" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram link to be provided">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg>
     </a>
-    <a class="pill pill--icon" href="#" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook link to be provided">
+    <a href="#" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook link to be provided">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 21v-7.5H17l.5-3.2h-3V8.2c0-.9.3-1.6 1.7-1.6H17.6V3.9c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.9H8v3.2h2.6V21"/></svg>
     </a>
-    <a class="pill pill--icon" href="#" target="_blank" rel="noopener" aria-label="Pinterest" title="Pinterest link to be provided">
+    <a href="#" target="_blank" rel="noopener" aria-label="Pinterest" title="Pinterest link to be provided">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 17.5c1.1-3.8 1.5-6.4 1.8-8a2.6 2.6 0 1 1 3 3c-.3 1.6-1.3 3.3-2.9 3.3-.7 0-1.2-.3-1.5-.7"/></svg>
     </a>
+  </div>
+
+  <nav class="links">
     <a class="pill" href="https://www.codutti.it/">Web Site</a>
     <a class="pill" href="https://www.codutti.it/assets/docs/Codutti-Company-Profile-2026.pdf">Company Profile</a>
     <a class="pill" href="https://www.codutti.it/contract.html#our-projects">Our Projects</a>
