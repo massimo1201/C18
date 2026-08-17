@@ -193,21 +193,28 @@ main {
 
 .general-contact {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
 .general-contact a {
-  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  background: var(--black);
+  color: var(--white);
+  border-radius: 30px;
   text-decoration: none;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(1.05rem, 4vw, 1.3rem);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 10px 14px;
 }
 
-.general-contact a:hover { text-decoration: underline; }
+.general-contact a:hover { background: var(--black-soft); }
 
 .contacts {
   width: 100%;
@@ -395,6 +402,7 @@ footer .fine-print a:hover { text-decoration: underline; }
     <a href="tel:+390432541414">+39 0432 541414</a>
     <a href="mailto:marketing@codutti.it">marketing@codutti.it</a>
     <a href="mailto:codutti@codutti.it">codutti@codutti.it</a>
+    <a href="#general-request">General Request</a>
   </div>
 
   <div class="contacts">
@@ -471,7 +479,7 @@ footer .fine-print a:hover { text-decoration: underline; }
     </div>
   </div>
 
-  <div class="stay-tuned general-request">
+  <div class="stay-tuned general-request" id="general-request">
     <h2>General Request</h2>
     <form class="newsletter-form" id="general-request-form">
       <div class="row">
