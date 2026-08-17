@@ -142,6 +142,8 @@ main {
 
 .stay-tuned .pill--white:hover { background: var(--cream); }
 
+.general-request { margin-top: 0; }
+
 .newsletter-form {
   width: 100%;
   display: flex;
@@ -469,6 +471,19 @@ footer .fine-print a:hover { text-decoration: underline; }
     </div>
   </div>
 
+  <div class="stay-tuned general-request">
+    <h2>General Request</h2>
+    <form class="newsletter-form" id="general-request-form">
+      <div class="row">
+        <input type="text" id="gr-name" placeholder="Name" required aria-label="Name">
+        <input type="text" id="gr-surname" placeholder="Surname" required aria-label="Surname">
+      </div>
+      <input type="email" id="gr-email" placeholder="Your email" required aria-label="Email">
+      <input type="text" id="gr-object" placeholder="Object of Request" required aria-label="Object of Request">
+      <button type="submit" class="pill pill--white">Send</button>
+    </form>
+  </div>
+
   <footer>
     <img src="assets/img/logo-mark.png" alt="Codutti">
     <p class="fine-print">
@@ -501,6 +516,22 @@ footer .fine-print a:hover { text-decoration: underline; }
       newsletterForm.reset();
       newsletterSubmitted = false;
     }
+  });
+
+  var generalRequestForm = document.getElementById('general-request-form');
+
+  generalRequestForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('gr-name').value.trim();
+    var surname = document.getElementById('gr-surname').value.trim();
+    var email = document.getElementById('gr-email').value.trim();
+    var object = document.getElementById('gr-object').value.trim();
+
+    var subject = object || 'General Request';
+    var body = 'Name: ' + name + ' ' + surname + '\nEmail: ' + email;
+    var mailtoUrl = 'mailto:marketing@codutti.it?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
+    window.location.href = mailtoUrl;
   });
 </script>
 </body>
