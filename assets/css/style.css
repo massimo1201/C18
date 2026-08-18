@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Codutti — Redesign
+   UTC — Redesign
    Palette: #fef7da (cream) su nero. Titoli Clash Display Semibold,
    corpo testo Source Serif 4.
    ========================================================================== */
@@ -210,6 +210,31 @@ p.lede {
   display: block;
 }
 
+/* UTC has no supplied logo asset, so the brand mark is set in type: a small
+   triangular mark (echoing the site's construction/design-build identity)
+   plus the wordmark, both sized off the same --header-logo-h used by the
+   old image logo so the header layout is unaffected. */
+.brand__wordmark {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--header-logo-h);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--black);
+  text-transform: uppercase;
+}
+.brand__mark {
+  display: block;
+  width: 0.62em;
+  height: 0.62em;
+  background: currentColor;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  flex: none;
+}
+
 .header-side {
   display: flex;
   align-items: center;
@@ -277,6 +302,7 @@ p.lede {
 body.lang-open { overflow: hidden; }
 body.lang-open .site-header { background: transparent; color: var(--white); }
 body.lang-open .brand img { filter: invert(1); }
+body.lang-open .brand__wordmark { color: var(--white); }
 
 /* Hamburger */
 .menu-btn {
@@ -315,6 +341,9 @@ body.nav-open .site-header {
 }
 body.nav-open .brand img {
   filter: invert(1);
+}
+body.nav-open .brand__wordmark {
+  color: var(--white);
 }
 
 /* ---------- Off-canvas nav ---------- */
@@ -606,7 +635,7 @@ body.nav-open { overflow: hidden; }
 .section--split { display: grid; gap: clamp(24px, 4vw, 32px); }
 @media (min-width: 900px) { .section--split.two { grid-template-columns: repeat(2,1fr); } }
 
-/* ---------- Photo box (Made in Italy / Codutti Method) ---------- */
+/* ---------- Photo box (Based in Riyadh / The UTC Method) ---------- */
 
 .photo-box {
   position: relative;
@@ -1553,6 +1582,10 @@ p.vs-body {
   height: clamp(24px, 2.8vw, 32px);
   width: auto;
   display: block;
+}
+.footer-logo .brand__wordmark {
+  font-size: clamp(24px, 2.8vw, 32px);
+  color: var(--white);
 }
 .footer-logo-link {
   display: inline-block;
