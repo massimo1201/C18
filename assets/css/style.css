@@ -2505,6 +2505,115 @@ a.product-drilldown__summary::after { content: "\2192"; }
   color: rgba(255, 253, 245, 0.6);
 }
 
+/* Project Index: the flat, row-based project list used alongside the
+   photo-tile project-grid — column headers, then one link-row per
+   project with name / location / type, reusable on any dark or light
+   section. */
+.project-index {
+  margin-top: clamp(32px, 4.6vw, 48px);
+  border-top: 1px solid var(--line);
+}
+.project-index__head {
+  display: none;
+}
+.project-index__row {
+  display: grid;
+  grid-template-columns: 2.2fr 1.4fr 1.2fr auto;
+  align-items: center;
+  gap: clamp(12px, 2vw, 24px);
+  padding: clamp(16px, 2.2vw, 22px) 0;
+  border-bottom: 1px solid var(--line);
+  transition: opacity .3s var(--ease);
+}
+.project-index__row:hover { opacity: 0.6; }
+.project-index__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+.project-index__location,
+.project-index__type {
+  font-family: var(--font-body);
+  font-size: clamp(13px, 1.1vw, 15px);
+  opacity: 0.6;
+}
+.project-index__type { text-align: right; }
+.project-index__arrow {
+  justify-self: end;
+  width: 1em;
+  height: 1em;
+  flex: none;
+  opacity: 0.5;
+  transition: transform .3s var(--ease);
+}
+.project-index__row:hover .project-index__arrow { transform: translate(3px, -3px); }
+@media (min-width: 640px) {
+  .project-index__head {
+    display: grid;
+    grid-template-columns: 2.2fr 1.4fr 1.2fr auto;
+    gap: clamp(12px, 2vw, 24px);
+    padding-bottom: 12px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+  .project-index__head span:last-child,
+  .project-index__head span:nth-child(3) { text-align: right; }
+}
+@media (max-width: 639px) {
+  .project-index__row { grid-template-columns: 1fr auto; }
+  .project-index__location, .project-index__type { grid-column: 1 / 2; text-align: left; }
+}
+.project-index.on-dark { border-top-color: var(--line-on-black); }
+.project-index.on-dark .project-index__row { border-bottom-color: var(--line-on-black); }
+.project-index.on-dark .project-index__name { color: var(--cream); }
+.project-index.on-dark .project-index__location,
+.project-index.on-dark .project-index__type,
+.project-index.on-dark .project-index__head { color: var(--cream); opacity: 0.55; }
+
+/* Service Index: numbered service-line list, the site's answer to the
+   moodboard's "SERVICE" rows — a number, a name, and a one-line
+   description per row. */
+.service-index {
+  margin-top: clamp(32px, 4.6vw, 48px);
+  border-top: 1px solid var(--line);
+}
+.service-index__row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(16px, 2.6vw, 32px);
+  padding: clamp(20px, 2.8vw, 28px) 0;
+  border-bottom: 1px solid var(--line);
+}
+@media (min-width: 760px) {
+  .service-index__row { grid-template-columns: auto 1fr 1.4fr; align-items: baseline; }
+}
+.service-index__num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(12px, 1vw, 14px);
+  letter-spacing: 0.1em;
+  opacity: 0.45;
+}
+.service-index__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+.service-index__desc {
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.1vw, 16px);
+  opacity: 0.65;
+  max-width: 48ch;
+}
+
 /* History & Brand Evolution: vertical rectangular cards, horizontally
    scrollable, showing exactly 4 per row on desktop (fewer on smaller
    screens as the card width can't shrink past a readable minimum). */
