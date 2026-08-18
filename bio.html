@@ -40,6 +40,14 @@
 
 * { box-sizing: border-box; }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -403,8 +411,8 @@ footer .fine-print a:hover { text-decoration: underline; }
   <div class="general-contact">
     <a href="mailto:marketing@codutti.it">marketing@codutti.it</a>
     <a href="mailto:codutti@codutti.it">codutti@codutti.it</a>
-    <a class="general-contact--upper" href="#general-request">General Request</a>
     <a href="tel:+390432541414">+39 0432 541414</a>
+    <a class="general-contact--upper" href="#general-request">General Request</a>
   </div>
 
   <div class="contacts">
