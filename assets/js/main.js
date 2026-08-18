@@ -122,6 +122,52 @@ document.addEventListener('DOMContentLoaded', () => {
   );
   revealTargets.forEach((el) => io.observe(el));
 
+  /* Animated stat counters: any [data-count-to] element counts up from 0
+     to its target the first time it scrolls into view. data-suffix/
+     data-prefix decorate the final string (e.g. "70" -> "70+"); duration
+     is fixed rather than exposed per-element since every stat on the site
+     shares the same rhythm. */
+  const countEls = document.querySelectorAll('[data-count-to]');
+  if (countEls.length) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const formatCount = (value, el) => {
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const rounded = Math.round(value);
+      const digits = el.dataset.noGroup ? String(rounded) : rounded.toLocaleString('en-US');
+      return `${prefix}${digits}${suffix}`;
+    };
+    const animateCount = (el) => {
+      const target = parseFloat(el.dataset.countTo);
+      if (!isFinite(target)) return;
+      if (prefersReducedMotion) {
+        el.textContent = formatCount(target, el);
+        return;
+      }
+      const duration = parseInt(el.dataset.duration, 10) || 1600;
+      const start = performance.now();
+      const tick = (now) => {
+        const elapsed = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - elapsed, 4);
+        el.textContent = formatCount(target * eased, el);
+        if (elapsed < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    const countIo = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCount(entry.target);
+            countIo.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+    countEls.forEach((el) => countIo.observe(el));
+  }
+
   /* Duplicate marquee content for seamless loop */
   document.querySelectorAll('.marquee__track').forEach((track) => {
     track.innerHTML += track.innerHTML;

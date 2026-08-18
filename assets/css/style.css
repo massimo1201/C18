@@ -2406,6 +2406,72 @@ a.product-drilldown__summary::after { content: "\2192"; }
 .info-grid h3 { font-size: clamp(1.2rem, 1.8vw, 1.5rem); }
 .info-grid p { font-family: var(--font-body); margin-top: 10px; }
 
+/* By the Numbers: full-bleed dark stat band with count-up figures (see
+   [data-count-to] in main.js). Reusable wherever the site wants the same
+   animated-metrics signature — company history, homepage, etc. */
+.stat-band {
+  background: var(--black);
+  padding-block: clamp(56px, 8vw, 96px);
+}
+.stat-band__head { max-width: 46ch; }
+.stat-band .eyebrow { color: var(--cream); opacity: 0.55; }
+.stat-band__head h2 {
+  color: var(--cream);
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+}
+
+.stat-row {
+  margin-top: clamp(40px, 6vw, 64px);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid var(--line-on-black);
+}
+.stat-row.reveal { opacity: 1; transform: none; }
+@media (min-width: 760px) {
+  .stat-row { grid-template-columns: repeat(4, 1fr); }
+}
+.stat {
+  padding: clamp(24px, 3.2vw, 36px) clamp(20px, 2.6vw, 32px) clamp(20px, 2.4vw, 28px) 0;
+  border-bottom: 1px solid var(--line-on-black);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.stat-row.is-visible .stat { opacity: 1; transform: translateY(0); }
+.stat-row.is-visible .stat:nth-child(1) { transition-delay: .05s; }
+.stat-row.is-visible .stat:nth-child(2) { transition-delay: .16s; }
+.stat-row.is-visible .stat:nth-child(3) { transition-delay: .27s; }
+.stat-row.is-visible .stat:nth-child(4) { transition-delay: .38s; }
+@media (min-width: 760px) {
+  .stat {
+    border-bottom: none;
+    border-right: 1px solid var(--line-on-black);
+    padding-left: clamp(20px, 2.6vw, 32px);
+  }
+  .stat:first-child { padding-left: 0; }
+  .stat:last-child { border-right: none; }
+}
+.stat__value {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.6rem, 5.6vw, 4.6rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  font-variant-numeric: tabular-nums;
+}
+.stat__label {
+  display: block;
+  margin-top: clamp(10px, 1.4vw, 14px);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(11px, 1vw, 13px);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 253, 245, 0.6);
+}
+
 /* History & Brand Evolution: vertical rectangular cards, horizontally
    scrollable, showing exactly 4 per row on desktop (fewer on smaller
    screens as the card width can't shrink past a readable minimum). */
