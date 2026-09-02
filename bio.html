@@ -182,15 +182,6 @@ main {
 .newsletter-form input::placeholder { color: rgba(255, 253, 245, 0.55); }
 .newsletter-form input:focus { outline: none; border-color: var(--white); }
 
-.newsletter-form .form-msg {
-  margin: 0;
-  min-height: 1.1em;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.85rem;
-  color: var(--white);
-}
-
 .section-title {
   margin: 0;
   margin-top: 20px;
@@ -393,17 +384,7 @@ footer .fine-print a:hover { text-decoration: underline; }
   <div class="stay-tuned">
     <h2>Stay Tuned</h2>
     <p>News, events, new products and projects from the Codutti world straight to your inbox.</p>
-    <form class="newsletter-form" id="newsletter-form"
-          action="https://docs.google.com/forms/d/e/REPLACE_WITH_FORM_ID/formResponse"
-          method="POST" target="hidden_iframe">
-      <div class="row">
-        <input type="text" name="entry.REPLACE_NOME" placeholder="Name" required aria-label="Name">
-        <input type="text" name="entry.REPLACE_COGNOME" placeholder="Surname" required aria-label="Surname">
-      </div>
-      <input type="email" name="entry.REPLACE_EMAIL" placeholder="Your email" required aria-label="Email">
-      <button type="submit" class="pill pill--white">Subscribe to the Newsletter</button>
-      <p class="form-msg" id="newsletter-msg" aria-live="polite"></p>
-    </form>
+    <a class="pill pill--white" href="https://codutti.us10.list-manage.com/subscribe?u=273cf6e4c63b4f5a69a5a16fd&amp;id=5ba6e5055c" target="_blank" rel="noopener">Subscribe to the Newsletter</a>
   </div>
 
   <h2 class="section-title">Contact Us</h2>
@@ -513,29 +494,9 @@ footer .fine-print a:hover { text-decoration: underline; }
     </p>
   </footer>
 
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form submission"></iframe>
-
 </main>
 
 <script>
-  var newsletterForm = document.getElementById('newsletter-form');
-  var newsletterMsg = document.getElementById('newsletter-msg');
-  var hiddenFrame = document.getElementById('hidden_iframe');
-  var newsletterSubmitted = false;
-
-  newsletterForm.addEventListener('submit', function () {
-    newsletterSubmitted = true;
-    newsletterMsg.textContent = 'Sending...';
-  });
-
-  hiddenFrame.addEventListener('load', function () {
-    if (newsletterSubmitted) {
-      newsletterMsg.textContent = 'Thank you! You are now subscribed.';
-      newsletterForm.reset();
-      newsletterSubmitted = false;
-    }
-  });
-
   var generalRequestForm = document.getElementById('general-request-form');
 
   generalRequestForm.addEventListener('submit', function (e) {
