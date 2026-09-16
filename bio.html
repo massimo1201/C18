@@ -6,7 +6,11 @@
 <title>Codutti — Link in Bio</title>
 <meta name="description" content="Codutti — Contemporary, Crafted, Contract. Website, company profile, projects, catalogues and contacts.">
 <meta name="robots" content="noindex">
-<link rel="icon" href="assets/img/logo-mark.png">
+<link rel="icon" href="assets/icons/icon-192.png">
+<link rel="manifest" href="bio.webmanifest">
+<meta name="theme-color" content="#fef7da">
+<link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+<meta name="apple-mobile-web-app-title" content="Codutti">
 <style>
 @font-face {
   font-family: 'Clash Display';
@@ -301,7 +305,6 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: 4px;
   background: var(--white);
   color: var(--black);
   font-family: var(--font-display);
@@ -315,6 +318,33 @@ main {
 }
 
 .contact-card a.whatsapp-btn:hover { background: var(--white); }
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.contact-card a.save-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid rgba(255, 253, 245, 0.45);
+  border-radius: 50%;
+  color: var(--white);
+}
+
+.contact-card a.save-contact:hover {
+  border-color: var(--white);
+  text-decoration: none;
+}
+
+.contact-card a.save-contact svg { width: 17px; height: 17px; }
 
 .socials {
   width: 100%;
@@ -338,6 +368,104 @@ main {
 
 .socials a svg { width: 24px; height: 24px; }
 .socials a:hover { background: var(--black-soft); }
+
+.install-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background: transparent;
+  color: var(--black);
+  border: 1.5px solid rgba(10, 10, 10, 0.35);
+  border-radius: 999px;
+  padding: 14px 24px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.install-btn:hover { border-color: var(--black); }
+.install-btn svg { width: 16px; height: 16px; flex: 0 0 auto; }
+.install-btn[hidden] { display: none; }
+
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(10, 10, 10, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.sheet-backdrop[hidden] { display: none; }
+
+.sheet {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  background: var(--cream);
+  color: var(--black);
+  border-radius: 32px;
+  padding: 32px 26px 28px;
+  text-align: left;
+}
+
+.sheet h3 {
+  margin: 0 0 18px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  max-width: 220px;
+}
+
+.sheet ol {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sheet li {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.sheet .step-icon {
+  width: 15px;
+  height: 15px;
+  vertical-align: -3px;
+  margin: 0 1px;
+}
+
+.sheet-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  color: var(--black);
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+:focus-visible { outline: 2px solid var(--black); outline-offset: 3px; }
+.contact-card :focus-visible, .stay-tuned :focus-visible { outline-color: var(--white); }
 
 footer {
   width: 100%;
@@ -421,7 +549,10 @@ footer .fine-print a:hover { text-decoration: underline; }
       <div class="reach">
         <a class="phone-number" href="tel:+393484714770">+39 348 4714770</a>
         <a class="email" href="mailto:marco.rossi@codutti.it">marco.rossi@codutti.it</a>
-        <a class="whatsapp-btn" href="https://wa.me/393484714770" target="_blank" rel="noopener">Contact on WhatsApp</a>
+        <div class="card-actions">
+          <a class="whatsapp-btn" href="https://wa.me/393484714770" target="_blank" rel="noopener">Contact on WhatsApp</a>
+          <a class="save-contact" href="assets/contacts/marco-rossi.vcf" aria-label="Save Marco Rossi to your contacts" title="Save to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="8" r="3.4"/><path d="M3.6 19.4c0-3.2 2.7-5.3 5.9-5.3 1.2 0 2.3.3 3.2.8"/><path d="M17.6 14.3v5.4M20.3 17h-5.4"/></svg></a>
+        </div>
       </div>
     </div>
 
@@ -433,7 +564,10 @@ footer .fine-print a:hover { text-decoration: underline; }
       <div class="reach">
         <a class="phone-number" href="tel:+393240576967">+39 324 0576967</a>
         <a class="email" href="mailto:valentina@codutti.it">valentina@codutti.it</a>
-        <a class="whatsapp-btn" href="https://wa.me/393240576967" target="_blank" rel="noopener">Contact on WhatsApp</a>
+        <div class="card-actions">
+          <a class="whatsapp-btn" href="https://wa.me/393240576967" target="_blank" rel="noopener">Contact on WhatsApp</a>
+          <a class="save-contact" href="assets/contacts/valentina-cervesato.vcf" aria-label="Save Valentina Cervesato to your contacts" title="Save to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="8" r="3.4"/><path d="M3.6 19.4c0-3.2 2.7-5.3 5.9-5.3 1.2 0 2.3.3 3.2.8"/><path d="M17.6 14.3v5.4M20.3 17h-5.4"/></svg></a>
+        </div>
       </div>
     </div>
 
@@ -445,7 +579,10 @@ footer .fine-print a:hover { text-decoration: underline; }
       <div class="reach">
         <a class="phone-number" href="tel:+393460451527">+39 346 0451527</a>
         <a class="email" href="mailto:roberta@codutti.it">roberta@codutti.it</a>
-        <a class="whatsapp-btn" href="https://wa.me/393460451527" target="_blank" rel="noopener">Contact on WhatsApp</a>
+        <div class="card-actions">
+          <a class="whatsapp-btn" href="https://wa.me/393460451527" target="_blank" rel="noopener">Contact on WhatsApp</a>
+          <a class="save-contact" href="assets/contacts/roberta-toneguzzo.vcf" aria-label="Save Roberta Toneguzzo to your contacts" title="Save to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="8" r="3.4"/><path d="M3.6 19.4c0-3.2 2.7-5.3 5.9-5.3 1.2 0 2.3.3 3.2.8"/><path d="M17.6 14.3v5.4M20.3 17h-5.4"/></svg></a>
+        </div>
       </div>
     </div>
 
@@ -457,7 +594,10 @@ footer .fine-print a:hover { text-decoration: underline; }
       <div class="reach">
         <a class="phone-number" href="tel:+393474752446">+39 347 4752446</a>
         <a class="email" href="mailto:massimo.donato@codutti.it">massimo.donato@codutti.it</a>
-        <a class="whatsapp-btn" href="https://wa.me/393474752446" target="_blank" rel="noopener">Contact on WhatsApp</a>
+        <div class="card-actions">
+          <a class="whatsapp-btn" href="https://wa.me/393474752446" target="_blank" rel="noopener">Contact on WhatsApp</a>
+          <a class="save-contact" href="assets/contacts/massimo-donato.vcf" aria-label="Save Massimo Donato to your contacts" title="Save to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="8" r="3.4"/><path d="M3.6 19.4c0-3.2 2.7-5.3 5.9-5.3 1.2 0 2.3.3 3.2.8"/><path d="M17.6 14.3v5.4M20.3 17h-5.4"/></svg></a>
+        </div>
       </div>
     </div>
 
@@ -469,7 +609,10 @@ footer .fine-print a:hover { text-decoration: underline; }
       <div class="reach">
         <a class="phone-number" href="tel:+393460224378">+39 346 0224378</a>
         <a class="email" href="mailto:elena.pellegrini@codutti.it">elena.pellegrini@codutti.it</a>
-        <a class="whatsapp-btn" href="https://wa.me/393460224378" target="_blank" rel="noopener">Contact on WhatsApp</a>
+        <div class="card-actions">
+          <a class="whatsapp-btn" href="https://wa.me/393460224378" target="_blank" rel="noopener">Contact on WhatsApp</a>
+          <a class="save-contact" href="assets/contacts/elena-pellegrini.vcf" aria-label="Save Elena Pellegrini to your contacts" title="Save to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="8" r="3.4"/><path d="M3.6 19.4c0-3.2 2.7-5.3 5.9-5.3 1.2 0 2.3.3 3.2.8"/><path d="M17.6 14.3v5.4M20.3 17h-5.4"/></svg></a>
+        </div>
       </div>
     </div>
 
@@ -481,7 +624,10 @@ footer .fine-print a:hover { text-decoration: underline; }
       <div class="reach">
         <a class="phone-number" href="tel:+393484714776">+39 348 4714776</a>
         <a class="email" href="mailto:alan.vidoni@codutti.it">alan.vidoni@codutti.it</a>
-        <a class="whatsapp-btn" href="https://wa.me/393484714776" target="_blank" rel="noopener">Contact on WhatsApp</a>
+        <div class="card-actions">
+          <a class="whatsapp-btn" href="https://wa.me/393484714776" target="_blank" rel="noopener">Contact on WhatsApp</a>
+          <a class="save-contact" href="assets/contacts/alan-vidoni.vcf" aria-label="Save Alan Vidoni to your contacts" title="Save to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="8" r="3.4"/><path d="M3.6 19.4c0-3.2 2.7-5.3 5.9-5.3 1.2 0 2.3.3 3.2.8"/><path d="M17.6 14.3v5.4M20.3 17h-5.4"/></svg></a>
+        </div>
       </div>
     </div>
   </div>
@@ -499,6 +645,11 @@ footer .fine-print a:hover { text-decoration: underline; }
     </form>
   </div>
 
+  <button class="install-btn" id="install-btn" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="2.5" width="13" height="19" rx="3"/><path d="M12 8.6v6.8M8.6 12h6.8"/></svg>
+    Add to Home Screen
+  </button>
+
   <footer>
     <img src="assets/img/logo-mark.png" alt="Codutti">
     <p class="fine-print">
@@ -511,6 +662,14 @@ footer .fine-print a:hover { text-decoration: underline; }
   </footer>
 
 </main>
+
+<div class="sheet-backdrop" id="install-sheet" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="install-sheet-title">
+    <button class="sheet-close" id="install-sheet-close" type="button" aria-label="Close">&times;</button>
+    <h3 id="install-sheet-title">Add to Home Screen</h3>
+    <ol id="install-steps"></ol>
+  </div>
+</div>
 
 <script>
   var generalRequestForm = document.getElementById('general-request-form');
@@ -527,6 +686,91 @@ footer .fine-print a:hover { text-decoration: underline; }
 
     window.location.href = mailtoUrl;
   });
+
+  // ----- Add to Home Screen: native prompt where available, guided steps elsewhere -----
+  var installBtn = document.getElementById('install-btn');
+  var installSheet = document.getElementById('install-sheet');
+  var installClose = document.getElementById('install-sheet-close');
+  var installSteps = document.getElementById('install-steps');
+  var deferredPrompt = null;
+
+  var SHARE_ICON = '<svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11"/><path d="M8.5 7 12 3.5 15.5 7"/><path d="M6.5 11.5h-1v9h13v-9h-1"/></svg>';
+  var MENU_ICON = '<svg class="step-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19" r="1.7"/></svg>';
+
+  function isStandalone() {
+    return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  }
+
+  function stepsForDevice() {
+    var ua = navigator.userAgent || '';
+    var isIOS = /iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+    var isAndroid = /android/i.test(ua);
+
+    if (isIOS) {
+      return ['Tap the Share button ' + SHARE_ICON + ' at the bottom of Safari.',
+              'Scroll down and choose &ldquo;Add to Home Screen&rdquo;.',
+              'Tap &ldquo;Add&rdquo; &mdash; the Codutti icon lands on your home screen.'];
+    }
+    if (isAndroid) {
+      return ['Tap the menu ' + MENU_ICON + ' in the top right of your browser.',
+              'Choose &ldquo;Add to Home screen&rdquo; or &ldquo;Install app&rdquo;.',
+              'Confirm &mdash; the Codutti icon lands on your home screen.'];
+    }
+    return ['Open this page on your phone, in Safari or Chrome.',
+            'Use the browser menu and choose &ldquo;Add to Home Screen&rdquo;.',
+            'Confirm &mdash; the Codutti icon lands on your home screen.'];
+  }
+
+  function openSheet() {
+    installSteps.innerHTML = stepsForDevice().map(function (step) {
+      return '<li>' + step + '</li>';
+    }).join('');
+    installSheet.hidden = false;
+    installClose.focus();
+    document.addEventListener('keydown', onSheetKeydown);
+  }
+
+  function closeSheet() {
+    installSheet.hidden = true;
+    document.removeEventListener('keydown', onSheetKeydown);
+    installBtn.focus();
+  }
+
+  function onSheetKeydown(e) {
+    if (e.key === 'Escape') closeSheet();
+  }
+
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    deferredPrompt = e;
+  });
+
+  window.addEventListener('appinstalled', function () {
+    deferredPrompt = null;
+    installBtn.hidden = true;
+  });
+
+  if (isStandalone()) installBtn.hidden = true;
+
+  installBtn.addEventListener('click', function () {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(function () { deferredPrompt = null; });
+      return;
+    }
+    openSheet();
+  });
+
+  installClose.addEventListener('click', closeSheet);
+  installSheet.addEventListener('click', function (e) {
+    if (e.target === installSheet) closeSheet();
+  });
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('bio-sw.js').catch(function () {});
+    });
+  }
 </script>
 </body>
 </html>

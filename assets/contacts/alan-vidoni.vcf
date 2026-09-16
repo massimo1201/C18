@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Vidoni;Alan;;;
+FN:Alan Vidoni
+ORG:Codutti Furniture srl
+TITLE:Chief Logistic Officer
+TEL;TYPE=CELL,VOICE:+393484714776
+TEL;TYPE=WORK,VOICE:+390432541414
+EMAIL;TYPE=INTERNET,WORK:alan.vidoni@codutti.it
+URL:https://www.codutti.it/
+ADR;TYPE=WORK:;;Via Bonavilla 34;Pasian di Prato;UD;33037;Italy
+END:VCARD
