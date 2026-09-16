@@ -6,7 +6,7 @@
 <title>Codutti — Link in Bio</title>
 <meta name="description" content="Codutti — Contemporary, Crafted, Contract. Website, company profile, projects, catalogues and contacts.">
 <meta name="robots" content="noindex">
-<link rel="icon" href="assets/icons/icon-192.png">
+<link rel="icon" href="assets/icons/favicon.png">
 <link rel="manifest" href="bio.webmanifest">
 <meta name="theme-color" content="#fef7da">
 <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
@@ -734,14 +734,13 @@ footer .fine-print a {
     // Opened from inside Instagram, Facebook and friends: their built-in
     // browser cannot install anything, so the first move is getting out of it.
     if (isInAppBrowser() && kind !== 'desktop') {
-      var target = kind === 'ios' ? 'Safari' : 'Chrome';
       return ['You are browsing inside an app. Tap ' + MENU_ICON + ' at the top right.',
-              'Choose &ldquo;Open in ' + target + '&rdquo; or &ldquo;Open in browser&rdquo;.',
-              'There, tap this button again &mdash; ' + target + ' can add the icon to your home screen.'];
+              'Choose &ldquo;Open in browser&rdquo;.',
+              'There, tap this button again &mdash; your browser can add the icon to your home screen.'];
     }
 
     if (kind === 'ios') {
-      return ['Tap the Share button ' + SHARE_ICON + ' at the bottom of Safari.',
+      return ['Tap the Share button ' + SHARE_ICON + ' at the bottom of your browser.',
               'Scroll down and choose &ldquo;Add to Home Screen&rdquo;.',
               'Tap &ldquo;Add&rdquo; &mdash; the Codutti icon lands on your home screen.'];
     }
@@ -750,8 +749,8 @@ footer .fine-print a {
               'Choose &ldquo;Add to Home screen&rdquo; or &ldquo;Install app&rdquo;.',
               'Confirm &mdash; the Codutti icon lands on your home screen.'];
     }
-    return ['Click the install icon ' + INSTALL_ICON + ' at the right of the address bar (Chrome, Edge) &mdash; the Codutti shortcut lands on your desktop.',
-            'No icon there? Open the browser menu and choose &ldquo;Install page as app&rdquo;, or &ldquo;Add to Dock&rdquo; in Safari.',
+    return ['Click the install icon ' + INSTALL_ICON + ' at the right of the address bar &mdash; the Codutti shortcut lands on your desktop.',
+            'No icon there? Open the browser menu and choose &ldquo;Install page as app&rdquo; or &ldquo;Add to Dock&rdquo;.',
             'Or simply drag the icon at the left of the address bar onto your desktop.'];
   }
 
@@ -788,7 +787,7 @@ footer .fine-print a {
   function openInstallSheet() {
     openSheet('Add to Home Screen', stepsForDevice(),
       isInAppBrowser() && deviceKind() !== 'desktop'
-        ? { label: 'Open in ' + (deviceKind() === 'ios' ? 'Safari' : 'Chrome'), href: escapeUrl(window.location.href) }
+        ? { label: 'Open in browser', href: escapeUrl(window.location.href) }
         : null);
   }
 
@@ -852,15 +851,14 @@ footer .fine-print a {
   // Instagram's and Facebook's built-in browsers silently ignore .vcf files,
   // so there a tap is redirected to the real browser, which handles them.
   if (isInAppBrowser() && deviceKind() !== 'desktop') {
-    var browserName = deviceKind() === 'ios' ? 'Safari' : 'Chrome';
     Array.prototype.forEach.call(document.querySelectorAll('.save-contact'), function (link) {
       link.addEventListener('click', function (e) {
         e.preventDefault();
         openSheet('Save this contact', [
           'The browser built into this app cannot add contacts.',
-          'Tap the button below, or open the menu ' + MENU_ICON + ' at the top right and choose &ldquo;Open in ' + browserName + '&rdquo;.',
-          'The contact card opens in ' + browserName + ', ready to be saved.'
-        ], { label: 'Open the contact in ' + browserName, href: escapeUrl(link.href) });
+          'Tap the button below, or open the menu ' + MENU_ICON + ' at the top right and choose &ldquo;Open in browser&rdquo;.',
+          'The contact card opens in your browser, ready to be saved.'
+        ], { label: 'Open the contact in your browser', href: escapeUrl(link.href) });
       });
     });
   }
