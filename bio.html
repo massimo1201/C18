@@ -46,6 +46,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -107,8 +108,12 @@ main {
   transition: transform 0.15s ease, background 0.15s ease;
 }
 
-.pill:active { transform: scale(0.98); }
-.pill:hover { background: var(--black-soft); }
+.pill:active,
+.contact-card a.whatsapp-btn:active,
+.contact-card a.save-contact:active,
+.general-contact a:active,
+.socials a:active,
+.install-btn:active { transform: scale(0.98); }
 
 .stay-tuned {
   width: 100%;
@@ -151,8 +156,6 @@ main {
   cursor: pointer;
   font-family: var(--font-display);
 }
-
-.stay-tuned .pill--white:hover { background: var(--white); }
 
 .general-request { margin-top: 0; }
 
@@ -233,8 +236,6 @@ main {
   padding: 10px 14px;
 }
 
-.general-contact a:hover { background: var(--black-soft); }
-
 .general-contact a.general-contact--upper { text-transform: uppercase; }
 
 .contacts {
@@ -292,8 +293,6 @@ main {
   font-size: 0.9rem;
 }
 
-.contact-card a:hover { text-decoration: underline; }
-
 .contact-card a.phone-number {
   font-weight: 600;
   font-size: 0.95rem;
@@ -317,12 +316,6 @@ main {
   text-decoration: none;
   border-radius: 999px;
   padding: 9px 18px;
-}
-
-.contact-card a.whatsapp-btn:hover,
-.contact-card a.save-contact:hover {
-  background: var(--white);
-  text-decoration: none;
 }
 
 .card-actions {
@@ -354,7 +347,6 @@ main {
 }
 
 .socials a svg { width: 24px; height: 24px; }
-.socials a:hover { background: var(--black-soft); }
 
 .install-btn {
   display: inline-flex;
@@ -374,7 +366,6 @@ main {
   transition: background 0.15s ease;
 }
 
-.install-btn:hover { background: var(--black-soft); }
 .install-btn svg { width: 17px; height: 17px; flex: 0 0 auto; }
 .install-btn[hidden] { display: none; }
 
@@ -481,7 +472,24 @@ footer .fine-print a {
   font-family: var(--font-display);
   font-weight: 400;
 }
-footer .fine-print a:hover { text-decoration: underline; }
+
+/* Hover styling is limited to real pointers: on a touch screen the browser
+   keeps the last tapped element in :hover, which would leave a button looking
+   pressed long after the tap. */
+@media (hover: hover) {
+  .pill:hover { background: var(--black-soft); }
+  .stay-tuned .pill--white:hover { background: var(--white); }
+  .general-contact a:hover { background: var(--black-soft); }
+  .socials a:hover { background: var(--black-soft); }
+  .install-btn:hover { background: var(--black-soft); }
+  .contact-card a:hover { text-decoration: underline; }
+  .contact-card a.whatsapp-btn:hover,
+  .contact-card a.save-contact:hover {
+    background: var(--white);
+    text-decoration: none;
+  }
+  footer .fine-print a:hover { text-decoration: underline; }
+}
 </style>
 </head>
 <body>
