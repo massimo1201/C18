@@ -425,6 +425,23 @@ main {
   margin: 0 1px;
 }
 
+.sheet-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  background: var(--black);
+  color: var(--white);
+  border-radius: 999px;
+  padding: 14px 24px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.sheet-action[hidden] { display: none; }
+
 .sheet-close {
   position: absolute;
   top: 16px;
@@ -662,6 +679,7 @@ footer .fine-print a {
     <button class="sheet-close" id="install-sheet-close" type="button" aria-label="Close">&times;</button>
     <h3 id="install-sheet-title">Add to Home Screen</h3>
     <ol id="install-steps"></ol>
+    <a class="sheet-action" id="sheet-action" hidden></a>
   </div>
 </div>
 
@@ -686,6 +704,8 @@ footer .fine-print a {
   var installSheet = document.getElementById('install-sheet');
   var installClose = document.getElementById('install-sheet-close');
   var installSteps = document.getElementById('install-steps');
+  var sheetTitle = document.getElementById('install-sheet-title');
+  var sheetAction = document.getElementById('sheet-action');
   var deferredPrompt = null;
 
   var SHARE_ICON = '<svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11"/><path d="M8.5 7 12 3.5 15.5 7"/><path d="M6.5 11.5h-1v9h13v-9h-1"/></svg>';
@@ -735,13 +755,41 @@ footer .fine-print a {
             'Or simply drag the icon at the left of the address bar onto your desktop.'];
   }
 
-  function openSheet() {
-    installSteps.innerHTML = stepsForDevice().map(function (step) {
+  function openSheet(title, steps, action) {
+    sheetTitle.textContent = title;
+    installSteps.innerHTML = steps.map(function (step) {
       return '<li>' + step + '</li>';
     }).join('');
+    if (action) {
+      sheetAction.textContent = action.label;
+      sheetAction.setAttribute('href', action.href);
+      sheetAction.hidden = false;
+    } else {
+      sheetAction.hidden = true;
+      sheetAction.removeAttribute('href');
+    }
     installSheet.hidden = false;
     installClose.focus();
     document.addEventListener('keydown', onSheetKeydown);
+  }
+
+  // A URL that pulls the visitor out of an in-app browser into the real one.
+  function escapeUrl(url) {
+    var kind = deviceKind();
+    if (kind === 'ios') return 'x-safari-' + url;
+    if (kind === 'android') {
+      var a = document.createElement('a');
+      a.href = url;
+      return 'intent://' + a.host + a.pathname + a.search + '#Intent;scheme=https;end';
+    }
+    return url;
+  }
+
+  function openInstallSheet() {
+    openSheet('Add to Home Screen', stepsForDevice(),
+      isInAppBrowser() && deviceKind() !== 'desktop'
+        ? { label: 'Open in ' + (deviceKind() === 'ios' ? 'Safari' : 'Chrome'), href: escapeUrl(window.location.href) }
+        : null);
   }
 
   function closeSheet() {
@@ -778,7 +826,7 @@ footer .fine-print a {
     }
     // Safari offers no install API at all, so iPhone always needs the steps.
     if (deviceKind() === 'ios') {
-      openSheet();
+      openInstallSheet();
       return;
     }
     // Chromium sometimes dispatches beforeinstallprompt a moment late: give it
@@ -791,7 +839,7 @@ footer .fine-print a {
         firePrompt();
       } else if (waited >= 600) {
         clearInterval(timer);
-        openSheet();
+        openInstallSheet();
       }
     }, 100);
   });
@@ -800,6 +848,22 @@ footer .fine-print a {
   installSheet.addEventListener('click', function (e) {
     if (e.target === installSheet) closeSheet();
   });
+
+  // Instagram's and Facebook's built-in browsers silently ignore .vcf files,
+  // so there a tap is redirected to the real browser, which handles them.
+  if (isInAppBrowser() && deviceKind() !== 'desktop') {
+    var browserName = deviceKind() === 'ios' ? 'Safari' : 'Chrome';
+    Array.prototype.forEach.call(document.querySelectorAll('.save-contact'), function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        openSheet('Save this contact', [
+          'The browser built into this app cannot add contacts.',
+          'Tap the button below, or open the menu ' + MENU_ICON + ' at the top right and choose &ldquo;Open in ' + browserName + '&rdquo;.',
+          'The contact card opens in ' + browserName + ', ready to be saved.'
+        ], { label: 'Open the contact in ' + browserName, href: escapeUrl(link.href) });
+      });
+    });
+  }
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
