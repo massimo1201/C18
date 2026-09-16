@@ -688,17 +688,22 @@ footer .fine-print a:hover { text-decoration: underline; }
     return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
   }
 
-  function stepsForDevice() {
+  function deviceKind() {
     var ua = navigator.userAgent || '';
-    var isIOS = /iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
-    var isAndroid = /android/i.test(ua);
+    if (/iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1)) return 'ios';
+    if (/android/i.test(ua)) return 'android';
+    return 'desktop';
+  }
 
-    if (isIOS) {
+  function stepsForDevice() {
+    var kind = deviceKind();
+
+    if (kind === 'ios') {
       return ['Tap the Share button ' + SHARE_ICON + ' at the bottom of Safari.',
               'Scroll down and choose &ldquo;Add to Home Screen&rdquo;.',
               'Tap &ldquo;Add&rdquo; &mdash; the Codutti icon lands on your home screen.'];
     }
-    if (isAndroid) {
+    if (kind === 'android') {
       return ['Tap the menu ' + MENU_ICON + ' in the top right of your browser.',
               'Choose &ldquo;Add to Home screen&rdquo; or &ldquo;Install app&rdquo;.',
               'Confirm &mdash; the Codutti icon lands on your home screen.'];
@@ -739,13 +744,34 @@ footer .fine-print a:hover { text-decoration: underline; }
 
   if (isStandalone()) installBtn.hidden = true;
 
+  function firePrompt() {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(function () { deferredPrompt = null; });
+  }
+
   installBtn.addEventListener('click', function () {
     if (deferredPrompt) {
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then(function () { deferredPrompt = null; });
+      firePrompt();
       return;
     }
-    openSheet();
+    // Safari offers no install API at all, so iPhone always needs the steps.
+    if (deviceKind() === 'ios') {
+      openSheet();
+      return;
+    }
+    // Chromium sometimes dispatches beforeinstallprompt a moment late: give it
+    // a short window so the native dialog wins over showing instructions.
+    var waited = 0;
+    var timer = setInterval(function () {
+      waited += 100;
+      if (deferredPrompt) {
+        clearInterval(timer);
+        firePrompt();
+      } else if (waited >= 600) {
+        clearInterval(timer);
+        openSheet();
+      }
+    }, 100);
   });
 
   installClose.addEventListener('click', closeSheet);
