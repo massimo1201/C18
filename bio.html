@@ -301,10 +301,12 @@ main {
 
 .contact-card a.email { font-size: 0.9rem; }
 
-.contact-card a.whatsapp-btn {
+.contact-card a.whatsapp-btn,
+.contact-card a.save-contact {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: 205px;
   background: var(--white);
   color: var(--black);
   font-family: var(--font-display);
@@ -314,37 +316,22 @@ main {
   letter-spacing: 0.02em;
   text-decoration: none;
   border-radius: 999px;
-  padding: 8px 16px;
+  padding: 9px 18px;
 }
 
-.contact-card a.whatsapp-btn:hover { background: var(--white); }
-
-.card-actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 4px;
-}
-
-.contact-card a.save-contact {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 auto;
-  width: 34px;
-  height: 34px;
-  border: 1.5px solid rgba(255, 253, 245, 0.45);
-  border-radius: 50%;
-  color: var(--white);
-}
-
+.contact-card a.whatsapp-btn:hover,
 .contact-card a.save-contact:hover {
-  border-color: var(--white);
+  background: var(--white);
   text-decoration: none;
 }
 
-.contact-card a.save-contact svg { width: 17px; height: 17px; }
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
 
 .socials {
   width: 100%;
@@ -373,23 +360,22 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 9px;
-  background: transparent;
-  color: var(--black);
-  border: 1.5px solid rgba(10, 10, 10, 0.35);
+  gap: 10px;
+  background: var(--black);
+  color: var(--white);
+  border: none;
   border-radius: 999px;
-  padding: 14px 24px;
+  padding: 16px 30px;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
   cursor: pointer;
-  transition: border-color 0.15s ease;
+  transition: background 0.15s ease;
 }
 
-.install-btn:hover { border-color: var(--black); }
-.install-btn svg { width: 16px; height: 16px; flex: 0 0 auto; }
+.install-btn:hover { background: var(--black-soft); }
+.install-btn svg { width: 17px; height: 17px; flex: 0 0 auto; }
 .install-btn[hidden] { display: none; }
 
 .sheet-backdrop {
@@ -551,7 +537,7 @@ footer .fine-print a:hover { text-decoration: underline; }
         <a class="email" href="mailto:marco.rossi@codutti.it">marco.rossi@codutti.it</a>
         <div class="card-actions">
           <a class="whatsapp-btn" href="https://wa.me/393484714770" target="_blank" rel="noopener">Contact on WhatsApp</a>
-          <a class="save-contact" href="assets/contacts/marco-rossi.vcf" aria-label="Save Marco Rossi to your contacts" title="Save to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="8" r="3.4"/><path d="M3.6 19.4c0-3.2 2.7-5.3 5.9-5.3 1.2 0 2.3.3 3.2.8"/><path d="M17.6 14.3v5.4M20.3 17h-5.4"/></svg></a>
+          <a class="save-contact" href="assets/contacts/marco-rossi.vcf" aria-label="Save Marco Rossi to your contacts">Save this contact</a>
         </div>
       </div>
     </div>
@@ -566,7 +552,7 @@ footer .fine-print a:hover { text-decoration: underline; }
         <a class="email" href="mailto:valentina@codutti.it">valentina@codutti.it</a>
         <div class="card-actions">
           <a class="whatsapp-btn" href="https://wa.me/393240576967" target="_blank" rel="noopener">Contact on WhatsApp</a>
-          <a class="save-contact" href="assets/contacts/valentina-cervesato.vcf" aria-label="Save Valentina Cervesato to your contacts" title="Save to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="8" r="3.4"/><path d="M3.6 19.4c0-3.2 2.7-5.3 5.9-5.3 1.2 0 2.3.3 3.2.8"/><path d="M17.6 14.3v5.4M20.3 17h-5.4"/></svg></a>
+          <a class="save-contact" href="assets/contacts/valentina-cervesato.vcf" aria-label="Save Valentina Cervesato to your contacts">Save this contact</a>
         </div>
       </div>
     </div>
@@ -581,7 +567,7 @@ footer .fine-print a:hover { text-decoration: underline; }
         <a class="email" href="mailto:roberta@codutti.it">roberta@codutti.it</a>
         <div class="card-actions">
           <a class="whatsapp-btn" href="https://wa.me/393460451527" target="_blank" rel="noopener">Contact on WhatsApp</a>
-          <a class="save-contact" href="assets/contacts/roberta-toneguzzo.vcf" aria-label="Save Roberta Toneguzzo to your contacts" title="Save to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="8" r="3.4"/><path d="M3.6 19.4c0-3.2 2.7-5.3 5.9-5.3 1.2 0 2.3.3 3.2.8"/><path d="M17.6 14.3v5.4M20.3 17h-5.4"/></svg></a>
+          <a class="save-contact" href="assets/contacts/roberta-toneguzzo.vcf" aria-label="Save Roberta Toneguzzo to your contacts">Save this contact</a>
         </div>
       </div>
     </div>
@@ -596,7 +582,7 @@ footer .fine-print a:hover { text-decoration: underline; }
         <a class="email" href="mailto:massimo.donato@codutti.it">massimo.donato@codutti.it</a>
         <div class="card-actions">
           <a class="whatsapp-btn" href="https://wa.me/393474752446" target="_blank" rel="noopener">Contact on WhatsApp</a>
-          <a class="save-contact" href="assets/contacts/massimo-donato.vcf" aria-label="Save Massimo Donato to your contacts" title="Save to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="8" r="3.4"/><path d="M3.6 19.4c0-3.2 2.7-5.3 5.9-5.3 1.2 0 2.3.3 3.2.8"/><path d="M17.6 14.3v5.4M20.3 17h-5.4"/></svg></a>
+          <a class="save-contact" href="assets/contacts/massimo-donato.vcf" aria-label="Save Massimo Donato to your contacts">Save this contact</a>
         </div>
       </div>
     </div>
@@ -611,7 +597,7 @@ footer .fine-print a:hover { text-decoration: underline; }
         <a class="email" href="mailto:elena.pellegrini@codutti.it">elena.pellegrini@codutti.it</a>
         <div class="card-actions">
           <a class="whatsapp-btn" href="https://wa.me/393460224378" target="_blank" rel="noopener">Contact on WhatsApp</a>
-          <a class="save-contact" href="assets/contacts/elena-pellegrini.vcf" aria-label="Save Elena Pellegrini to your contacts" title="Save to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="8" r="3.4"/><path d="M3.6 19.4c0-3.2 2.7-5.3 5.9-5.3 1.2 0 2.3.3 3.2.8"/><path d="M17.6 14.3v5.4M20.3 17h-5.4"/></svg></a>
+          <a class="save-contact" href="assets/contacts/elena-pellegrini.vcf" aria-label="Save Elena Pellegrini to your contacts">Save this contact</a>
         </div>
       </div>
     </div>
@@ -626,7 +612,7 @@ footer .fine-print a:hover { text-decoration: underline; }
         <a class="email" href="mailto:alan.vidoni@codutti.it">alan.vidoni@codutti.it</a>
         <div class="card-actions">
           <a class="whatsapp-btn" href="https://wa.me/393484714776" target="_blank" rel="noopener">Contact on WhatsApp</a>
-          <a class="save-contact" href="assets/contacts/alan-vidoni.vcf" aria-label="Save Alan Vidoni to your contacts" title="Save to contacts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="8" r="3.4"/><path d="M3.6 19.4c0-3.2 2.7-5.3 5.9-5.3 1.2 0 2.3.3 3.2.8"/><path d="M17.6 14.3v5.4M20.3 17h-5.4"/></svg></a>
+          <a class="save-contact" href="assets/contacts/alan-vidoni.vcf" aria-label="Save Alan Vidoni to your contacts">Save this contact</a>
         </div>
       </div>
     </div>
@@ -647,7 +633,7 @@ footer .fine-print a:hover { text-decoration: underline; }
 
   <button class="install-btn" id="install-btn" type="button">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="2.5" width="13" height="19" rx="3"/><path d="M12 8.6v6.8M8.6 12h6.8"/></svg>
-    Add to Home Screen
+    Add to home screen
   </button>
 
   <footer>
@@ -696,6 +682,7 @@ footer .fine-print a:hover { text-decoration: underline; }
 
   var SHARE_ICON = '<svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11"/><path d="M8.5 7 12 3.5 15.5 7"/><path d="M6.5 11.5h-1v9h13v-9h-1"/></svg>';
   var MENU_ICON = '<svg class="step-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19" r="1.7"/></svg>';
+  var INSTALL_ICON = '<svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v8.5"/><path d="M8.5 8.5 12 12l3.5-3.5"/><path d="M4.5 15.5v3a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-3"/></svg>';
 
   function isStandalone() {
     return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
@@ -716,9 +703,9 @@ footer .fine-print a:hover { text-decoration: underline; }
               'Choose &ldquo;Add to Home screen&rdquo; or &ldquo;Install app&rdquo;.',
               'Confirm &mdash; the Codutti icon lands on your home screen.'];
     }
-    return ['Open this page on your phone, in Safari or Chrome.',
-            'Use the browser menu and choose &ldquo;Add to Home Screen&rdquo;.',
-            'Confirm &mdash; the Codutti icon lands on your home screen.'];
+    return ['Click the install icon ' + INSTALL_ICON + ' at the right of the address bar (Chrome, Edge) &mdash; the Codutti shortcut lands on your desktop.',
+            'No icon there? Open the browser menu and choose &ldquo;Install page as app&rdquo;, or &ldquo;Add to Dock&rdquo; in Safari.',
+            'Or simply drag the icon at the left of the address bar onto your desktop.'];
   }
 
   function openSheet() {
