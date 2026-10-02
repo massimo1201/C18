@@ -496,6 +496,170 @@ body.nav-open { overflow: hidden; }
   background: rgba(10,10,10,0.18);
 }
 
+/* ---------- Office tour (home landing) ----------
+   One office photo, pinned under the header; scrolling moves a virtual
+   camera between the areas of the photo (positions set per panel in
+   index.html, motion in assets/js/office-tour.js). */
+.office-tour {
+  position: relative;
+  height: 600vh; /* refined by JS to match the number of panels */
+  background: var(--black);
+}
+.office-tour__stage {
+  position: sticky;
+  top: var(--tour-top, 0px);
+  height: calc(100vh - var(--tour-top, 0px));
+  height: calc(100svh - var(--tour-top, 0px));
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--white);
+}
+.office-tour__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  transform-origin: 0 0;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.office-tour__shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(10,10,10,0.62) 0%, rgba(10,10,10,0.18) 45%, rgba(10,10,10,0) 70%);
+}
+.office-tour__panel {
+  position: absolute;
+  left: var(--pad);
+  right: var(--pad);
+  bottom: clamp(56px, 9vh, 110px);
+  max-width: 680px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(0, 24px, 0);
+  will-change: opacity, transform;
+}
+.office-tour__panel.is-active { pointer-events: auto; }
+.office-tour__panel--center {
+  left: 50%;
+  right: auto;
+  width: min(680px, calc(100% - 2 * var(--pad)));
+  text-align: center;
+  margin-left: calc(min(680px, calc(100% - 2 * var(--pad))) / -2);
+}
+/* Without JS the intro is simply shown over the full photo. */
+.office-tour:not(.is-ready) .office-tour__panel:first-of-type { opacity: 1; transform: none; }
+
+.office-tour__eyebrow {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(13px, 1.1vw, 15px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 14px;
+}
+.office-tour__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--white);
+  font-size: clamp(2.2rem, 4.8vw, 4.6rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+.office-tour__body {
+  margin-top: 16px;
+  font-size: clamp(17px, 1.45vw, 21px);
+  line-height: 1.5;
+  opacity: 0.9;
+  max-width: 34em;
+}
+.office-tour__panel--center .office-tour__body { margin-inline: auto; }
+.office-tour__ctas {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 28px;
+}
+.office-tour__panel--center .office-tour__ctas { justify-content: center; }
+.office-tour__btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 10px 26px;
+  border-radius: 999px;
+  background: var(--cream);
+  color: var(--black);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: background .25s var(--ease), transform .25s var(--ease);
+}
+.office-tour__btn:hover { background: var(--white); transform: translateY(-1px); }
+.office-tour__link {
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+}
+.office-tour__link::after { content: " \203A"; }
+.office-tour__link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.office-tour__cue {
+  display: block;
+  width: 1px;
+  height: 48px;
+  margin: 28px auto 0;
+  background: linear-gradient(var(--white), transparent);
+  animation: tour-cue 2.2s var(--ease) infinite;
+}
+@keyframes tour-cue {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+.office-tour__dots {
+  position: absolute;
+  right: var(--pad);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  opacity: 0;
+  transition: opacity .4s var(--ease);
+}
+.office-tour__dots.is-visible { opacity: 1; }
+.office-tour__dots button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255,253,245,0.8);
+  background: transparent;
+  cursor: pointer;
+  transition: background .3s var(--ease), transform .3s var(--ease);
+}
+.office-tour__dots button.is-current { background: var(--white); transform: scale(1.25); }
+@media (max-width: 640px) {
+  .office-tour__panel { bottom: 40px; }
+  .office-tour__dots { top: auto; bottom: 16px; right: 50%; transform: translateX(50%); flex-direction: row; }
+  .office-tour__panel--center .office-tour__cue { height: 36px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .office-tour__cue { animation: none; }
+}
+
 /* Marquee strip */
 .marquee {
   padding: 16px 0;

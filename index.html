@@ -52,7 +52,81 @@
 
 <main>
 
+  <!-- Office tour: scroll-driven camera moving through one office photo.
+       Each panel's data-x / data-y (0–1, share of the image width/height)
+       is the point the camera centres on, data-zoom how close it gets. -->
+  <section class="office-tour" id="office-tour" data-i18n-aria="tour.aria" aria-label="Walk through the office">
+    <div class="office-tour__stage">
+      <img class="office-tour__img" src="assets/img/office-tour-placeholder.svg" alt="" fetchpriority="high">
+      <div class="office-tour__shade"></div>
+
+      <div class="office-tour__panel office-tour__panel--center is-active" data-x="0.5" data-y="0.5" data-zoom="1">
+        <p class="office-tour__eyebrow" data-i18n="tour.intro.eyebrow">Made in Italy since 1954</p>
+        <h1 class="office-tour__title" data-i18n="tour.intro.title">Step inside the office.</h1>
+        <p class="office-tour__body" data-i18n="tour.intro.sub">Scroll to walk through every space we make.</p>
+        <span class="office-tour__cue" aria-hidden="true"></span>
+      </div>
+
+      <div class="office-tour__panel" data-stop="desks" data-x="0.22" data-y="0.55" data-zoom="2.2">
+        <p class="office-tour__eyebrow" data-i18n="tour.desks.label">Desks</p>
+        <h2 class="office-tour__title" data-i18n="tour.desks.title">Executive and operative desks.</h2>
+        <p class="office-tour__body" data-i18n="tour.desks.body">From the corner office to the everyday workstation, built in-house in Friuli.</p>
+        <div class="office-tour__ctas">
+          <a class="office-tour__btn" href="products/desks.html" data-i18n="tour.desks.cta">Explore desks</a>
+          <a class="office-tour__link" href="products/desks/executive-desks.html" data-i18n="tour.desks.link">Executive desks</a>
+        </div>
+      </div>
+
+      <div class="office-tour__panel" data-stop="meeting" data-x="0.55" data-y="0.41" data-zoom="2.2">
+        <p class="office-tour__eyebrow" data-i18n="tour.meeting.label">Meeting</p>
+        <h2 class="office-tour__title" data-i18n="tour.meeting.title">Meeting tables, too.</h2>
+        <p class="office-tour__body" data-i18n="tour.meeting.body">Boardrooms and meeting rooms sized to the way your team decides.</p>
+        <div class="office-tour__ctas">
+          <a class="office-tour__btn" href="products/tables-and-sharings/meeting-tables.html" data-i18n="tour.meeting.cta">Explore meeting tables</a>
+          <a class="office-tour__link" href="products/tables-and-sharings.html" data-i18n="tour.meeting.link">All tables</a>
+        </div>
+      </div>
+
+      <div class="office-tour__panel" data-stop="sharing" data-x="0.83" data-y="0.62" data-zoom="2.4">
+        <p class="office-tour__eyebrow" data-i18n="tour.sharing.label">Sharing</p>
+        <h2 class="office-tour__title" data-i18n="tour.sharing.title">Shared workspaces.</h2>
+        <p class="office-tour__body" data-i18n="tour.sharing.body">Sharing tables and operative spaces for teams that work side by side.</p>
+        <div class="office-tour__ctas">
+          <a class="office-tour__btn" href="products/tables-and-sharings/sharing-tables.html" data-i18n="tour.sharing.cta">Explore sharing tables</a>
+          <a class="office-tour__link" href="products/desks/system-benches.html" data-i18n="tour.sharing.link">System benches</a>
+        </div>
+      </div>
+
+      <div class="office-tour__panel" data-stop="lounge" data-x="0.40" data-y="0.83" data-zoom="2.2">
+        <p class="office-tour__eyebrow" data-i18n="tour.lounge.label">Lounge</p>
+        <h2 class="office-tour__title" data-i18n="tour.lounge.title">The lounge, complete.</h2>
+        <p class="office-tour__body" data-i18n="tour.lounge.body">Coffee tables, sofas, lounge seating and more for the moments in between.</p>
+        <div class="office-tour__ctas">
+          <a class="office-tour__btn" href="products/seatings/lounge-seatings.html" data-i18n="tour.lounge.cta">Explore the lounge</a>
+          <a class="office-tour__link" href="products/coffee-tables.html" data-i18n="tour.lounge.link">Coffee tables</a>
+        </div>
+      </div>
+
+      <div class="office-tour__panel office-tour__panel--center" data-x="0.5" data-y="0.5" data-zoom="1">
+        <h2 class="office-tour__title" data-i18n="tour.outro.title">Every space, one maker.</h2>
+        <p class="office-tour__body" data-i18n="tour.outro.sub">Designed and built by Codutti in Friuli Venezia Giulia.</p>
+        <div class="office-tour__ctas">
+          <a class="office-tour__btn" href="contact.html" data-i18n="tour.outro.cta">Request a quote</a>
+          <a class="office-tour__link" href="products/all.html" data-i18n="tour.outro.link">All products</a>
+        </div>
+      </div>
+
+      <nav class="office-tour__dots" data-i18n-aria="tour.aria" aria-label="Walk through the office">
+        <button type="button" data-go="1" data-i18n-aria="tour.desks.label" aria-label="Desks"></button>
+        <button type="button" data-go="2" data-i18n-aria="tour.meeting.label" aria-label="Meeting"></button>
+        <button type="button" data-go="3" data-i18n-aria="tour.sharing.label" aria-label="Sharing"></button>
+        <button type="button" data-go="4" data-i18n-aria="tour.lounge.label" aria-label="Lounge"></button>
+      </nav>
+    </div>
+  </section>
+
   <section class="hero">
+    <!-- iSixty video hero: hidden for now, restore by uncommenting.
     <div class="hero-stage">
       <video class="hero-stage__video" autoplay muted loop playsinline poster="assets/img/poster.jpg">
         <source src="assets/video/isixty.mp4" type="video/mp4">
@@ -60,6 +134,7 @@
       <div class="hero-stage__grain"></div>
       <a href="collections/isixty.html" class="hero-stage__discover font-display" data-i18n="hero.discover">Discover the iSixty Collection</a>
     </div>
+    -->
     <div class="marquee">
       <div class="marquee__track">
         <img src="assets/img/logo-words/word-contemporary.png" alt="Contemporary">
@@ -514,5 +589,6 @@
 
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/office-tour.js"></script>
 </body>
 </html>
