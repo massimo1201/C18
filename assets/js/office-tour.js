@@ -11,7 +11,6 @@
   const panels = [...tour.querySelectorAll('.office-tour__panel')];
   const dotsNav = tour.querySelector('.office-tour__dots');
   const dots = dotsNav ? [...dotsNav.querySelectorAll('button')] : [];
-  const header = document.querySelector('.site-header');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   const shots = panels.map((p) => ({
@@ -33,8 +32,8 @@
   let vw = 0, vh = 0, iw = 0, ih = 0, scrollSpan = 1;
 
   function measure() {
-    const top = header ? header.offsetHeight : 0;
-    tour.style.setProperty('--tour-top', top + 'px');
+    /* The photo runs under the translucent header, so the stage starts at 0. */
+    tour.style.setProperty('--tour-top', '0px');
     vw = stage.clientWidth;
     vh = stage.clientHeight;
     tour.style.height = Math.round(vh + last * window.innerHeight) + 'px';
