@@ -531,7 +531,9 @@ body.nav-open { overflow: hidden; }
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(to top, rgba(10,10,10,0.62) 0%, rgba(10,10,10,0.18) 45%, rgba(10,10,10,0) 70%);
+  background:
+    linear-gradient(to right, rgba(10,10,10,0.38) 0%, rgba(10,10,10,0) 55%),
+    linear-gradient(to top, rgba(10,10,10,0.62) 0%, rgba(10,10,10,0.18) 45%, rgba(10,10,10,0) 70%);
 }
 .office-tour__panel {
   position: absolute;

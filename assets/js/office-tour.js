@@ -66,7 +66,9 @@
        need far less extra zoom to frame the same area. */
     const z = vw < vh ? 1 + (cam.z - 1) * 0.35 : cam.z;
     const tx = clamp(vw / 2 - cam.x * iw * z, vw - iw * z, 0);
-    const ty = clamp(vh / 2 - cam.y * ih * z, vh - ih * z, 0);
+    /* Panel copy sits at the bottom; in portrait keep the subject above it. */
+    const anchorY = vw < vh && cam.z > 1 ? 0.32 : 0.5;
+    const ty = clamp(vh * anchorY - cam.y * ih * z, vh - ih * z, 0);
     img.style.transform = `translate3d(${tx}px, ${ty}px, 0) scale(${z})`;
   }
 
