@@ -517,3 +517,171 @@ function applyLanguage(code) {
   try { localStorage.setItem("codutti_lang", code); } catch (e) {}
 }
 window.applyLanguage = applyLanguage;
+
+
+/* ---------- "Your language" — automatic AI translation ----------
+   The nine languages above are hand-translated. For anything else the
+   language panel gets a field at the bottom: the visitor types their
+   language and the whole site is machine-translated from English by
+   Google's neural translation widget. The choice is kept in localStorage
+   plus Google's own `googtrans` cookie, so it follows the visitor across
+   pages until they pick one of the nine built-in languages again. */
+const AI_LANGS = [
+  ["af","Afrikaans","Afrikaans"],["sq","Albanian","Shqip"],["am","Amharic","አማርኛ"],["hy","Armenian","Հայերեն"],
+  ["az","Azerbaijani","Azərbaycan"],["eu","Basque","Euskara"],["be","Belarusian","Беларуская"],["bn","Bengali","বাংলা"],
+  ["bs","Bosnian","Bosanski"],["bg","Bulgarian","Български"],["ca","Catalan","Català"],["hr","Croatian","Hrvatski"],
+  ["cs","Czech","Čeština"],["da","Danish","Dansk"],["nl","Dutch","Nederlands"],["et","Estonian","Eesti"],
+  ["fi","Finnish","Suomi"],["gl","Galician","Galego"],["ka","Georgian","ქართული"],["el","Greek","Ελληνικά"],
+  ["gu","Gujarati","ગુજરાતી"],["iw","Hebrew","עברית"],["hi","Hindi","हिन्दी"],["hu","Hungarian","Magyar"],
+  ["is","Icelandic","Íslenska"],["id","Indonesian","Bahasa Indonesia"],["ga","Irish","Gaeilge"],["kn","Kannada","ಕನ್ನಡ"],
+  ["kk","Kazakh","Қазақ"],["km","Khmer","ខ្មែរ"],["ko","Korean","한국어"],["ky","Kyrgyz","Кыргызча"],
+  ["lo","Lao","ລາວ"],["lv","Latvian","Latviešu"],["lt","Lithuanian","Lietuvių"],["lb","Luxembourgish","Lëtzebuergesch"],
+  ["mk","Macedonian","Македонски"],["ms","Malay","Bahasa Melayu"],["ml","Malayalam","മലയാളം"],["mt","Maltese","Malti"],
+  ["mr","Marathi","मराठी"],["mn","Mongolian","Монгол"],["ne","Nepali","नेपाली"],["no","Norwegian","Norsk"],
+  ["fa","Persian","فارسی"],["pl","Polish","Polski"],["pt","Portuguese","Português"],["pa","Punjabi","ਪੰਜਾਬੀ"],
+  ["ro","Romanian","Română"],["sr","Serbian","Српски"],["si","Sinhala","සිංහල"],["sk","Slovak","Slovenčina"],
+  ["sl","Slovenian","Slovenščina"],["sw","Swahili","Kiswahili"],["sv","Swedish","Svenska"],["tl","Filipino","Filipino"],
+  ["ta","Tamil","தமிழ்"],["te","Telugu","తెలుగు"],["th","Thai","ไทย"],["tr","Turkish","Türkçe"],
+  ["uk","Ukrainian","Українська"],["ur","Urdu","اردو"],["uz","Uzbek","Oʻzbek"],["vi","Vietnamese","Tiếng Việt"],
+  ["cy","Welsh","Cymraeg"],["zh-TW","Chinese (Traditional)","繁體中文"],["yo","Yoruba","Yorùbá"],["zu","Zulu","isiZulu"]
+];
+const AI_LANG_KEY = "codutti_ai_lang";
+
+Object.assign(I18N.EN, {"langai.title":"Don't see your language?","langai.placeholder":"Type your language","langai.button":"Translate with AI","langai.note":"Automatic translation, it may contain errors.","langai.unknown":"Language not found, try another name.","langai.reset":"Back to English"});
+Object.assign(I18N.IT, {"langai.title":"Non trovi la tua lingua?","langai.placeholder":"Scrivi la tua lingua","langai.button":"Traduci con l'AI","langai.note":"Traduzione automatica, potrebbe contenere errori.","langai.unknown":"Lingua non trovata, prova un altro nome.","langai.reset":"Torna all'inglese"});
+Object.assign(I18N.FR, {"langai.title":"Votre langue n'est pas listée ?","langai.placeholder":"Saisissez votre langue","langai.button":"Traduire avec l'IA","langai.note":"Traduction automatique, elle peut contenir des erreurs.","langai.unknown":"Langue introuvable, essayez un autre nom.","langai.reset":"Revenir à l'anglais"});
+Object.assign(I18N.DE, {"langai.title":"Ihre Sprache fehlt?","langai.placeholder":"Sprache eingeben","langai.button":"Mit KI übersetzen","langai.note":"Automatische Übersetzung, sie kann Fehler enthalten.","langai.unknown":"Sprache nicht gefunden, versuchen Sie einen anderen Namen.","langai.reset":"Zurück zu Englisch"});
+Object.assign(I18N.SP, {"langai.title":"¿No encuentras tu idioma?","langai.placeholder":"Escribe tu idioma","langai.button":"Traducir con IA","langai.note":"Traducción automática, puede contener errores.","langai.unknown":"Idioma no encontrado, prueba con otro nombre.","langai.reset":"Volver al inglés"});
+Object.assign(I18N.RU, {"langai.title":"Нет вашего языка?","langai.placeholder":"Введите ваш язык","langai.button":"Перевести с помощью ИИ","langai.note":"Автоматический перевод, возможны ошибки.","langai.unknown":"Язык не найден, попробуйте другое название.","langai.reset":"Вернуться к английскому"});
+Object.assign(I18N.AR, {"langai.title":"لا تجد لغتك؟","langai.placeholder":"اكتب لغتك","langai.button":"ترجم بالذكاء الاصطناعي","langai.note":"ترجمة آلية، قد تحتوي على أخطاء.","langai.unknown":"اللغة غير موجودة، جرّب اسمًا آخر.","langai.reset":"العودة إلى الإنجليزية"});
+Object.assign(I18N.CH, {"langai.title":"没有找到您的语言？","langai.placeholder":"输入您的语言","langai.button":"用 AI 翻译","langai.note":"自动翻译，可能存在错误。","langai.unknown":"未找到该语言，请尝试其他名称。","langai.reset":"返回英文"});
+Object.assign(I18N.JP, {"langai.title":"ご希望の言語がありませんか？","langai.placeholder":"言語を入力","langai.button":"AIで翻訳","langai.note":"自動翻訳のため、誤りが含まれる場合があります。","langai.unknown":"言語が見つかりません。別の名前をお試しください。","langai.reset":"英語に戻す"});
+
+(() => {
+  const norm = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").trim();
+  const findLang = (text) => {
+    const q = norm(text);
+    if (!q) return null;
+    return AI_LANGS.find(([code, en, native]) => q === norm(code) || q === norm(en) || q === norm(native))
+      || AI_LANGS.find(([, en, native]) => norm(en).startsWith(q) || norm(native).startsWith(q))
+      || null;
+  };
+
+  const getAiLang = () => { try { return localStorage.getItem(AI_LANG_KEY); } catch (e) { return null; } };
+  const setGoogCookie = (value) => {
+    const host = location.hostname;
+    const expires = value ? "" : "; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    const v = value ? "/en/" + value : "";
+    document.cookie = "googtrans=" + v + "; path=/" + expires;
+    if (host && host.includes(".")) document.cookie = "googtrans=" + v + "; path=/; domain=." + host + expires;
+  };
+
+  function loadGoogleTranslate(code) {
+    setGoogCookie(code);
+    const holder = document.createElement("div");
+    holder.id = "google_translate_element";
+    holder.hidden = true;
+    document.body.appendChild(holder);
+    window.googleTranslateElementInit = () => {
+      new google.translate.TranslateElement({ pageLanguage: "en", autoDisplay: false }, "google_translate_element");
+    };
+    const s = document.createElement("script");
+    s.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    s.async = true;
+    document.head.appendChild(s);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const overlay = document.getElementById("langOverlay");
+    const list = overlay && overlay.querySelector(".lang-overlay__list");
+    const active = getAiLang();
+    const activeLang = active && AI_LANGS.find(([code]) => code === active);
+
+    if (list) {
+      /* Language names and the field itself must never be machine-translated. */
+      overlay.classList.add("notranslate");
+      overlay.setAttribute("translate", "no");
+
+      const box = document.createElement("div");
+      box.className = "lang-ai";
+      box.innerHTML = `
+        <p class="lang-ai__title" data-i18n="langai.title">Don't see your language?</p>
+        <form class="lang-ai__form" novalidate>
+          <input class="lang-ai__input" type="text" list="langAiOptions" autocomplete="off"
+                 data-i18n-placeholder="langai.placeholder" data-i18n-aria="langai.placeholder"
+                 placeholder="Type your language" aria-label="Type your language">
+          <button class="lang-ai__btn" type="submit" data-i18n="langai.button">Translate with AI</button>
+        </form>
+        <datalist id="langAiOptions"></datalist>
+        <p class="lang-ai__msg" role="status" aria-live="polite"></p>
+        <p class="lang-ai__note" data-i18n="langai.note">Automatic translation, it may contain errors.</p>`;
+      list.appendChild(box);
+
+      const datalist = box.querySelector("datalist");
+      AI_LANGS.forEach(([, en, native]) => {
+        const o = document.createElement("option");
+        o.value = en;
+        if (native !== en) o.label = native;
+        datalist.appendChild(o);
+      });
+
+      const input = box.querySelector(".lang-ai__input");
+      const msg = box.querySelector(".lang-ai__msg");
+
+      if (activeLang) {
+        input.value = activeLang[1];
+        const reset = document.createElement("button");
+        reset.type = "button";
+        reset.className = "lang-ai__reset";
+        reset.dataset.i18n = "langai.reset";
+        reset.textContent = "Back to English";
+        reset.addEventListener("click", () => {
+          try { localStorage.removeItem(AI_LANG_KEY); localStorage.setItem("codutti_lang", "EN"); } catch (e) {}
+          setGoogCookie(null);
+          location.reload();
+        });
+        box.appendChild(reset);
+      }
+
+      box.querySelector("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const lang = findLang(input.value);
+        if (!lang) {
+          let cur = "EN";
+          try { cur = localStorage.getItem("codutti_lang") || "EN"; } catch (err) {}
+          msg.textContent = (I18N[cur] || I18N.EN)["langai.unknown"];
+          input.focus();
+          return;
+        }
+        try {
+          localStorage.setItem(AI_LANG_KEY, lang[0]);
+          /* Translate from the English source, not from another translation. */
+          localStorage.setItem("codutti_lang", "EN");
+        } catch (err) {}
+        setGoogCookie(lang[0]);
+        location.reload();
+      });
+
+      /* Picking one of the hand-translated languages switches the AI off. */
+      list.querySelectorAll(".lang-overlay__item").forEach((item) => {
+        item.addEventListener("click", () => {
+          if (!getAiLang()) return;
+          try { localStorage.removeItem(AI_LANG_KEY); } catch (e) {}
+          setGoogCookie(null);
+          setTimeout(() => location.reload(), 0);
+        });
+      });
+    }
+
+    if (activeLang) {
+      try { localStorage.setItem("codutti_lang", "EN"); } catch (e) {}
+      loadGoogleTranslate(activeLang[0]);
+      /* main.js sets the header button from the built-in language; show the AI one instead. */
+      setTimeout(() => {
+        const btn = document.getElementById("langBtn");
+        if (btn) btn.textContent = activeLang[0].slice(0, 2).toUpperCase();
+        if (overlay) overlay.querySelectorAll(".lang-overlay__item").forEach((el) => el.classList.remove("is-active"));
+      }, 0);
+    }
+  });
+})();

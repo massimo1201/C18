@@ -254,7 +254,7 @@ p.lede {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(10px, 1.6vw, 18px);
+  gap: clamp(4px, min(1.6vw, 1.2vh), 18px);
   max-width: 760px;
   max-height: 86vh;
   overflow-y: auto;
@@ -263,7 +263,8 @@ p.lede {
 .lang-overlay__item {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(1.5rem, 3.4vw, 2.4rem);
+  font-size: clamp(1.2rem, min(3.4vw, 3vh), 2.4rem);
+  line-height: 1.2;
   text-transform: uppercase;
   color: var(--white);
   opacity: 0.4;
@@ -273,6 +274,75 @@ p.lede {
 .lang-overlay__item:hover {
   opacity: 1;
 }
+
+/* "Your language" — AI translation field at the bottom of the panel */
+.lang-ai {
+  width: min(520px, 100%);
+  margin-top: clamp(10px, 2vh, 28px);
+  padding-top: clamp(14px, 2.6vh, 28px);
+  border-top: 1px solid var(--line-on-black);
+  text-align: center;
+}
+.lang-ai__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(15px, 1.4vw, 18px);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+}
+.lang-ai__form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.lang-ai__input {
+  flex: 1 1 220px;
+  min-width: 0;
+  min-height: 46px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,253,245,0.4);
+  background: transparent;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+}
+.lang-ai__input::placeholder { color: rgba(255,253,245,0.55); }
+.lang-ai__input:focus { outline: none; border-color: var(--white); }
+.lang-ai__btn,
+.lang-ai__reset {
+  min-height: 46px;
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--cream);
+  color: var(--black);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background .25s var(--ease);
+}
+.lang-ai__btn:hover { background: var(--white); }
+.lang-ai__reset {
+  margin-top: 14px;
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,253,245,0.4);
+}
+.lang-ai__msg { min-height: 1.2em; margin-top: 10px; font-size: 14px; color: #f3b8a6; }
+.lang-ai__note { font-size: 13px; opacity: 0.55; }
+
+/* Keep Google's translation chrome out of the design. */
+#google_translate_element,
+.goog-te-banner-frame,
+body > .skiptranslate,
+#goog-gt-tt,
+.goog-te-balloon-frame { display: none !important; }
+body { top: 0 !important; }
+.goog-text-highlight { background: none !important; box-shadow: none !important; }
 
 body.lang-open { overflow: hidden; }
 body.lang-open .site-header { background: transparent; color: var(--white); }
