@@ -1,0 +1,794 @@
+[
+ {
+  "slug": "one-desk",
+  "name": "One",
+  "category": "desks",
+  "subcategory": "executive-desks",
+  "collection": "one",
+  "image": "assets/img/products/one-desk.jpg"
+ },
+ {
+  "slug": "one-l-desk",
+  "name": "One · L-shaped desk",
+  "category": "desks",
+  "subcategory": "executive-desks",
+  "collection": "one",
+  "image": "assets/img/products/one-l-desk.jpg"
+ },
+ {
+  "slug": "genesis-desk",
+  "name": "Genesis",
+  "category": "desks",
+  "subcategory": "executive-desks",
+  "collection": "genesis",
+  "image": "assets/img/products/genesis-desk.jpg"
+ },
+ {
+  "slug": "genesis-desk-set",
+  "name": "Genesis · Executive set",
+  "category": "desks",
+  "subcategory": "executive-desks",
+  "collection": "genesis",
+  "image": "assets/img/products/genesis-desk-set.jpg"
+ },
+ {
+  "slug": "attiva-desk",
+  "name": "Attiva",
+  "category": "desks",
+  "subcategory": "operative-desks",
+  "collection": "attiva",
+  "image": "assets/img/products/attiva-desk.jpg"
+ },
+ {
+  "slug": "attiva-l-desk",
+  "name": "Attiva · L-shaped desk",
+  "category": "desks",
+  "subcategory": "operative-desks",
+  "collection": "attiva",
+  "image": "assets/img/products/attiva-l-desk.jpg"
+ },
+ {
+  "slug": "attiva-glass-desk",
+  "name": "Attiva · Glass top",
+  "category": "desks",
+  "subcategory": "operative-desks",
+  "collection": "attiva",
+  "image": "assets/img/products/attiva-glass-desk.jpg"
+ },
+ {
+  "slug": "attiva-wood-desk",
+  "name": "Attiva · Wooden legs",
+  "category": "desks",
+  "subcategory": "operative-desks",
+  "collection": "attiva",
+  "image": "assets/img/products/attiva-wood-desk.jpg"
+ },
+ {
+  "slug": "team-desk",
+  "name": "Team",
+  "category": "desks",
+  "subcategory": "operative-desks",
+  "collection": "team",
+  "image": "assets/img/products/team-desk.jpg"
+ },
+ {
+  "slug": "team-l-desk",
+  "name": "Team · L-shaped desk",
+  "category": "desks",
+  "subcategory": "operative-desks",
+  "collection": "team",
+  "image": "assets/img/products/team-l-desk.jpg"
+ },
+ {
+  "slug": "team-curved-desk",
+  "name": "Team · Curved desk",
+  "category": "desks",
+  "subcategory": "operative-desks",
+  "collection": "team",
+  "image": "assets/img/products/team-curved-desk.jpg"
+ },
+ {
+  "slug": "team-adjustable",
+  "name": "Team · Height adjustable",
+  "category": "desks",
+  "subcategory": "adjustable-desks",
+  "collection": "adjustable-desks",
+  "image": "assets/img/products/team-adjustable.jpg"
+ },
+ {
+  "slug": "team-bench",
+  "name": "Team · Bench",
+  "category": "desks",
+  "subcategory": "system-benches",
+  "collection": "team",
+  "image": "assets/img/products/team-bench.jpg"
+ },
+ {
+  "slug": "one-meeting",
+  "name": "One · Meeting table",
+  "category": "tables-and-sharings",
+  "subcategory": "meeting-tables",
+  "collection": "one",
+  "image": "assets/img/products/one-meeting.jpg"
+ },
+ {
+  "slug": "one-glass-meeting",
+  "name": "One · Glass meeting table",
+  "category": "tables-and-sharings",
+  "subcategory": "meeting-tables",
+  "collection": "one",
+  "image": "assets/img/products/one-glass-meeting.jpg"
+ },
+ {
+  "slug": "genesis-meeting",
+  "name": "Genesis · Modular meeting",
+  "category": "tables-and-sharings",
+  "subcategory": "meeting-tables",
+  "collection": "genesis",
+  "image": "assets/img/products/genesis-meeting.jpg"
+ },
+ {
+  "slug": "alfaomega-meeting",
+  "name": "Alfaomega · Boardroom",
+  "category": "tables-and-sharings",
+  "subcategory": "meeting-tables",
+  "collection": "alfaomega",
+  "image": "assets/img/products/alfaomega-meeting.jpg"
+ },
+ {
+  "slug": "one-high-table",
+  "name": "One · High table",
+  "category": "tables-and-sharings",
+  "subcategory": "sharing-tables",
+  "collection": "one",
+  "image": "assets/img/products/one-high-table.jpg"
+ },
+ {
+  "slug": "team-sharing",
+  "name": "Team · Sharing",
+  "category": "tables-and-sharings",
+  "subcategory": "sharing-tables",
+  "collection": "team",
+  "image": "assets/img/products/team-sharing.jpg"
+ },
+ {
+  "slug": "genesis-coffee",
+  "name": "Genesis · Coffee table",
+  "category": "coffee-tables",
+  "subcategory": null,
+  "collection": "genesis",
+  "image": "assets/img/products/genesis-coffee.jpg"
+ },
+ {
+  "slug": "tondo",
+  "name": "Tondo",
+  "category": "coffee-tables",
+  "subcategory": null,
+  "collection": null,
+  "image": "assets/img/products/tondo.jpg"
+ },
+ {
+  "slug": "claudia",
+  "name": "Claudia",
+  "category": "coffee-tables",
+  "subcategory": null,
+  "collection": null,
+  "image": "assets/img/products/claudia.jpg"
+ },
+ {
+  "slug": "elena",
+  "name": "Elena",
+  "category": "coffee-tables",
+  "subcategory": null,
+  "collection": null,
+  "image": "assets/img/products/elena.jpg"
+ },
+ {
+  "slug": "simple",
+  "name": "Simple",
+  "category": "coffee-tables",
+  "subcategory": null,
+  "collection": null,
+  "image": "assets/img/products/simple.jpg"
+ },
+ {
+  "slug": "cali",
+  "name": "Cali",
+  "category": "coffee-tables",
+  "subcategory": null,
+  "collection": null,
+  "image": "assets/img/products/cali.jpg"
+ },
+ {
+  "slug": "sophie",
+  "name": "Sophie",
+  "category": "coffee-tables",
+  "subcategory": null,
+  "collection": null,
+  "image": "assets/img/products/sophie.jpg"
+ },
+ {
+  "slug": "regolo",
+  "name": "Regolo",
+  "category": "coffee-tables",
+  "subcategory": null,
+  "collection": null,
+  "image": "assets/img/products/regolo.jpg"
+ },
+ {
+  "slug": "one-sideboard",
+  "name": "One · Sideboard",
+  "category": "storage-units",
+  "subcategory": "cabinets",
+  "collection": "one",
+  "image": "assets/img/products/one-sideboard.jpg"
+ },
+ {
+  "slug": "genesis-credenza-long",
+  "name": "Genesis · Credenza",
+  "category": "storage-units",
+  "subcategory": "cabinets",
+  "collection": "genesis",
+  "image": "assets/img/products/genesis-credenza-long.jpg"
+ },
+ {
+  "slug": "isixty-sideboard",
+  "name": "iSixty · Sideboard",
+  "category": "storage-units",
+  "subcategory": "cabinets",
+  "collection": "isixty",
+  "image": "assets/img/products/isixty-sideboard.jpg"
+ },
+ {
+  "slug": "isixty-low-unit",
+  "name": "iSixty · Low unit",
+  "category": "storage-units",
+  "subcategory": "cabinets",
+  "collection": "isixty",
+  "image": "assets/img/products/isixty-low-unit.jpg"
+ },
+ {
+  "slug": "isixty-bar",
+  "name": "iSixty · Bar cabinet",
+  "category": "storage-units",
+  "subcategory": "cabinets",
+  "collection": "isixty",
+  "image": "assets/img/products/isixty-bar.jpg"
+ },
+ {
+  "slug": "team-storage",
+  "name": "Team · Storage wall",
+  "category": "storage-units",
+  "subcategory": "cabinets",
+  "collection": "team",
+  "image": "assets/img/products/team-storage.jpg"
+ },
+ {
+  "slug": "genesis-drawers",
+  "name": "Genesis · Drawer unit",
+  "category": "storage-units",
+  "subcategory": "drawers",
+  "collection": "genesis",
+  "image": "assets/img/products/genesis-drawers.jpg"
+ },
+ {
+  "slug": "attiva-wardrobe",
+  "name": "Attiva · Wardrobe",
+  "category": "storage-units",
+  "subcategory": "wardrobes",
+  "collection": "attiva",
+  "image": "assets/img/products/attiva-wardrobe.jpg"
+ },
+ {
+  "slug": "ciao-linear",
+  "name": "Ciao · Linear",
+  "category": "receptions",
+  "subcategory": null,
+  "collection": null,
+  "image": "assets/img/products/ciao-linear.jpg"
+ },
+ {
+  "slug": "ciao-corner",
+  "name": "Ciao · Corner",
+  "category": "receptions",
+  "subcategory": null,
+  "collection": null,
+  "image": "assets/img/products/ciao-corner.jpg"
+ },
+ {
+  "slug": "ciao-wave",
+  "name": "Ciao · Wave",
+  "category": "receptions",
+  "subcategory": null,
+  "collection": null,
+  "image": "assets/img/products/ciao-wave.jpg"
+ },
+ {
+  "slug": "ciao-circular",
+  "name": "Ciao · Circular",
+  "category": "receptions",
+  "subcategory": null,
+  "collection": null,
+  "image": "assets/img/products/ciao-circular.jpg"
+ },
+ {
+  "slug": "ciao-double-wave",
+  "name": "Ciao · Double wave",
+  "category": "receptions",
+  "subcategory": null,
+  "collection": null,
+  "image": "assets/img/products/ciao-double-wave.jpg"
+ },
+ {
+  "slug": "diamond",
+  "name": "Diamond",
+  "category": "seatings",
+  "subcategory": "executive-chairs",
+  "collection": null,
+  "image": "assets/img/products/diamond.jpg"
+ },
+ {
+  "slug": "coupe",
+  "name": "Coupè",
+  "category": "seatings",
+  "subcategory": "executive-chairs",
+  "collection": null,
+  "image": "assets/img/products/coupe.jpg"
+ },
+ {
+  "slug": "techno-top",
+  "name": "Techno Top",
+  "category": "seatings",
+  "subcategory": "executive-chairs",
+  "collection": null,
+  "image": "assets/img/products/techno-top.jpg"
+ },
+ {
+  "slug": "one-plus-chair",
+  "name": "One Plus",
+  "category": "seatings",
+  "subcategory": "executive-chairs",
+  "collection": null,
+  "image": "assets/img/products/one-plus-chair.jpg"
+ },
+ {
+  "slug": "one-chair",
+  "name": "One",
+  "category": "seatings",
+  "subcategory": "executive-chairs",
+  "collection": null,
+  "image": "assets/img/products/one-chair.jpg"
+ },
+ {
+  "slug": "genesis-chair",
+  "name": "Genesis",
+  "category": "seatings",
+  "subcategory": "executive-chairs",
+  "collection": null,
+  "image": "assets/img/products/genesis-chair.jpg"
+ },
+ {
+  "slug": "cosmo",
+  "name": "Cosmo",
+  "category": "seatings",
+  "subcategory": "executive-chairs",
+  "collection": null,
+  "image": "assets/img/products/cosmo.jpg"
+ },
+ {
+  "slug": "velar",
+  "name": "Velar",
+  "category": "seatings",
+  "subcategory": "executive-chairs",
+  "collection": null,
+  "image": "assets/img/products/velar.jpg"
+ },
+ {
+  "slug": "lyna",
+  "name": "Lyna",
+  "category": "seatings",
+  "subcategory": "executive-chairs",
+  "collection": null,
+  "image": "assets/img/products/lyna.jpg"
+ },
+ {
+  "slug": "claire",
+  "name": "Claire",
+  "category": "seatings",
+  "subcategory": "executive-chairs",
+  "collection": null,
+  "image": "assets/img/products/claire.jpg"
+ },
+ {
+  "slug": "berna",
+  "name": "Berna",
+  "category": "seatings",
+  "subcategory": "task-chairs",
+  "collection": null,
+  "image": "assets/img/products/berna.jpg"
+ },
+ {
+  "slug": "ascot-line",
+  "name": "Ascot Line",
+  "category": "seatings",
+  "subcategory": "task-chairs",
+  "collection": null,
+  "image": "assets/img/products/ascot-line.jpg"
+ },
+ {
+  "slug": "ascot-soft",
+  "name": "Ascot Soft",
+  "category": "seatings",
+  "subcategory": "task-chairs",
+  "collection": null,
+  "image": "assets/img/products/ascot-soft.jpg"
+ },
+ {
+  "slug": "ada",
+  "name": "Ada",
+  "category": "seatings",
+  "subcategory": "task-chairs",
+  "collection": null,
+  "image": "assets/img/products/ada.jpg"
+ },
+ {
+  "slug": "atena",
+  "name": "Atena",
+  "category": "seatings",
+  "subcategory": "task-chairs",
+  "collection": null,
+  "image": "assets/img/products/atena.jpg"
+ },
+ {
+  "slug": "ottavia-o-white",
+  "name": "Ottavia & Ottavia White",
+  "category": "seatings",
+  "subcategory": "task-chairs",
+  "collection": null,
+  "image": "assets/img/products/ottavia-o-white.jpg"
+ },
+ {
+  "slug": "hamlet",
+  "name": "Hamlet",
+  "category": "seatings",
+  "subcategory": "task-chairs",
+  "collection": null,
+  "image": "assets/img/products/hamlet.jpg"
+ },
+ {
+  "slug": "genesis-soft",
+  "name": "Genesis Soft",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/genesis-soft.jpg"
+ },
+ {
+  "slug": "milano",
+  "name": "Milano",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/milano.jpg"
+ },
+ {
+  "slug": "ovvo",
+  "name": "Ovvo",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/ovvo.jpg"
+ },
+ {
+  "slug": "kalos-air-white",
+  "name": "Kalos Air + White",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/kalos-air-white.jpg"
+ },
+ {
+  "slug": "kalos-soft-white",
+  "name": "Kalos Soft + White",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/kalos-soft-white.jpg"
+ },
+ {
+  "slug": "unica-soft",
+  "name": "Unica Soft",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/unica-soft.jpg"
+ },
+ {
+  "slug": "unica-air",
+  "name": "Unica Air",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/unica-air.jpg"
+ },
+ {
+  "slug": "jade-jade-cover",
+  "name": "Jade & Jade Cover",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/jade-jade-cover.jpg"
+ },
+ {
+  "slug": "jade-soft",
+  "name": "Jade Soft",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/jade-soft.jpg"
+ },
+ {
+  "slug": "merano",
+  "name": "Merano",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/merano.jpg"
+ },
+ {
+  "slug": "ester",
+  "name": "Ester",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/ester.jpg"
+ },
+ {
+  "slug": "jardin",
+  "name": "Jardin",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/jardin.jpg"
+ },
+ {
+  "slug": "modus",
+  "name": "Modus",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/modus.jpg"
+ },
+ {
+  "slug": "chantal",
+  "name": "Chantal",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/chantal.jpg"
+ },
+ {
+  "slug": "simba",
+  "name": "Simba",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/simba.jpg"
+ },
+ {
+  "slug": "augusta",
+  "name": "Augusta",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/augusta.jpg"
+ },
+ {
+  "slug": "claire-lounge",
+  "name": "Claire Lounge",
+  "category": "seatings",
+  "subcategory": "lounge-seatings",
+  "collection": null,
+  "image": "assets/img/products/claire-lounge.jpg"
+ },
+ {
+  "slug": "pepe-tub",
+  "name": "Pepe tub",
+  "category": "seatings",
+  "subcategory": "lounge-seatings",
+  "collection": null,
+  "image": "assets/img/products/pepe-tub.jpg"
+ },
+ {
+  "slug": "phelt",
+  "name": "Phelt",
+  "category": "seatings",
+  "subcategory": "lounge-seatings",
+  "collection": null,
+  "image": "assets/img/products/phelt.jpg"
+ },
+ {
+  "slug": "monaco",
+  "name": "Monaco",
+  "category": "seatings",
+  "subcategory": "privacy-seatings",
+  "collection": null,
+  "image": "assets/img/products/monaco.jpg"
+ },
+ {
+  "slug": "diamond-sofa",
+  "name": "Diamond Sofa",
+  "category": "seatings",
+  "subcategory": "sofas",
+  "collection": null,
+  "image": "assets/img/products/diamond-sofa.jpg"
+ },
+ {
+  "slug": "coupe-sofa",
+  "name": "Coupè Sofa",
+  "category": "seatings",
+  "subcategory": "sofas",
+  "collection": null,
+  "image": "assets/img/products/coupe-sofa.jpg"
+ },
+ {
+  "slug": "one-plus-sofa",
+  "name": "One Plus Sofa",
+  "category": "seatings",
+  "subcategory": "sofas",
+  "collection": null,
+  "image": "assets/img/products/one-plus-sofa.jpg"
+ },
+ {
+  "slug": "genesis-sofa",
+  "name": "Genesis Sofa",
+  "category": "seatings",
+  "subcategory": "sofas",
+  "collection": null,
+  "image": "assets/img/products/genesis-sofa.jpg"
+ },
+ {
+  "slug": "tecno-sofa",
+  "name": "Tecno Sofa",
+  "category": "seatings",
+  "subcategory": "sofas",
+  "collection": null,
+  "image": "assets/img/products/tecno-sofa.jpg"
+ },
+ {
+  "slug": "class",
+  "name": "Class",
+  "category": "seatings",
+  "subcategory": "sofas",
+  "collection": null,
+  "image": "assets/img/products/class.jpg"
+ },
+ {
+  "slug": "marta",
+  "name": "Marta",
+  "category": "seatings",
+  "subcategory": "sofas",
+  "collection": null,
+  "image": "assets/img/products/marta.jpg"
+ },
+ {
+  "slug": "siesta",
+  "name": "Siesta",
+  "category": "seatings",
+  "subcategory": "sofas",
+  "collection": null,
+  "image": "assets/img/products/siesta.jpg"
+ },
+ {
+  "slug": "plus972",
+  "name": "Plus972",
+  "category": "seatings",
+  "subcategory": "sofas",
+  "collection": null,
+  "image": "assets/img/products/plus972.jpg"
+ },
+ {
+  "slug": "puzzle",
+  "name": "Puzzle",
+  "category": "seatings",
+  "subcategory": "sofas",
+  "collection": null,
+  "image": "assets/img/products/puzzle.jpg"
+ },
+ {
+  "slug": "sonar",
+  "name": "Sonar",
+  "category": "seatings",
+  "subcategory": "privacy-seatings",
+  "collection": null,
+  "image": "assets/img/products/sonar.jpg"
+ },
+ {
+  "slug": "nancy",
+  "name": "Nancy",
+  "category": "seatings",
+  "subcategory": "privacy-seatings",
+  "collection": null,
+  "image": "assets/img/products/nancy.jpg"
+ },
+ {
+  "slug": "sketch",
+  "name": "Sketch",
+  "category": "seatings",
+  "subcategory": "stools",
+  "collection": null,
+  "image": "assets/img/products/sketch.jpg"
+ },
+ {
+  "slug": "asia",
+  "name": "Asia",
+  "category": "seatings",
+  "subcategory": "stools",
+  "collection": null,
+  "image": "assets/img/products/asia.jpg"
+ },
+ {
+  "slug": "jolly",
+  "name": "Jolly",
+  "category": "seatings",
+  "subcategory": "stools",
+  "collection": null,
+  "image": "assets/img/products/jolly.jpg"
+ },
+ {
+  "slug": "momi",
+  "name": "Momi",
+  "category": "seatings",
+  "subcategory": "stools",
+  "collection": null,
+  "image": "assets/img/products/momi.jpg"
+ },
+ {
+  "slug": "modus-stool",
+  "name": "Modus stool",
+  "category": "seatings",
+  "subcategory": "stools",
+  "collection": null,
+  "image": "assets/img/products/modus-stool.jpg"
+ },
+ {
+  "slug": "one-plus-stool",
+  "name": "One Plus stool",
+  "category": "seatings",
+  "subcategory": "stools",
+  "collection": null,
+  "image": "assets/img/products/one-plus-stool.jpg"
+ },
+ {
+  "slug": "oscar",
+  "name": "Oscar",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/oscar.jpg"
+ },
+ {
+  "slug": "sally",
+  "name": "Sally",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/sally.jpg"
+ },
+ {
+  "slug": "roxy",
+  "name": "Roxy",
+  "category": "seatings",
+  "subcategory": "meeting-guest-chairs",
+  "collection": null,
+  "image": "assets/img/products/roxy.jpg"
+ },
+ {
+  "slug": "attiva-sofa",
+  "name": "Attiva · Sofa",
+  "category": "seatings",
+  "subcategory": "sofas",
+  "collection": "attiva",
+  "image": "assets/img/products/attiva-sofa.jpg"
+ }
+]

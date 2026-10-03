@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Coffee Tables — Codutti</title>
-<meta name="description" content="Low tables designed for lounges, breakout areas and informal meeting corners — the finishing piece for Codutti's seating collections, available in woo">
+<meta name="description" content="Small tables for lounges, waiting areas and informal meetings.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body id="top">
+<body id="top" class="page-products">
 
 <header class="site-header">
   <div class="header-side header-side--left">
@@ -38,113 +38,189 @@
   </div>
 </div>
 
-<nav class="nav-overlay" id="navOverlay">
-  <ul class="nav-list">
-    <li><a href="../company.html"><span class="num">01</span> <span data-i18n="nav.company">Company</span></a></li>
-    <li><a href="../news.html"><span class="num">02</span> <span data-i18n="nav.news">News and Events</span></a></li>
-    <li><a href="all.html"><span class="num">03</span> Our Products</a></li>
-    <li><a href="../contract.html"><span class="num">04</span> <span data-i18n="nav.contract">Contract</span></a></li>
-    <li><a href="../bespoke.html"><span class="num">05</span> <span data-i18n="nav.bespoke">Bespoke</span></a></li>
-    <li><a href="../resources.html"><span class="num">06</span> <span data-i18n="nav.resources">Resources</span></a></li>
-    <li><a href="../contact.html"><span class="num">07</span> <span data-i18n="nav.contact">Contact Us</span></a></li>
-  </ul>
+<nav class="nav-overlay" id="navOverlay" aria-label="Menu">
+  <div class="nav-panels">
+    <div class="nav-panel nav-panel--main is-active" data-panel="main">
+      <a class="nav-home" href="../index.html"><span class="nav-home__dash" aria-hidden="true"></span><span data-i18n="nav.home">Home</span></a>
+      <ul class="nav-main">
+        <li><button type="button" class="nav-main__open" data-open="products" aria-expanded="false"><span data-i18n="nav.products">Our Products</span><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></li>
+        <li><a href="../contract.html" data-i18n="nav.contract">Contract</a></li>
+        <li><a href="../bespoke.html" data-i18n="nav.bespoke">Bespoke</a></li>
+        <li><a href="../spaces.html" data-i18n="nav.spaces">Spaces</a></li>
+        <li><a href="../materials.html" data-i18n="nav.finishes">Finishes</a></li>
+        <li><button type="button" class="nav-main__open" data-open="about" aria-expanded="false"><span data-i18n="nav.about">About Us</span><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></li>
+        <li><a href="../news.html" data-i18n="nav.news">News and Events</a></li>
+        <li><a href="../contact.html" data-i18n="nav.contact">Contact Us</a></li>
+      </ul>
+      <ul class="nav-secondary">
+        <li><a href="../resources.html" data-i18n="nav.download">Download</a></li>
+        <li><a href="../index.html#newsletter" data-i18n="nav.newsletter">Newsletter</a></li>
+      </ul>
+      <div class="nav-social">
+      <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10v6.5M7.5 7.5v.01M12 16.5V13a2.5 2.5 0 0 1 5 0v3.5M12 16.5v-4"/></svg></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor"/></svg></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 21v-7.5H17l.5-3.2h-3V8.2c0-.9.3-1.6 1.7-1.6H17.6V3.9c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.9H8v3.2h2.6V21"/></svg></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="3.5"/><path d="M10.5 9.5v5l4.3-2.5-4.3-2.5Z" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+    <div class="nav-panel" data-panel="products">
+      <button type="button" class="nav-back" data-back><svg class="nav-chevron nav-chevron--back" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span data-i18n="nav.products">Our Products</span></button>
+      <ul class="nav-main nav-main--sub">
+        <li><a href="../products/all.html" data-i18n="nav.allProducts">All Products</a></li>
+        <li><a href="../products/desks.html" data-i18n="cat.desks">Desks</a></li>
+        <li><a href="../products/tables-and-sharings.html" data-i18n="cat.tables">Meetings</a></li>
+        <li><a href="../products/seatings.html" data-i18n="cat.seatings">Seatings</a></li>
+        <li><a href="../products/coffee-tables.html" data-i18n="cat.coffeeTables">Coffee Tables</a></li>
+        <li><a href="../products/storage-units.html" data-i18n="cat.storage">Storage Units</a></li>
+        <li><a href="../products/receptions.html" data-i18n="cat.receptions">Receptions</a></li>
+        <li><a href="../products/acoustic-solutions.html" data-i18n="cat.acoustic">Acoustic Solutions</a></li>
+      </ul>
+    </div>
+    <div class="nav-panel" data-panel="about">
+      <button type="button" class="nav-back" data-back><svg class="nav-chevron nav-chevron--back" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span data-i18n="nav.about">About Us</span></button>
+      <ul class="nav-main nav-main--sub">
+        <li><a href="../company.html" data-i18n="nav.company">Company</a></li>
+        <li><a href="../codutti-method.html" data-i18n="nav.method">The Codutti Method</a></li>
+        <li><a href="../company.html#certifications" data-i18n="legal.certifications">Certifications</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<main>
-  <nav class="cat-tabs wrap" aria-label="Product categories">
-    <div class="cat-tabs__track">
-      <a href="../products/desks.html" class="cat-tabs__item">Desks</a>
-      <a href="../products/tables-and-sharings.html" class="cat-tabs__item">Meetings</a>
-      <a href="../products/seatings.html" class="cat-tabs__item">Seatings</a>
-      <a href="../products/coffee-tables.html" class="cat-tabs__item is-active">Coffee Tables</a>
-      <a href="../products/storage-units.html" class="cat-tabs__item">Storage Units</a>
-      <a href="../products/receptions.html" class="cat-tabs__item">Receptions</a>
-      <a href="../products/acoustic-solutions.html" class="cat-tabs__item">Acoustic Solutions</a>
-    </div>
-  </nav>
-  <section class="wrap">
-    <div class="reveal">
-      <h1 class="mix-title"><span class="lg">Coffee Tables</span></h1>
-    </div>
-    <div class="line-showcase reveal" style="margin-top:clamp(22px,3.4vw,32px)">
-      <div class="line-showcase__media tint-2"></div>
-      <a href="../collections/isixty.html" class="btn btn--solid line-showcase__btn" data-items='[{"name":"iSixty","href":"../collections/isixty.html"},{"name":"Cloud","href":"../collections/cloud.html"},{"name":"Ginza","href":"../collections/ginza.html"},{"name":"One","href":"../collections/one.html"},{"name":"Genesis","href":"../collections/genesis.html"},{"name":"2BE","href":"../collections/2be.html"},{"name":"Attiva","href":"../collections/attiva.html"},{"name":"Team","href":"../collections/team.html"},{"name":"Alfaomega","href":"../collections/alfaomega.html"},{"name":"Mithos","href":"../collections/mithos.html"}]'>
-        <span class="line-showcase__btn-text">Discover the iSixty Collection</span>
-      </a>
-    </div>
+<main class="pl">
+  <section class="pl-hero wrap">
+    <nav class="pl-crumbs" aria-label="Breadcrumb"><a href="../products/all.html" data-i18n="nav.products">Our Products</a> <span aria-hidden="true">/</span> <span data-i18n="cat.coffeeTables">Coffee Tables</span></nav>
+    <h1 class="pl-title" data-i18n="cat.coffeeTables">Coffee Tables</h1>
+    <p class="pl-intro" data-i18n="prod.intro.coffee">Small tables for lounges, waiting areas and informal meetings.</p>
   </section>
 
-  <section class="line-menu-section reveal" id="coffeeCategoryStage" data-default-color="sage">
-    <div class="wrap">
-      <div class="line-stage">
-        <div class="line-stage__slot">
-          <div class="line-stage__intro">
-            <p>Coffee tables entered the Codutti range as the natural companion to its seating collections, built on the same workshop floor with matching veneers and metalwork so a lounge setting always reads as one considered piece rather than separate purchases. Every top is available in wood, metal and stone-effect finishes, sized and shaped to sit alongside our sofas, lounge seating and privacy pieces.</p>
-          </div>
-          <div class="line-stage__preview">
-            <div class="line-stage__photo"></div>
-            <div class="line-stage__text">
-              <p></p>
-              <a href="#" class="btn btn--solid">Discover the Products</a>
-            </div>
-          </div>
-        </div>
-        <div class="line-menu">
-          <div class="line-menu__item" data-color="sage" data-desc="Low tables for lounges, breakout areas and informal meeting corners, in wood, metal and stone-effect tops matched to our seating collections." data-href="../products/coffee-tables.html">
-            <button type="button" class="line-menu__row">Coffee Tables</button>
-          </div>
-        </div>
-      </div>
+  <section class="pl-list wrap">
+    <p class="pl-count"><span class="pl-count__n">8</span> <span data-i18n="prod.items">products</span></p>
+    <ul class="pl-grid">
+      <li class="pl-card" data-cat="coffee-tables" data-sub="">
+        <a class="pl-card__link" href="../collections/genesis.html" data-quick data-name="Genesis · Coffee table" data-img="../assets/img/products/genesis-coffee.jpg" data-meta-key="cat.coffeeTables" data-collection="../collections/genesis.html">
+          <span class="pl-card__media"><img src="../assets/img/products/genesis-coffee.jpg" alt="Genesis · Coffee table" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Genesis · <span data-i18n="var.coffee-table">Coffee table</span></span>
+          <span class="pl-card__meta" data-i18n="cat.coffeeTables">Coffee Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="coffee-tables" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Tondo" data-img="../assets/img/products/tondo.jpg" data-meta-key="cat.coffeeTables">
+          <span class="pl-card__media"><img src="../assets/img/products/tondo.jpg" alt="Tondo" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Tondo</span>
+          <span class="pl-card__meta" data-i18n="cat.coffeeTables">Coffee Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="coffee-tables" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Claudia" data-img="../assets/img/products/claudia.jpg" data-meta-key="cat.coffeeTables">
+          <span class="pl-card__media"><img src="../assets/img/products/claudia.jpg" alt="Claudia" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Claudia</span>
+          <span class="pl-card__meta" data-i18n="cat.coffeeTables">Coffee Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="coffee-tables" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Elena" data-img="../assets/img/products/elena.jpg" data-meta-key="cat.coffeeTables">
+          <span class="pl-card__media"><img src="../assets/img/products/elena.jpg" alt="Elena" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Elena</span>
+          <span class="pl-card__meta" data-i18n="cat.coffeeTables">Coffee Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="coffee-tables" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Simple" data-img="../assets/img/products/simple.jpg" data-meta-key="cat.coffeeTables">
+          <span class="pl-card__media"><img src="../assets/img/products/simple.jpg" alt="Simple" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Simple</span>
+          <span class="pl-card__meta" data-i18n="cat.coffeeTables">Coffee Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="coffee-tables" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Cali" data-img="../assets/img/products/cali.jpg" data-meta-key="cat.coffeeTables">
+          <span class="pl-card__media"><img src="../assets/img/products/cali.jpg" alt="Cali" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Cali</span>
+          <span class="pl-card__meta" data-i18n="cat.coffeeTables">Coffee Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="coffee-tables" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Sophie" data-img="../assets/img/products/sophie.jpg" data-meta-key="cat.coffeeTables">
+          <span class="pl-card__media"><img src="../assets/img/products/sophie.jpg" alt="Sophie" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Sophie</span>
+          <span class="pl-card__meta" data-i18n="cat.coffeeTables">Coffee Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="coffee-tables" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Regolo" data-img="../assets/img/products/regolo.jpg" data-meta-key="cat.coffeeTables">
+          <span class="pl-card__media"><img src="../assets/img/products/regolo.jpg" alt="Regolo" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Regolo</span>
+          <span class="pl-card__meta" data-i18n="cat.coffeeTables">Coffee Tables</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section class="pl-closing">
+    <h2 class="feature__title" data-i18n="prod.closing.title">Can't find what you need?</h2>
+    <p class="feature__body" data-i18n="prod.closing.body">Every piece can be made to measure in our factory.</p>
+    <div class="feature__ctas">
+      <a class="feature__btn" href="../contact.html" data-i18n="tour.outro.cta">Request a quote</a>
+      <a class="feature__link" href="../bespoke.html" data-i18n="home.bespoke.cta">Discover Bespoke</a>
     </div>
   </section>
-
-  <section class="reveal" id="coffeeCollectionsStage">
-    <div class="vertical-menu-section">
-      <div class="vertical-menu">
-        <div class="vertical-menu__item" data-color="sage" data-title="2BE" data-desc="2BE's bench-system logic scales down into a low table built for the breakout corners next to an open-plan floor." data-href="../collections/2be.html">
-          <button type="button" class="vertical-menu__title">2BE</button>
-        </div>
-        <div class="vertical-menu__item" data-color="sage" data-title="Attiva" data-desc="Attiva's polished aluminium profile continues at coffee-table height, a small dynamic piece for a wellness-driven lounge." data-href="../collections/attiva.html">
-          <button type="button" class="vertical-menu__title">Attiva</button>
-        </div>
-        <div class="vertical-menu__item" data-color="sage" data-title="Team" data-desc="Team's shared-desking language becomes a low table built for the informal corners where departments meet outside a meeting room." data-href="../collections/team.html">
-          <button type="button" class="vertical-menu__title">Team</button>
-        </div>
-        <div class="vertical-menu__item" data-color="sage" data-title="Alfaomega" data-desc="AlfaOmega's curved-section design language shrinks to coffee-table scale, from the futurist Alfa profile to the classic, timeless Omega." data-href="../collections/alfaomega.html">
-          <button type="button" class="vertical-menu__title">Alfaomega</button>
-        </div>
-        <div class="vertical-menu__item" data-color="sage" data-title="Mithos" data-desc="Mithos brings its monolithic wood top and slender, near-invisible frame down to a coffee table, sculptural from every angle of a lounge." data-href="../collections/mithos.html">
-          <button type="button" class="vertical-menu__title">Mithos</button>
-        </div>
-        <div class="vertical-menu__item" data-color="sage" data-title="iSixty" data-desc="iSixty's two souls, Avantgarde and Luxury, extend into a coffee table sized for the lounges that chose the desk and seating." data-href="../collections/isixty.html">
-          <button type="button" class="vertical-menu__title">iSixty</button>
-        </div>
-        <div class="vertical-menu__item" data-color="sage" data-title="Cloud" data-desc="Cloud's rounded edges and floating-top construction make for a soft, low table built for a director's private lounge corner." data-href="../collections/cloud.html">
-          <button type="button" class="vertical-menu__title">Cloud</button>
-        </div>
-        <div class="vertical-menu__item" data-color="sage" data-title="Ginza" data-desc="Ginza's restraint continues at coffee-table scale — a thin top on a fine metal frame, built for leaders who prefer minimal design." data-href="../collections/ginza.html">
-          <button type="button" class="vertical-menu__title">Ginza</button>
-        </div>
-        <div class="vertical-menu__item" data-color="sage" data-title="One" data-desc="One brings its natural material palette — wood, glass, steel, leather and stone — down to a coffee table for lounges that value authenticity." data-href="../collections/one.html">
-          <button type="button" class="vertical-menu__title">One</button>
-        </div>
-        <div class="vertical-menu__item" data-color="sage" data-title="Genesis" data-desc="Genesis' cast-aluminium legs and essential lines extend into a coffee table with the same refined, dynamic character as the desk." data-href="../collections/genesis.html">
-          <button type="button" class="vertical-menu__title">Genesis</button>
-        </div>
+  <section class="pl-others wrap">
+    <h2 class="pl-others__title" data-i18n="prod.others">Other categories</h2>
+    <ul class="pl-tiles pl-tiles--small">
+      <li class="pl-tile">
+        <a href="../products/desks.html">
+          <span class="pl-tile__media"><img src="../assets/img/products/genesis-desk.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.desks">Desks</span><span class="pl-tile__count">13</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../products/tables-and-sharings.html">
+          <span class="pl-tile__media"><img src="../assets/img/products/alfaomega-meeting.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.tables">Meetings</span><span class="pl-tile__count">6</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../products/seatings.html">
+          <span class="pl-tile__media"><img src="../assets/img/products/velar.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.seatings">Seatings</span><span class="pl-tile__count">59</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../products/storage-units.html">
+          <span class="pl-tile__media"><img src="../assets/img/products/one-sideboard.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.storage">Storage Units</span><span class="pl-tile__count">8</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../products/receptions.html">
+          <span class="pl-tile__media"><img src="../assets/img/products/ciao-circular.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.receptions">Receptions</span><span class="pl-tile__count">5</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../products/acoustic-solutions.html">
+          <span class="pl-tile__media"><span class="pl-tile__placeholder" aria-hidden="true"></span></span>
+          <span class="pl-tile__name"><span data-i18n="cat.acoustic">Acoustic Solutions</span></span>
+        </a>
+      </li>
+    </ul>
+  </section>
+<dialog class="pl-quick" id="plQuick" aria-labelledby="plQuickName">
+  <div class="pl-quick__inner">
+    <button type="button" class="pl-quick__close" data-close data-i18n-aria="prod.close" aria-label="Close">&times;</button>
+    <div class="pl-quick__media"><img alt=""></div>
+    <div class="pl-quick__info">
+      <p class="pl-quick__meta"></p>
+      <h2 class="pl-quick__name" id="plQuickName"></h2>
+      <div class="pl-quick__ctas">
+        <a class="feature__btn" href="../contact.html" data-i18n="tour.outro.cta">Request a quote</a>
+        <a class="feature__link pl-quick__collection" href="#" data-i18n="prod.collection">Discover the collection</a>
+        <a class="feature__link" href="../resources.html" data-i18n="prod.catalogues">Catalogues and finishes</a>
       </div>
     </div>
-  </section>
+  </div>
+</dialog>
 </main>
 
-<div class="collections-modal-backdrop" id="coffeeCollectionsStage-backdrop"></div>
-<div class="line-stage__preview collections-modal" id="coffeeCollectionsStage-preview">
-  <div class="line-stage__photo"></div>
-  <div class="line-stage__text">
-    <h3 class="font-display"></h3>
-    <p></p>
-    <a href="#">Discover the Collection</a>
-  </div>
-</div>
 
 <footer class="site-footer">
   <div id="legal">
@@ -153,13 +229,13 @@
         <summary data-i18n="nav.company">Company</summary>
         <p>Since 1954, Codutti has designed and manufactured office furniture entirely in-house, uniting seventy years of Italian craftsmanship with the precision of modern technology to build tailor-made workspaces for clients around the world. VAT IT14045811008.</p>
         <div class="legal-accordion__addresses">
-          <a href="https://www.google.com/maps/search/?api=1&query=Via+Bonavilla+34%2C+33037+Pasian+di+Prato+UD+Italy" target="_blank" rel="noopener">Headquarters — Pasian di Prato (UD), Italy</a>
-          <a href="https://www.google.com/maps/search/?api=1&query=Martignacco+UD+Italy" target="_blank" rel="noopener">Production Site — Martignacco (UD), Italy</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Via+Bonavilla+34%2C+33037+Pasian+di+Prato+UD+Italy" target="_blank" rel="noopener" data-i18n="mii.hq">Headquarters — Pasian di Prato (UD), Italy</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Martignacco+UD+Italy" target="_blank" rel="noopener" data-i18n="mii.production">Production Site — Martignacco (UD), Italy</a>
         </div>
       </details>
       <details>
         <summary data-i18n="nav.products">Our Products</summary>
-        <p>Desks, Meetings, Seatings, Coffee Tables, Storage Units, Receptions and Acoustic Solutions — a complete range for every space. <a href="all.html">Explore Our Products</a>.</p>
+        <p>Desks, Meetings, Seatings, Coffee Tables, Storage Units, Receptions and Acoustic Solutions — a complete range for every space. <a href="../products/all.html">Explore Our Products</a>.</p>
       </details>
       <details>
         <summary data-i18n="contract.title">Contract</summary>
@@ -233,5 +309,6 @@
 
 <script src="../assets/js/i18n.js"></script>
 <script src="../assets/js/main.js"></script>
+<script src="../assets/js/products.js"></script>
 </body>
 </html>

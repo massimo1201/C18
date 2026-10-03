@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Products — Codutti</title>
-<meta name="description" content="The complete Codutti product range: desks, meetings, seatings, coffee tables, storage units, receptions and acoustic solutions.">
+<meta name="description" content="Office furniture designed and built in Italy by Codutti.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body id="top">
+<body id="top" class="page-products">
 
 <header class="site-header">
   <div class="header-side header-side--left">
@@ -38,126 +38,839 @@
   </div>
 </div>
 
-<nav class="nav-overlay" id="navOverlay">
-  <ul class="nav-list">
-    <li><a href="../company.html"><span class="num">01</span> <span data-i18n="nav.company">Company</span></a></li>
-    <li><a href="../news.html"><span class="num">02</span> <span data-i18n="nav.news">News and Events</span></a></li>
-    <li><a href="all.html"><span class="num">03</span> <span data-i18n="nav.products">Our Products</span></a></li>
-    <li><a href="../contract.html"><span class="num">04</span> <span data-i18n="nav.contract">Contract</span></a></li>
-    <li><a href="../bespoke.html"><span class="num">05</span> <span data-i18n="nav.bespoke">Bespoke</span></a></li>
-    <li><a href="../resources.html"><span class="num">06</span> <span data-i18n="nav.resources">Resources</span></a></li>
-    <li><a href="../contact.html"><span class="num">07</span> <span data-i18n="nav.contact">Contact Us</span></a></li>
-  </ul>
+<nav class="nav-overlay" id="navOverlay" aria-label="Menu">
+  <div class="nav-panels">
+    <div class="nav-panel nav-panel--main is-active" data-panel="main">
+      <a class="nav-home" href="../index.html"><span class="nav-home__dash" aria-hidden="true"></span><span data-i18n="nav.home">Home</span></a>
+      <ul class="nav-main">
+        <li><button type="button" class="nav-main__open" data-open="products" aria-expanded="false"><span data-i18n="nav.products">Our Products</span><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></li>
+        <li><a href="../contract.html" data-i18n="nav.contract">Contract</a></li>
+        <li><a href="../bespoke.html" data-i18n="nav.bespoke">Bespoke</a></li>
+        <li><a href="../spaces.html" data-i18n="nav.spaces">Spaces</a></li>
+        <li><a href="../materials.html" data-i18n="nav.finishes">Finishes</a></li>
+        <li><button type="button" class="nav-main__open" data-open="about" aria-expanded="false"><span data-i18n="nav.about">About Us</span><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></li>
+        <li><a href="../news.html" data-i18n="nav.news">News and Events</a></li>
+        <li><a href="../contact.html" data-i18n="nav.contact">Contact Us</a></li>
+      </ul>
+      <ul class="nav-secondary">
+        <li><a href="../resources.html" data-i18n="nav.download">Download</a></li>
+        <li><a href="../index.html#newsletter" data-i18n="nav.newsletter">Newsletter</a></li>
+      </ul>
+      <div class="nav-social">
+      <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10v6.5M7.5 7.5v.01M12 16.5V13a2.5 2.5 0 0 1 5 0v3.5M12 16.5v-4"/></svg></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor"/></svg></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 21v-7.5H17l.5-3.2h-3V8.2c0-.9.3-1.6 1.7-1.6H17.6V3.9c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.9H8v3.2h2.6V21"/></svg></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="3.5"/><path d="M10.5 9.5v5l4.3-2.5-4.3-2.5Z" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+    <div class="nav-panel" data-panel="products">
+      <button type="button" class="nav-back" data-back><svg class="nav-chevron nav-chevron--back" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span data-i18n="nav.products">Our Products</span></button>
+      <ul class="nav-main nav-main--sub">
+        <li><a href="../products/all.html" data-i18n="nav.allProducts">All Products</a></li>
+        <li><a href="../products/desks.html" data-i18n="cat.desks">Desks</a></li>
+        <li><a href="../products/tables-and-sharings.html" data-i18n="cat.tables">Meetings</a></li>
+        <li><a href="../products/seatings.html" data-i18n="cat.seatings">Seatings</a></li>
+        <li><a href="../products/coffee-tables.html" data-i18n="cat.coffeeTables">Coffee Tables</a></li>
+        <li><a href="../products/storage-units.html" data-i18n="cat.storage">Storage Units</a></li>
+        <li><a href="../products/receptions.html" data-i18n="cat.receptions">Receptions</a></li>
+        <li><a href="../products/acoustic-solutions.html" data-i18n="cat.acoustic">Acoustic Solutions</a></li>
+      </ul>
+    </div>
+    <div class="nav-panel" data-panel="about">
+      <button type="button" class="nav-back" data-back><svg class="nav-chevron nav-chevron--back" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span data-i18n="nav.about">About Us</span></button>
+      <ul class="nav-main nav-main--sub">
+        <li><a href="../company.html" data-i18n="nav.company">Company</a></li>
+        <li><a href="../codutti-method.html" data-i18n="nav.method">The Codutti Method</a></li>
+        <li><a href="../company.html#certifications" data-i18n="legal.certifications">Certifications</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<main>
-  <section class="wrap page-hero">
-    <div class="reveal">
-      <h1 class="mix-title"><span class="lg" data-i18n="allProducts.title">Our Products, Spaces and Solutions</span></h1>
-    </div>
+<main class="pl">
+  <section class="pl-hero wrap">
+    <h1 class="pl-title" data-i18n="nav.products">Our Products</h1>
+    <p class="pl-intro" data-i18n="prod.intro.all">Seven families of office furniture, designed and built in our own factory.</p>
   </section>
-  <nav class="cat-tabs wrap" aria-label="Product categories">
-    <div class="cat-tabs__track">
-      <a href="desks.html" class="cat-tabs__item">Desks</a>
-      <a href="tables-and-sharings.html" class="cat-tabs__item">Meetings</a>
-      <a href="seatings.html" class="cat-tabs__item">Seatings</a>
-      <a href="coffee-tables.html" class="cat-tabs__item">Coffee Tables</a>
-      <a href="storage-units.html" class="cat-tabs__item">Storage Units</a>
-      <a href="receptions.html" class="cat-tabs__item">Receptions</a>
-      <a href="acoustic-solutions.html" class="cat-tabs__item">Acoustic Solutions</a>
-    </div>
-  </nav>
-
-  <section class="line-menu-section reveal" id="allProductsCategoryStage" data-default-color="cream">
-    <div class="wrap">
-      <div class="line-stage">
-        <div class="line-stage__slot">
-          <div class="line-stage__intro">
-            <p data-i18n="allProducts.intro">Three ways to furnish a space, from fast-moving everyday offices to flagship boardrooms — browse by line, or use the categories above to go straight to a product type.</p>
-          </div>
-          <div class="line-stage__preview">
-            <div class="line-stage__photo"></div>
-            <div class="line-stage__text">
-              <p></p>
-              <a href="#" class="btn btn--solid" data-i18n="allProducts.discoverSolutions">Discover the Solutions</a>
-            </div>
-          </div>
-        </div>
-        <div class="line-menu">
-          <div class="line-menu__item" data-color="sage" data-desc="Clean lines and durable materials built for everyday operative spaces, where comfort and function come together without compromise." data-href="../essential.html">
-            <button type="button" class="line-menu__row">Essential</button>
-          </div>
-          <div class="line-menu__item" data-color="cream" data-desc="Desks, benches and adjustable systems shaped around teamwork and the way modern offices actually move." data-href="../operative.html">
-            <button type="button" class="line-menu__row">Operative</button>
-          </div>
-          <div class="line-menu__item" data-color="taupe" data-desc="Codutti's flagship collection for management offices and boardrooms — director desks and executive furniture crafted for a refined, high-end presence." data-href="../executive.html">
-            <button type="button" class="line-menu__row">Executive</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="wrap">
-    <p class="product-listing__count reveal" id="allProductsCount">7 Categories</p>
-    <div class="product-grid product-grid--listing reveal" id="allProductsGrid">
-      <a class="product-box" href="desks.html"><span class="product-box__media product-box__media--placeholder"></span><span class="product-box__label">Desks</span></a>
-      <a class="product-box" href="tables-and-sharings.html"><span class="product-box__media product-box__media--placeholder"></span><span class="product-box__label">Meetings</span></a>
-      <a class="product-box" href="seatings.html"><span class="product-box__media product-box__media--placeholder"></span><span class="product-box__label">Seatings</span></a>
-      <a class="product-box" href="coffee-tables.html"><span class="product-box__media product-box__media--placeholder"></span><span class="product-box__label">Coffee Tables</span></a>
-      <a class="product-box" href="storage-units.html"><span class="product-box__media product-box__media--placeholder"></span><span class="product-box__label">Storage Units</span></a>
-      <a class="product-box" href="receptions.html"><span class="product-box__media product-box__media--placeholder"></span><span class="product-box__label">Receptions</span></a>
-      <a class="product-box" href="acoustic-solutions.html"><span class="product-box__media product-box__media--placeholder"></span><span class="product-box__label">Acoustic Solutions</span></a>
+    <ul class="pl-tiles">
+      <li class="pl-tile">
+        <a href="../products/desks.html">
+          <span class="pl-tile__media"><img src="../assets/img/products/genesis-desk.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.desks">Desks</span><span class="pl-tile__count">13</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../products/tables-and-sharings.html">
+          <span class="pl-tile__media"><img src="../assets/img/products/alfaomega-meeting.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.tables">Meetings</span><span class="pl-tile__count">6</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../products/seatings.html">
+          <span class="pl-tile__media"><img src="../assets/img/products/velar.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.seatings">Seatings</span><span class="pl-tile__count">59</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../products/coffee-tables.html">
+          <span class="pl-tile__media"><img src="../assets/img/products/sophie.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.coffeeTables">Coffee Tables</span><span class="pl-tile__count">8</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../products/storage-units.html">
+          <span class="pl-tile__media"><img src="../assets/img/products/one-sideboard.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.storage">Storage Units</span><span class="pl-tile__count">8</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../products/receptions.html">
+          <span class="pl-tile__media"><img src="../assets/img/products/ciao-circular.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.receptions">Receptions</span><span class="pl-tile__count">5</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../products/acoustic-solutions.html">
+          <span class="pl-tile__media"><span class="pl-tile__placeholder" aria-hidden="true"></span></span>
+          <span class="pl-tile__name"><span data-i18n="cat.acoustic">Acoustic Solutions</span></span>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section class="pl-list wrap" id="all">
+    <h2 class="pl-others__title" data-i18n="prod.browseAll">Browse every product</h2>
+    <nav class="pl-chips pl-chips--inline" data-i18n-aria="prod.filter" aria-label="Filter">
+      <button type="button" class="pl-chip is-active" data-filter="" data-i18n="prod.all">All</button>
+      <button type="button" class="pl-chip" data-filter="desks" data-i18n="cat.desks">Desks</button>
+      <button type="button" class="pl-chip" data-filter="tables-and-sharings" data-i18n="cat.tables">Meetings</button>
+      <button type="button" class="pl-chip" data-filter="seatings" data-i18n="cat.seatings">Seatings</button>
+      <button type="button" class="pl-chip" data-filter="coffee-tables" data-i18n="cat.coffeeTables">Coffee Tables</button>
+      <button type="button" class="pl-chip" data-filter="storage-units" data-i18n="cat.storage">Storage Units</button>
+      <button type="button" class="pl-chip" data-filter="receptions" data-i18n="cat.receptions">Receptions</button>
+    </nav>
+    <p class="pl-count"><span class="pl-count__n">99</span> <span data-i18n="prod.items">products</span></p>
+    <ul class="pl-grid">
+      <li class="pl-card" data-cat="desks" data-sub="executive-desks">
+        <a class="pl-card__link" href="../collections/one.html" data-quick data-name="One" data-img="../assets/img/products/one-desk.jpg" data-meta-key="sub.executiveDesks" data-collection="../collections/one.html">
+          <span class="pl-card__media"><img src="../assets/img/products/one-desk.jpg" alt="One" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">One</span>
+          <span class="pl-card__meta" data-i18n="sub.executiveDesks">Executive Desks</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="desks" data-sub="executive-desks">
+        <a class="pl-card__link" href="../collections/one.html" data-quick data-name="One · L-shaped desk" data-img="../assets/img/products/one-l-desk.jpg" data-meta-key="sub.executiveDesks" data-collection="../collections/one.html">
+          <span class="pl-card__media"><img src="../assets/img/products/one-l-desk.jpg" alt="One · L-shaped desk" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">One · <span data-i18n="var.l-shaped-desk">L-shaped desk</span></span>
+          <span class="pl-card__meta" data-i18n="sub.executiveDesks">Executive Desks</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="desks" data-sub="executive-desks">
+        <a class="pl-card__link" href="../collections/genesis.html" data-quick data-name="Genesis" data-img="../assets/img/products/genesis-desk.jpg" data-meta-key="sub.executiveDesks" data-collection="../collections/genesis.html">
+          <span class="pl-card__media"><img src="../assets/img/products/genesis-desk.jpg" alt="Genesis" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Genesis</span>
+          <span class="pl-card__meta" data-i18n="sub.executiveDesks">Executive Desks</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="desks" data-sub="executive-desks">
+        <a class="pl-card__link" href="../collections/genesis.html" data-quick data-name="Genesis · Executive set" data-img="../assets/img/products/genesis-desk-set.jpg" data-meta-key="sub.executiveDesks" data-collection="../collections/genesis.html">
+          <span class="pl-card__media"><img src="../assets/img/products/genesis-desk-set.jpg" alt="Genesis · Executive set" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Genesis · <span data-i18n="var.executive-set">Executive set</span></span>
+          <span class="pl-card__meta" data-i18n="sub.executiveDesks">Executive Desks</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="desks" data-sub="operative-desks">
+        <a class="pl-card__link" href="../collections/attiva.html" data-quick data-name="Attiva" data-img="../assets/img/products/attiva-desk.jpg" data-meta-key="sub.operativeDesks" data-collection="../collections/attiva.html">
+          <span class="pl-card__media"><img src="../assets/img/products/attiva-desk.jpg" alt="Attiva" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Attiva</span>
+          <span class="pl-card__meta" data-i18n="sub.operativeDesks">Operative Desks</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="desks" data-sub="operative-desks">
+        <a class="pl-card__link" href="../collections/attiva.html" data-quick data-name="Attiva · L-shaped desk" data-img="../assets/img/products/attiva-l-desk.jpg" data-meta-key="sub.operativeDesks" data-collection="../collections/attiva.html">
+          <span class="pl-card__media"><img src="../assets/img/products/attiva-l-desk.jpg" alt="Attiva · L-shaped desk" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Attiva · <span data-i18n="var.l-shaped-desk">L-shaped desk</span></span>
+          <span class="pl-card__meta" data-i18n="sub.operativeDesks">Operative Desks</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="desks" data-sub="operative-desks">
+        <a class="pl-card__link" href="../collections/attiva.html" data-quick data-name="Attiva · Glass top" data-img="../assets/img/products/attiva-glass-desk.jpg" data-meta-key="sub.operativeDesks" data-collection="../collections/attiva.html">
+          <span class="pl-card__media"><img src="../assets/img/products/attiva-glass-desk.jpg" alt="Attiva · Glass top" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Attiva · <span data-i18n="var.glass-top">Glass top</span></span>
+          <span class="pl-card__meta" data-i18n="sub.operativeDesks">Operative Desks</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="desks" data-sub="operative-desks">
+        <a class="pl-card__link" href="../collections/attiva.html" data-quick data-name="Attiva · Wooden legs" data-img="../assets/img/products/attiva-wood-desk.jpg" data-meta-key="sub.operativeDesks" data-collection="../collections/attiva.html">
+          <span class="pl-card__media"><img src="../assets/img/products/attiva-wood-desk.jpg" alt="Attiva · Wooden legs" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Attiva · <span data-i18n="var.wooden-legs">Wooden legs</span></span>
+          <span class="pl-card__meta" data-i18n="sub.operativeDesks">Operative Desks</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="desks" data-sub="operative-desks">
+        <a class="pl-card__link" href="../collections/team.html" data-quick data-name="Team" data-img="../assets/img/products/team-desk.jpg" data-meta-key="sub.operativeDesks" data-collection="../collections/team.html">
+          <span class="pl-card__media"><img src="../assets/img/products/team-desk.jpg" alt="Team" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Team</span>
+          <span class="pl-card__meta" data-i18n="sub.operativeDesks">Operative Desks</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="desks" data-sub="operative-desks">
+        <a class="pl-card__link" href="../collections/team.html" data-quick data-name="Team · L-shaped desk" data-img="../assets/img/products/team-l-desk.jpg" data-meta-key="sub.operativeDesks" data-collection="../collections/team.html">
+          <span class="pl-card__media"><img src="../assets/img/products/team-l-desk.jpg" alt="Team · L-shaped desk" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Team · <span data-i18n="var.l-shaped-desk">L-shaped desk</span></span>
+          <span class="pl-card__meta" data-i18n="sub.operativeDesks">Operative Desks</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="desks" data-sub="operative-desks">
+        <a class="pl-card__link" href="../collections/team.html" data-quick data-name="Team · Curved desk" data-img="../assets/img/products/team-curved-desk.jpg" data-meta-key="sub.operativeDesks" data-collection="../collections/team.html">
+          <span class="pl-card__media"><img src="../assets/img/products/team-curved-desk.jpg" alt="Team · Curved desk" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Team · <span data-i18n="var.curved-desk">Curved desk</span></span>
+          <span class="pl-card__meta" data-i18n="sub.operativeDesks">Operative Desks</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="desks" data-sub="adjustable-desks">
+        <a class="pl-card__link" href="../collections/adjustable-desks.html" data-quick data-name="Team · Height adjustable" data-img="../assets/img/products/team-adjustable.jpg" data-meta-key="sub.adjustableDesks" data-collection="../collections/adjustable-desks.html">
+          <span class="pl-card__media"><img src="../assets/img/products/team-adjustable.jpg" alt="Team · Height adjustable" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Team · <span data-i18n="var.height-adjustable">Height adjustable</span></span>
+          <span class="pl-card__meta" data-i18n="sub.adjustableDesks">Adjustable Desks</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="desks" data-sub="system-benches">
+        <a class="pl-card__link" href="../collections/team.html" data-quick data-name="Team · Bench" data-img="../assets/img/products/team-bench.jpg" data-meta-key="sub.systemBenches" data-collection="../collections/team.html">
+          <span class="pl-card__media"><img src="../assets/img/products/team-bench.jpg" alt="Team · Bench" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Team · <span data-i18n="var.bench">Bench</span></span>
+          <span class="pl-card__meta" data-i18n="sub.systemBenches">System Benches</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="tables-and-sharings" data-sub="meeting-tables">
+        <a class="pl-card__link" href="../collections/one.html" data-quick data-name="One · Meeting table" data-img="../assets/img/products/one-meeting.jpg" data-meta-key="sub.meetingTables" data-collection="../collections/one.html">
+          <span class="pl-card__media"><img src="../assets/img/products/one-meeting.jpg" alt="One · Meeting table" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">One · <span data-i18n="var.meeting-table">Meeting table</span></span>
+          <span class="pl-card__meta" data-i18n="sub.meetingTables">Meeting Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="tables-and-sharings" data-sub="meeting-tables">
+        <a class="pl-card__link" href="../collections/one.html" data-quick data-name="One · Glass meeting table" data-img="../assets/img/products/one-glass-meeting.jpg" data-meta-key="sub.meetingTables" data-collection="../collections/one.html">
+          <span class="pl-card__media"><img src="../assets/img/products/one-glass-meeting.jpg" alt="One · Glass meeting table" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">One · <span data-i18n="var.glass-meeting-table">Glass meeting table</span></span>
+          <span class="pl-card__meta" data-i18n="sub.meetingTables">Meeting Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="tables-and-sharings" data-sub="meeting-tables">
+        <a class="pl-card__link" href="../collections/genesis.html" data-quick data-name="Genesis · Modular meeting" data-img="../assets/img/products/genesis-meeting.jpg" data-meta-key="sub.meetingTables" data-collection="../collections/genesis.html">
+          <span class="pl-card__media"><img src="../assets/img/products/genesis-meeting.jpg" alt="Genesis · Modular meeting" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Genesis · <span data-i18n="var.modular-meeting">Modular meeting</span></span>
+          <span class="pl-card__meta" data-i18n="sub.meetingTables">Meeting Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="tables-and-sharings" data-sub="meeting-tables">
+        <a class="pl-card__link" href="../collections/alfaomega.html" data-quick data-name="Alfaomega · Boardroom" data-img="../assets/img/products/alfaomega-meeting.jpg" data-meta-key="sub.meetingTables" data-collection="../collections/alfaomega.html">
+          <span class="pl-card__media"><img src="../assets/img/products/alfaomega-meeting.jpg" alt="Alfaomega · Boardroom" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Alfaomega · <span data-i18n="var.boardroom">Boardroom</span></span>
+          <span class="pl-card__meta" data-i18n="sub.meetingTables">Meeting Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="tables-and-sharings" data-sub="sharing-tables">
+        <a class="pl-card__link" href="../collections/one.html" data-quick data-name="One · High table" data-img="../assets/img/products/one-high-table.jpg" data-meta-key="sub.sharingTables" data-collection="../collections/one.html">
+          <span class="pl-card__media"><img src="../assets/img/products/one-high-table.jpg" alt="One · High table" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">One · <span data-i18n="var.high-table">High table</span></span>
+          <span class="pl-card__meta" data-i18n="sub.sharingTables">Sharing Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="tables-and-sharings" data-sub="sharing-tables">
+        <a class="pl-card__link" href="../collections/team.html" data-quick data-name="Team · Sharing" data-img="../assets/img/products/team-sharing.jpg" data-meta-key="sub.sharingTables" data-collection="../collections/team.html">
+          <span class="pl-card__media"><img src="../assets/img/products/team-sharing.jpg" alt="Team · Sharing" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Team · <span data-i18n="var.sharing">Sharing</span></span>
+          <span class="pl-card__meta" data-i18n="sub.sharingTables">Sharing Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="coffee-tables" data-sub="">
+        <a class="pl-card__link" href="../collections/genesis.html" data-quick data-name="Genesis · Coffee table" data-img="../assets/img/products/genesis-coffee.jpg" data-meta-key="cat.coffeeTables" data-collection="../collections/genesis.html">
+          <span class="pl-card__media"><img src="../assets/img/products/genesis-coffee.jpg" alt="Genesis · Coffee table" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Genesis · <span data-i18n="var.coffee-table">Coffee table</span></span>
+          <span class="pl-card__meta" data-i18n="cat.coffeeTables">Coffee Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="coffee-tables" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Tondo" data-img="../assets/img/products/tondo.jpg" data-meta-key="cat.coffeeTables">
+          <span class="pl-card__media"><img src="../assets/img/products/tondo.jpg" alt="Tondo" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Tondo</span>
+          <span class="pl-card__meta" data-i18n="cat.coffeeTables">Coffee Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="coffee-tables" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Claudia" data-img="../assets/img/products/claudia.jpg" data-meta-key="cat.coffeeTables">
+          <span class="pl-card__media"><img src="../assets/img/products/claudia.jpg" alt="Claudia" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Claudia</span>
+          <span class="pl-card__meta" data-i18n="cat.coffeeTables">Coffee Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="coffee-tables" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Elena" data-img="../assets/img/products/elena.jpg" data-meta-key="cat.coffeeTables">
+          <span class="pl-card__media"><img src="../assets/img/products/elena.jpg" alt="Elena" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Elena</span>
+          <span class="pl-card__meta" data-i18n="cat.coffeeTables">Coffee Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="coffee-tables" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Simple" data-img="../assets/img/products/simple.jpg" data-meta-key="cat.coffeeTables">
+          <span class="pl-card__media"><img src="../assets/img/products/simple.jpg" alt="Simple" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Simple</span>
+          <span class="pl-card__meta" data-i18n="cat.coffeeTables">Coffee Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="coffee-tables" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Cali" data-img="../assets/img/products/cali.jpg" data-meta-key="cat.coffeeTables">
+          <span class="pl-card__media"><img src="../assets/img/products/cali.jpg" alt="Cali" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Cali</span>
+          <span class="pl-card__meta" data-i18n="cat.coffeeTables">Coffee Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="coffee-tables" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Sophie" data-img="../assets/img/products/sophie.jpg" data-meta-key="cat.coffeeTables">
+          <span class="pl-card__media"><img src="../assets/img/products/sophie.jpg" alt="Sophie" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Sophie</span>
+          <span class="pl-card__meta" data-i18n="cat.coffeeTables">Coffee Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="coffee-tables" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Regolo" data-img="../assets/img/products/regolo.jpg" data-meta-key="cat.coffeeTables">
+          <span class="pl-card__media"><img src="../assets/img/products/regolo.jpg" alt="Regolo" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Regolo</span>
+          <span class="pl-card__meta" data-i18n="cat.coffeeTables">Coffee Tables</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="storage-units" data-sub="cabinets">
+        <a class="pl-card__link" href="../collections/one.html" data-quick data-name="One · Sideboard" data-img="../assets/img/products/one-sideboard.jpg" data-meta-key="sub.cabinets" data-collection="../collections/one.html">
+          <span class="pl-card__media"><img src="../assets/img/products/one-sideboard.jpg" alt="One · Sideboard" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">One · <span data-i18n="var.sideboard">Sideboard</span></span>
+          <span class="pl-card__meta" data-i18n="sub.cabinets">Cabinets</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="storage-units" data-sub="cabinets">
+        <a class="pl-card__link" href="../collections/genesis.html" data-quick data-name="Genesis · Credenza" data-img="../assets/img/products/genesis-credenza-long.jpg" data-meta-key="sub.cabinets" data-collection="../collections/genesis.html">
+          <span class="pl-card__media"><img src="../assets/img/products/genesis-credenza-long.jpg" alt="Genesis · Credenza" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Genesis · <span data-i18n="var.credenza">Credenza</span></span>
+          <span class="pl-card__meta" data-i18n="sub.cabinets">Cabinets</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="storage-units" data-sub="cabinets">
+        <a class="pl-card__link" href="../collections/isixty.html" data-quick data-name="iSixty · Sideboard" data-img="../assets/img/products/isixty-sideboard.jpg" data-meta-key="sub.cabinets" data-collection="../collections/isixty.html">
+          <span class="pl-card__media"><img src="../assets/img/products/isixty-sideboard.jpg" alt="iSixty · Sideboard" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">iSixty · <span data-i18n="var.sideboard">Sideboard</span></span>
+          <span class="pl-card__meta" data-i18n="sub.cabinets">Cabinets</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="storage-units" data-sub="cabinets">
+        <a class="pl-card__link" href="../collections/isixty.html" data-quick data-name="iSixty · Low unit" data-img="../assets/img/products/isixty-low-unit.jpg" data-meta-key="sub.cabinets" data-collection="../collections/isixty.html">
+          <span class="pl-card__media"><img src="../assets/img/products/isixty-low-unit.jpg" alt="iSixty · Low unit" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">iSixty · <span data-i18n="var.low-unit">Low unit</span></span>
+          <span class="pl-card__meta" data-i18n="sub.cabinets">Cabinets</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="storage-units" data-sub="cabinets">
+        <a class="pl-card__link" href="../collections/isixty.html" data-quick data-name="iSixty · Bar cabinet" data-img="../assets/img/products/isixty-bar.jpg" data-meta-key="sub.cabinets" data-collection="../collections/isixty.html">
+          <span class="pl-card__media"><img src="../assets/img/products/isixty-bar.jpg" alt="iSixty · Bar cabinet" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">iSixty · <span data-i18n="var.bar-cabinet">Bar cabinet</span></span>
+          <span class="pl-card__meta" data-i18n="sub.cabinets">Cabinets</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="storage-units" data-sub="cabinets">
+        <a class="pl-card__link" href="../collections/team.html" data-quick data-name="Team · Storage wall" data-img="../assets/img/products/team-storage.jpg" data-meta-key="sub.cabinets" data-collection="../collections/team.html">
+          <span class="pl-card__media"><img src="../assets/img/products/team-storage.jpg" alt="Team · Storage wall" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Team · <span data-i18n="var.storage-wall">Storage wall</span></span>
+          <span class="pl-card__meta" data-i18n="sub.cabinets">Cabinets</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="storage-units" data-sub="drawers">
+        <a class="pl-card__link" href="../collections/genesis.html" data-quick data-name="Genesis · Drawer unit" data-img="../assets/img/products/genesis-drawers.jpg" data-meta-key="sub.drawers" data-collection="../collections/genesis.html">
+          <span class="pl-card__media"><img src="../assets/img/products/genesis-drawers.jpg" alt="Genesis · Drawer unit" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Genesis · <span data-i18n="var.drawer-unit">Drawer unit</span></span>
+          <span class="pl-card__meta" data-i18n="sub.drawers">Drawers</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="storage-units" data-sub="wardrobes">
+        <a class="pl-card__link" href="../collections/attiva.html" data-quick data-name="Attiva · Wardrobe" data-img="../assets/img/products/attiva-wardrobe.jpg" data-meta-key="sub.wardrobes" data-collection="../collections/attiva.html">
+          <span class="pl-card__media"><img src="../assets/img/products/attiva-wardrobe.jpg" alt="Attiva · Wardrobe" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Attiva · <span data-i18n="var.wardrobe">Wardrobe</span></span>
+          <span class="pl-card__meta" data-i18n="sub.wardrobes">Wardrobes</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="receptions" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Ciao · Linear" data-img="../assets/img/products/ciao-linear.jpg" data-meta-key="cat.receptions">
+          <span class="pl-card__media"><img src="../assets/img/products/ciao-linear.jpg" alt="Ciao · Linear" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Ciao · <span data-i18n="var.linear">Linear</span></span>
+          <span class="pl-card__meta" data-i18n="cat.receptions">Receptions</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="receptions" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Ciao · Corner" data-img="../assets/img/products/ciao-corner.jpg" data-meta-key="cat.receptions">
+          <span class="pl-card__media"><img src="../assets/img/products/ciao-corner.jpg" alt="Ciao · Corner" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Ciao · <span data-i18n="var.corner">Corner</span></span>
+          <span class="pl-card__meta" data-i18n="cat.receptions">Receptions</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="receptions" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Ciao · Wave" data-img="../assets/img/products/ciao-wave.jpg" data-meta-key="cat.receptions">
+          <span class="pl-card__media"><img src="../assets/img/products/ciao-wave.jpg" alt="Ciao · Wave" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Ciao · <span data-i18n="var.wave">Wave</span></span>
+          <span class="pl-card__meta" data-i18n="cat.receptions">Receptions</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="receptions" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Ciao · Circular" data-img="../assets/img/products/ciao-circular.jpg" data-meta-key="cat.receptions">
+          <span class="pl-card__media"><img src="../assets/img/products/ciao-circular.jpg" alt="Ciao · Circular" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Ciao · <span data-i18n="var.circular">Circular</span></span>
+          <span class="pl-card__meta" data-i18n="cat.receptions">Receptions</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="receptions" data-sub="">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Ciao · Double wave" data-img="../assets/img/products/ciao-double-wave.jpg" data-meta-key="cat.receptions">
+          <span class="pl-card__media"><img src="../assets/img/products/ciao-double-wave.jpg" alt="Ciao · Double wave" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Ciao · <span data-i18n="var.double-wave">Double wave</span></span>
+          <span class="pl-card__meta" data-i18n="cat.receptions">Receptions</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="executive-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Diamond" data-img="../assets/img/products/diamond.jpg" data-meta-key="sub.executiveChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/diamond.jpg" alt="Diamond" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Diamond</span>
+          <span class="pl-card__meta" data-i18n="sub.executiveChairs">Executive Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="executive-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Coupè" data-img="../assets/img/products/coupe.jpg" data-meta-key="sub.executiveChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/coupe.jpg" alt="Coupè" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Coupè</span>
+          <span class="pl-card__meta" data-i18n="sub.executiveChairs">Executive Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="executive-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Techno Top" data-img="../assets/img/products/techno-top.jpg" data-meta-key="sub.executiveChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/techno-top.jpg" alt="Techno Top" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Techno Top</span>
+          <span class="pl-card__meta" data-i18n="sub.executiveChairs">Executive Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="executive-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="One Plus" data-img="../assets/img/products/one-plus-chair.jpg" data-meta-key="sub.executiveChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/one-plus-chair.jpg" alt="One Plus" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">One Plus</span>
+          <span class="pl-card__meta" data-i18n="sub.executiveChairs">Executive Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="executive-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="One" data-img="../assets/img/products/one-chair.jpg" data-meta-key="sub.executiveChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/one-chair.jpg" alt="One" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">One</span>
+          <span class="pl-card__meta" data-i18n="sub.executiveChairs">Executive Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="executive-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Genesis" data-img="../assets/img/products/genesis-chair.jpg" data-meta-key="sub.executiveChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/genesis-chair.jpg" alt="Genesis" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Genesis</span>
+          <span class="pl-card__meta" data-i18n="sub.executiveChairs">Executive Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="executive-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Cosmo" data-img="../assets/img/products/cosmo.jpg" data-meta-key="sub.executiveChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/cosmo.jpg" alt="Cosmo" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Cosmo</span>
+          <span class="pl-card__meta" data-i18n="sub.executiveChairs">Executive Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="executive-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Velar" data-img="../assets/img/products/velar.jpg" data-meta-key="sub.executiveChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/velar.jpg" alt="Velar" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Velar</span>
+          <span class="pl-card__meta" data-i18n="sub.executiveChairs">Executive Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="executive-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Lyna" data-img="../assets/img/products/lyna.jpg" data-meta-key="sub.executiveChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/lyna.jpg" alt="Lyna" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Lyna</span>
+          <span class="pl-card__meta" data-i18n="sub.executiveChairs">Executive Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="executive-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Claire" data-img="../assets/img/products/claire.jpg" data-meta-key="sub.executiveChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/claire.jpg" alt="Claire" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Claire</span>
+          <span class="pl-card__meta" data-i18n="sub.executiveChairs">Executive Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="task-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Berna" data-img="../assets/img/products/berna.jpg" data-meta-key="sub.taskChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/berna.jpg" alt="Berna" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Berna</span>
+          <span class="pl-card__meta" data-i18n="sub.taskChairs">Task Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="task-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Ascot Line" data-img="../assets/img/products/ascot-line.jpg" data-meta-key="sub.taskChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/ascot-line.jpg" alt="Ascot Line" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Ascot Line</span>
+          <span class="pl-card__meta" data-i18n="sub.taskChairs">Task Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="task-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Ascot Soft" data-img="../assets/img/products/ascot-soft.jpg" data-meta-key="sub.taskChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/ascot-soft.jpg" alt="Ascot Soft" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Ascot Soft</span>
+          <span class="pl-card__meta" data-i18n="sub.taskChairs">Task Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="task-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Ada" data-img="../assets/img/products/ada.jpg" data-meta-key="sub.taskChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/ada.jpg" alt="Ada" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Ada</span>
+          <span class="pl-card__meta" data-i18n="sub.taskChairs">Task Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="task-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Atena" data-img="../assets/img/products/atena.jpg" data-meta-key="sub.taskChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/atena.jpg" alt="Atena" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Atena</span>
+          <span class="pl-card__meta" data-i18n="sub.taskChairs">Task Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="task-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Ottavia &amp; Ottavia White" data-img="../assets/img/products/ottavia-o-white.jpg" data-meta-key="sub.taskChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/ottavia-o-white.jpg" alt="Ottavia &amp; Ottavia White" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Ottavia &amp; Ottavia White</span>
+          <span class="pl-card__meta" data-i18n="sub.taskChairs">Task Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="task-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Hamlet" data-img="../assets/img/products/hamlet.jpg" data-meta-key="sub.taskChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/hamlet.jpg" alt="Hamlet" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Hamlet</span>
+          <span class="pl-card__meta" data-i18n="sub.taskChairs">Task Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Genesis Soft" data-img="../assets/img/products/genesis-soft.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/genesis-soft.jpg" alt="Genesis Soft" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Genesis Soft</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Milano" data-img="../assets/img/products/milano.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/milano.jpg" alt="Milano" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Milano</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Ovvo" data-img="../assets/img/products/ovvo.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/ovvo.jpg" alt="Ovvo" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Ovvo</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Kalos Air + White" data-img="../assets/img/products/kalos-air-white.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/kalos-air-white.jpg" alt="Kalos Air + White" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Kalos Air + White</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Kalos Soft + White" data-img="../assets/img/products/kalos-soft-white.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/kalos-soft-white.jpg" alt="Kalos Soft + White" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Kalos Soft + White</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Unica Soft" data-img="../assets/img/products/unica-soft.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/unica-soft.jpg" alt="Unica Soft" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Unica Soft</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Unica Air" data-img="../assets/img/products/unica-air.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/unica-air.jpg" alt="Unica Air" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Unica Air</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Jade &amp; Jade Cover" data-img="../assets/img/products/jade-jade-cover.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/jade-jade-cover.jpg" alt="Jade &amp; Jade Cover" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Jade &amp; Jade Cover</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Jade Soft" data-img="../assets/img/products/jade-soft.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/jade-soft.jpg" alt="Jade Soft" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Jade Soft</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Merano" data-img="../assets/img/products/merano.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/merano.jpg" alt="Merano" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Merano</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Ester" data-img="../assets/img/products/ester.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/ester.jpg" alt="Ester" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Ester</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Jardin" data-img="../assets/img/products/jardin.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/jardin.jpg" alt="Jardin" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Jardin</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Modus" data-img="../assets/img/products/modus.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/modus.jpg" alt="Modus" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Modus</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Chantal" data-img="../assets/img/products/chantal.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/chantal.jpg" alt="Chantal" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Chantal</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Simba" data-img="../assets/img/products/simba.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/simba.jpg" alt="Simba" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Simba</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Augusta" data-img="../assets/img/products/augusta.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/augusta.jpg" alt="Augusta" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Augusta</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="lounge-seatings">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Claire Lounge" data-img="../assets/img/products/claire-lounge.jpg" data-meta-key="sub.loungeSeatings">
+          <span class="pl-card__media"><img src="../assets/img/products/claire-lounge.jpg" alt="Claire Lounge" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Claire Lounge</span>
+          <span class="pl-card__meta" data-i18n="sub.loungeSeatings">Lounge Seatings</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="lounge-seatings">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Pepe tub" data-img="../assets/img/products/pepe-tub.jpg" data-meta-key="sub.loungeSeatings">
+          <span class="pl-card__media"><img src="../assets/img/products/pepe-tub.jpg" alt="Pepe tub" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Pepe tub</span>
+          <span class="pl-card__meta" data-i18n="sub.loungeSeatings">Lounge Seatings</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="lounge-seatings">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Phelt" data-img="../assets/img/products/phelt.jpg" data-meta-key="sub.loungeSeatings">
+          <span class="pl-card__media"><img src="../assets/img/products/phelt.jpg" alt="Phelt" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Phelt</span>
+          <span class="pl-card__meta" data-i18n="sub.loungeSeatings">Lounge Seatings</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="privacy-seatings">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Monaco" data-img="../assets/img/products/monaco.jpg" data-meta-key="sub.privacySeatings">
+          <span class="pl-card__media"><img src="../assets/img/products/monaco.jpg" alt="Monaco" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Monaco</span>
+          <span class="pl-card__meta" data-i18n="sub.privacySeatings">Privacy Seatings</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="sofas">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Diamond Sofa" data-img="../assets/img/products/diamond-sofa.jpg" data-meta-key="sub.sofas">
+          <span class="pl-card__media"><img src="../assets/img/products/diamond-sofa.jpg" alt="Diamond Sofa" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Diamond Sofa</span>
+          <span class="pl-card__meta" data-i18n="sub.sofas">Sofas</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="sofas">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Coupè Sofa" data-img="../assets/img/products/coupe-sofa.jpg" data-meta-key="sub.sofas">
+          <span class="pl-card__media"><img src="../assets/img/products/coupe-sofa.jpg" alt="Coupè Sofa" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Coupè Sofa</span>
+          <span class="pl-card__meta" data-i18n="sub.sofas">Sofas</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="sofas">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="One Plus Sofa" data-img="../assets/img/products/one-plus-sofa.jpg" data-meta-key="sub.sofas">
+          <span class="pl-card__media"><img src="../assets/img/products/one-plus-sofa.jpg" alt="One Plus Sofa" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">One Plus Sofa</span>
+          <span class="pl-card__meta" data-i18n="sub.sofas">Sofas</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="sofas">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Genesis Sofa" data-img="../assets/img/products/genesis-sofa.jpg" data-meta-key="sub.sofas">
+          <span class="pl-card__media"><img src="../assets/img/products/genesis-sofa.jpg" alt="Genesis Sofa" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Genesis Sofa</span>
+          <span class="pl-card__meta" data-i18n="sub.sofas">Sofas</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="sofas">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Tecno Sofa" data-img="../assets/img/products/tecno-sofa.jpg" data-meta-key="sub.sofas">
+          <span class="pl-card__media"><img src="../assets/img/products/tecno-sofa.jpg" alt="Tecno Sofa" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Tecno Sofa</span>
+          <span class="pl-card__meta" data-i18n="sub.sofas">Sofas</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="sofas">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Class" data-img="../assets/img/products/class.jpg" data-meta-key="sub.sofas">
+          <span class="pl-card__media"><img src="../assets/img/products/class.jpg" alt="Class" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Class</span>
+          <span class="pl-card__meta" data-i18n="sub.sofas">Sofas</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="sofas">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Marta" data-img="../assets/img/products/marta.jpg" data-meta-key="sub.sofas">
+          <span class="pl-card__media"><img src="../assets/img/products/marta.jpg" alt="Marta" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Marta</span>
+          <span class="pl-card__meta" data-i18n="sub.sofas">Sofas</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="sofas">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Siesta" data-img="../assets/img/products/siesta.jpg" data-meta-key="sub.sofas">
+          <span class="pl-card__media"><img src="../assets/img/products/siesta.jpg" alt="Siesta" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Siesta</span>
+          <span class="pl-card__meta" data-i18n="sub.sofas">Sofas</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="sofas">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Plus972" data-img="../assets/img/products/plus972.jpg" data-meta-key="sub.sofas">
+          <span class="pl-card__media"><img src="../assets/img/products/plus972.jpg" alt="Plus972" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Plus972</span>
+          <span class="pl-card__meta" data-i18n="sub.sofas">Sofas</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="sofas">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Puzzle" data-img="../assets/img/products/puzzle.jpg" data-meta-key="sub.sofas">
+          <span class="pl-card__media"><img src="../assets/img/products/puzzle.jpg" alt="Puzzle" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Puzzle</span>
+          <span class="pl-card__meta" data-i18n="sub.sofas">Sofas</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="privacy-seatings">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Sonar" data-img="../assets/img/products/sonar.jpg" data-meta-key="sub.privacySeatings">
+          <span class="pl-card__media"><img src="../assets/img/products/sonar.jpg" alt="Sonar" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Sonar</span>
+          <span class="pl-card__meta" data-i18n="sub.privacySeatings">Privacy Seatings</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="privacy-seatings">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Nancy" data-img="../assets/img/products/nancy.jpg" data-meta-key="sub.privacySeatings">
+          <span class="pl-card__media"><img src="../assets/img/products/nancy.jpg" alt="Nancy" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Nancy</span>
+          <span class="pl-card__meta" data-i18n="sub.privacySeatings">Privacy Seatings</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="stools">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Sketch" data-img="../assets/img/products/sketch.jpg" data-meta-key="sub.stools">
+          <span class="pl-card__media"><img src="../assets/img/products/sketch.jpg" alt="Sketch" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Sketch</span>
+          <span class="pl-card__meta" data-i18n="sub.stools">Stools</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="stools">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Asia" data-img="../assets/img/products/asia.jpg" data-meta-key="sub.stools">
+          <span class="pl-card__media"><img src="../assets/img/products/asia.jpg" alt="Asia" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Asia</span>
+          <span class="pl-card__meta" data-i18n="sub.stools">Stools</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="stools">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Jolly" data-img="../assets/img/products/jolly.jpg" data-meta-key="sub.stools">
+          <span class="pl-card__media"><img src="../assets/img/products/jolly.jpg" alt="Jolly" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Jolly</span>
+          <span class="pl-card__meta" data-i18n="sub.stools">Stools</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="stools">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Momi" data-img="../assets/img/products/momi.jpg" data-meta-key="sub.stools">
+          <span class="pl-card__media"><img src="../assets/img/products/momi.jpg" alt="Momi" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Momi</span>
+          <span class="pl-card__meta" data-i18n="sub.stools">Stools</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="stools">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Modus stool" data-img="../assets/img/products/modus-stool.jpg" data-meta-key="sub.stools">
+          <span class="pl-card__media"><img src="../assets/img/products/modus-stool.jpg" alt="Modus stool" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Modus stool</span>
+          <span class="pl-card__meta" data-i18n="sub.stools">Stools</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="stools">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="One Plus stool" data-img="../assets/img/products/one-plus-stool.jpg" data-meta-key="sub.stools">
+          <span class="pl-card__media"><img src="../assets/img/products/one-plus-stool.jpg" alt="One Plus stool" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">One Plus stool</span>
+          <span class="pl-card__meta" data-i18n="sub.stools">Stools</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Oscar" data-img="../assets/img/products/oscar.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/oscar.jpg" alt="Oscar" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Oscar</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Sally" data-img="../assets/img/products/sally.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/sally.jpg" alt="Sally" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Sally</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../contact.html" data-quick data-name="Roxy" data-img="../assets/img/products/roxy.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../assets/img/products/roxy.jpg" alt="Roxy" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Roxy</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="sofas">
+        <a class="pl-card__link" href="../collections/attiva.html" data-quick data-name="Attiva · Sofa" data-img="../assets/img/products/attiva-sofa.jpg" data-meta-key="sub.sofas" data-collection="../collections/attiva.html">
+          <span class="pl-card__media"><img src="../assets/img/products/attiva-sofa.jpg" alt="Attiva · Sofa" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Attiva · <span data-i18n="var.sofa">Sofa</span></span>
+          <span class="pl-card__meta" data-i18n="sub.sofas">Sofas</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section class="pl-closing">
+    <h2 class="feature__title" data-i18n="prod.closing.title">Can't find what you need?</h2>
+    <p class="feature__body" data-i18n="prod.closing.body">Every piece can be made to measure in our factory.</p>
+    <div class="feature__ctas">
+      <a class="feature__btn" href="../contact.html" data-i18n="tour.outro.cta">Request a quote</a>
+      <a class="feature__link" href="../bespoke.html" data-i18n="home.bespoke.cta">Discover Bespoke</a>
     </div>
   </section>
-
-  <section class="reveal" id="allProductsCollectionsStage">
-    <div class="vertical-menu-section">
-      <div class="vertical-menu">
-        <div class="vertical-menu__item" data-color="cream" data-title="2BE" data-desc="2BE stands for two ways of being at a desk in the same day — seated and standing — built into a single, dependable bench system for open-plan teams." data-href="../collections/2be.html">
-          <button type="button" class="vertical-menu__title">2BE</button>
-        </div>
-        <div class="vertical-menu__item" data-color="cream" data-title="Attiva" data-desc="Attiva is a new executive program that brings creativity, wellness and dynamism to the workspace, distinguished by an elegant polished aluminium profile." data-href="../collections/attiva.html">
-          <button type="button" class="vertical-menu__title">Attiva</button>
-        </div>
-        <div class="vertical-menu__item" data-color="cream" data-title="Team" data-desc="Team is built around shared desking — long bench runs, simple screens and coordinated storage designed for departments that work side by side." data-href="../collections/team.html">
-          <button type="button" class="vertical-menu__title">Team</button>
-        </div>
-        <div class="vertical-menu__item" data-color="taupe" data-title="Alfaomega" data-desc="AlfaOmega — design become hi-tech. Two spirits and a curved section behind the same design idea, from futurist Alfa to a more classic, timeless Omega." data-href="../collections/alfaomega.html">
-          <button type="button" class="vertical-menu__title">Alfaomega</button>
-        </div>
-        <div class="vertical-menu__item" data-color="taupe" data-title="Mithos" data-desc="Mithos pairs a monolithic wood top with a slender, almost invisible frame, creating a desk that feels sculptural from every angle of a boardroom." data-href="../collections/mithos.html">
-          <button type="button" class="vertical-menu__title">Mithos</button>
-        </div>
-        <div class="vertical-menu__item" data-color="taupe" data-title="iSixty" data-desc="iSixty — choose your lifestyle. Offered in two souls: Avantgarde, hi-tech and enterprising, and Luxury, for those who prefer exclusivity and class." data-href="../collections/isixty.html">
-          <button type="button" class="vertical-menu__title">iSixty</button>
-        </div>
-        <div class="vertical-menu__item" data-color="taupe" data-title="Cloud" data-desc="Cloud softens the traditional executive desk with rounded edges and a floating-top construction, designed for directors who want authority without severity." data-href="../collections/cloud.html">
-          <button type="button" class="vertical-menu__title">Cloud</button>
-        </div>
-        <div class="vertical-menu__item" data-color="taupe" data-title="Ginza" data-desc="Named for the precision of its namesake district, Ginza is Codutti's most minimal executive desk — a thin top on a fine metal frame, built for leaders who prefer restraint." data-href="../collections/ginza.html">
-          <button type="button" class="vertical-menu__title">Ginza</button>
-        </div>
-        <div class="vertical-menu__item" data-color="taupe" data-title="One" data-desc="One — natura e design. Wood, glass, steel, leather and stone with a characteristic semi-rough surface, every material fully natural and recyclable." data-href="../collections/one.html">
-          <button type="button" class="vertical-menu__title">One</button>
-        </div>
-        <div class="vertical-menu__item" data-color="taupe" data-title="Genesis" data-desc="Genesis — raffinatezza, tecnologia, dinamicità. Distinguished by minimal design and essential lines, with signature cast-aluminium legs on three support points." data-href="../collections/genesis.html">
-          <button type="button" class="vertical-menu__title">Genesis</button>
-        </div>
+<dialog class="pl-quick" id="plQuick" aria-labelledby="plQuickName">
+  <div class="pl-quick__inner">
+    <button type="button" class="pl-quick__close" data-close data-i18n-aria="prod.close" aria-label="Close">&times;</button>
+    <div class="pl-quick__media"><img alt=""></div>
+    <div class="pl-quick__info">
+      <p class="pl-quick__meta"></p>
+      <h2 class="pl-quick__name" id="plQuickName"></h2>
+      <div class="pl-quick__ctas">
+        <a class="feature__btn" href="../contact.html" data-i18n="tour.outro.cta">Request a quote</a>
+        <a class="feature__link pl-quick__collection" href="#" data-i18n="prod.collection">Discover the collection</a>
+        <a class="feature__link" href="../resources.html" data-i18n="prod.catalogues">Catalogues and finishes</a>
       </div>
     </div>
-  </section>
+  </div>
+</dialog>
 </main>
 
-<div class="collections-modal-backdrop" id="allProductsCollectionsStage-backdrop"></div>
-<div class="line-stage__preview collections-modal" id="allProductsCollectionsStage-preview">
-  <div class="line-stage__photo"></div>
-  <div class="line-stage__text">
-    <h3 class="font-display"></h3>
-    <p></p>
-    <a href="#">Discover the Collection</a>
-  </div>
-</div>
 
 <footer class="site-footer">
   <div id="legal">
@@ -166,13 +879,13 @@
         <summary data-i18n="nav.company">Company</summary>
         <p>Since 1954, Codutti has designed and manufactured office furniture entirely in-house, uniting seventy years of Italian craftsmanship with the precision of modern technology to build tailor-made workspaces for clients around the world. VAT IT14045811008.</p>
         <div class="legal-accordion__addresses">
-          <a href="https://www.google.com/maps/search/?api=1&query=Via+Bonavilla+34%2C+33037+Pasian+di+Prato+UD+Italy" target="_blank" rel="noopener">Headquarters — Pasian di Prato (UD), Italy</a>
-          <a href="https://www.google.com/maps/search/?api=1&query=Martignacco+UD+Italy" target="_blank" rel="noopener">Production Site — Martignacco (UD), Italy</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Via+Bonavilla+34%2C+33037+Pasian+di+Prato+UD+Italy" target="_blank" rel="noopener" data-i18n="mii.hq">Headquarters — Pasian di Prato (UD), Italy</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Martignacco+UD+Italy" target="_blank" rel="noopener" data-i18n="mii.production">Production Site — Martignacco (UD), Italy</a>
         </div>
       </details>
       <details>
         <summary data-i18n="nav.products">Our Products</summary>
-        <p>Desks, Meetings, Seatings, Coffee Tables, Storage Units, Receptions and Acoustic Solutions — a complete range for every space. <a href="all.html">Explore Our Products</a>.</p>
+        <p>Desks, Meetings, Seatings, Coffee Tables, Storage Units, Receptions and Acoustic Solutions — a complete range for every space. <a href="../products/all.html">Explore Our Products</a>.</p>
       </details>
       <details>
         <summary data-i18n="contract.title">Contract</summary>
@@ -246,84 +959,6 @@
 
 <script src="../assets/js/i18n.js"></script>
 <script src="../assets/js/main.js"></script>
-<script>
-  /* "Our Products" overview: nothing is pre-selected. Picking a macro
-     category in the first slider reveals its subcategories in the second
-     slider (real links to the existing listing pages) and swaps the grid
-     from the 7 macro tiles down to that macro's subcategory tiles.
-     Categories with no subcategory listing pages (Coffee Tables, Receptions)
-     just navigate straight to their own page instead. */
-  (function () {
-    var DATA = {
-      'desks': { href: 'desks.html', items: [
-        ['Executive Desks', 'desks/executive-desks.html'],
-        ['Operative Desks', 'desks/operative-desks.html'],
-        ['Adjustable Desks', 'desks/adjustable-desks.html'],
-        ['System Benches', 'desks/system-benches.html']
-      ] },
-      'tables-and-sharings': { href: 'tables-and-sharings.html', items: [
-        ['Meeting Tables', 'tables-and-sharings/meeting-tables.html'],
-        ['Sharing Tables', 'tables-and-sharings/sharing-tables.html']
-      ] },
-      'seatings': { href: 'seatings.html', items: [
-        ['Executive Chairs', 'seatings/executive-chairs.html'],
-        ['Meeting & Guest Chairs', 'seatings/meeting-guest-chairs.html'],
-        ['Task Chairs', 'seatings/task-chairs.html'],
-        ['Lounge Seatings', 'seatings/lounge-seatings.html'],
-        ['Privacy Seatings', 'seatings/privacy-seatings.html'],
-        ['Sofas', 'seatings/sofas.html'],
-        ['Stools', 'seatings/stools.html']
-      ] },
-      'coffee-tables': { href: 'coffee-tables.html', items: null },
-      'storage-units': { href: 'storage-units.html', items: [
-        ['Cabinets', 'storage-units/cabinets.html'],
-        ['Drawers', 'storage-units/drawers.html'],
-        ['Wardrobes', 'storage-units/wardrobes.html']
-      ] },
-      'receptions': { href: 'receptions.html', items: null },
-      'acoustic-solutions': { href: 'acoustic-solutions.html', items: [
-        ['Acoustic Pods', 'acoustic-solutions/acoustic-pods.html'],
-        ['Desk Panels', 'acoustic-solutions/desk-panels.html'],
-        ['Wall Panels', 'acoustic-solutions/wall-panels.html'],
-        ['Freestanding Panels', 'acoustic-solutions/freestanding-panels.html'],
-        ['Ceiling Panels', 'acoustic-solutions/ceiling-panels.html']
-      ] }
-    };
-
-    var macroTabs = document.getElementById('allProductsMacroTabs');
-    var subTabs = document.getElementById('allProductsSubTabs');
-    var subTrack = document.getElementById('allProductsSubTrack');
-    var grid = document.getElementById('allProductsGrid');
-    var count = document.getElementById('allProductsCount');
-    if (!macroTabs) return;
-
-    macroTabs.querySelectorAll('.cat-tabs__item').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var macro = btn.dataset.macro;
-        var entry = DATA[macro];
-        if (!entry) return;
-        if (!entry.items) {
-          window.location.href = entry.href;
-          return;
-        }
-        macroTabs.querySelectorAll('.cat-tabs__item').forEach(function (b) {
-          b.classList.toggle('is-active', b === btn);
-        });
-
-        subTrack.innerHTML = entry.items.map(function (item) {
-          return '<a href="' + item[1] + '" class="cat-tabs__item">' + item[0] + '</a>';
-        }).join('');
-        subTabs.hidden = false;
-
-        grid.innerHTML = entry.items.map(function (item) {
-          return '<a class="product-box" href="' + item[1] + '">' +
-            '<span class="product-box__media product-box__media--placeholder"></span>' +
-            '<span class="product-box__label">' + item[0] + '</span></a>';
-        }).join('');
-        count.textContent = entry.items.length + (entry.items.length === 1 ? ' Category' : ' Categories');
-      });
-    });
-  })();
-</script>
+<script src="../assets/js/products.js"></script>
 </body>
 </html>

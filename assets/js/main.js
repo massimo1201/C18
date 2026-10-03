@@ -43,10 +43,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Off-canvas menu toggle */
   if (menuBtn && navOverlay) {
+    /* Two-level menu: "Products" and "About us" open a second panel —
+       beside the main list on desktop, sliding over it on mobile. */
+    const panels = Array.from(navOverlay.querySelectorAll('.nav-panel'));
+    const mainPanel = navOverlay.querySelector('.nav-panel--main');
+    const openers = Array.from(navOverlay.querySelectorAll('[data-open]'));
+    const showPanel = (name) => {
+      panels.forEach((panel) => {
+        const isTarget = panel.dataset.panel === name;
+        panel.classList.toggle('is-open', isTarget && panel !== mainPanel);
+        if (panel !== mainPanel) panel.classList.toggle('is-active', isTarget);
+      });
+      if (mainPanel) mainPanel.classList.toggle('is-active', !name || window.matchMedia('(min-width: 900px)').matches);
+      openers.forEach((b) => b.setAttribute('aria-expanded', String(b.dataset.open === name)));
+    };
+    openers.forEach((btn) => btn.addEventListener('click', () => {
+      const already = btn.getAttribute('aria-expanded') === 'true';
+      showPanel(already ? null : btn.dataset.open);
+      if (!already) {
+        const first = navOverlay.querySelector(`.nav-panel[data-panel="${btn.dataset.open}"] a, .nav-panel[data-panel="${btn.dataset.open}"] [data-back]`);
+        if (first && !window.matchMedia('(min-width: 900px)').matches) first.focus({ preventScroll: true });
+      }
+    }));
+    navOverlay.querySelectorAll('[data-back]').forEach((b) => b.addEventListener('click', () => showPanel(null)));
+
     const closeMenu = () => {
       navOverlay.classList.remove('is-open');
       menuBtn.setAttribute('aria-expanded', 'false');
       body.classList.remove('nav-open');
+      showPanel(null);
     };
     const openMenu = () => {
       navOverlay.classList.add('is-open');

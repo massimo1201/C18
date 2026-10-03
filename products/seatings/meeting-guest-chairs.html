@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Meeting &amp; Guest Chairs — Codutti</title>
-<meta name="description" content="Elegant seating for meeting rooms and guest areas, designed to complement Codutti's table and desk collections.">
+<meta name="description" content="Chairs, armchairs, sofas and stools for every room of the office.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
-<body id="top" style="background:var(--taupe)">
+<body id="top" class="page-products">
 
-<header class="site-header" style="background:var(--taupe)">
+<header class="site-header">
   <div class="header-side header-side--left">
     <button class="lang-btn" id="langBtn" aria-expanded="false" aria-label="Choose language">EN</button>
   </div>
@@ -38,802 +38,275 @@
   </div>
 </div>
 
-<nav class="nav-overlay" id="navOverlay">
-  <ul class="nav-list">
-    <li><a href="../../company.html"><span class="num">01</span> <span data-i18n="nav.company">Company</span></a></li>
-    <li><a href="../../news.html"><span class="num">02</span> <span data-i18n="nav.news">News and Events</span></a></li>
-    <li><a href="../all.html"><span class="num">03</span> Our Products</a></li>
-    <li><a href="../../contract.html"><span class="num">04</span> <span data-i18n="nav.contract">Contract</span></a></li>
-    <li><a href="../../bespoke.html"><span class="num">05</span> <span data-i18n="nav.bespoke">Bespoke</span></a></li>
-    <li><a href="../../resources.html"><span class="num">06</span> <span data-i18n="nav.resources">Resources</span></a></li>
-    <li><a href="../../contact.html"><span class="num">07</span> <span data-i18n="nav.contact">Contact Us</span></a></li>
-  </ul>
+<nav class="nav-overlay" id="navOverlay" aria-label="Menu">
+  <div class="nav-panels">
+    <div class="nav-panel nav-panel--main is-active" data-panel="main">
+      <a class="nav-home" href="../../index.html"><span class="nav-home__dash" aria-hidden="true"></span><span data-i18n="nav.home">Home</span></a>
+      <ul class="nav-main">
+        <li><button type="button" class="nav-main__open" data-open="products" aria-expanded="false"><span data-i18n="nav.products">Our Products</span><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></li>
+        <li><a href="../../contract.html" data-i18n="nav.contract">Contract</a></li>
+        <li><a href="../../bespoke.html" data-i18n="nav.bespoke">Bespoke</a></li>
+        <li><a href="../../spaces.html" data-i18n="nav.spaces">Spaces</a></li>
+        <li><a href="../../materials.html" data-i18n="nav.finishes">Finishes</a></li>
+        <li><button type="button" class="nav-main__open" data-open="about" aria-expanded="false"><span data-i18n="nav.about">About Us</span><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></li>
+        <li><a href="../../news.html" data-i18n="nav.news">News and Events</a></li>
+        <li><a href="../../contact.html" data-i18n="nav.contact">Contact Us</a></li>
+      </ul>
+      <ul class="nav-secondary">
+        <li><a href="../../resources.html" data-i18n="nav.download">Download</a></li>
+        <li><a href="../../index.html#newsletter" data-i18n="nav.newsletter">Newsletter</a></li>
+      </ul>
+      <div class="nav-social">
+      <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10v6.5M7.5 7.5v.01M12 16.5V13a2.5 2.5 0 0 1 5 0v3.5M12 16.5v-4"/></svg></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor"/></svg></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 21v-7.5H17l.5-3.2h-3V8.2c0-.9.3-1.6 1.7-1.6H17.6V3.9c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.9H8v3.2h2.6V21"/></svg></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="3.5"/><path d="M10.5 9.5v5l4.3-2.5-4.3-2.5Z" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+    <div class="nav-panel" data-panel="products">
+      <button type="button" class="nav-back" data-back><svg class="nav-chevron nav-chevron--back" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span data-i18n="nav.products">Our Products</span></button>
+      <ul class="nav-main nav-main--sub">
+        <li><a href="../../products/all.html" data-i18n="nav.allProducts">All Products</a></li>
+        <li><a href="../../products/desks.html" data-i18n="cat.desks">Desks</a></li>
+        <li><a href="../../products/tables-and-sharings.html" data-i18n="cat.tables">Meetings</a></li>
+        <li><a href="../../products/seatings.html" data-i18n="cat.seatings">Seatings</a></li>
+        <li><a href="../../products/coffee-tables.html" data-i18n="cat.coffeeTables">Coffee Tables</a></li>
+        <li><a href="../../products/storage-units.html" data-i18n="cat.storage">Storage Units</a></li>
+        <li><a href="../../products/receptions.html" data-i18n="cat.receptions">Receptions</a></li>
+        <li><a href="../../products/acoustic-solutions.html" data-i18n="cat.acoustic">Acoustic Solutions</a></li>
+      </ul>
+    </div>
+    <div class="nav-panel" data-panel="about">
+      <button type="button" class="nav-back" data-back><svg class="nav-chevron nav-chevron--back" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span data-i18n="nav.about">About Us</span></button>
+      <ul class="nav-main nav-main--sub">
+        <li><a href="../../company.html" data-i18n="nav.company">Company</a></li>
+        <li><a href="../../codutti-method.html" data-i18n="nav.method">The Codutti Method</a></li>
+        <li><a href="../../company.html#certifications" data-i18n="legal.certifications">Certifications</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<main>
-          <section class="wrap page-hero">
-    <div class="reveal">
-      <h1 class="mix-title"><span class="lg">Seatings</span></h1>
+<main class="pl">
+  <section class="pl-hero wrap">
+    <nav class="pl-crumbs" aria-label="Breadcrumb"><a href="../../products/all.html" data-i18n="nav.products">Our Products</a> <span aria-hidden="true">/</span> <a href="../../products/seatings.html" data-i18n="cat.seatings">Seatings</a> <span aria-hidden="true">/</span> <span data-i18n="sub.meetingChairs">Meeting & Guest Chairs</span></nav>
+    <h1 class="pl-title" data-i18n="sub.meetingChairs">Meeting & Guest Chairs</h1>
+    <p class="pl-intro" data-i18n="prod.intro.seatings">Chairs, armchairs, sofas and stools for every room of the office.</p>
+  </section>
+  <nav class="pl-chips wrap" data-i18n-aria="prod.filter" aria-label="Filter">
+    <a class="pl-chip" href="../seatings.html" data-i18n="prod.all">All</a>
+    <a class="pl-chip" href="../seatings/executive-chairs.html" data-i18n="sub.executiveChairs">Executive Chairs</a>
+    <a class="pl-chip" href="../seatings/task-chairs.html" data-i18n="sub.taskChairs">Task Chairs</a>
+    <a class="pl-chip is-active" href="../seatings/meeting-guest-chairs.html" data-i18n="sub.meetingChairs">Meeting & Guest Chairs</a>
+    <a class="pl-chip" href="../seatings/lounge-seatings.html" data-i18n="sub.loungeSeatings">Lounge Seatings</a>
+    <a class="pl-chip" href="../seatings/privacy-seatings.html" data-i18n="sub.privacySeatings">Privacy Seatings</a>
+    <a class="pl-chip" href="../seatings/sofas.html" data-i18n="sub.sofas">Sofas</a>
+    <a class="pl-chip" href="../seatings/stools.html" data-i18n="sub.stools">Stools</a>
+  </nav>
+  <section class="pl-list wrap">
+    <p class="pl-count"><span class="pl-count__n">19</span> <span data-i18n="prod.items">products</span></p>
+    <ul class="pl-grid">
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Genesis Soft" data-img="../../assets/img/products/genesis-soft.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/genesis-soft.jpg" alt="Genesis Soft" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Genesis Soft</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Milano" data-img="../../assets/img/products/milano.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/milano.jpg" alt="Milano" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Milano</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Ovvo" data-img="../../assets/img/products/ovvo.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/ovvo.jpg" alt="Ovvo" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Ovvo</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Kalos Air + White" data-img="../../assets/img/products/kalos-air-white.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/kalos-air-white.jpg" alt="Kalos Air + White" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Kalos Air + White</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Kalos Soft + White" data-img="../../assets/img/products/kalos-soft-white.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/kalos-soft-white.jpg" alt="Kalos Soft + White" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Kalos Soft + White</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Unica Soft" data-img="../../assets/img/products/unica-soft.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/unica-soft.jpg" alt="Unica Soft" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Unica Soft</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Unica Air" data-img="../../assets/img/products/unica-air.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/unica-air.jpg" alt="Unica Air" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Unica Air</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Jade &amp; Jade Cover" data-img="../../assets/img/products/jade-jade-cover.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/jade-jade-cover.jpg" alt="Jade &amp; Jade Cover" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Jade &amp; Jade Cover</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Jade Soft" data-img="../../assets/img/products/jade-soft.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/jade-soft.jpg" alt="Jade Soft" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Jade Soft</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Merano" data-img="../../assets/img/products/merano.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/merano.jpg" alt="Merano" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Merano</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Ester" data-img="../../assets/img/products/ester.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/ester.jpg" alt="Ester" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Ester</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Jardin" data-img="../../assets/img/products/jardin.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/jardin.jpg" alt="Jardin" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Jardin</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Modus" data-img="../../assets/img/products/modus.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/modus.jpg" alt="Modus" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Modus</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Chantal" data-img="../../assets/img/products/chantal.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/chantal.jpg" alt="Chantal" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Chantal</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Simba" data-img="../../assets/img/products/simba.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/simba.jpg" alt="Simba" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Simba</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Augusta" data-img="../../assets/img/products/augusta.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/augusta.jpg" alt="Augusta" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Augusta</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Oscar" data-img="../../assets/img/products/oscar.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/oscar.jpg" alt="Oscar" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Oscar</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Sally" data-img="../../assets/img/products/sally.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/sally.jpg" alt="Sally" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Sally</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+      <li class="pl-card" data-cat="seatings" data-sub="meeting-guest-chairs">
+        <a class="pl-card__link" href="../../contact.html" data-quick data-name="Roxy" data-img="../../assets/img/products/roxy.jpg" data-meta-key="sub.meetingChairs">
+          <span class="pl-card__media"><img src="../../assets/img/products/roxy.jpg" alt="Roxy" loading="lazy" width="640" height="640"></span>
+          <span class="pl-card__name">Roxy</span>
+          <span class="pl-card__meta" data-i18n="sub.meetingChairs">Meeting &amp; Guest Chairs</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section class="pl-closing">
+    <h2 class="feature__title" data-i18n="prod.closing.title">Can't find what you need?</h2>
+    <p class="feature__body" data-i18n="prod.closing.body">Every piece can be made to measure in our factory.</p>
+    <div class="feature__ctas">
+      <a class="feature__btn" href="../../contact.html" data-i18n="tour.outro.cta">Request a quote</a>
+      <a class="feature__link" href="../../bespoke.html" data-i18n="home.bespoke.cta">Discover Bespoke</a>
     </div>
   </section>
-<nav class="cat-tabs wrap" aria-label="Product categories">
-    <div class="cat-tabs__track">
-      <a href="../../products/desks.html" class="cat-tabs__item">Desks</a>
-      <a href="../../products/tables-and-sharings.html" class="cat-tabs__item">Meetings</a>
-      <a href="../../products/seatings.html" class="cat-tabs__item is-active">Seatings</a>
-      <a href="../../products/coffee-tables.html" class="cat-tabs__item">Coffee Tables</a>
-      <a href="../../products/storage-units.html" class="cat-tabs__item">Storage Units</a>
-      <a href="../../products/receptions.html" class="cat-tabs__item">Receptions</a>
-      <a href="../../products/acoustic-solutions.html" class="cat-tabs__item">Acoustic Solutions</a>
-    </div>
-  </nav>
-  <nav class="cat-tabs wrap" aria-label="Subcategories">
-    <div class="cat-tabs__track">
-      <a href="executive-chairs.html" class="cat-tabs__item">Executive Chairs</a>
-      <a href="meeting-guest-chairs.html" class="cat-tabs__item is-active">Meeting &amp; Guest Chairs</a>
-      <a href="task-chairs.html" class="cat-tabs__item">Task Chairs</a>
-      <a href="lounge-seatings.html" class="cat-tabs__item">Lounge Seatings</a>
-      <a href="privacy-seatings.html" class="cat-tabs__item">Privacy Seatings</a>
-      <a href="sofas.html" class="cat-tabs__item">Sofas</a>
-      <a href="stools.html" class="cat-tabs__item">Stools</a>
-    </div>
-  </nav>
-  <section class="wrap">
-    <p class="product-listing__count reveal">25 Results</p>
-    <div class="product-grid product-grid--listing reveal">
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 01</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 01</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 02</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 02</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 03</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 03</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 04</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 04</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 05</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 05</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 06</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 06</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 07</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 07</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 08</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 08</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 09</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 09</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 10</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 10</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 11</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 11</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 12</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 12</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 13</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 13</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 14</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 14</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 15</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 15</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 16</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 16</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 17</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 17</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 18</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 18</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 19</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 19</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 20</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 20</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 21</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 21</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 22</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 22</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 23</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 23</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 24</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 24</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Meeting &amp; Guest Chairs 25</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Meeting &amp; Guest Chairs 25</h3>
-            <p class="product-box__desc">Chairs built for the people around the table, not behind it — comfortable enough for a long meeting, formal enough for a client visit.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-    </div>
+  <section class="pl-others wrap">
+    <h2 class="pl-others__title" data-i18n="prod.others">Other categories</h2>
+    <ul class="pl-tiles pl-tiles--small">
+      <li class="pl-tile">
+        <a href="../../products/desks.html">
+          <span class="pl-tile__media"><img src="../../assets/img/products/genesis-desk.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.desks">Desks</span><span class="pl-tile__count">13</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../../products/tables-and-sharings.html">
+          <span class="pl-tile__media"><img src="../../assets/img/products/alfaomega-meeting.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.tables">Meetings</span><span class="pl-tile__count">6</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../../products/coffee-tables.html">
+          <span class="pl-tile__media"><img src="../../assets/img/products/sophie.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.coffeeTables">Coffee Tables</span><span class="pl-tile__count">8</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../../products/storage-units.html">
+          <span class="pl-tile__media"><img src="../../assets/img/products/one-sideboard.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.storage">Storage Units</span><span class="pl-tile__count">8</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../../products/receptions.html">
+          <span class="pl-tile__media"><img src="../../assets/img/products/ciao-circular.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.receptions">Receptions</span><span class="pl-tile__count">5</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../../products/acoustic-solutions.html">
+          <span class="pl-tile__media"><span class="pl-tile__placeholder" aria-hidden="true"></span></span>
+          <span class="pl-tile__name"><span data-i18n="cat.acoustic">Acoustic Solutions</span></span>
+        </a>
+      </li>
+    </ul>
   </section>
+<dialog class="pl-quick" id="plQuick" aria-labelledby="plQuickName">
+  <div class="pl-quick__inner">
+    <button type="button" class="pl-quick__close" data-close data-i18n-aria="prod.close" aria-label="Close">&times;</button>
+    <div class="pl-quick__media"><img alt=""></div>
+    <div class="pl-quick__info">
+      <p class="pl-quick__meta"></p>
+      <h2 class="pl-quick__name" id="plQuickName"></h2>
+      <div class="pl-quick__ctas">
+        <a class="feature__btn" href="../../contact.html" data-i18n="tour.outro.cta">Request a quote</a>
+        <a class="feature__link pl-quick__collection" href="#" data-i18n="prod.collection">Discover the collection</a>
+        <a class="feature__link" href="../../resources.html" data-i18n="prod.catalogues">Catalogues and finishes</a>
+      </div>
+    </div>
+  </div>
+</dialog>
 </main>
+
 
 <footer class="site-footer">
   <div id="legal">
@@ -842,13 +315,13 @@
         <summary data-i18n="nav.company">Company</summary>
         <p>Since 1954, Codutti has designed and manufactured office furniture entirely in-house, uniting seventy years of Italian craftsmanship with the precision of modern technology to build tailor-made workspaces for clients around the world. VAT IT14045811008.</p>
         <div class="legal-accordion__addresses">
-          <a href="https://www.google.com/maps/search/?api=1&query=Via+Bonavilla+34%2C+33037+Pasian+di+Prato+UD+Italy" target="_blank" rel="noopener">Headquarters — Pasian di Prato (UD), Italy</a>
-          <a href="https://www.google.com/maps/search/?api=1&query=Martignacco+UD+Italy" target="_blank" rel="noopener">Production Site — Martignacco (UD), Italy</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Via+Bonavilla+34%2C+33037+Pasian+di+Prato+UD+Italy" target="_blank" rel="noopener" data-i18n="mii.hq">Headquarters — Pasian di Prato (UD), Italy</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Martignacco+UD+Italy" target="_blank" rel="noopener" data-i18n="mii.production">Production Site — Martignacco (UD), Italy</a>
         </div>
       </details>
       <details>
         <summary data-i18n="nav.products">Our Products</summary>
-        <p>Desks, Meetings, Seatings, Coffee Tables, Storage Units, Receptions and Acoustic Solutions — a complete range for every space. <a href="../all.html">Explore Our Products</a>.</p>
+        <p>Desks, Meetings, Seatings, Coffee Tables, Storage Units, Receptions and Acoustic Solutions — a complete range for every space. <a href="../../products/all.html">Explore Our Products</a>.</p>
       </details>
       <details>
         <summary data-i18n="contract.title">Contract</summary>
@@ -922,5 +395,6 @@
 
 <script src="../../assets/js/i18n.js"></script>
 <script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/products.js"></script>
 </body>
 </html>

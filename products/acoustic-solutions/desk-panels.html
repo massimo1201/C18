@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Desk Panels — Codutti</title>
-<meta name="description" content="Desk-mounted acoustic panels that reduce noise and add visual privacy between adjacent workstations.">
+<meta name="description" content="Panels and pods that bring quiet to open spaces.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
-<body id="top" style="background:var(--sage)">
+<body id="top" class="page-products">
 
-<header class="site-header" style="background:var(--sage)">
+<header class="site-header">
   <div class="header-side header-side--left">
     <button class="lang-btn" id="langBtn" aria-expanded="false" aria-label="Choose language">EN</button>
   </div>
@@ -38,200 +38,141 @@
   </div>
 </div>
 
-<nav class="nav-overlay" id="navOverlay">
-  <ul class="nav-list">
-    <li><a href="../../company.html"><span class="num">01</span> <span data-i18n="nav.company">Company</span></a></li>
-    <li><a href="../../news.html"><span class="num">02</span> <span data-i18n="nav.news">News and Events</span></a></li>
-    <li><a href="../all.html"><span class="num">03</span> Our Products</a></li>
-    <li><a href="../../contract.html"><span class="num">04</span> <span data-i18n="nav.contract">Contract</span></a></li>
-    <li><a href="../../bespoke.html"><span class="num">05</span> <span data-i18n="nav.bespoke">Bespoke</span></a></li>
-    <li><a href="../../resources.html"><span class="num">06</span> <span data-i18n="nav.resources">Resources</span></a></li>
-    <li><a href="../../contact.html"><span class="num">07</span> <span data-i18n="nav.contact">Contact Us</span></a></li>
-  </ul>
+<nav class="nav-overlay" id="navOverlay" aria-label="Menu">
+  <div class="nav-panels">
+    <div class="nav-panel nav-panel--main is-active" data-panel="main">
+      <a class="nav-home" href="../../index.html"><span class="nav-home__dash" aria-hidden="true"></span><span data-i18n="nav.home">Home</span></a>
+      <ul class="nav-main">
+        <li><button type="button" class="nav-main__open" data-open="products" aria-expanded="false"><span data-i18n="nav.products">Our Products</span><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></li>
+        <li><a href="../../contract.html" data-i18n="nav.contract">Contract</a></li>
+        <li><a href="../../bespoke.html" data-i18n="nav.bespoke">Bespoke</a></li>
+        <li><a href="../../spaces.html" data-i18n="nav.spaces">Spaces</a></li>
+        <li><a href="../../materials.html" data-i18n="nav.finishes">Finishes</a></li>
+        <li><button type="button" class="nav-main__open" data-open="about" aria-expanded="false"><span data-i18n="nav.about">About Us</span><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></li>
+        <li><a href="../../news.html" data-i18n="nav.news">News and Events</a></li>
+        <li><a href="../../contact.html" data-i18n="nav.contact">Contact Us</a></li>
+      </ul>
+      <ul class="nav-secondary">
+        <li><a href="../../resources.html" data-i18n="nav.download">Download</a></li>
+        <li><a href="../../index.html#newsletter" data-i18n="nav.newsletter">Newsletter</a></li>
+      </ul>
+      <div class="nav-social">
+      <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10v6.5M7.5 7.5v.01M12 16.5V13a2.5 2.5 0 0 1 5 0v3.5M12 16.5v-4"/></svg></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor"/></svg></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 21v-7.5H17l.5-3.2h-3V8.2c0-.9.3-1.6 1.7-1.6H17.6V3.9c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.9H8v3.2h2.6V21"/></svg></a>
+      <a href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="3.5"/><path d="M10.5 9.5v5l4.3-2.5-4.3-2.5Z" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+    <div class="nav-panel" data-panel="products">
+      <button type="button" class="nav-back" data-back><svg class="nav-chevron nav-chevron--back" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span data-i18n="nav.products">Our Products</span></button>
+      <ul class="nav-main nav-main--sub">
+        <li><a href="../../products/all.html" data-i18n="nav.allProducts">All Products</a></li>
+        <li><a href="../../products/desks.html" data-i18n="cat.desks">Desks</a></li>
+        <li><a href="../../products/tables-and-sharings.html" data-i18n="cat.tables">Meetings</a></li>
+        <li><a href="../../products/seatings.html" data-i18n="cat.seatings">Seatings</a></li>
+        <li><a href="../../products/coffee-tables.html" data-i18n="cat.coffeeTables">Coffee Tables</a></li>
+        <li><a href="../../products/storage-units.html" data-i18n="cat.storage">Storage Units</a></li>
+        <li><a href="../../products/receptions.html" data-i18n="cat.receptions">Receptions</a></li>
+        <li><a href="../../products/acoustic-solutions.html" data-i18n="cat.acoustic">Acoustic Solutions</a></li>
+      </ul>
+    </div>
+    <div class="nav-panel" data-panel="about">
+      <button type="button" class="nav-back" data-back><svg class="nav-chevron nav-chevron--back" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span data-i18n="nav.about">About Us</span></button>
+      <ul class="nav-main nav-main--sub">
+        <li><a href="../../company.html" data-i18n="nav.company">Company</a></li>
+        <li><a href="../../codutti-method.html" data-i18n="nav.method">The Codutti Method</a></li>
+        <li><a href="../../company.html#certifications" data-i18n="legal.certifications">Certifications</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<main>
-          <section class="wrap page-hero">
-    <div class="reveal">
-      <h1 class="mix-title"><span class="lg">Acoustic Solutions</span></h1>
+<main class="pl">
+  <section class="pl-hero wrap">
+    <nav class="pl-crumbs" aria-label="Breadcrumb"><a href="../../products/all.html" data-i18n="nav.products">Our Products</a> <span aria-hidden="true">/</span> <a href="../../products/acoustic-solutions.html" data-i18n="cat.acoustic">Acoustic Solutions</a> <span aria-hidden="true">/</span> <span data-i18n="sub.deskPanels">Desk Panels</span></nav>
+    <h1 class="pl-title" data-i18n="sub.deskPanels">Desk Panels</h1>
+    <p class="pl-intro" data-i18n="prod.intro.acoustic">Panels and pods that bring quiet to open spaces.</p>
+  </section>
+  <nav class="pl-chips wrap" data-i18n-aria="prod.filter" aria-label="Filter">
+    <a class="pl-chip" href="../acoustic-solutions.html" data-i18n="prod.all">All</a>
+    <a class="pl-chip" href="../acoustic-solutions/acoustic-pods.html" data-i18n="sub.acousticPods">Acoustic Pods</a>
+    <a class="pl-chip" href="../acoustic-solutions/ceiling-panels.html" data-i18n="sub.ceilingPanels">Ceiling Panels</a>
+    <a class="pl-chip is-active" href="../acoustic-solutions/desk-panels.html" data-i18n="sub.deskPanels">Desk Panels</a>
+    <a class="pl-chip" href="../acoustic-solutions/freestanding-panels.html" data-i18n="sub.freestandingPanels">Freestanding Panels</a>
+    <a class="pl-chip" href="../acoustic-solutions/wall-panels.html" data-i18n="sub.wallPanels">Wall Panels</a>
+  </nav>
+  <section class="pl-list wrap">
+    <div class="pl-empty">
+      <p class="feature__body" data-i18n="prod.empty">Designed project by project: tell us about your space and we'll propose the right solution.</p>
+      <div class="feature__ctas"><a class="feature__btn" href="../../contact.html" data-i18n="tour.outro.cta">Request a quote</a></div>
     </div>
   </section>
-<nav class="cat-tabs wrap" aria-label="Product categories">
-    <div class="cat-tabs__track">
-      <a href="../../products/desks.html" class="cat-tabs__item">Desks</a>
-      <a href="../../products/tables-and-sharings.html" class="cat-tabs__item">Meetings</a>
-      <a href="../../products/seatings.html" class="cat-tabs__item">Seatings</a>
-      <a href="../../products/coffee-tables.html" class="cat-tabs__item">Coffee Tables</a>
-      <a href="../../products/storage-units.html" class="cat-tabs__item">Storage Units</a>
-      <a href="../../products/receptions.html" class="cat-tabs__item">Receptions</a>
-      <a href="../../products/acoustic-solutions.html" class="cat-tabs__item is-active">Acoustic Solutions</a>
-    </div>
-  </nav>
-  <nav class="cat-tabs wrap" aria-label="Subcategories">
-    <div class="cat-tabs__track">
-      <a href="acoustic-pods.html" class="cat-tabs__item">Acoustic Pods</a>
-      <a href="desk-panels.html" class="cat-tabs__item is-active">Desk Panels</a>
-      <a href="wall-panels.html" class="cat-tabs__item">Wall Panels</a>
-      <a href="freestanding-panels.html" class="cat-tabs__item">Freestanding Panels</a>
-      <a href="ceiling-panels.html" class="cat-tabs__item">Ceiling Panels</a>
-    </div>
-  </nav>
-  <section class="wrap">
-    <p class="product-listing__count reveal">5 Results</p>
-    <div class="product-grid product-grid--listing reveal">
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Desk Panels 01</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Desk Panels 01</h3>
-            <p class="product-box__desc">Freestanding screens that mount directly to the desk, absorbing sound and adding privacy between adjacent workstations.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Desk Panels 02</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Desk Panels 02</h3>
-            <p class="product-box__desc">Freestanding screens that mount directly to the desk, absorbing sound and adding privacy between adjacent workstations.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Desk Panels 03</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Desk Panels 03</h3>
-            <p class="product-box__desc">Freestanding screens that mount directly to the desk, absorbing sound and adding privacy between adjacent workstations.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Desk Panels 04</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Desk Panels 04</h3>
-            <p class="product-box__desc">Freestanding screens that mount directly to the desk, absorbing sound and adding privacy between adjacent workstations.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
-      <div class="product-box product-box--listing">
-        <button type="button" class="product-box__trigger">
-          <span class="product-box__media product-box__media--placeholder"></span>
-          <span class="product-box__label">Desk Panels 05</span>
-        </button>
-        <div class="product-box__expanded">
-          <button type="button" class="product-box__close" aria-label="Close">✕</button>
-          <div class="product-box__carousel">
-          <div class="product-box__slide is-active" style="background:#f2efe7"></div>
-          <div class="product-box__slide" style="background:#ece7dc"></div>
-          <div class="product-box__slide" style="background:#e4ded0"></div>
-          <div class="product-box__slide" style="background:#dcd4c4"></div>
-          <div class="product-box__slide" style="background:#eae5da"></div>
-            <button type="button" class="product-box__arrow product-box__arrow--prev" aria-label="Previous image">‹</button>
-            <button type="button" class="product-box__arrow product-box__arrow--next" aria-label="Next image">›</button>
-            <div class="product-box__dots">
-            <span class="is-active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-          </div>
-          <div class="product-box__info">
-            <h3 class="product-box__title">Desk Panels 05</h3>
-            <p class="product-box__desc">Freestanding screens that mount directly to the desk, absorbing sound and adding privacy between adjacent workstations.</p>
-            <button type="button" class="btn btn--solid">Configure</button>
-          </div>
-        </div>
-      </div>
+  <section class="pl-closing">
+    <h2 class="feature__title" data-i18n="prod.closing.title">Can't find what you need?</h2>
+    <p class="feature__body" data-i18n="prod.closing.body">Every piece can be made to measure in our factory.</p>
+    <div class="feature__ctas">
+      <a class="feature__btn" href="../../contact.html" data-i18n="tour.outro.cta">Request a quote</a>
+      <a class="feature__link" href="../../bespoke.html" data-i18n="home.bespoke.cta">Discover Bespoke</a>
     </div>
   </section>
+  <section class="pl-others wrap">
+    <h2 class="pl-others__title" data-i18n="prod.others">Other categories</h2>
+    <ul class="pl-tiles pl-tiles--small">
+      <li class="pl-tile">
+        <a href="../../products/desks.html">
+          <span class="pl-tile__media"><img src="../../assets/img/products/genesis-desk.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.desks">Desks</span><span class="pl-tile__count">13</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../../products/tables-and-sharings.html">
+          <span class="pl-tile__media"><img src="../../assets/img/products/alfaomega-meeting.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.tables">Meetings</span><span class="pl-tile__count">6</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../../products/seatings.html">
+          <span class="pl-tile__media"><img src="../../assets/img/products/velar.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.seatings">Seatings</span><span class="pl-tile__count">59</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../../products/coffee-tables.html">
+          <span class="pl-tile__media"><img src="../../assets/img/products/sophie.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.coffeeTables">Coffee Tables</span><span class="pl-tile__count">8</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../../products/storage-units.html">
+          <span class="pl-tile__media"><img src="../../assets/img/products/one-sideboard.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.storage">Storage Units</span><span class="pl-tile__count">8</span></span>
+        </a>
+      </li>
+      <li class="pl-tile">
+        <a href="../../products/receptions.html">
+          <span class="pl-tile__media"><img src="../../assets/img/products/ciao-circular.jpg" alt="" loading="lazy" width="640" height="640"></span>
+          <span class="pl-tile__name"><span data-i18n="cat.receptions">Receptions</span><span class="pl-tile__count">5</span></span>
+        </a>
+      </li>
+    </ul>
+  </section>
+<dialog class="pl-quick" id="plQuick" aria-labelledby="plQuickName">
+  <div class="pl-quick__inner">
+    <button type="button" class="pl-quick__close" data-close data-i18n-aria="prod.close" aria-label="Close">&times;</button>
+    <div class="pl-quick__media"><img alt=""></div>
+    <div class="pl-quick__info">
+      <p class="pl-quick__meta"></p>
+      <h2 class="pl-quick__name" id="plQuickName"></h2>
+      <div class="pl-quick__ctas">
+        <a class="feature__btn" href="../../contact.html" data-i18n="tour.outro.cta">Request a quote</a>
+        <a class="feature__link pl-quick__collection" href="#" data-i18n="prod.collection">Discover the collection</a>
+        <a class="feature__link" href="../../resources.html" data-i18n="prod.catalogues">Catalogues and finishes</a>
+      </div>
+    </div>
+  </div>
+</dialog>
 </main>
+
 
 <footer class="site-footer">
   <div id="legal">
@@ -240,13 +181,13 @@
         <summary data-i18n="nav.company">Company</summary>
         <p>Since 1954, Codutti has designed and manufactured office furniture entirely in-house, uniting seventy years of Italian craftsmanship with the precision of modern technology to build tailor-made workspaces for clients around the world. VAT IT14045811008.</p>
         <div class="legal-accordion__addresses">
-          <a href="https://www.google.com/maps/search/?api=1&query=Via+Bonavilla+34%2C+33037+Pasian+di+Prato+UD+Italy" target="_blank" rel="noopener">Headquarters — Pasian di Prato (UD), Italy</a>
-          <a href="https://www.google.com/maps/search/?api=1&query=Martignacco+UD+Italy" target="_blank" rel="noopener">Production Site — Martignacco (UD), Italy</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Via+Bonavilla+34%2C+33037+Pasian+di+Prato+UD+Italy" target="_blank" rel="noopener" data-i18n="mii.hq">Headquarters — Pasian di Prato (UD), Italy</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Martignacco+UD+Italy" target="_blank" rel="noopener" data-i18n="mii.production">Production Site — Martignacco (UD), Italy</a>
         </div>
       </details>
       <details>
         <summary data-i18n="nav.products">Our Products</summary>
-        <p>Desks, Meetings, Seatings, Coffee Tables, Storage Units, Receptions and Acoustic Solutions — a complete range for every space. <a href="../all.html">Explore Our Products</a>.</p>
+        <p>Desks, Meetings, Seatings, Coffee Tables, Storage Units, Receptions and Acoustic Solutions — a complete range for every space. <a href="../../products/all.html">Explore Our Products</a>.</p>
       </details>
       <details>
         <summary data-i18n="contract.title">Contract</summary>
@@ -320,5 +261,6 @@
 
 <script src="../../assets/js/i18n.js"></script>
 <script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/products.js"></script>
 </body>
 </html>
