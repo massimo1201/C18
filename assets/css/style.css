@@ -3676,3 +3676,16 @@ body.nav-open .brand img { filter: none; }
 body.page-downloads, body.page-downloads main { background: #fff; }
 body.page-downloads .site-header { background: rgba(255,255,255,0.9); }
 body.page-downloads .pl-chip { background: #fff; }
+body.page-downloads .pl-chip.is-active { background: var(--black); color: #fff; }
+/* Language panel white too, same as the menu */
+.lang-overlay { background: #fff; color: var(--black); }
+.lang-overlay__item { color: var(--black); }
+body.lang-open .site-header { background: #fff; color: var(--black); }
+body.lang-open .brand img { filter: none; }
+.lang-ai { border-top-color: var(--line); }
+.lang-ai__input { color: var(--black); border-color: rgba(10,10,10,0.3); }
+.lang-ai__input::placeholder { color: rgba(10,10,10,0.45); }
+.lang-ai__input:focus { border-color: var(--black); }
+.lang-ai__btn { background: var(--black); color: #fff; }
+.lang-ai__reset { color: var(--black); border-color: rgba(10,10,10,0.3); }
+.lang-ai__msg { color: #b23a1e; }
