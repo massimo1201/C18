@@ -117,11 +117,6 @@
     "key": "single-desk",
     "image": "assets/img/products/genesis-desk/v0.jpg",
     "fit": "contain"
-   },
-   {
-    "key": "desk-extension",
-    "image": "assets/img/products/genesis-desk/v1.jpg",
-    "fit": "contain"
    }
   ],
   "gallery": [
@@ -676,20 +671,12 @@
     "key": "bench",
     "image": "assets/img/products/new-adjustable-bench/v0.jpg",
     "fit": "contain"
-   },
-   {
-    "key": "with-chairs",
-    "image": "assets/img/products/new-adjustable-bench/v1.jpg",
-    "fit": "contain"
-   },
-   {
-    "key": "heights",
-    "image": "assets/img/products/new-adjustable-bench/v2.jpg",
-    "fit": "contain"
    }
   ],
   "gallery": [
-   "assets/img/products/new-adjustable-bench/g0.jpg"
+   "assets/img/products/new-adjustable-bench/g0.jpg",
+   "assets/img/products/new-adjustable-bench/g1.jpg",
+   "assets/img/products/new-adjustable-bench/g2.jpg"
   ],
   "fit": "contain",
   "catalogue": null,
@@ -732,11 +719,6 @@
    {
     "key": "meeting-table",
     "image": "assets/img/products/one-meeting/v0.jpg",
-    "fit": "contain"
-   },
-   {
-    "key": "glass-meeting",
-    "image": "assets/img/products/one-meeting/v1.jpg",
     "fit": "contain"
    }
   ],
@@ -989,13 +971,8 @@
     "fit": "contain"
    },
    {
-    "key": "round-table",
-    "image": "assets/img/products/mithos-meeting/v1.jpg",
-    "fit": "contain"
-   },
-   {
     "key": "boardroom",
-    "image": "assets/img/products/mithos-meeting/v2.jpg",
+    "image": "assets/img/products/mithos-meeting/v1.jpg",
     "fit": "contain"
    }
   ],
@@ -1094,13 +1071,8 @@
     "fit": "contain"
    },
    {
-    "key": "round-table",
-    "image": "assets/img/products/ginza-meeting/v1.jpg",
-    "fit": "contain"
-   },
-   {
     "key": "meeting-table",
-    "image": "assets/img/products/ginza-meeting/v2.jpg",
+    "image": "assets/img/products/ginza-meeting/v1.jpg",
     "fit": "contain"
    }
   ],
@@ -1355,13 +1327,8 @@
   ],
   "variants": [
    {
-    "key": "sharing",
-    "image": "assets/img/products/2be-sharing/v0.jpg",
-    "fit": "contain"
-   },
-   {
     "key": "break",
-    "image": "assets/img/products/2be-sharing/v1.jpg",
+    "image": "assets/img/products/2be-sharing/v0.jpg",
     "fit": "contain"
    }
   ],
@@ -1842,11 +1809,6 @@
     "key": "bookcase",
     "image": "assets/img/products/2be-storage/v1.jpg",
     "fit": "contain"
-   },
-   {
-    "key": "smart-wall",
-    "image": "assets/img/products/2be-storage/v2.jpg",
-    "fit": "contain"
    }
   ],
   "gallery": [
@@ -1910,48 +1872,6 @@
    "CF70",
    "CA80",
    "CP79"
-  ]
- },
- {
-  "slug": "ginza-coffee",
-  "name": "Ginza",
-  "collection": "ginza",
-  "category": "coffee-tables",
-  "subcategories": [],
-  "variants": [
-   {
-    "key": "coffee-table",
-    "image": "assets/img/products/ginza-coffee/v0.jpg",
-    "fit": "contain"
-   }
-  ],
-  "gallery": [
-   "assets/img/products/ginza-coffee/g0.jpg",
-   "assets/img/products/ginza-coffee/g1.jpg"
-  ],
-  "fit": "cover",
-  "catalogue": null,
-  "new": false,
-  "finishes": [
-   "SN07",
-   "SU09",
-   "SM10",
-   "SH11",
-   "QT57",
-   "QW56",
-   "SW06",
-   "FE52",
-   "FP61",
-   "FS60",
-   "FV67",
-   "FB53",
-   "FW63",
-   "FM64",
-   "FG65",
-   "FF62",
-   "VE65",
-   "H4604",
-   "H0001"
   ]
  },
  {
