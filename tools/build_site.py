@@ -182,7 +182,8 @@ def nav_html(p):
 
 
 def scripts_html(p, extra=()):
-    s = [f'<script src="{p}assets/js/i18n.js"></script>',
+    s = [f'<script src="{p}assets/js/ai-config.js"></script>',
+         f'<script src="{p}assets/js/i18n.js"></script>',
          f'<script src="{p}assets/js/finish-names.js"></script>',
          f'<script src="{p}assets/js/main.js"></script>',
          f'<script src="{p}assets/js/search-index.js" defer></script>',
@@ -199,6 +200,8 @@ def apply_chrome(path):
     s = re.sub(r'<header class="site-header">.*?</header>', lambda m: header_html(p), s, count=1, flags=re.S)
     s = re.sub(r'<div class="lang-overlay" id="langOverlay">.*?(?=\n*<nav class="nav-overlay")', lambda m: lang_html() + "\n\n", s, count=1, flags=re.S)
     s = re.sub(r'<nav class="nav-overlay".*?</nav>', lambda m: nav_html(p), s, count=1, flags=re.S)
+    if "ai-config.js" not in s:
+        s = s.replace(f'<script src="{p}assets/js/i18n.js"></script>', f'<script src="{p}assets/js/ai-config.js"></script>\n<script src="{p}assets/js/i18n.js"></script>', 1)
     if "search.js" not in s:
         s = s.replace(f'<script src="{p}assets/js/main.js"></script>',
                       f'<script src="{p}assets/js/finish-names.js"></script>\n<script src="{p}assets/js/main.js"></script>\n<script src="{p}assets/js/search-index.js" defer></script>\n<script src="{p}assets/js/search.js" defer></script>', 1)
@@ -579,7 +582,10 @@ VAR_EN = {
     "bench": "Bench", "double-ws": "Double workstation", "workstation": "Workstation", "sharing": "Sharing",
     "break": "Break", "linear": "Linear", "corner": "Corner", "wave": "Wave", "circular": "Circular",
     "double-wave": "Double wave", "reception-desk": "Reception desk", "heights": "Height range",
-    "with-storage": "With storage unit", "with-chairs": "With chairs", "screen": "Acoustic screen",
+    "with-storage": "With storage unit", "bench-screens": "Bench with screens", "single-panel": "Single panel",
+    "double-panel": "Double panel", "rail-mounted": "On wall rail", "joining-kit": "Joining kit",
+    "freestanding": "Freestanding panel", "ceiling-single": "Ceiling panel", "ceiling-light": "Ceiling panel with light",
+    "ceiling-double": "Double ceiling panel", "ceiling-v": "V-shaped ceiling panel", "ceiling-folded": "Folded ceiling panel", "with-chairs": "With chairs", "screen": "Acoustic screen",
 }
 
 
@@ -604,32 +610,44 @@ def projects_page():
     return page(p, "Projects", "Codutti contract projects worldwide.", main)
 
 
+DL_GROUPS = [("dl.profile", "Company profile", "company"), ("dl.catalogue", "Catalogue", "catalogue"), ("dl.materials", "Materials", "materials")]
+
+
 def downloads_page():
     p = ""
-    rows = []
+    kind = {"dl.profile": "company", "dl.catalogue": "catalogue", "dl.materials": "materials"}
+    cards = []
     for fn, name, key in DOWNLOADS:
         path = os.path.join(ROOT, "assets/docs", fn)
         if not os.path.exists(path):
             continue
         mb = os.path.getsize(path) / 1e6
-        rows.append(f'''      <li class="dl-row">
+        cover = f"assets/img/covers/{fn[:-4]}.jpg"
+        cards.append(f'''      <li class="dl-card" data-kind="{kind[key]}">
         <a href="assets/docs/{fn}" download>
-          <span class="dl-row__name">{esc(name)}</span>
-          <span class="dl-row__meta"><span data-i18n="{key}">Catalogue</span> · PDF · {mb:.0f} MB</span>
-          <span class="dl-row__icon">{ICON_DL}</span>
+          <span class="dl-card__cover"><img src="{cover}" alt="" loading="lazy"></span>
+          <span class="dl-card__type" data-i18n="{key}">Catalogue</span>
+          <span class="dl-card__name">{esc(name)}</span>
+          <span class="dl-card__meta">PDF · {mb:.0f} MB</span>
+          <span class="dl-card__btn">{ICON_DL}<span data-i18n="nav.download">Download</span></span>
         </a>
       </li>''')
+    chips = ['<button type="button" class="pl-chip is-active" data-filter="" data-i18n="prod.all">All</button>']
+    chips += [f'<button type="button" class="pl-chip" data-filter="{k}" data-i18n="{i}">{l}</button>' for i, l, k in DL_GROUPS]
     main = f'''  <section class="pl-hero wrap">
     <h1 class="pl-title" data-i18n="nav.download">Download</h1>
     <p class="pl-intro" data-i18n="dl.intro">Catalogues and company profile, ready to download.</p>
   </section>
+  <nav class="pl-chips wrap" aria-label="Filter">
+    {"".join(chips)}
+  </nav>
   <section class="wrap pl-list">
-    <ul class="dl-list">
-{chr(10).join(rows)}
+    <ul class="dl-grid">
+{chr(10).join(cards)}
     </ul>
   </section>
 {closing(p)}'''
-    return page(p, "Download", "Codutti catalogues and company profile.", main)
+    return page(p, "Download", "Codutti catalogues, material books and company profile.", main, "page-downloads", ("products",))
 
 
 # --------------------------------------------------------------------------

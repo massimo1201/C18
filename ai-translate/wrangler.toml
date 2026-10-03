@@ -1,0 +1,18 @@
+name = "codutti-ai-translate"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Sites allowed to call the translator (comma separated).
+[vars]
+ALLOWED_ORIGINS = "https://www.codutti.it,https://codutti.it,http://localhost:8765"
+
+# Optional cache so each page is translated once per language:
+#   npx wrangler kv namespace create TRANSLATIONS
+# then paste the id below and uncomment.
+# [[kv_namespaces]]
+# binding = "TRANSLATIONS"
+# id = "..."
+
+# The API key is a secret, never in this file:
+#   npx wrangler secret put ANTHROPIC_API_KEY

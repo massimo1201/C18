@@ -22,3 +22,13 @@
     if (window.matchMedia('(max-width: 860px)').matches) main.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }));
 })();
+
+/* Downloads page: filter cards by type. */
+(() => {
+  const chips = Array.from(document.querySelectorAll('.page-downloads [data-filter]'));
+  const cards = Array.from(document.querySelectorAll('.dl-card'));
+  chips.forEach((c) => c.addEventListener('click', () => {
+    chips.forEach((x) => { x.classList.toggle('is-active', x === c); x.setAttribute('aria-pressed', String(x === c)); });
+    cards.forEach((k) => { k.hidden = !!c.dataset.filter && k.dataset.kind !== c.dataset.filter; });
+  }));
+})();
