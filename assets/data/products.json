@@ -2,793 +2,1916 @@
  {
   "slug": "one-desk",
   "name": "One",
-  "category": "desks",
-  "subcategory": "executive-desks",
   "collection": "one",
-  "image": "assets/img/products/one-desk.jpg"
+  "category": "desks",
+  "subcategories": [
+   "executive-desks"
+  ],
+  "variants": [
+   {
+    "key": "single-desk",
+    "image": "assets/img/products/one-desk/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "desk-extension",
+    "image": "assets/img/products/one-desk/v1.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/one-desk/g0.jpg",
+   "assets/img/products/one-desk/g1.jpg",
+   "assets/img/products/one-desk/g2.jpg",
+   "assets/img/products/one-desk/g3.jpg",
+   "assets/img/products/one-desk/g4.jpg",
+   "assets/img/products/one-desk/g5.jpg",
+   "assets/img/products/one-desk/g6.jpg",
+   "assets/img/products/one-desk/g7.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-One-Catalogue.pdf",
+  "new": false
  },
  {
-  "slug": "one-l-desk",
-  "name": "One · L-shaped desk",
+  "slug": "isixty-desk",
+  "name": "iSixty",
+  "collection": "isixty",
   "category": "desks",
-  "subcategory": "executive-desks",
-  "collection": "one",
-  "image": "assets/img/products/one-l-desk.jpg"
+  "subcategories": [
+   "executive-desks"
+  ],
+  "variants": [
+   {
+    "key": "desk",
+    "image": "assets/img/products/isixty-desk/v0.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/isixty-desk/g0.jpg",
+   "assets/img/products/isixty-desk/g1.jpg",
+   "assets/img/products/isixty-desk/g2.jpg",
+   "assets/img/products/isixty-desk/g3.jpg",
+   "assets/img/products/isixty-desk/g4.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-iSixty-Catalogue.pdf",
+  "new": false
  },
  {
   "slug": "genesis-desk",
   "name": "Genesis",
-  "category": "desks",
-  "subcategory": "executive-desks",
   "collection": "genesis",
-  "image": "assets/img/products/genesis-desk.jpg"
+  "category": "desks",
+  "subcategories": [
+   "executive-desks"
+  ],
+  "variants": [
+   {
+    "key": "single-desk",
+    "image": "assets/img/products/genesis-desk/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "desk-extension",
+    "image": "assets/img/products/genesis-desk/v1.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/genesis-desk/g0.jpg",
+   "assets/img/products/genesis-desk/g1.jpg",
+   "assets/img/products/genesis-desk/g2.jpg",
+   "assets/img/products/genesis-desk/g3.jpg",
+   "assets/img/products/genesis-desk/g4.jpg",
+   "assets/img/products/genesis-desk/g5.jpg",
+   "assets/img/products/genesis-desk/g6.jpg",
+   "assets/img/products/genesis-desk/g7.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Genesis-Catalogue.pdf",
+  "new": false
  },
  {
-  "slug": "genesis-desk-set",
-  "name": "Genesis · Executive set",
+  "slug": "alfaomega-desk",
+  "name": "Alfaomega",
+  "collection": "alfaomega",
   "category": "desks",
-  "subcategory": "executive-desks",
-  "collection": "genesis",
-  "image": "assets/img/products/genesis-desk-set.jpg"
+  "subcategories": [
+   "executive-desks"
+  ],
+  "variants": [
+   {
+    "key": "single-desk",
+    "image": "assets/img/products/alfaomega-desk/v0.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "desk-extension",
+    "image": "assets/img/products/alfaomega-desk/v1.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/alfaomega-desk/g0.jpg",
+   "assets/img/products/alfaomega-desk/g1.jpg",
+   "assets/img/products/alfaomega-desk/g2.jpg",
+   "assets/img/products/alfaomega-desk/g3.jpg",
+   "assets/img/products/alfaomega-desk/g4.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Alfaomega-Catalogue.pdf",
+  "new": false
+ },
+ {
+  "slug": "mithos-desk",
+  "name": "Mithos",
+  "collection": "mithos",
+  "category": "desks",
+  "subcategories": [
+   "executive-desks"
+  ],
+  "variants": [
+   {
+    "key": "desk",
+    "image": "assets/img/products/mithos-desk/v0.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "desk-extension",
+    "image": "assets/img/products/mithos-desk/v1.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/mithos-desk/g0.jpg",
+   "assets/img/products/mithos-desk/g1.jpg",
+   "assets/img/products/mithos-desk/g2.jpg",
+   "assets/img/products/mithos-desk/g3.jpg",
+   "assets/img/products/mithos-desk/g4.jpg"
+  ],
+  "fit": "cover",
+  "catalogue": "assets/docs/Codutti-Mithos-Catalogue.pdf",
+  "new": false
+ },
+ {
+  "slug": "cloud-desk",
+  "name": "Cloud",
+  "collection": "cloud",
+  "category": "desks",
+  "subcategories": [
+   "executive-desks"
+  ],
+  "variants": [
+   {
+    "key": "desk",
+    "image": "assets/img/products/cloud-desk/v0.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "desk-extension",
+    "image": "assets/img/products/cloud-desk/v1.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/cloud-desk/g0.jpg",
+   "assets/img/products/cloud-desk/g1.jpg",
+   "assets/img/products/cloud-desk/g2.jpg",
+   "assets/img/products/cloud-desk/g3.jpg",
+   "assets/img/products/cloud-desk/g4.jpg",
+   "assets/img/products/cloud-desk/g5.jpg"
+  ],
+  "fit": "cover",
+  "catalogue": null,
+  "new": false
  },
  {
   "slug": "attiva-desk",
   "name": "Attiva",
-  "category": "desks",
-  "subcategory": "operative-desks",
   "collection": "attiva",
-  "image": "assets/img/products/attiva-desk.jpg"
- },
- {
-  "slug": "attiva-l-desk",
-  "name": "Attiva · L-shaped desk",
   "category": "desks",
-  "subcategory": "operative-desks",
-  "collection": "attiva",
-  "image": "assets/img/products/attiva-l-desk.jpg"
- },
- {
-  "slug": "attiva-glass-desk",
-  "name": "Attiva · Glass top",
-  "category": "desks",
-  "subcategory": "operative-desks",
-  "collection": "attiva",
-  "image": "assets/img/products/attiva-glass-desk.jpg"
- },
- {
-  "slug": "attiva-wood-desk",
-  "name": "Attiva · Wooden legs",
-  "category": "desks",
-  "subcategory": "operative-desks",
-  "collection": "attiva",
-  "image": "assets/img/products/attiva-wood-desk.jpg"
+  "subcategories": [
+   "operative-desks"
+  ],
+  "variants": [
+   {
+    "key": "desk",
+    "image": "assets/img/products/attiva-desk/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "desk-extension",
+    "image": "assets/img/products/attiva-desk/v1.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "wood-legs",
+    "image": "assets/img/products/attiva-desk/v2.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "single-desk",
+    "image": "assets/img/products/attiva-desk/v3.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/attiva-desk/g0.jpg",
+   "assets/img/products/attiva-desk/g1.jpg",
+   "assets/img/products/attiva-desk/g2.jpg",
+   "assets/img/products/attiva-desk/g3.jpg",
+   "assets/img/products/attiva-desk/g4.jpg",
+   "assets/img/products/attiva-desk/g5.jpg",
+   "assets/img/products/attiva-desk/g6.jpg",
+   "assets/img/products/attiva-desk/g7.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Attiva-Catalogue.pdf",
+  "new": false
  },
  {
   "slug": "team-desk",
   "name": "Team",
-  "category": "desks",
-  "subcategory": "operative-desks",
   "collection": "team",
-  "image": "assets/img/products/team-desk.jpg"
+  "category": "desks",
+  "subcategories": [
+   "operative-desks"
+  ],
+  "variants": [
+   {
+    "key": "single-desk",
+    "image": "assets/img/products/team-desk/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "desk-extension",
+    "image": "assets/img/products/team-desk/v1.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/team-desk/g0.jpg",
+   "assets/img/products/team-desk/g1.jpg",
+   "assets/img/products/team-desk/g2.jpg",
+   "assets/img/products/team-desk/g3.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Team-Catalogue.pdf",
+  "new": false
  },
  {
-  "slug": "team-l-desk",
-  "name": "Team · L-shaped desk",
+  "slug": "2be-desk",
+  "name": "2BE",
+  "collection": "2be",
   "category": "desks",
-  "subcategory": "operative-desks",
-  "collection": "team",
-  "image": "assets/img/products/team-l-desk.jpg"
- },
- {
-  "slug": "team-curved-desk",
-  "name": "Team · Curved desk",
-  "category": "desks",
-  "subcategory": "operative-desks",
-  "collection": "team",
-  "image": "assets/img/products/team-curved-desk.jpg"
- },
- {
-  "slug": "team-adjustable",
-  "name": "Team · Height adjustable",
-  "category": "desks",
-  "subcategory": "adjustable-desks",
-  "collection": "adjustable-desks",
-  "image": "assets/img/products/team-adjustable.jpg"
+  "subcategories": [
+   "operative-desks"
+  ],
+  "variants": [
+   {
+    "key": "desk",
+    "image": "assets/img/products/2be-desk/v0.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/2be-desk/g0.jpg",
+   "assets/img/products/2be-desk/g1.jpg",
+   "assets/img/products/2be-desk/g2.jpg",
+   "assets/img/products/2be-desk/g3.jpg",
+   "assets/img/products/2be-desk/g4.jpg"
+  ],
+  "fit": "cover",
+  "catalogue": "assets/docs/Codutti-2BE-Catalogue.pdf",
+  "new": false
  },
  {
   "slug": "team-bench",
-  "name": "Team · Bench",
-  "category": "desks",
-  "subcategory": "system-benches",
+  "name": "Team Bench",
   "collection": "team",
-  "image": "assets/img/products/team-bench.jpg"
+  "category": "desks",
+  "subcategories": [
+   "system-benches"
+  ],
+  "variants": [
+   {
+    "key": "bench",
+    "image": "assets/img/products/team-bench/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "double-ws",
+    "image": "assets/img/products/team-bench/v1.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/team-bench/g0.jpg",
+   "assets/img/products/team-bench/g1.jpg",
+   "assets/img/products/team-bench/g2.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Team-Catalogue.pdf",
+  "new": false
+ },
+ {
+  "slug": "2be-workstation",
+  "name": "2BE Workstation",
+  "collection": "2be",
+  "category": "desks",
+  "subcategories": [
+   "system-benches"
+  ],
+  "variants": [
+   {
+    "key": "workstation",
+    "image": "assets/img/products/2be-workstation/v0.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/2be-workstation/g0.jpg",
+   "assets/img/products/2be-workstation/g1.jpg",
+   "assets/img/products/2be-workstation/g2.jpg",
+   "assets/img/products/2be-workstation/g3.jpg"
+  ],
+  "fit": "cover",
+  "catalogue": "assets/docs/Codutti-2BE-Catalogue.pdf",
+  "new": false
+ },
+ {
+  "slug": "single-desk",
+  "name": "Single Desk",
+  "collection": "adjustable-desks",
+  "category": "desks",
+  "subcategories": [
+   "adjustable-desks"
+  ],
+  "variants": [
+   {
+    "key": "single-desk",
+    "image": "assets/img/products/single-desk/v0.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "heights",
+    "image": "assets/img/products/single-desk/v1.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "with-storage",
+    "image": "assets/img/products/single-desk/v2.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/single-desk/g0.jpg",
+   "assets/img/products/single-desk/g1.jpg",
+   "assets/img/products/single-desk/g2.jpg",
+   "assets/img/products/single-desk/g3.jpg",
+   "assets/img/products/single-desk/g4.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Height-Adjustable-Catalogue.pdf",
+  "new": false
+ },
+ {
+  "slug": "bench",
+  "name": "Bench",
+  "collection": "adjustable-desks",
+  "category": "desks",
+  "subcategories": [
+   "adjustable-desks",
+   "system-benches"
+  ],
+  "variants": [
+   {
+    "key": "bench",
+    "image": "assets/img/products/bench/v0.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "heights",
+    "image": "assets/img/products/bench/v1.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "screen",
+    "image": "assets/img/products/bench/v2.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/bench/g0.jpg",
+   "assets/img/products/bench/g1.jpg",
+   "assets/img/products/bench/g2.jpg",
+   "assets/img/products/bench/g3.jpg",
+   "assets/img/products/bench/g4.jpg",
+   "assets/img/products/bench/g5.jpg",
+   "assets/img/products/bench/g6.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Height-Adjustable-Catalogue.pdf",
+  "new": false
+ },
+ {
+  "slug": "new-adjustable-bench",
+  "name": "New Adjustable Bench",
+  "collection": null,
+  "category": "desks",
+  "subcategories": [
+   "adjustable-desks",
+   "system-benches"
+  ],
+  "variants": [
+   {
+    "key": "bench",
+    "image": "assets/img/products/new-adjustable-bench/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "with-chairs",
+    "image": "assets/img/products/new-adjustable-bench/v1.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "heights",
+    "image": "assets/img/products/new-adjustable-bench/v2.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/new-adjustable-bench/g0.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": null,
+  "new": true
  },
  {
   "slug": "one-meeting",
-  "name": "One · Meeting table",
-  "category": "tables-and-sharings",
-  "subcategory": "meeting-tables",
+  "name": "One",
   "collection": "one",
-  "image": "assets/img/products/one-meeting.jpg"
+  "category": "tables-and-sharings",
+  "subcategories": [
+   "meeting-tables"
+  ],
+  "variants": [
+   {
+    "key": "meeting-table",
+    "image": "assets/img/products/one-meeting/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "glass-meeting",
+    "image": "assets/img/products/one-meeting/v1.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/one-meeting/g0.jpg",
+   "assets/img/products/one-meeting/g1.jpg",
+   "assets/img/products/one-meeting/g2.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-One-Catalogue.pdf",
+  "new": false
  },
  {
-  "slug": "one-glass-meeting",
-  "name": "One · Glass meeting table",
+  "slug": "isixty-meeting",
+  "name": "iSixty",
+  "collection": "isixty",
   "category": "tables-and-sharings",
-  "subcategory": "meeting-tables",
-  "collection": "one",
-  "image": "assets/img/products/one-glass-meeting.jpg"
+  "subcategories": [
+   "meeting-tables"
+  ],
+  "variants": [
+   {
+    "key": "meeting-table",
+    "image": "assets/img/products/isixty-meeting/v0.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/isixty-meeting/g0.jpg",
+   "assets/img/products/isixty-meeting/g1.jpg",
+   "assets/img/products/isixty-meeting/g2.jpg"
+  ],
+  "fit": "cover",
+  "catalogue": "assets/docs/Codutti-iSixty-Catalogue.pdf",
+  "new": false
  },
  {
   "slug": "genesis-meeting",
-  "name": "Genesis · Modular meeting",
-  "category": "tables-and-sharings",
-  "subcategory": "meeting-tables",
+  "name": "Genesis",
   "collection": "genesis",
-  "image": "assets/img/products/genesis-meeting.jpg"
+  "category": "tables-and-sharings",
+  "subcategories": [
+   "meeting-tables"
+  ],
+  "variants": [
+   {
+    "key": "glass-meeting",
+    "image": "assets/img/products/genesis-meeting/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "glass-meeting-square",
+    "image": "assets/img/products/genesis-meeting/v1.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "modular-meeting",
+    "image": "assets/img/products/genesis-meeting/v2.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/genesis-meeting/g0.jpg",
+   "assets/img/products/genesis-meeting/g1.jpg",
+   "assets/img/products/genesis-meeting/g2.jpg",
+   "assets/img/products/genesis-meeting/g3.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Genesis-Catalogue.pdf",
+  "new": false
  },
  {
   "slug": "alfaomega-meeting",
-  "name": "Alfaomega · Boardroom",
-  "category": "tables-and-sharings",
-  "subcategory": "meeting-tables",
+  "name": "Alfaomega",
   "collection": "alfaomega",
-  "image": "assets/img/products/alfaomega-meeting.jpg"
+  "category": "tables-and-sharings",
+  "subcategories": [
+   "meeting-tables"
+  ],
+  "variants": [
+   {
+    "key": "meeting-table",
+    "image": "assets/img/products/alfaomega-meeting/v0.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/alfaomega-meeting/g0.jpg",
+   "assets/img/products/alfaomega-meeting/g1.jpg",
+   "assets/img/products/alfaomega-meeting/g2.jpg",
+   "assets/img/products/alfaomega-meeting/g3.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Alfaomega-Catalogue.pdf",
+  "new": false
+ },
+ {
+  "slug": "attiva-meeting",
+  "name": "Attiva",
+  "collection": "attiva",
+  "category": "tables-and-sharings",
+  "subcategories": [
+   "meeting-tables"
+  ],
+  "variants": [
+   {
+    "key": "meeting-table",
+    "image": "assets/img/products/attiva-meeting/v0.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/attiva-meeting/g0.jpg",
+   "assets/img/products/attiva-meeting/g1.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Attiva-Catalogue.pdf",
+  "new": false
+ },
+ {
+  "slug": "mithos-meeting",
+  "name": "Mithos",
+  "collection": "mithos",
+  "category": "tables-and-sharings",
+  "subcategories": [
+   "meeting-tables"
+  ],
+  "variants": [
+   {
+    "key": "meeting-table",
+    "image": "assets/img/products/mithos-meeting/v0.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "round-table",
+    "image": "assets/img/products/mithos-meeting/v1.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "boardroom",
+    "image": "assets/img/products/mithos-meeting/v2.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/mithos-meeting/g0.jpg",
+   "assets/img/products/mithos-meeting/g1.jpg",
+   "assets/img/products/mithos-meeting/g2.jpg",
+   "assets/img/products/mithos-meeting/g3.jpg"
+  ],
+  "fit": "cover",
+  "catalogue": "assets/docs/Codutti-Mithos-Catalogue.pdf",
+  "new": false
+ },
+ {
+  "slug": "cloud-meeting",
+  "name": "Cloud",
+  "collection": "cloud",
+  "category": "tables-and-sharings",
+  "subcategories": [
+   "meeting-tables"
+  ],
+  "variants": [
+   {
+    "key": "glass-meeting",
+    "image": "assets/img/products/cloud-meeting/v0.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "meeting-table",
+    "image": "assets/img/products/cloud-meeting/v1.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/cloud-meeting/g0.jpg",
+   "assets/img/products/cloud-meeting/g1.jpg",
+   "assets/img/products/cloud-meeting/g2.jpg",
+   "assets/img/products/cloud-meeting/g3.jpg"
+  ],
+  "fit": "cover",
+  "catalogue": null,
+  "new": false
+ },
+ {
+  "slug": "ginza-meeting",
+  "name": "Ginza",
+  "collection": "ginza",
+  "category": "tables-and-sharings",
+  "subcategories": [
+   "meeting-tables"
+  ],
+  "variants": [
+   {
+    "key": "meeting-table",
+    "image": "assets/img/products/ginza-meeting/v0.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "table-bench",
+    "image": "assets/img/products/ginza-meeting/v1.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "round-table",
+    "image": "assets/img/products/ginza-meeting/v2.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/ginza-meeting/g0.jpg",
+   "assets/img/products/ginza-meeting/g1.jpg",
+   "assets/img/products/ginza-meeting/g2.jpg",
+   "assets/img/products/ginza-meeting/g3.jpg"
+  ],
+  "fit": "cover",
+  "catalogue": null,
+  "new": false
+ },
+ {
+  "slug": "2be-round",
+  "name": "2BE",
+  "collection": "2be",
+  "category": "tables-and-sharings",
+  "subcategories": [
+   "meeting-tables"
+  ],
+  "variants": [
+   {
+    "key": "round-table",
+    "image": "assets/img/products/2be-round/v0.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "meeting-table",
+    "image": "assets/img/products/2be-round/v1.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/2be-round/g0.jpg",
+   "assets/img/products/2be-round/g1.jpg",
+   "assets/img/products/2be-round/g2.jpg"
+  ],
+  "fit": "cover",
+  "catalogue": "assets/docs/Codutti-2BE-Catalogue.pdf",
+  "new": false
+ },
+ {
+  "slug": "meeting-table",
+  "name": "Meeting Table",
+  "collection": "adjustable-desks",
+  "category": "tables-and-sharings",
+  "subcategories": [
+   "meeting-tables"
+  ],
+  "variants": [
+   {
+    "key": "meeting-table",
+    "image": "assets/img/products/meeting-table/v0.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "heights",
+    "image": "assets/img/products/meeting-table/v1.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/meeting-table/g0.jpg",
+   "assets/img/products/meeting-table/g1.jpg",
+   "assets/img/products/meeting-table/g2.jpg",
+   "assets/img/products/meeting-table/g3.jpg",
+   "assets/img/products/meeting-table/g4.jpg",
+   "assets/img/products/meeting-table/g5.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Height-Adjustable-Catalogue.pdf",
+  "new": false
+ },
+ {
+  "slug": "meeting-wall-table",
+  "name": "Meeting Wall Table",
+  "collection": "adjustable-desks",
+  "category": "tables-and-sharings",
+  "subcategories": [
+   "meeting-tables"
+  ],
+  "variants": [
+   {
+    "key": "meeting-table",
+    "image": "assets/img/products/meeting-wall-table/v0.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "heights",
+    "image": "assets/img/products/meeting-wall-table/v1.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/meeting-wall-table/g0.jpg",
+   "assets/img/products/meeting-wall-table/g1.jpg",
+   "assets/img/products/meeting-wall-table/g2.jpg",
+   "assets/img/products/meeting-wall-table/g3.jpg",
+   "assets/img/products/meeting-wall-table/g4.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Height-Adjustable-Catalogue.pdf",
+  "new": false
  },
  {
   "slug": "one-high-table",
-  "name": "One · High table",
-  "category": "tables-and-sharings",
-  "subcategory": "sharing-tables",
+  "name": "One",
   "collection": "one",
-  "image": "assets/img/products/one-high-table.jpg"
+  "category": "tables-and-sharings",
+  "subcategories": [
+   "sharing-tables"
+  ],
+  "variants": [
+   {
+    "key": "high-table",
+    "image": "assets/img/products/one-high-table/v0.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/one-high-table/g0.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-One-Catalogue.pdf",
+  "new": false
  },
  {
   "slug": "team-sharing",
-  "name": "Team · Sharing",
-  "category": "tables-and-sharings",
-  "subcategory": "sharing-tables",
+  "name": "Team",
   "collection": "team",
-  "image": "assets/img/products/team-sharing.jpg"
+  "category": "tables-and-sharings",
+  "subcategories": [
+   "sharing-tables"
+  ],
+  "variants": [
+   {
+    "key": "sharing",
+    "image": "assets/img/products/team-sharing/v0.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/team-sharing/g0.jpg",
+   "assets/img/products/team-sharing/g1.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Team-Catalogue.pdf",
+  "new": false
  },
  {
-  "slug": "genesis-coffee",
-  "name": "Genesis · Coffee table",
-  "category": "coffee-tables",
-  "subcategory": null,
-  "collection": "genesis",
-  "image": "assets/img/products/genesis-coffee.jpg"
+  "slug": "2be-sharing",
+  "name": "2BE",
+  "collection": "2be",
+  "category": "tables-and-sharings",
+  "subcategories": [
+   "sharing-tables"
+  ],
+  "variants": [
+   {
+    "key": "sharing",
+    "image": "assets/img/products/2be-sharing/v0.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "break",
+    "image": "assets/img/products/2be-sharing/v1.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/2be-sharing/g0.jpg",
+   "assets/img/products/2be-sharing/g1.jpg",
+   "assets/img/products/2be-sharing/g2.jpg",
+   "assets/img/products/2be-sharing/g3.jpg",
+   "assets/img/products/2be-sharing/g4.jpg",
+   "assets/img/products/2be-sharing/g5.jpg"
+  ],
+  "fit": "cover",
+  "catalogue": "assets/docs/Codutti-2BE-Catalogue.pdf",
+  "new": false
  },
  {
-  "slug": "tondo",
-  "name": "Tondo",
-  "category": "coffee-tables",
-  "subcategory": null,
-  "collection": null,
-  "image": "assets/img/products/tondo.jpg"
- },
- {
-  "slug": "claudia",
-  "name": "Claudia",
-  "category": "coffee-tables",
-  "subcategory": null,
-  "collection": null,
-  "image": "assets/img/products/claudia.jpg"
- },
- {
-  "slug": "elena",
-  "name": "Elena",
-  "category": "coffee-tables",
-  "subcategory": null,
-  "collection": null,
-  "image": "assets/img/products/elena.jpg"
- },
- {
-  "slug": "simple",
-  "name": "Simple",
-  "category": "coffee-tables",
-  "subcategory": null,
-  "collection": null,
-  "image": "assets/img/products/simple.jpg"
- },
- {
-  "slug": "cali",
-  "name": "Cali",
-  "category": "coffee-tables",
-  "subcategory": null,
-  "collection": null,
-  "image": "assets/img/products/cali.jpg"
- },
- {
-  "slug": "sophie",
-  "name": "Sophie",
-  "category": "coffee-tables",
-  "subcategory": null,
-  "collection": null,
-  "image": "assets/img/products/sophie.jpg"
- },
- {
-  "slug": "regolo",
-  "name": "Regolo",
-  "category": "coffee-tables",
-  "subcategory": null,
-  "collection": null,
-  "image": "assets/img/products/regolo.jpg"
- },
- {
-  "slug": "one-sideboard",
-  "name": "One · Sideboard",
-  "category": "storage-units",
-  "subcategory": "cabinets",
+  "slug": "one-storage",
+  "name": "One",
   "collection": "one",
-  "image": "assets/img/products/one-sideboard.jpg"
+  "category": "storage-units",
+  "subcategories": [
+   "cabinets"
+  ],
+  "variants": [
+   {
+    "key": "sideboard",
+    "image": "assets/img/products/one-storage/v0.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/one-storage/g0.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-One-Catalogue.pdf",
+  "new": false
  },
  {
-  "slug": "genesis-credenza-long",
-  "name": "Genesis · Credenza",
+  "slug": "isixty-storage",
+  "name": "iSixty",
+  "collection": "isixty",
   "category": "storage-units",
-  "subcategory": "cabinets",
+  "subcategories": [
+   "cabinets"
+  ],
+  "variants": [
+   {
+    "key": "sideboard",
+    "image": "assets/img/products/isixty-storage/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "low-sideboard",
+    "image": "assets/img/products/isixty-storage/v1.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "bar-cabinet",
+    "image": "assets/img/products/isixty-storage/v2.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/isixty-storage/g0.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-iSixty-Catalogue.pdf",
+  "new": false
+ },
+ {
+  "slug": "genesis-storage",
+  "name": "Genesis",
   "collection": "genesis",
-  "image": "assets/img/products/genesis-credenza-long.jpg"
+  "category": "storage-units",
+  "subcategories": [
+   "cabinets",
+   "drawers"
+  ],
+  "variants": [
+   {
+    "key": "credenza",
+    "image": "assets/img/products/genesis-storage/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "drawer-unit",
+    "image": "assets/img/products/genesis-storage/v1.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/genesis-storage/g0.jpg",
+   "assets/img/products/genesis-storage/g1.jpg",
+   "assets/img/products/genesis-storage/g2.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Genesis-Catalogue.pdf",
+  "new": false
  },
  {
-  "slug": "isixty-sideboard",
-  "name": "iSixty · Sideboard",
+  "slug": "alfaomega-storage",
+  "name": "Alfaomega",
+  "collection": "alfaomega",
   "category": "storage-units",
-  "subcategory": "cabinets",
-  "collection": "isixty",
-  "image": "assets/img/products/isixty-sideboard.jpg"
+  "subcategories": [
+   "cabinets"
+  ],
+  "variants": [
+   {
+    "key": "cabinet",
+    "image": "assets/img/products/alfaomega-storage/v0.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/alfaomega-storage/g0.jpg",
+   "assets/img/products/alfaomega-storage/g1.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Alfaomega-Catalogue.pdf",
+  "new": false
  },
  {
-  "slug": "isixty-low-unit",
-  "name": "iSixty · Low unit",
+  "slug": "attiva-storage",
+  "name": "Attiva",
+  "collection": "attiva",
   "category": "storage-units",
-  "subcategory": "cabinets",
-  "collection": "isixty",
-  "image": "assets/img/products/isixty-low-unit.jpg"
- },
- {
-  "slug": "isixty-bar",
-  "name": "iSixty · Bar cabinet",
-  "category": "storage-units",
-  "subcategory": "cabinets",
-  "collection": "isixty",
-  "image": "assets/img/products/isixty-bar.jpg"
+  "subcategories": [
+   "wardrobes",
+   "cabinets"
+  ],
+  "variants": [
+   {
+    "key": "bookcase",
+    "image": "assets/img/products/attiva-storage/v0.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/attiva-storage/g0.jpg",
+   "assets/img/products/attiva-storage/g1.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Attiva-Catalogue.pdf",
+  "new": false
  },
  {
   "slug": "team-storage",
-  "name": "Team · Storage wall",
-  "category": "storage-units",
-  "subcategory": "cabinets",
+  "name": "Team",
   "collection": "team",
-  "image": "assets/img/products/team-storage.jpg"
- },
- {
-  "slug": "genesis-drawers",
-  "name": "Genesis · Drawer unit",
   "category": "storage-units",
-  "subcategory": "drawers",
-  "collection": "genesis",
-  "image": "assets/img/products/genesis-drawers.jpg"
+  "subcategories": [
+   "cabinets"
+  ],
+  "variants": [
+   {
+    "key": "storage-wall",
+    "image": "assets/img/products/team-storage/v0.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/team-storage/g0.jpg",
+   "assets/img/products/team-storage/g1.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Team-Catalogue.pdf",
+  "new": false
  },
  {
-  "slug": "attiva-wardrobe",
-  "name": "Attiva · Wardrobe",
+  "slug": "mithos-storage",
+  "name": "Mithos",
+  "collection": "mithos",
   "category": "storage-units",
-  "subcategory": "wardrobes",
-  "collection": "attiva",
-  "image": "assets/img/products/attiva-wardrobe.jpg"
+  "subcategories": [
+   "cabinets"
+  ],
+  "variants": [
+   {
+    "key": "bookcase",
+    "image": "assets/img/products/mithos-storage/v0.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "console",
+    "image": "assets/img/products/mithos-storage/v1.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/mithos-storage/g0.jpg",
+   "assets/img/products/mithos-storage/g1.jpg"
+  ],
+  "fit": "cover",
+  "catalogue": "assets/docs/Codutti-Mithos-Catalogue.pdf",
+  "new": false
  },
  {
-  "slug": "ciao-linear",
-  "name": "Ciao · Linear",
-  "category": "receptions",
-  "subcategory": null,
-  "collection": null,
-  "image": "assets/img/products/ciao-linear.jpg"
+  "slug": "cloud-storage",
+  "name": "Cloud",
+  "collection": "cloud",
+  "category": "storage-units",
+  "subcategories": [
+   "cabinets"
+  ],
+  "variants": [
+   {
+    "key": "sideboard",
+    "image": "assets/img/products/cloud-storage/v0.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "cabinet",
+    "image": "assets/img/products/cloud-storage/v1.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/cloud-storage/g0.jpg"
+  ],
+  "fit": "cover",
+  "catalogue": null,
+  "new": false
  },
  {
-  "slug": "ciao-corner",
-  "name": "Ciao · Corner",
-  "category": "receptions",
-  "subcategory": null,
-  "collection": null,
-  "image": "assets/img/products/ciao-corner.jpg"
+  "slug": "ginza-storage",
+  "name": "Ginza",
+  "collection": "ginza",
+  "category": "storage-units",
+  "subcategories": [
+   "drawers",
+   "cabinets"
+  ],
+  "variants": [
+   {
+    "key": "chest",
+    "image": "assets/img/products/ginza-storage/v0.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "cabinet",
+    "image": "assets/img/products/ginza-storage/v1.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/ginza-storage/g0.jpg",
+   "assets/img/products/ginza-storage/g1.jpg",
+   "assets/img/products/ginza-storage/g2.jpg"
+  ],
+  "fit": "cover",
+  "catalogue": null,
+  "new": false
  },
  {
-  "slug": "ciao-wave",
-  "name": "Ciao · Wave",
-  "category": "receptions",
-  "subcategory": null,
-  "collection": null,
-  "image": "assets/img/products/ciao-wave.jpg"
+  "slug": "2be-storage",
+  "name": "2BE",
+  "collection": "2be",
+  "category": "storage-units",
+  "subcategories": [
+   "cabinets",
+   "wardrobes"
+  ],
+  "variants": [
+   {
+    "key": "storage-wall",
+    "image": "assets/img/products/2be-storage/v0.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "lockers",
+    "image": "assets/img/products/2be-storage/v1.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "bookcase",
+    "image": "assets/img/products/2be-storage/v2.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "smart-wall",
+    "image": "assets/img/products/2be-storage/v3.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/2be-storage/g0.jpg",
+   "assets/img/products/2be-storage/g1.jpg",
+   "assets/img/products/2be-storage/g2.jpg",
+   "assets/img/products/2be-storage/g3.jpg",
+   "assets/img/products/2be-storage/g4.jpg"
+  ],
+  "fit": "cover",
+  "catalogue": "assets/docs/Codutti-2BE-Catalogue.pdf",
+  "new": false
  },
  {
-  "slug": "ciao-circular",
-  "name": "Ciao · Circular",
-  "category": "receptions",
-  "subcategory": null,
-  "collection": null,
-  "image": "assets/img/products/ciao-circular.jpg"
- },
- {
-  "slug": "ciao-double-wave",
-  "name": "Ciao · Double wave",
-  "category": "receptions",
-  "subcategory": null,
-  "collection": null,
-  "image": "assets/img/products/ciao-double-wave.jpg"
- },
- {
-  "slug": "diamond",
-  "name": "Diamond",
-  "category": "seatings",
-  "subcategory": "executive-chairs",
-  "collection": null,
-  "image": "assets/img/products/diamond.jpg"
- },
- {
-  "slug": "coupe",
-  "name": "Coupè",
-  "category": "seatings",
-  "subcategory": "executive-chairs",
-  "collection": null,
-  "image": "assets/img/products/coupe.jpg"
- },
- {
-  "slug": "techno-top",
-  "name": "Techno Top",
-  "category": "seatings",
-  "subcategory": "executive-chairs",
-  "collection": null,
-  "image": "assets/img/products/techno-top.jpg"
- },
- {
-  "slug": "one-plus-chair",
-  "name": "One Plus",
-  "category": "seatings",
-  "subcategory": "executive-chairs",
-  "collection": null,
-  "image": "assets/img/products/one-plus-chair.jpg"
- },
- {
-  "slug": "one-chair",
-  "name": "One",
-  "category": "seatings",
-  "subcategory": "executive-chairs",
-  "collection": null,
-  "image": "assets/img/products/one-chair.jpg"
- },
- {
-  "slug": "genesis-chair",
+  "slug": "genesis-coffee",
   "name": "Genesis",
-  "category": "seatings",
-  "subcategory": "executive-chairs",
-  "collection": null,
-  "image": "assets/img/products/genesis-chair.jpg"
+  "collection": "genesis",
+  "category": "coffee-tables",
+  "subcategories": [],
+  "variants": [
+   {
+    "key": "coffee-table",
+    "image": "assets/img/products/genesis-coffee/v0.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/genesis-coffee/g0.jpg",
+   "assets/img/products/genesis-coffee/g1.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Genesis-Catalogue.pdf",
+  "new": false
  },
  {
-  "slug": "cosmo",
-  "name": "Cosmo",
-  "category": "seatings",
-  "subcategory": "executive-chairs",
-  "collection": null,
-  "image": "assets/img/products/cosmo.jpg"
+  "slug": "ginza-coffee",
+  "name": "Ginza",
+  "collection": "ginza",
+  "category": "coffee-tables",
+  "subcategories": [],
+  "variants": [
+   {
+    "key": "coffee-table",
+    "image": "assets/img/products/ginza-coffee/v0.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/ginza-coffee/g0.jpg",
+   "assets/img/products/ginza-coffee/g1.jpg"
+  ],
+  "fit": "cover",
+  "catalogue": null,
+  "new": false
  },
  {
-  "slug": "velar",
-  "name": "Velar",
-  "category": "seatings",
-  "subcategory": "executive-chairs",
-  "collection": null,
-  "image": "assets/img/products/velar.jpg"
+  "slug": "cloud-coffee",
+  "name": "Cloud",
+  "collection": "cloud",
+  "category": "coffee-tables",
+  "subcategories": [],
+  "variants": [
+   {
+    "key": "coffee-table",
+    "image": "assets/img/products/cloud-coffee/v0.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/cloud-coffee/g0.jpg"
+  ],
+  "fit": "cover",
+  "catalogue": null,
+  "new": false
  },
  {
-  "slug": "lyna",
-  "name": "Lyna",
-  "category": "seatings",
-  "subcategory": "executive-chairs",
-  "collection": null,
-  "image": "assets/img/products/lyna.jpg"
+  "slug": "ciao",
+  "name": "Ciao",
+  "collection": "ciao",
+  "category": "receptions",
+  "subcategories": [],
+  "variants": [
+   {
+    "key": "circular",
+    "image": "assets/img/products/ciao/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "wave",
+    "image": "assets/img/products/ciao/v1.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "double-wave",
+    "image": "assets/img/products/ciao/v2.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "linear",
+    "image": "assets/img/products/ciao/v3.jpg",
+    "fit": "cover"
+   },
+   {
+    "key": "corner",
+    "image": "assets/img/products/ciao/v4.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/ciao/g0.jpg",
+   "assets/img/products/ciao/g1.jpg",
+   "assets/img/products/ciao/g2.jpg",
+   "assets/img/products/ciao/g3.jpg",
+   "assets/img/products/ciao/g4.jpg",
+   "assets/img/products/ciao/g5.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Ciao-Reception-Catalogue.pdf",
+  "new": false
  },
  {
-  "slug": "claire",
-  "name": "Claire",
-  "category": "seatings",
-  "subcategory": "executive-chairs",
-  "collection": null,
-  "image": "assets/img/products/claire.jpg"
+  "slug": "mithos-reception",
+  "name": "Mithos",
+  "collection": "mithos",
+  "category": "receptions",
+  "subcategories": [],
+  "variants": [
+   {
+    "key": "reception-desk",
+    "image": "assets/img/products/mithos-reception/v0.jpg",
+    "fit": "cover"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/mithos-reception/g0.jpg",
+   "assets/img/products/mithos-reception/g1.jpg"
+  ],
+  "fit": "cover",
+  "catalogue": "assets/docs/Codutti-Mithos-Catalogue.pdf",
+  "new": false
  },
  {
-  "slug": "berna",
-  "name": "Berna",
-  "category": "seatings",
-  "subcategory": "task-chairs",
-  "collection": null,
-  "image": "assets/img/products/berna.jpg"
+  "slug": "acoustic-screen",
+  "name": "Acoustic Screen",
+  "collection": "adjustable-desks",
+  "category": "acoustic-solutions",
+  "subcategories": [
+   "desk-panels"
+  ],
+  "variants": [
+   {
+    "key": "screen",
+    "image": "assets/img/products/acoustic-screen/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "screen",
+    "image": "assets/img/products/acoustic-screen/v1.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/acoustic-screen/g0.jpg",
+   "assets/img/products/acoustic-screen/g1.jpg",
+   "assets/img/products/acoustic-screen/g2.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Height-Adjustable-Catalogue.pdf",
+  "new": false
  },
  {
-  "slug": "ascot-line",
-  "name": "Ascot Line",
-  "category": "seatings",
-  "subcategory": "task-chairs",
-  "collection": null,
-  "image": "assets/img/products/ascot-line.jpg"
- },
- {
-  "slug": "ascot-soft",
-  "name": "Ascot Soft",
-  "category": "seatings",
-  "subcategory": "task-chairs",
-  "collection": null,
-  "image": "assets/img/products/ascot-soft.jpg"
- },
- {
-  "slug": "ada",
-  "name": "Ada",
-  "category": "seatings",
-  "subcategory": "task-chairs",
-  "collection": null,
-  "image": "assets/img/products/ada.jpg"
- },
- {
-  "slug": "atena",
-  "name": "Atena",
-  "category": "seatings",
-  "subcategory": "task-chairs",
-  "collection": null,
-  "image": "assets/img/products/atena.jpg"
- },
- {
-  "slug": "ottavia-o-white",
-  "name": "Ottavia & Ottavia White",
-  "category": "seatings",
-  "subcategory": "task-chairs",
-  "collection": null,
-  "image": "assets/img/products/ottavia-o-white.jpg"
- },
- {
-  "slug": "hamlet",
-  "name": "Hamlet",
-  "category": "seatings",
-  "subcategory": "task-chairs",
-  "collection": null,
-  "image": "assets/img/products/hamlet.jpg"
- },
- {
-  "slug": "genesis-soft",
-  "name": "Genesis Soft",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
-  "collection": null,
-  "image": "assets/img/products/genesis-soft.jpg"
- },
- {
-  "slug": "milano",
-  "name": "Milano",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
-  "collection": null,
-  "image": "assets/img/products/milano.jpg"
- },
- {
-  "slug": "ovvo",
-  "name": "Ovvo",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
-  "collection": null,
-  "image": "assets/img/products/ovvo.jpg"
- },
- {
-  "slug": "kalos-air-white",
-  "name": "Kalos Air + White",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
-  "collection": null,
-  "image": "assets/img/products/kalos-air-white.jpg"
- },
- {
-  "slug": "kalos-soft-white",
-  "name": "Kalos Soft + White",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
-  "collection": null,
-  "image": "assets/img/products/kalos-soft-white.jpg"
- },
- {
-  "slug": "unica-soft",
-  "name": "Unica Soft",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
-  "collection": null,
-  "image": "assets/img/products/unica-soft.jpg"
- },
- {
-  "slug": "unica-air",
-  "name": "Unica Air",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
-  "collection": null,
-  "image": "assets/img/products/unica-air.jpg"
- },
- {
-  "slug": "jade-jade-cover",
-  "name": "Jade & Jade Cover",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
-  "collection": null,
-  "image": "assets/img/products/jade-jade-cover.jpg"
- },
- {
-  "slug": "jade-soft",
-  "name": "Jade Soft",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
-  "collection": null,
-  "image": "assets/img/products/jade-soft.jpg"
- },
- {
-  "slug": "merano",
-  "name": "Merano",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
-  "collection": null,
-  "image": "assets/img/products/merano.jpg"
- },
- {
-  "slug": "ester",
-  "name": "Ester",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
-  "collection": null,
-  "image": "assets/img/products/ester.jpg"
- },
- {
-  "slug": "jardin",
-  "name": "Jardin",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
-  "collection": null,
-  "image": "assets/img/products/jardin.jpg"
- },
- {
-  "slug": "modus",
-  "name": "Modus",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
-  "collection": null,
-  "image": "assets/img/products/modus.jpg"
- },
- {
-  "slug": "chantal",
-  "name": "Chantal",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
-  "collection": null,
-  "image": "assets/img/products/chantal.jpg"
- },
- {
-  "slug": "simba",
-  "name": "Simba",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
-  "collection": null,
-  "image": "assets/img/products/simba.jpg"
- },
- {
-  "slug": "augusta",
-  "name": "Augusta",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
-  "collection": null,
-  "image": "assets/img/products/augusta.jpg"
- },
- {
-  "slug": "claire-lounge",
+  "slug": "seat-claire-lounge",
   "name": "Claire Lounge",
-  "category": "seatings",
-  "subcategory": "lounge-seatings",
   "collection": null,
-  "image": "assets/img/products/claire-lounge.jpg"
+  "category": "seatings",
+  "subcategories": [
+   "lounge-seatings"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-claire-lounge/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-claire-lounge/v1.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-claire-lounge/v2.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/seat-claire-lounge/g0.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  },
  {
-  "slug": "pepe-tub",
-  "name": "Pepe tub",
-  "category": "seatings",
-  "subcategory": "lounge-seatings",
+  "slug": "seat-berna",
+  "name": "Berna",
   "collection": null,
-  "image": "assets/img/products/pepe-tub.jpg"
+  "category": "seatings",
+  "subcategories": [
+   "task-chairs"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-berna/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-berna/v1.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-berna/v2.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  },
  {
-  "slug": "phelt",
-  "name": "Phelt",
-  "category": "seatings",
-  "subcategory": "lounge-seatings",
+  "slug": "seat-ascot-line",
+  "name": "Ascot Line",
   "collection": null,
-  "image": "assets/img/products/phelt.jpg"
+  "category": "seatings",
+  "subcategories": [
+   "task-chairs"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-ascot-line/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-ascot-line/v1.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-ascot-line/v2.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  },
  {
-  "slug": "monaco",
-  "name": "Monaco",
-  "category": "seatings",
-  "subcategory": "privacy-seatings",
+  "slug": "seat-ascot-soft",
+  "name": "Ascot Soft",
   "collection": null,
-  "image": "assets/img/products/monaco.jpg"
+  "category": "seatings",
+  "subcategories": [
+   "task-chairs"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-ascot-soft/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-ascot-soft/v1.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-ascot-soft/v2.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/seat-ascot-soft/g0.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  },
  {
-  "slug": "diamond-sofa",
-  "name": "Diamond Sofa",
-  "category": "seatings",
-  "subcategory": "sofas",
+  "slug": "seat-hamlet",
+  "name": "Hamlet",
   "collection": null,
-  "image": "assets/img/products/diamond-sofa.jpg"
+  "category": "seatings",
+  "subcategories": [
+   "task-chairs"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-hamlet/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-hamlet/v1.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  },
  {
-  "slug": "coupe-sofa",
-  "name": "Coupè Sofa",
-  "category": "seatings",
-  "subcategory": "sofas",
+  "slug": "seat-ada",
+  "name": "Ada",
   "collection": null,
-  "image": "assets/img/products/coupe-sofa.jpg"
+  "category": "seatings",
+  "subcategories": [
+   "task-chairs"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-ada/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-ada/v1.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-ada/v2.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/seat-ada/g0.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  },
  {
-  "slug": "one-plus-sofa",
-  "name": "One Plus Sofa",
-  "category": "seatings",
-  "subcategory": "sofas",
+  "slug": "seat-diamond",
+  "name": "Diamond",
   "collection": null,
-  "image": "assets/img/products/one-plus-sofa.jpg"
+  "category": "seatings",
+  "subcategories": [
+   "executive-chairs"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-diamond/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-diamond/v1.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-diamond/v2.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-diamond/v3.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-diamond/v4.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-diamond/v5.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-diamond/v6.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/seat-diamond/g0.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  },
  {
-  "slug": "genesis-sofa",
-  "name": "Genesis Sofa",
-  "category": "seatings",
-  "subcategory": "sofas",
+  "slug": "seat-coupe",
+  "name": "Coupè",
   "collection": null,
-  "image": "assets/img/products/genesis-sofa.jpg"
+  "category": "seatings",
+  "subcategories": [
+   "executive-chairs"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-coupe/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-coupe/v1.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-coupe/v2.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-coupe/v3.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-coupe/v4.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/seat-coupe/g0.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  },
  {
-  "slug": "tecno-sofa",
-  "name": "Tecno Sofa",
-  "category": "seatings",
-  "subcategory": "sofas",
+  "slug": "seat-techno-top",
+  "name": "Tecno Top",
   "collection": null,
-  "image": "assets/img/products/tecno-sofa.jpg"
+  "category": "seatings",
+  "subcategories": [
+   "executive-chairs"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-techno-top/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-techno-top/v1.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-techno-top/v2.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-techno-top/v3.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/seat-techno-top/g0.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  },
  {
-  "slug": "class",
-  "name": "Class",
-  "category": "seatings",
-  "subcategory": "sofas",
+  "slug": "seat-one-plus",
+  "name": "One Plus",
   "collection": null,
-  "image": "assets/img/products/class.jpg"
+  "category": "seatings",
+  "subcategories": [
+   "executive-chairs",
+   "stools"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-one-plus/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-one-plus/v1.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-one-plus/v2.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-one-plus/v3.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/seat-one-plus/g0.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  },
  {
-  "slug": "marta",
-  "name": "Marta",
-  "category": "seatings",
-  "subcategory": "sofas",
+  "slug": "seat-one",
+  "name": "One",
   "collection": null,
-  "image": "assets/img/products/marta.jpg"
+  "category": "seatings",
+  "subcategories": [
+   "executive-chairs"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-one/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-one/v1.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-one/v2.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/seat-one/g0.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  },
  {
-  "slug": "siesta",
-  "name": "Siesta",
-  "category": "seatings",
-  "subcategory": "sofas",
+  "slug": "seat-genesis-soft",
+  "name": "Genesis Soft",
   "collection": null,
-  "image": "assets/img/products/siesta.jpg"
+  "category": "seatings",
+  "subcategories": [
+   "meeting-guest-chairs"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-genesis-soft/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-genesis-soft/v1.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-genesis-soft/v2.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-genesis-soft/v3.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/seat-genesis-soft/g0.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  },
  {
-  "slug": "plus972",
-  "name": "Plus972",
-  "category": "seatings",
-  "subcategory": "sofas",
+  "slug": "seat-genesis",
+  "name": "Genesis",
   "collection": null,
-  "image": "assets/img/products/plus972.jpg"
+  "category": "seatings",
+  "subcategories": [
+   "executive-chairs"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-genesis/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-genesis/v1.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-genesis/v2.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-genesis/v3.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-genesis/v4.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/seat-genesis/g0.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  },
  {
-  "slug": "puzzle",
-  "name": "Puzzle",
-  "category": "seatings",
-  "subcategory": "sofas",
+  "slug": "seat-cosmo",
+  "name": "Cosmo",
   "collection": null,
-  "image": "assets/img/products/puzzle.jpg"
+  "category": "seatings",
+  "subcategories": [
+   "executive-chairs"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-cosmo/v0.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/seat-cosmo/g0.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  },
  {
-  "slug": "sonar",
-  "name": "Sonar",
-  "category": "seatings",
-  "subcategory": "privacy-seatings",
+  "slug": "seat-cookie",
+  "name": "Cookie",
   "collection": null,
-  "image": "assets/img/products/sonar.jpg"
+  "category": "seatings",
+  "subcategories": [
+   "task-chairs"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-cookie/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-cookie/v1.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-cookie/v2.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/seat-cookie/g0.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  },
  {
-  "slug": "nancy",
-  "name": "Nancy",
-  "category": "seatings",
-  "subcategory": "privacy-seatings",
-  "collection": null,
-  "image": "assets/img/products/nancy.jpg"
- },
- {
-  "slug": "sketch",
-  "name": "Sketch",
-  "category": "seatings",
-  "subcategory": "stools",
-  "collection": null,
-  "image": "assets/img/products/sketch.jpg"
- },
- {
-  "slug": "asia",
-  "name": "Asia",
-  "category": "seatings",
-  "subcategory": "stools",
-  "collection": null,
-  "image": "assets/img/products/asia.jpg"
- },
- {
-  "slug": "jolly",
-  "name": "Jolly",
-  "category": "seatings",
-  "subcategory": "stools",
-  "collection": null,
-  "image": "assets/img/products/jolly.jpg"
- },
- {
-  "slug": "momi",
-  "name": "Momi",
-  "category": "seatings",
-  "subcategory": "stools",
-  "collection": null,
-  "image": "assets/img/products/momi.jpg"
- },
- {
-  "slug": "modus-stool",
-  "name": "Modus stool",
-  "category": "seatings",
-  "subcategory": "stools",
-  "collection": null,
-  "image": "assets/img/products/modus-stool.jpg"
- },
- {
-  "slug": "one-plus-stool",
-  "name": "One Plus stool",
-  "category": "seatings",
-  "subcategory": "stools",
-  "collection": null,
-  "image": "assets/img/products/one-plus-stool.jpg"
- },
- {
-  "slug": "oscar",
+  "slug": "seat-oscar",
   "name": "Oscar",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
   "collection": null,
-  "image": "assets/img/products/oscar.jpg"
+  "category": "seatings",
+  "subcategories": [
+   "meeting-guest-chairs"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-oscar/v0.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  },
  {
-  "slug": "sally",
+  "slug": "seat-gemma",
+  "name": "Gemma",
+  "collection": null,
+  "category": "seatings",
+  "subcategories": [
+   "meeting-guest-chairs"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-gemma/v0.jpg",
+    "fit": "contain"
+   },
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-gemma/v1.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
+ },
+ {
+  "slug": "seat-sally",
   "name": "Sally",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
   "collection": null,
-  "image": "assets/img/products/sally.jpg"
+  "category": "seatings",
+  "subcategories": [
+   "meeting-guest-chairs"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-sally/v0.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  },
  {
-  "slug": "roxy",
+  "slug": "seat-roxy",
   "name": "Roxy",
-  "category": "seatings",
-  "subcategory": "meeting-guest-chairs",
   "collection": null,
-  "image": "assets/img/products/roxy.jpg"
+  "category": "seatings",
+  "subcategories": [
+   "meeting-guest-chairs"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-roxy/v0.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  },
  {
-  "slug": "attiva-sofa",
-  "name": "Attiva · Sofa",
+  "slug": "seat-creed",
+  "name": "Creed",
+  "collection": null,
   "category": "seatings",
-  "subcategory": "sofas",
-  "collection": "attiva",
-  "image": "assets/img/products/attiva-sofa.jpg"
+  "subcategories": [
+   "meeting-guest-chairs"
+  ],
+  "variants": [
+   {
+    "key": "version",
+    "image": "assets/img/products/seat-creed/v0.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [
+   "assets/img/products/seat-creed/g0.jpg"
+  ],
+  "fit": "contain",
+  "catalogue": "assets/docs/Codutti-Seating-Collection.pdf",
+  "new": false
  }
 ]

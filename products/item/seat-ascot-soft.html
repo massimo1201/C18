@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ascot Soft — Codutti</title>
+<meta name="description" content="Ascot Soft — Task Chairs by Codutti.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body id="top" class="page-products page-product">
+
+<header class="site-header">
+  <div class="header-side header-side--left">
+    <button class="lang-btn" id="langBtn" aria-expanded="false" aria-label="Choose language">EN</button>
+    <a class="header-icon" href="../../downloads.html" aria-label="Download" data-i18n-aria="nav.download"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg></a>
+    <button type="button" class="header-icon" id="searchBtn" aria-label="Search" data-i18n-aria="search.open"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></svg></button>
+  </div>
+  <a href="../../index.html" class="brand"><img src="../../assets/img/logo-mark.png" alt="Codutti"></a>
+  <div class="header-side header-side--right">
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="lang-overlay" id="langOverlay">
+  <div class="lang-overlay__list">
+    <button class="lang-overlay__item is-active" data-lang="EN" data-short="EN" lang="en">English</button>
+    <button class="lang-overlay__item" data-lang="IT" data-short="IT" lang="it">Italiano</button>
+    <button class="lang-overlay__item" data-lang="FR" data-short="FR" lang="fr">Français</button>
+    <button class="lang-overlay__item" data-lang="SP" data-short="ES" lang="es">Español</button>
+    <button class="lang-overlay__item" data-lang="RU" data-short="RU" lang="ru">Русский</button>
+    <button class="lang-overlay__item" data-lang="AR" data-short="AR" lang="ar">العربية</button>
+  </div>
+</div>
+
+<nav class="nav-overlay" id="navOverlay" aria-label="Menu">
+  <div class="nav-panels">
+    <div class="nav-panel nav-panel--main is-active" data-panel="main">
+      <ul class="nav-main">
+        <li><button type="button" class="nav-main__open" data-open="products" aria-expanded="false"><span class="num">01</span> <span data-i18n="nav.products">Products</span><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></li>
+        <li><a href="../../contract.html"><span class="num">02</span> <span data-i18n="nav.contract">Contract</span></a></li>
+        <li><a href="../../bespoke.html"><span class="num">03</span> <span data-i18n="nav.bespoke">Bespoke</span></a></li>
+        <li><a href="../../projects.html"><span class="num">04</span> <span data-i18n="nav.projects">Projects</span></a></li>
+        <li><a href="../../materials.html"><span class="num">05</span> <span data-i18n="nav.finishes">Finishes</span></a></li>
+        <li><button type="button" class="nav-main__open" data-open="about" aria-expanded="false"><span class="num">06</span> <span data-i18n="nav.about">About Us</span><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></li>
+        <li><a href="../../news.html"><span class="num">07</span> <span data-i18n="nav.news">News and Events</span></a></li>
+        <li><a href="../../contact.html"><span class="num">08</span> <span data-i18n="nav.contact">Contact Us</span></a></li>
+      </ul>
+    </div>
+    <div class="nav-panel" data-panel="products">
+      <button type="button" class="nav-back" data-back><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span data-i18n="nav.products">Products</span></button>
+      <ul class="nav-main nav-main--sub">
+        <li><a href="../../products/all.html" data-i18n="nav.allProducts">All Products</a></li>
+        <li><a href="../../products/desks.html" data-i18n="cat.desks">Desks</a></li>
+        <li><a href="../../products/tables-and-sharings.html" data-i18n="cat.tables">Meetings</a></li>
+        <li><a href="../../products/seatings.html" data-i18n="cat.seatings">Seatings</a></li>
+        <li><a href="../../products/coffee-tables.html" data-i18n="cat.coffeeTables">Coffee Tables</a></li>
+        <li><a href="../../products/storage-units.html" data-i18n="cat.storage">Storage Units</a></li>
+        <li><a href="../../products/receptions.html" data-i18n="cat.receptions">Receptions</a></li>
+        <li><a href="../../products/acoustic-solutions.html" data-i18n="cat.acoustic">Acoustic Solutions</a></li>
+      </ul>
+    </div>
+    <div class="nav-panel" data-panel="about">
+      <button type="button" class="nav-back" data-back><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span data-i18n="nav.about">About Us</span></button>
+      <ul class="nav-main nav-main--sub">
+        <li><a href="../../company.html" data-i18n="nav.company">Company</a></li>
+        <li><a href="../../codutti-method.html" data-i18n="nav.method">The Codutti Method</a></li>
+        <li><a href="../../company.html#certifications" data-i18n="legal.certifications">Certifications</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="pl">
+  <section class="pd wrap">
+    <nav class="pl-crumbs" aria-label="Breadcrumb"><a href="../../products/all.html" data-i18n="nav.products">Products</a> <span aria-hidden="true">/</span> <a href="../../products/seatings.html" data-i18n="cat.seatings">Seatings</a> <span aria-hidden="true">/</span> <a href="../../products/seatings/task-chairs.html" data-i18n="sub.taskChairs">Task Chairs</a></nav>
+    <div class="pd__grid">
+      <div class="pd__stage">
+        <div class="pd__main"><img class="fit-contain" src="../../assets/img/products/seat-ascot-soft/v0.jpg" alt="Ascot Soft"></div>
+      </div>
+      <div class="pd__info">
+        <p class="pd__eyebrow"><span data-i18n="sub.taskChairs">Task Chairs</span></p>
+        <h1 class="pd__name">Ascot Soft</h1>
+        <p class="pd__variant" aria-live="polite"><span data-i18n="var.version">Version</span> 01</p>
+        <div class="pd__ctas">
+          <a class="feature__btn" href="../../contact.html" data-i18n="tour.outro.cta">Request a quote</a>
+          <a class="feature__link" href="../../assets/docs/Codutti-Seating-Collection.pdf" download data-i18n="prod.catalogue">Download the catalogue</a><a class="feature__link" href="../../materials.html" data-i18n="prod.finishes">Finishes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pd-versions wrap">
+    <h2 class="pl-others__title"><span data-i18n="prod.versionsTitle">Versions</span> <span class="pl-group__n">3</span></h2>
+    <div class="pd-thumbs">
+        <button type="button" class="pd-thumb is-active" data-src="../../assets/img/products/seat-ascot-soft/v0.jpg" data-fit="contain" aria-pressed="true">
+          <span class="pd-thumb__media"><img class="fit-contain" src="../../assets/img/products/seat-ascot-soft/v0.jpg" alt="" loading="lazy"></span>
+          <span class="pd-thumb__label"><span data-i18n="var.version">Version</span> 01</span>
+        </button>
+        <button type="button" class="pd-thumb" data-src="../../assets/img/products/seat-ascot-soft/v1.jpg" data-fit="contain" aria-pressed="false">
+          <span class="pd-thumb__media"><img class="fit-contain" src="../../assets/img/products/seat-ascot-soft/v1.jpg" alt="" loading="lazy"></span>
+          <span class="pd-thumb__label"><span data-i18n="var.version">Version</span> 02</span>
+        </button>
+        <button type="button" class="pd-thumb" data-src="../../assets/img/products/seat-ascot-soft/v2.jpg" data-fit="contain" aria-pressed="false">
+          <span class="pd-thumb__media"><img class="fit-contain" src="../../assets/img/products/seat-ascot-soft/v2.jpg" alt="" loading="lazy"></span>
+          <span class="pd-thumb__label"><span data-i18n="var.version">Version</span> 03</span>
+        </button>
+    </div>
+  </section>
+  <section class="pd-gallery">
+    <h2 class="pl-others__title wrap" data-i18n="prod.ambients">In the space</h2>
+    <div class="pd-gallery__track" tabindex="0">
+      <figure class="pd-gallery__item"><img src="../../assets/img/products/seat-ascot-soft/g0.jpg" alt="" loading="lazy"></figure>
+    </div>
+  </section>
+  <section class="pl-others wrap">
+    <h2 class="pl-others__title" data-i18n="prod.related">You may also like</h2>
+    <ul class="pl-grid">
+      <li class="pl-card" data-subs="task-chairs">
+        <a class="pl-card__link" href="../../products/item/seat-berna.html">
+          <span class="pl-card__media"><img class="fit-contain" src="../../assets/img/products/seat-berna/v0.jpg" alt="Berna" loading="lazy"></span>
+          <span class="pl-card__name">Berna</span>
+          <span class="pl-card__meta"><span data-i18n="sub.taskChairs">Task Chairs</span> · 3 <span data-i18n="prod.versions">versions</span></span>
+        </a>
+      </li>
+      <li class="pl-card" data-subs="task-chairs">
+        <a class="pl-card__link" href="../../products/item/seat-ascot-line.html">
+          <span class="pl-card__media"><img class="fit-contain" src="../../assets/img/products/seat-ascot-line/v0.jpg" alt="Ascot Line" loading="lazy"></span>
+          <span class="pl-card__name">Ascot Line</span>
+          <span class="pl-card__meta"><span data-i18n="sub.taskChairs">Task Chairs</span> · 3 <span data-i18n="prod.versions">versions</span></span>
+        </a>
+      </li>
+      <li class="pl-card" data-subs="task-chairs">
+        <a class="pl-card__link" href="../../products/item/seat-hamlet.html">
+          <span class="pl-card__media"><img class="fit-contain" src="../../assets/img/products/seat-hamlet/v0.jpg" alt="Hamlet" loading="lazy"></span>
+          <span class="pl-card__name">Hamlet</span>
+          <span class="pl-card__meta"><span data-i18n="sub.taskChairs">Task Chairs</span> · 2 <span data-i18n="prod.versions">versions</span></span>
+        </a>
+      </li>
+      <li class="pl-card" data-subs="task-chairs">
+        <a class="pl-card__link" href="../../products/item/seat-ada.html">
+          <span class="pl-card__media"><img class="fit-contain" src="../../assets/img/products/seat-ada/v0.jpg" alt="Ada" loading="lazy"></span>
+          <span class="pl-card__name">Ada</span>
+          <span class="pl-card__meta"><span data-i18n="sub.taskChairs">Task Chairs</span> · 3 <span data-i18n="prod.versions">versions</span></span>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section class="pl-closing">
+    <h2 class="feature__title" data-i18n="prod.closing.title">Can't find what you need?</h2>
+    <p class="feature__body" data-i18n="prod.closing.body">Every piece can be made to measure in our factory.</p>
+    <div class="feature__ctas">
+      <a class="feature__btn" href="../../contact.html" data-i18n="tour.outro.cta">Request a quote</a>
+      <a class="feature__link" href="../../bespoke.html" data-i18n="home.bespoke.cta">Discover Bespoke</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div id="legal">
+    <div class="legal-accordion">
+      <details>
+        <summary data-i18n="nav.company">Company</summary>
+        <p>Since 1954, Codutti has designed and manufactured office furniture entirely in-house, uniting seventy years of Italian craftsmanship with the precision of modern technology to build tailor-made workspaces for clients around the world. VAT IT14045811008.</p>
+        <div class="legal-accordion__addresses">
+          <a href="https://www.google.com/maps/search/?api=1&query=Via+Bonavilla+34%2C+33037+Pasian+di+Prato+UD+Italy" target="_blank" rel="noopener" data-i18n="mii.hq">Headquarters — Pasian di Prato (UD), Italy</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Martignacco+UD+Italy" target="_blank" rel="noopener" data-i18n="mii.production">Production Site — Martignacco (UD), Italy</a>
+        </div>
+      </details>
+      <details>
+        <summary data-i18n="nav.products">Our Products</summary>
+        <p>Desks, Meetings, Seatings, Coffee Tables, Storage Units, Receptions and Acoustic Solutions — a complete range for every space. <a href="../../products/all.html">Explore Our Products</a>.</p>
+      </details>
+      <details>
+        <summary data-i18n="contract.title">Contract</summary>
+        <p>Turnkey furnishing for offices and large-scale projects of every kind, coordinated end to end by our dedicated contract team. <a href="../../contract.html">Discover Contract</a>.</p>
+      </details>
+      <details>
+        <summary data-i18n="bespoke.title">Bespoke</summary>
+        <p>Made-to-measure pieces designed around your space, materials and brand identity, produced entirely in our Friuli Venezia Giulia workshops. <a href="../../bespoke.html">Discover Bespoke</a>.</p>
+      </details>
+      <details>
+        <summary data-i18n="legal.workWithUs">Work with Us</summary>
+        <p>We're always looking for skilled cabinet makers, upholsterers, designers and sales professionals to join our team in Friuli Venezia Giulia. <a href="../../contact.html">Get in Touch</a>.</p>
+      </details>
+      <details>
+        <summary data-i18n="legal.termsOfSale">Terms of Sale</summary>
+        <p>Our general terms of sale cover quotes, orders, custom production lead times, and delivery. Contract and bespoke supplies are governed by a dedicated agreement with specific timelines and specifications.</p>
+      </details>
+      <details>
+        <summary data-i18n="legal.warranty">Warranty &amp; Support</summary>
+        <p>Every Codutti collection is covered by a warranty on materials and workmanship. Our after-sales service covers installation, maintenance, and spare parts for the product's entire lifecycle.</p>
+      </details>
+      <details>
+        <summary data-i18n="legal.shipping">Shipping &amp; Installation</summary>
+        <p>Delivery, assembly, and installation are coordinated by the Codutti logistics team across Italy and internationally, with particular attention to large-scale contract projects.</p>
+      </details>
+      <details>
+        <summary data-i18n="legal.privacyPolicy">Privacy Policy</summary>
+        <p>Personal data collected through this site and our contact channels is processed in accordance with EU Regulation 2016/679 (GDPR), solely to respond to business inquiries and manage contractual relationships.</p>
+      </details>
+      <details>
+        <summary data-i18n="legal.cookiePolicy">Cookie Policy</summary>
+        <p>This site uses technical cookies required for browsing. Any third-party cookies are subject to explicit consent and can be managed at any time from your browser settings.</p>
+      </details>
+      <details>
+        <summary data-i18n="legal.certifications">Certifications</summary>
+        <p>ISO 9001 quality management, FSC&reg; Chain of Custody for responsibly sourced timber, and Made in Italy production entirely at our Friuli Venezia Giulia facilities. <a href="../../company.html#certifications">See all certifications</a>.</p>
+      </details>
+      <details>
+        <summary data-i18n="mii.title1">Made in Italy</summary>
+        <p>Production takes place entirely in Friuli Venezia Giulia. Wood and metal components are made with CNC machines, while leather finishes are stitched strictly by hand.</p>
+      </details>
+    </div>
+  </div>
+  <div class="footer-company">
+    <div class="lines">
+      © 2026 Codutti Furniture srl — <span data-i18n="footer.rights">All rights reserved</span><br>
+      Codutti Furniture srl<br>
+      HQ - Via Bonavilla 34 - 33037 Pasian di Prato (UD) - Italy<br>
+      T +39 0432 541414 — P.IVA 14045811008<br>
+      codutti@codutti.it — www.codutti.it
+    </div>
+    <div class="footer-company__right">
+      <div class="footer-social">
+        <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn link to be provided">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7.5 10v6.5M7.5 7.5v.01M12 16.5V13a2.5 2.5 0 0 1 5 0v3.5M12 16.5v-4"/></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram link to be provided">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook link to be provided">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 21v-7.5H17l.5-3.2h-3V8.2c0-.9.3-1.6 1.7-1.6H17.6V3.9c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.9H8v3.2h2.6V21"/></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube link to be provided">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="3.5"/><path d="M10.5 9.5v5l4.3-2.5-4.3-2.5Z" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+      <a href="../../index.html" class="footer-logo-link"><div class="footer-logo"><img src="../../assets/img/logo-mark-social.png" alt="Codutti"></div></a>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/i18n.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/search-index.js" defer></script>
+<script src="../../assets/js/search.js" defer></script>
+<script src="../../assets/js/products.js"></script>
+</body>
+</html>

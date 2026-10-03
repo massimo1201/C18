@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
      content (e.g. the typewriter setup caches each heading's text). */
   let savedLang = 'EN';
   try { savedLang = localStorage.getItem('codutti_lang') || 'EN'; } catch (e) {}
+  if (!['EN', 'IT', 'FR', 'SP', 'RU', 'AR'].includes(savedLang)) savedLang = 'EN';
   if (window.applyLanguage) window.applyLanguage(savedLang);
 
   const header = document.querySelector('.site-header');
@@ -79,6 +80,17 @@ document.addEventListener('DOMContentLoaded', () => {
       body.classList.add('nav-open');
     };
     menuBtn.addEventListener('click', () => {
+      /* While the language panel is open the menu icon shows an X that
+         closes the language panel instead of opening the menu. */
+      if (body.classList.contains('lang-open')) {
+        const lo = document.querySelector('.lang-overlay');
+        const lb = document.querySelector('.lang-btn');
+        if (lo) lo.classList.remove('is-open');
+        if (lb) lb.setAttribute('aria-expanded', 'false');
+        body.classList.remove('lang-open');
+        menuBtn.setAttribute('aria-label', 'Open menu');
+        return;
+      }
       const isOpen = navOverlay.classList.contains('is-open');
       isOpen ? closeMenu() : openMenu();
     });
@@ -94,6 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
       langOverlay.classList.remove('is-open');
       langBtn.setAttribute('aria-expanded', 'false');
       body.classList.remove('lang-open');
+      if (menuBtn) menuBtn.setAttribute('aria-label', 'Open menu');
     };
     const openLang = () => {
       langOverlay.classList.add('is-open');
@@ -107,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (navOverlay) navOverlay.classList.remove('is-open');
       if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
       body.classList.remove('nav-open');
+      if (menuBtn) menuBtn.setAttribute('aria-label', 'Close language panel');
     };
     langBtn.addEventListener('click', () => {
       const isOpen = langOverlay.classList.contains('is-open');
@@ -116,13 +130,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedLangItem) {
       langOverlay.querySelectorAll('.lang-overlay__item').forEach((el) => el.classList.remove('is-active'));
       savedLangItem.classList.add('is-active');
-      langBtn.textContent = savedLang;
+      langBtn.textContent = savedLangItem.dataset.short || savedLang;
     }
     langOverlay.querySelectorAll('.lang-overlay__item').forEach((item) => {
       item.addEventListener('click', () => {
         langOverlay.querySelectorAll('.lang-overlay__item').forEach((el) => el.classList.remove('is-active'));
         item.classList.add('is-active');
-        langBtn.textContent = item.dataset.lang;
+        langBtn.textContent = item.dataset.short || item.dataset.lang;
         if (window.applyLanguage) window.applyLanguage(item.dataset.lang);
         closeLang();
       });
