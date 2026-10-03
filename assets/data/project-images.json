@@ -1,0 +1,662 @@
+[
+{
+"slug": "sberbank",
+"images": [
+{
+"src": "assets/img/projects/sberbank/01.jpg",
+"w": 1800,
+"h": 1013
+}
+]
+},
+{
+"slug": "security-national-pr",
+"images": [
+{
+"src": "assets/img/projects/security-national-pr/01.jpg",
+"w": 643,
+"h": 431
+},
+{
+"src": "assets/img/projects/security-national-pr/02.jpg",
+"w": 720,
+"h": 380
+},
+{
+"src": "assets/img/projects/security-national-pr/03.jpg",
+"w": 720,
+"h": 379
+}
+]
+},
+{
+"slug": "ministry-of-finance",
+"images": [
+{
+"src": "assets/img/projects/ministry-of-finance/01.jpg",
+"w": 1572,
+"h": 1200
+},
+{
+"src": "assets/img/projects/ministry-of-finance/02.jpg",
+"w": 427,
+"h": 361
+},
+{
+"src": "assets/img/projects/ministry-of-finance/03.jpg",
+"w": 435,
+"h": 362
+},
+{
+"src": "assets/img/projects/ministry-of-finance/04.jpg",
+"w": 434,
+"h": 347
+},
+{
+"src": "assets/img/projects/ministry-of-finance/05.jpg",
+"w": 444,
+"h": 348
+}
+]
+},
+{
+"slug": "ministry-of-investment",
+"images": [
+{
+"src": "assets/img/projects/ministry-of-investment/01.jpg",
+"w": 997,
+"h": 707
+},
+{
+"src": "assets/img/projects/ministry-of-investment/02.jpg",
+"w": 431,
+"h": 328
+},
+{
+"src": "assets/img/projects/ministry-of-investment/03.jpg",
+"w": 256,
+"h": 341
+},
+{
+"src": "assets/img/projects/ministry-of-investment/04.jpg",
+"w": 545,
+"h": 595
+},
+{
+"src": "assets/img/projects/ministry-of-investment/05.jpg",
+"w": 877,
+"h": 493
+},
+{
+"src": "assets/img/projects/ministry-of-investment/06.jpg",
+"w": 277,
+"h": 285
+},
+{
+"src": "assets/img/projects/ministry-of-investment/07.jpg",
+"w": 373,
+"h": 242
+},
+{
+"src": "assets/img/projects/ministry-of-investment/08.jpg",
+"w": 465,
+"h": 551
+},
+{
+"src": "assets/img/projects/ministry-of-investment/09.jpg",
+"w": 547,
+"h": 404
+},
+{
+"src": "assets/img/projects/ministry-of-investment/10.jpg",
+"w": 442,
+"h": 358
+},
+{
+"src": "assets/img/projects/ministry-of-investment/11.jpg",
+"w": 349,
+"h": 358
+},
+{
+"src": "assets/img/projects/ministry-of-investment/12.jpg",
+"w": 394,
+"h": 404
+},
+{
+"src": "assets/img/projects/ministry-of-investment/13.jpg",
+"w": 642,
+"h": 692
+},
+{
+"src": "assets/img/projects/ministry-of-investment/14.jpg",
+"w": 733,
+"h": 580
+},
+{
+"src": "assets/img/projects/ministry-of-investment/15.jpg",
+"w": 295,
+"h": 395
+},
+{
+"src": "assets/img/projects/ministry-of-investment/16.jpg",
+"w": 295,
+"h": 352
+}
+]
+},
+{
+"slug": "bank-al-bilad",
+"images": [
+{
+"src": "assets/img/projects/bank-al-bilad/01.jpg",
+"w": 659,
+"h": 361
+},
+{
+"src": "assets/img/projects/bank-al-bilad/02.jpg",
+"w": 367,
+"h": 276
+},
+{
+"src": "assets/img/projects/bank-al-bilad/03.jpg",
+"w": 289,
+"h": 276
+},
+{
+"src": "assets/img/projects/bank-al-bilad/04.jpg",
+"w": 375,
+"h": 279
+},
+{
+"src": "assets/img/projects/bank-al-bilad/05.jpg",
+"w": 593,
+"h": 361
+}
+]
+},
+{
+"slug": "torre-mohamed",
+"images": [
+{
+"src": "assets/img/projects/torre-mohamed/01.jpg",
+"w": 1600,
+"h": 901
+},
+{
+"src": "assets/img/projects/torre-mohamed/02.jpg",
+"w": 547,
+"h": 729
+},
+{
+"src": "assets/img/projects/torre-mohamed/03.jpg",
+"w": 444,
+"h": 333
+},
+{
+"src": "assets/img/projects/torre-mohamed/04.jpg",
+"w": 448,
+"h": 336
+}
+]
+},
+{
+"slug": "rossetto-trade",
+"images": [
+{
+"src": "assets/img/projects/rossetto-trade/01.jpg",
+"w": 640,
+"h": 427
+},
+{
+"src": "assets/img/projects/rossetto-trade/02.jpg",
+"w": 244,
+"h": 367
+},
+{
+"src": "assets/img/projects/rossetto-trade/03.jpg",
+"w": 634,
+"h": 423
+},
+{
+"src": "assets/img/projects/rossetto-trade/04.jpg",
+"w": 561,
+"h": 374
+},
+{
+"src": "assets/img/projects/rossetto-trade/05.jpg",
+"w": 217,
+"h": 325
+}
+]
+},
+{
+"slug": "rtcc-dubai",
+"images": [
+{
+"src": "assets/img/projects/rtcc-dubai/01.jpg",
+"w": 1215,
+"h": 911
+}
+]
+},
+{
+"slug": "moscow-executive-offices",
+"images": [
+{
+"src": "assets/img/projects/moscow-executive-offices/01.jpg",
+"w": 456,
+"h": 570
+},
+{
+"src": "assets/img/projects/moscow-executive-offices/02.jpg",
+"w": 456,
+"h": 570
+},
+{
+"src": "assets/img/projects/moscow-executive-offices/03.jpg",
+"w": 456,
+"h": 570
+}
+]
+},
+{
+"slug": "private-office",
+"images": [
+{
+"src": "assets/img/projects/private-office/01.jpg",
+"w": 939,
+"h": 682
+},
+{
+"src": "assets/img/projects/private-office/02.jpg",
+"w": 379,
+"h": 345
+},
+{
+"src": "assets/img/projects/private-office/03.jpg",
+"w": 420,
+"h": 324
+}
+]
+},
+{
+"slug": "phi-group",
+"images": [
+{
+"src": "assets/img/projects/phi-group/01.jpg",
+"w": 1097,
+"h": 810
+},
+{
+"src": "assets/img/projects/phi-group/02.jpg",
+"w": 631,
+"h": 420
+},
+{
+"src": "assets/img/projects/phi-group/03.jpg",
+"w": 727,
+"h": 405
+},
+{
+"src": "assets/img/projects/phi-group/04.jpg",
+"w": 444,
+"h": 289
+},
+{
+"src": "assets/img/projects/phi-group/05.jpg",
+"w": 540,
+"h": 267
+},
+{
+"src": "assets/img/projects/phi-group/06.jpg",
+"w": 413,
+"h": 313
+}
+]
+},
+{
+"slug": "saudi-investment-bank",
+"images": [
+{
+"src": "assets/img/projects/saudi-investment-bank/01.jpg",
+"w": 1440,
+"h": 810
+},
+{
+"src": "assets/img/projects/saudi-investment-bank/02.jpg",
+"w": 585,
+"h": 415
+},
+{
+"src": "assets/img/projects/saudi-investment-bank/03.jpg",
+"w": 528,
+"h": 395
+},
+{
+"src": "assets/img/projects/saudi-investment-bank/04.jpg",
+"w": 761,
+"h": 718
+},
+{
+"src": "assets/img/projects/saudi-investment-bank/05.jpg",
+"w": 457,
+"h": 343
+}
+]
+},
+{
+"slug": "shanghai",
+"images": [
+{
+"src": "assets/img/projects/shanghai/01.jpg",
+"w": 553,
+"h": 409
+},
+{
+"src": "assets/img/projects/shanghai/02.jpg",
+"w": 359,
+"h": 202
+},
+{
+"src": "assets/img/projects/shanghai/03.jpg",
+"w": 393,
+"h": 221
+},
+{
+"src": "assets/img/projects/shanghai/04.jpg",
+"w": 376,
+"h": 229
+},
+{
+"src": "assets/img/projects/shanghai/05.jpg",
+"w": 394,
+"h": 222
+},
+{
+"src": "assets/img/projects/shanghai/06.jpg",
+"w": 541,
+"h": 304
+},
+{
+"src": "assets/img/projects/shanghai/07.jpg",
+"w": 417,
+"h": 235
+}
+]
+},
+{
+"slug": "sanremo",
+"images": [
+{
+"src": "assets/img/projects/sanremo/01.jpg",
+"w": 1800,
+"h": 1013
+},
+{
+"src": "assets/img/projects/sanremo/02.jpg",
+"w": 348,
+"h": 349
+},
+{
+"src": "assets/img/projects/sanremo/03.jpg",
+"w": 348,
+"h": 349
+}
+]
+},
+{
+"slug": "dubai-open-office",
+"images": [
+{
+"src": "assets/img/projects/dubai-open-office/01.jpg",
+"w": 498,
+"h": 330
+},
+{
+"src": "assets/img/projects/dubai-open-office/02.jpg",
+"w": 361,
+"h": 275
+},
+{
+"src": "assets/img/projects/dubai-open-office/03.jpg",
+"w": 367,
+"h": 275
+},
+{
+"src": "assets/img/projects/dubai-open-office/04.jpg",
+"w": 294,
+"h": 220
+},
+{
+"src": "assets/img/projects/dubai-open-office/05.jpg",
+"w": 439,
+"h": 330
+}
+]
+},
+{
+"slug": "moscow-offices",
+"images": [
+{
+"src": "assets/img/projects/moscow-offices/01.jpg",
+"w": 635,
+"h": 452
+},
+{
+"src": "assets/img/projects/moscow-offices/02.jpg",
+"w": 411,
+"h": 261
+},
+{
+"src": "assets/img/projects/moscow-offices/03.jpg",
+"w": 411,
+"h": 274
+},
+{
+"src": "assets/img/projects/moscow-offices/04.jpg",
+"w": 412,
+"h": 275
+}
+]
+},
+{
+"slug": "loreal-paris",
+"images": [
+{
+"src": "assets/img/projects/loreal-paris/01.jpg",
+"w": 960,
+"h": 641
+},
+{
+"src": "assets/img/projects/loreal-paris/02.jpg",
+"w": 482,
+"h": 322
+},
+{
+"src": "assets/img/projects/loreal-paris/03.jpg",
+"w": 587,
+"h": 421
+}
+]
+},
+{
+"slug": "al-rajhi-bank",
+"images": [
+{
+"src": "assets/img/projects/al-rajhi-bank/01.jpg",
+"w": 1440,
+"h": 810
+},
+{
+"src": "assets/img/projects/al-rajhi-bank/02.jpg",
+"w": 867,
+"h": 637
+},
+{
+"src": "assets/img/projects/al-rajhi-bank/03.jpg",
+"w": 549,
+"h": 366
+},
+{
+"src": "assets/img/projects/al-rajhi-bank/04.jpg",
+"w": 549,
+"h": 366
+},
+{
+"src": "assets/img/projects/al-rajhi-bank/05.jpg",
+"w": 721,
+"h": 405
+},
+{
+"src": "assets/img/projects/al-rajhi-bank/06.jpg",
+"w": 736,
+"h": 372
+},
+{
+"src": "assets/img/projects/al-rajhi-bank/07.jpg",
+"w": 687,
+"h": 480
+},
+{
+"src": "assets/img/projects/al-rajhi-bank/08.jpg",
+"w": 1440,
+"h": 810
+}
+]
+},
+{
+"slug": "light-building",
+"images": [
+{
+"src": "assets/img/projects/light-building/01.jpg",
+"w": 819,
+"h": 810
+},
+{
+"src": "assets/img/projects/light-building/02.jpg",
+"w": 528,
+"h": 396
+},
+{
+"src": "assets/img/projects/light-building/03.jpg",
+"w": 318,
+"h": 395
+}
+]
+},
+{
+"slug": "orgatec",
+"images": [
+{
+"src": "assets/img/projects/orgatec/01.jpg",
+"w": 699,
+"h": 811
+},
+{
+"src": "assets/img/projects/orgatec/02.jpg",
+"w": 852,
+"h": 569
+},
+{
+"src": "assets/img/projects/orgatec/03.jpg",
+"w": 538,
+"h": 733
+}
+]
+},
+{
+"slug": "workspace-dubai",
+"images": [
+{
+"src": "assets/img/projects/workspace-dubai/01.jpg",
+"w": 740,
+"h": 849
+}
+]
+},
+{
+"slug": "remal-project",
+"images": [
+{
+"src": "assets/img/projects/remal-project/01.jpg",
+"w": 710,
+"h": 473
+},
+{
+"src": "assets/img/projects/remal-project/02.jpg",
+"w": 428,
+"h": 285
+},
+{
+"src": "assets/img/projects/remal-project/03.jpg",
+"w": 710,
+"h": 472
+},
+{
+"src": "assets/img/projects/remal-project/04.jpg",
+"w": 404,
+"h": 285
+}
+]
+},
+{
+"slug": "interlux",
+"images": [
+{
+"src": "assets/img/projects/interlux/01.jpg",
+"w": 991,
+"h": 649
+}
+]
+},
+{
+"slug": "trosselli",
+"images": [
+{
+"src": "assets/img/projects/trosselli/01.jpg",
+"w": 807,
+"h": 605
+},
+{
+"src": "assets/img/projects/trosselli/02.jpg",
+"w": 499,
+"h": 605
+}
+]
+},
+{
+"slug": "ferrbatt",
+"images": [
+{
+"src": "assets/img/projects/ferrbatt/01.jpg",
+"w": 1440,
+"h": 810
+},
+{
+"src": "assets/img/projects/ferrbatt/02.jpg",
+"w": 1084,
+"h": 810
+},
+{
+"src": "assets/img/projects/ferrbatt/03.jpg",
+"w": 832,
+"h": 638
+},
+{
+"src": "assets/img/projects/ferrbatt/04.jpg",
+"w": 643,
+"h": 855
+},
+{
+"src": "assets/img/projects/ferrbatt/05.jpg",
+"w": 427,
+"h": 297
+},
+{
+"src": "assets/img/projects/ferrbatt/06.jpg",
+"w": 387,
+"h": 302
+}
+]
+}
+]

@@ -63,16 +63,7 @@ COLLECTION_PAGES = {
     "ginza", "mithos", "2be", "adjustable-desks",
 }
 
-PROJECTS = [
-    ("corporate-headquarters-riyadh", "Corporate Headquarters, Riyadh"),
-    ("coworking-campus-paris", "Coworking Campus, Paris"),
-    ("financial-district-office-london", "Financial District Office, London"),
-    ("university-administration-building-udine", "University Administration Building, Udine"),
-    ("law-firm-boardroom-vienna", "Law Firm Boardroom, Vienna"),
-    ("private-chairmans-office-milan", "Private Chairman's Office, Milan"),
-    ("family-office-trieste", "Family Office, Trieste"),
-    ("boutique-hotel-reception-lake-como", "Boutique Hotel Reception, Lake Como"),
-]
+from projects_data import PROJECTS
 
 DOWNLOADS = [
     ("Codutti-Company-Profile-2026.pdf", "Company Profile 2026", "dl.profile"),
@@ -200,6 +191,8 @@ def apply_chrome(path):
     s = re.sub(r'<header class="site-header">.*?</header>', lambda m: header_html(p), s, count=1, flags=re.S)
     s = re.sub(r'<div class="lang-overlay" id="langOverlay">.*?(?=\n*<nav class="nav-overlay")', lambda m: lang_html() + "\n\n", s, count=1, flags=re.S)
     s = re.sub(r'<nav class="nav-overlay".*?</nav>', lambda m: nav_html(p), s, count=1, flags=re.S)
+    if not path.endswith(os.sep + "index.html") or os.path.dirname(path) != ROOT:
+        s = re.sub(r'<footer class="site-footer">.*?</footer>', lambda m: prefix_urls(footer_html(), p), s, count=1, flags=re.S)
     if "ai-config.js" not in s:
         s = s.replace(f'<script src="{p}assets/js/i18n.js"></script>', f'<script src="{p}assets/js/ai-config.js"></script>\n<script src="{p}assets/js/i18n.js"></script>', 1)
     if "search.js" not in s:
@@ -480,6 +473,19 @@ def product_page(prod, products, fins):
         sections.append('  <section class="pd-section pd-gallery" id="gallery">\n'
                         '    <h2 class="pd-section__title wrap" data-i18n="prod.ambients">In the space</h2>\n'
                         f'    <div class="pd-gallery__track" tabindex="0">\n{items}\n    </div>\n  </section>')
+    if prod.get("model"):
+        tabs.append(("view3d", "prod.view3d", "3D and AR"))
+        m = prod["model"]
+        dims = f'<p class="pd-3d__dims"><span data-i18n="prod.dims">Overall size</span> {esc(m["dims"])}</p>' if m.get("dims") else ""
+        sections.append('  <section class="pd-section wrap pd-3d" id="view3d">\n'
+                        '    <h2 class="pd-section__title" data-i18n="prod.view3d">3D and AR</h2>\n'
+                        '    <p class="pd-section__note" data-i18n="prod.view3dNote">Drag to turn the model. On a phone, tap the button to place it in your room.</p>\n'
+                        f'    <model-viewer class="pd-3d__viewer" src="{p}{m["glb"]}" ios-src="{p}{m["usdz"]}" alt="{esc(prod["name"])} 3D model" '
+                        f'poster="{p}{first["image"]}" camera-controls touch-action="pan-y" ar ar-modes="webxr scene-viewer quick-look" '
+                        'camera-orbit="20deg 82deg auto" shadow-intensity="0" exposure="1.05" environment-image="neutral" loading="lazy">\n'
+                        '      <button slot="ar-button" class="pd-3d__ar" data-i18n="prod.ar">View in your space</button>\n'
+                        f'    </model-viewer>\n    {dims}\n'
+                        f'    <script type="module" src="{p}assets/vendor/model-viewer.min.js"></script>\n  </section>')
     dls = []
     if prod.get("catalogue") and os.path.exists(os.path.join(ROOT, prod["catalogue"])):
         dls.append((f'{p}{prod["catalogue"]}', "prod.catalogue", "Catalogue", os.path.getsize(os.path.join(ROOT, prod["catalogue"]))))
@@ -570,7 +576,7 @@ def finish_names_js(fins):
 
 
 VAR_EN = {
-    "single-desk": "Single desk", "desk-extension": "Desk with extension", "corner-desk": "Corner desk",
+    "single-pod": "Single pod", "single-desk": "Single desk", "desk-extension": "Desk with extension", "corner-desk": "Corner desk",
     "wood-legs": "Desk with wooden legs", "desk": "Desk", "meeting-table": "Meeting table",
     "glass-meeting": "Glass meeting table", "glass-meeting-square": "Square glass meeting table",
     "modular-meeting": "Modular meeting table", "round-table": "Round table", "boardroom": "Boardroom table",
@@ -592,22 +598,119 @@ VAR_EN = {
 # --------------------------------------------------------------------------
 # Projects & downloads
 # --------------------------------------------------------------------------
+def project_images():
+    data = json.load(open(os.path.join(ROOT, "assets/data/project-images.json"), encoding="utf-8"))
+    return {d["slug"]: d["images"] for d in data}
+
+
+def project_meta(pr):
+    bits = [pr["location"], pr["year"]]
+    return " · ".join(b for b in bits if b)
+
+
 def projects_page():
     p = ""
-    tiles = "\n".join(
-        f'      <a class="project-box" href="projects/{slug}.html"><span class="project-box__media tint-{i % 5}"><span class="project-box__label">{esc(name)}</span></span></a>'
-        for i, (slug, name) in enumerate(PROJECTS))
+    imgs = project_images()
+    sectors = []
+    for pr in PROJECTS:
+        if pr["sector"] not in sectors:
+            sectors.append(pr["sector"])
+    chips = '<button type="button" class="pl-chip is-active" aria-pressed="true" data-filter="all" data-i18n="prod.all">All</button>' + "".join(
+        f'<button type="button" class="pl-chip" aria-pressed="false" data-filter="{esc(sec)}">{esc(sec)}</button>' for sec in sectors)
+    cards = []
+    for pr in PROJECTS:
+        im = imgs[pr["slug"]][0]
+        n = len(imgs[pr["slug"]])
+        cards.append(f'''      <a class="pj-card" href="projects/{pr["slug"]}.html" data-sector="{esc(pr["sector"])}">
+        <span class="pj-card__media"><img src="{im["src"]}" alt="{esc(pr["title"])}" loading="lazy" width="{im["w"]}" height="{im["h"]}"></span>
+        <span class="pj-card__meta">{esc(pr["sector"])}{(" · " + esc(project_meta(pr))) if project_meta(pr) else ""}</span>
+        <span class="pj-card__title">{esc(pr["title"])}</span>
+        <span class="pj-card__preview">{esc(pr["preview"])}</span>
+        <span class="pj-card__more"><span data-i18n="pj.discover">Discover the project</span> · {n} <span data-i18n="pj.photos">photos</span></span>
+      </a>''')
     main = f'''  <section class="pl-hero wrap">
     <h1 class="pl-title" data-i18n="nav.projects">Projects</h1>
-    <p class="pl-intro" data-i18n="projects.intro">Headquarters, boardrooms, coworking and hospitality: turnkey fit-outs coordinated end to end.</p>
+    <p class="pl-intro" data-i18n="projects.intro">Ministries, banks, headquarters and trade fairs: a selection of the spaces we have furnished around the world.</p>
+    <div class="pl-chips pj-filter" role="group" aria-label="Filter projects">{chips}</div>
   </section>
-  <section class="wrap pl-list">
-    <div class="project-grid">
-{tiles}
+  <section class="wrap pj-list">
+    <div class="pj-grid">
+{chr(10).join(cards)}
     </div>
   </section>
 {closing(p)}'''
-    return page(p, "Projects", "Codutti contract projects worldwide.", main)
+    return page(p, "Projects", "Codutti reference projects worldwide.", main, extra_js=("projects",))
+
+
+FEATURED = {"contract.html": ["ministry-of-investment", "al-rajhi-bank", "torre-mohamed", "ferrbatt"],
+            "bespoke.html": ["security-national-pr", "rtcc-dubai", "interlux", "sberbank"],
+            "company.html": ["orgatec", "light-building", "loreal-paris", "saudi-investment-bank"]}
+
+
+def featured_projects():
+    """Swap the project tiles on Contract, Bespoke and Company for real references."""
+    imgs = project_images()
+    by = {pr["slug"]: pr for pr in PROJECTS}
+    for f, slugs in FEATURED.items():
+        path = os.path.join(ROOT, f)
+        s = open(path, encoding="utf-8").read()
+        cards = "\n".join(
+            f'      <a class="pj-card" href="projects/{x}.html"><span class="pj-card__media"><img src="{imgs[x][0]["src"]}" alt="{esc(by[x]["title"])}" loading="lazy"></span>'
+            f'<span class="pj-card__meta">{esc(project_meta(by[x]))}</span><span class="pj-card__title">{esc(by[x]["title"])}</span>'
+            f'<span class="pj-card__preview">{esc(by[x]["preview"])}</span></a>' for x in slugs)
+        s = re.sub(r'<div class="(project-grid|pj-grid pj-grid--4)">.*?\n    </div>', lambda m: f'<div class="pj-grid pj-grid--4">\n{cards}\n    </div>', s, count=1, flags=re.S)
+        open(path, "w", encoding="utf-8").write(s)
+
+
+def project_page(i, pr):
+    p = "../"
+    imgs = project_images()[pr["slug"]]
+    hero = imgs[0]
+    facts = [("pj.project", "Project", pr["title"]), ("pj.location", "Location", pr["location"]),
+             ("pj.year", "Year", pr["year"]), ("pj.sector", "Sector", pr["sector"])]
+    facts_html = "".join(f'<div><dt data-i18n="{k}">{lab}</dt><dd>{esc(v)}</dd></div>' for k, lab, v in facts if v)
+    scope = "".join(f"<li>{esc(x)}</li>" for x in pr["scope"])
+    frames = []
+    for n, im in enumerate(imgs, 1):
+        wide = " pj-frame--wide" if im["w"] / im["h"] > 1.55 or n == 1 else ""
+        frames.append(f'      <figure class="pj-frame{wide} reveal"><img src="{p}{im["src"]}" alt="{esc(pr["title"])} — {n}" loading="lazy" width="{im["w"]}" height="{im["h"]}"><figcaption>{n:02d}</figcaption></figure>')
+    prev_pr = PROJECTS[i - 1]
+    next_pr = PROJECTS[(i + 1) % len(PROJECTS)]
+    main = f'''  <section class="pj-hero">
+    <img class="pj-hero__img" src="{p}{hero["src"]}" alt="{esc(pr["title"])}">
+    <div class="pj-hero__shade"></div>
+    <div class="pj-hero__text wrap">
+      <a class="pj-back" href="{p}projects.html" data-i18n="pj.all">All projects</a>
+      <p class="pj-hero__eyebrow">{esc(pr["sector"])}</p>
+      <h1 class="pj-hero__title">{esc(pr["title"])}</h1>
+      <p class="pj-hero__meta">{esc(project_meta(pr))}</p>
+    </div>
+  </section>
+  <section class="wrap pj-story">
+    <dl class="pj-facts">{facts_html}</dl>
+    <div class="pj-cols">
+      <div>
+        <h2 class="pj-h2" data-i18n="pj.about">The project</h2>
+        <p class="pj-text">{esc(pr["about"])}</p>
+      </div>
+      <div>
+        <h2 class="pj-h2" data-i18n="pj.scope">What Codutti did</h2>
+        <ul class="pj-scope">{scope}</ul>
+      </div>
+    </div>
+  </section>
+  <section class="wrap pj-board" aria-label="Photos">
+    <h2 class="pj-h2" data-i18n="pj.storyboard">Storyboard</h2>
+    <div class="pj-frames">
+{chr(10).join(frames)}
+    </div>
+  </section>
+  <nav class="wrap pj-nav" aria-label="More projects">
+    <a href="{prev_pr["slug"]}.html"><span data-i18n="pj.prev">Previous project</span><strong>{esc(prev_pr["title"])}</strong></a>
+    <a href="{next_pr["slug"]}.html" class="pj-nav__next"><span data-i18n="pj.next">Next project</span><strong>{esc(next_pr["title"])}</strong></a>
+  </nav>
+{closing(p)}'''
+    return page(p, f'{pr["title"]}{", " + pr["location"] if pr["location"] else ""}', pr["preview"], main, body_class="page-project")
 
 
 DL_GROUPS = [("dl.profile", "Company profile", "company"), ("dl.catalogue", "Catalogue", "catalogue"), ("dl.materials", "Materials", "materials")]
@@ -700,10 +803,17 @@ def main():
     import build_collections
     build_collections.main()
     write("projects.html", projects_page())
+    for f in os.listdir(os.path.join(ROOT, "projects")):
+        if f.endswith(".html"):
+            os.remove(os.path.join(ROOT, "projects", f))
+    for i, pr in enumerate(PROJECTS):
+        write(f"projects/{pr['slug']}.html", project_page(i, pr))
+    featured_projects()
     write("downloads.html", downloads_page())
 
     files = subprocess.check_output(["git", "ls-files", "*.html"], cwd=ROOT).decode().split()
-    files = sorted(set(files) | {"projects.html", "downloads.html"})
+    files = sorted((set(files) | {"projects.html", "downloads.html"} | {f"projects/{pr['slug']}.html" for pr in PROJECTS})
+                   - {f for f in files if f.startswith("projects/") and not os.path.exists(os.path.join(ROOT, f))})
     for f in files:
         full = os.path.join(ROOT, f)
         if os.path.exists(full):

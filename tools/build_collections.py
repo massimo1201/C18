@@ -306,7 +306,7 @@ def home_lineup(products, fins):
 def main():
     products = bs.load_products()
     fins = bs.load_finishes()
-    home_lineup(products, fins)
+    # home_lineup(products, fins)  # range line-up removed from the landing on request
     for slug, meta in COLLECTIONS.items():
         html = collection_page(slug, meta, products, fins)
         if html:

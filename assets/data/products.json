@@ -11240,6 +11240,32 @@
   ]
  },
  {
+  "slug": "cottage-pod",
+  "name": "Cottage Pod",
+  "collection": null,
+  "category": "acoustic-solutions",
+  "subcategories": [
+   "acoustic-pods"
+  ],
+  "variants": [
+   {
+    "key": "single-pod",
+    "image": "assets/img/products/cottage-pod/v0.jpg",
+    "fit": "contain"
+   }
+  ],
+  "gallery": [],
+  "fit": "contain",
+  "catalogue": null,
+  "new": false,
+  "model": {
+   "glb": "assets/3d/cottage-pod.glb",
+   "usdz": "assets/3d/cottage-pod.usdz",
+   "dims": "111 × 95 × 210 cm"
+  },
+  "finishes": []
+ },
+ {
   "slug": "ceiling-panels",
   "name": "Ceiling Panels",
   "collection": null,

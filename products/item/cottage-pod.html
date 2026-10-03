@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cottage Pod — Codutti</title>
+<meta name="description" content="Cottage Pod — Acoustic Pods by Codutti.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body id="top" class="page-products page-product">
+
+<header class="site-header">
+  <div class="header-side header-side--left">
+    <button class="lang-btn" id="langBtn" aria-expanded="false" aria-label="Choose language">EN</button>
+    <a class="header-icon" href="../../downloads.html" aria-label="Download" data-i18n-aria="nav.download"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg></a>
+    <button type="button" class="header-icon" id="searchBtn" aria-label="Search" data-i18n-aria="search.open"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></svg></button>
+  </div>
+  <a href="../../index.html" class="brand"><img src="../../assets/img/logo-mark.png" alt="Codutti"></a>
+  <div class="header-side header-side--right">
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="lang-overlay" id="langOverlay">
+  <div class="lang-overlay__list">
+    <button class="lang-overlay__item is-active" data-lang="EN" data-short="EN" lang="en">English</button>
+    <button class="lang-overlay__item" data-lang="IT" data-short="IT" lang="it">Italiano</button>
+    <button class="lang-overlay__item" data-lang="FR" data-short="FR" lang="fr">Français</button>
+    <button class="lang-overlay__item" data-lang="SP" data-short="ES" lang="es">Español</button>
+    <button class="lang-overlay__item" data-lang="RU" data-short="RU" lang="ru">Русский</button>
+    <button class="lang-overlay__item" data-lang="AR" data-short="AR" lang="ar">العربية</button>
+  </div>
+</div>
+
+<nav class="nav-overlay" id="navOverlay" aria-label="Menu">
+  <div class="nav-panels">
+    <div class="nav-panel nav-panel--main is-active" data-panel="main">
+      <ul class="nav-main">
+        <li><button type="button" class="nav-main__open" data-open="products" aria-expanded="false"><span class="num">01</span> <span data-i18n="nav.products">Products</span><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></li>
+        <li><a href="../../contract.html"><span class="num">02</span> <span data-i18n="nav.contract">Contract</span></a></li>
+        <li><a href="../../bespoke.html"><span class="num">03</span> <span data-i18n="nav.bespoke">Bespoke</span></a></li>
+        <li><a href="../../projects.html"><span class="num">04</span> <span data-i18n="nav.projects">Projects</span></a></li>
+        <li><a href="../../materials.html"><span class="num">05</span> <span data-i18n="nav.finishes">Finishes</span></a></li>
+        <li><button type="button" class="nav-main__open" data-open="about" aria-expanded="false"><span class="num">06</span> <span data-i18n="nav.about">About Us</span><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></li>
+        <li><a href="../../news.html"><span class="num">07</span> <span data-i18n="nav.news">News and Events</span></a></li>
+        <li><a href="../../contact.html"><span class="num">08</span> <span data-i18n="nav.contact">Contact Us</span></a></li>
+      </ul>
+    </div>
+    <div class="nav-panel" data-panel="products">
+      <button type="button" class="nav-back" data-back><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span data-i18n="nav.products">Products</span></button>
+      <ul class="nav-main nav-main--sub">
+        <li><a href="../../products/all.html" data-i18n="nav.allProducts">All Products</a></li>
+        <li><a href="../../products/desks.html" data-i18n="cat.desks">Desks</a></li>
+        <li><a href="../../products/tables-and-sharings.html" data-i18n="cat.tables">Meetings</a></li>
+        <li><a href="../../products/seatings.html" data-i18n="cat.seatings">Seatings</a></li>
+        <li><a href="../../products/coffee-tables.html" data-i18n="cat.coffeeTables">Coffee Tables</a></li>
+        <li><a href="../../products/storage-units.html" data-i18n="cat.storage">Storage Units</a></li>
+        <li><a href="../../products/receptions.html" data-i18n="cat.receptions">Receptions</a></li>
+        <li><a href="../../products/acoustic-solutions.html" data-i18n="cat.acoustic">Acoustic Solutions</a></li>
+      </ul>
+    </div>
+    <div class="nav-panel" data-panel="about">
+      <button type="button" class="nav-back" data-back><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span data-i18n="nav.about">About Us</span></button>
+      <ul class="nav-main nav-main--sub">
+        <li><a href="../../company.html" data-i18n="nav.company">Company</a></li>
+        <li><a href="../../codutti-method.html" data-i18n="nav.method">The Codutti Method</a></li>
+        <li><a href="../../company.html#certifications" data-i18n="legal.certifications">Certifications</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="pl">
+  <nav class="pd-subnav" aria-label="Cottage Pod">
+    <div class="pd-subnav__inner wrap">
+      <span class="pd-subnav__name">Cottage Pod</span>
+      <span class="pd-subnav__links"><a href="#view3d" data-i18n="prod.view3d">3D and AR</a></span>
+      <a class="pd-subnav__cta" href="../../contact.html" data-i18n="tour.outro.cta">Request a quote</a>
+    </div>
+  </nav>
+  <section class="pd wrap">
+    <nav class="pl-crumbs" aria-label="Breadcrumb"><a href="../../products/all.html" data-i18n="nav.products">Products</a> <span aria-hidden="true">/</span> <a href="../../products/acoustic-solutions.html" data-i18n="cat.acoustic">Acoustic Solutions</a> <span aria-hidden="true">/</span> <a href="../../products/acoustic-solutions/acoustic-pods.html" data-i18n="sub.acousticPods">Acoustic Pods</a></nav>
+    <div class="pd__grid">
+      <div class="pd__stage">
+        <div class="pd__main"><img src="../../assets/img/products/cottage-pod/v0.jpg" alt="Cottage Pod"></div>
+      </div>
+      <div class="pd__info">
+        <p class="pd__eyebrow"><span data-i18n="sub.acousticPods">Acoustic Pods</span></p>
+        <h1 class="pd__name">Cottage Pod</h1>
+        <p class="pd__variant" aria-live="polite"><span data-i18n="var.single-pod">Single pod</span></p>
+        <div class="pd__ctas">
+          <a class="feature__btn" href="../../contact.html" data-i18n="tour.outro.cta">Request a quote</a>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pd-section wrap pd-3d" id="view3d">
+    <h2 class="pd-section__title" data-i18n="prod.view3d">3D and AR</h2>
+    <p class="pd-section__note" data-i18n="prod.view3dNote">Drag to turn the model. On a phone, tap the button to place it in your room.</p>
+    <model-viewer class="pd-3d__viewer" src="../../assets/3d/cottage-pod.glb" ios-src="../../assets/3d/cottage-pod.usdz" alt="Cottage Pod 3D model" poster="../../assets/img/products/cottage-pod/v0.jpg" camera-controls touch-action="pan-y" ar ar-modes="webxr scene-viewer quick-look" camera-orbit="20deg 82deg auto" shadow-intensity="0" exposure="1.05" environment-image="neutral" loading="lazy">
+      <button slot="ar-button" class="pd-3d__ar" data-i18n="prod.ar">View in your space</button>
+    </model-viewer>
+    <p class="pd-3d__dims"><span data-i18n="prod.dims">Overall size</span> 111 × 95 × 210 cm</p>
+    <script type="module" src="../../assets/vendor/model-viewer.min.js"></script>
+  </section>
+  <section class="pd-section wrap">
+    <h2 class="pd-section__title" data-i18n="prod.related">You may also like</h2>
+    <ul class="pl-grid">
+      <li class="pl-card" data-subs="desk-panels">
+        <a class="pl-card__link" href="../../products/item/desk-panels.html">
+          <span class="pl-card__media"><img class="fit-contain" src="../../assets/img/products/desk-panels/v0.jpg" alt="Desk Panels" loading="lazy"></span>
+          <span class="pl-card__name">Desk Panels</span>
+          <span class="pl-card__meta"><span data-i18n="sub.deskPanels">Desk Panels</span> · 2 <span data-i18n="prod.versions">versions</span></span>
+        </a>
+      </li>
+      <li class="pl-card" data-subs="wall-panels">
+        <a class="pl-card__link" href="../../products/item/wall-panels.html">
+          <span class="pl-card__media"><img class="fit-contain" src="../../assets/img/products/wall-panels/v0.jpg" alt="Wall Panels" loading="lazy"></span>
+          <span class="pl-card__name">Wall Panels</span>
+          <span class="pl-card__meta"><span data-i18n="sub.wallPanels">Wall Panels</span> · 4 <span data-i18n="prod.versions">versions</span></span>
+        </a>
+      </li>
+      <li class="pl-card" data-subs="freestanding-panels">
+        <a class="pl-card__link" href="../../products/item/freestanding-panels.html">
+          <span class="pl-card__media"><img class="fit-contain" src="../../assets/img/products/freestanding-panels/v0.jpg" alt="Freestanding Panels" loading="lazy"></span>
+          <span class="pl-card__name">Freestanding Panels</span>
+          <span class="pl-card__meta"><span data-i18n="sub.freestandingPanels">Freestanding Panels</span></span>
+        </a>
+      </li>
+      <li class="pl-card" data-subs="ceiling-panels">
+        <a class="pl-card__link" href="../../products/item/ceiling-panels.html">
+          <span class="pl-card__media"><img class="fit-contain" src="../../assets/img/products/ceiling-panels/v0.jpg" alt="Ceiling Panels" loading="lazy"></span>
+          <span class="pl-card__name">Ceiling Panels</span>
+          <span class="pl-card__meta"><span data-i18n="sub.ceilingPanels">Ceiling Panels</span> · 5 <span data-i18n="prod.versions">versions</span></span>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section class="pl-closing">
+    <h2 class="feature__title" data-i18n="prod.closing.title">Can't find what you need?</h2>
+    <p class="feature__body" data-i18n="prod.closing.body">Every piece can be made to measure in our factory.</p>
+    <div class="feature__ctas">
+      <a class="feature__btn" href="../../contact.html" data-i18n="tour.outro.cta">Request a quote</a>
+      <a class="feature__link" href="../../bespoke.html" data-i18n="home.bespoke.cta">Discover Bespoke</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-newsletter" id="newsletter">
+    <div class="newsletter reveal">
+      <div>
+        <h2 class="mix-title"><span class="lg" data-i18n="newsletter.word1" data-i18n-autofit="4">Stay</span> <span class="lg" data-i18n="newsletter.word2" data-i18n-autofit="5">Tuned</span></h2>
+        <p data-i18n="newsletter.body">News, collections, and projects from Codutti straight to your inbox.</p>
+      </div>
+      <form class="newsletter-form" onsubmit="return false;">
+        <div class="newsletter-form__row">
+          <input type="text" placeholder="Name" required aria-label="Name" data-i18n-placeholder="ph.name" data-i18n-aria="ph.name">
+          <input type="text" placeholder="Surname" required aria-label="Surname" data-i18n-placeholder="ph.surname" data-i18n-aria="ph.surname">
+        </div>
+        <input type="email" placeholder="Your email" required aria-label="Email" data-i18n-placeholder="ph.email" data-i18n-aria="ph.email">
+        <button type="submit" class="btn btn--white-fill" data-i18n="newsletter.subscribe">Subscribe to the Newsletter</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Codutti — <span data-i18n="footer.rights">All rights reserved</span></p>
+  </div>
+</footer>
+
+<script src="../../assets/js/ai-config.js"></script>
+<script src="../../assets/js/i18n.js"></script>
+<script src="../../assets/js/finish-names.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/search-index.js" defer></script>
+<script src="../../assets/js/search.js" defer></script>
+<script src="../../assets/js/products.js"></script>
+</body>
+</html>
