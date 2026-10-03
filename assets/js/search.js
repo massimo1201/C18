@@ -97,7 +97,8 @@
   };
 
   const open = () => {
-    input.placeholder = t('search.placeholder', 'Search products and pages');
+    input.placeholder = '';
+    input.setAttribute('aria-label', t('search.open', 'Search'));
     el.querySelector('.search-overlay__close').setAttribute('aria-label', t('prod.close', 'Close'));
     el.classList.add('is-open');
     document.body.classList.add('search-open');

@@ -608,38 +608,35 @@ def project_meta(pr):
     return " · ".join(b for b in bits if b)
 
 
+def project_title(pr):
+    return f'{pr["title"]} {pr["year"]}' if pr["year"] else pr["title"]
+
+
+def project_card(pr, im, p=""):
+    loc = esc(pr["location"]) if pr["location"] else esc(pr["sector"])
+    return (f'      <a class="pj-card" href="{p}projects/{pr["slug"]}.html">'
+            f'<img class="pj-card__img" src="{p}{im["src"]}" alt="{esc(pr["title"])}" loading="lazy" width="{im["w"]}" height="{im["h"]}">'
+            f'<span class="pj-card__body"><span class="pj-card__meta">{loc}</span>'
+            f'<span class="pj-card__title">{esc(project_title(pr))}</span>'
+            f'<span class="pj-card__preview">{esc(pr["preview"])}</span>'
+            f'<span class="pj-card__more" data-i18n="pj.discover">Discover the project</span></span></a>')
+
+
 def projects_page():
     p = ""
     imgs = project_images()
-    sectors = []
-    for pr in PROJECTS:
-        if pr["sector"] not in sectors:
-            sectors.append(pr["sector"])
-    chips = '<button type="button" class="pl-chip is-active" aria-pressed="true" data-filter="all" data-i18n="prod.all">All</button>' + "".join(
-        f'<button type="button" class="pl-chip" aria-pressed="false" data-filter="{esc(sec)}">{esc(sec)}</button>' for sec in sectors)
-    cards = []
-    for pr in PROJECTS:
-        im = imgs[pr["slug"]][0]
-        n = len(imgs[pr["slug"]])
-        cards.append(f'''      <a class="pj-card" href="projects/{pr["slug"]}.html" data-sector="{esc(pr["sector"])}">
-        <span class="pj-card__media"><img src="{im["src"]}" alt="{esc(pr["title"])}" loading="lazy" width="{im["w"]}" height="{im["h"]}"></span>
-        <span class="pj-card__meta">{esc(pr["sector"])}{(" · " + esc(project_meta(pr))) if project_meta(pr) else ""}</span>
-        <span class="pj-card__title">{esc(pr["title"])}</span>
-        <span class="pj-card__preview">{esc(pr["preview"])}</span>
-        <span class="pj-card__more"><span data-i18n="pj.discover">Discover the project</span> · {n} <span data-i18n="pj.photos">photos</span></span>
-      </a>''')
+    cards = "\n".join(project_card(pr, imgs[pr["slug"]][0]) for pr in PROJECTS)
     main = f'''  <section class="pl-hero wrap">
     <h1 class="pl-title" data-i18n="nav.projects">Projects</h1>
     <p class="pl-intro" data-i18n="projects.intro">Ministries, banks, headquarters and trade fairs: a selection of the spaces we have furnished around the world.</p>
-    <div class="pl-chips pj-filter" role="group" aria-label="Filter projects">{chips}</div>
   </section>
   <section class="wrap pj-list">
     <div class="pj-grid">
-{chr(10).join(cards)}
+{cards}
     </div>
   </section>
 {closing(p)}'''
-    return page(p, "Projects", "Codutti reference projects worldwide.", main, extra_js=("projects",))
+    return page(p, "Projects", "Codutti reference projects worldwide.", main)
 
 
 FEATURED = {"contract.html": ["ministry-of-investment", "al-rajhi-bank", "torre-mohamed", "ferrbatt"],
@@ -654,10 +651,7 @@ def featured_projects():
     for f, slugs in FEATURED.items():
         path = os.path.join(ROOT, f)
         s = open(path, encoding="utf-8").read()
-        cards = "\n".join(
-            f'      <a class="pj-card" href="projects/{x}.html"><span class="pj-card__media"><img src="{imgs[x][0]["src"]}" alt="{esc(by[x]["title"])}" loading="lazy"></span>'
-            f'<span class="pj-card__meta">{esc(project_meta(by[x]))}</span><span class="pj-card__title">{esc(by[x]["title"])}</span>'
-            f'<span class="pj-card__preview">{esc(by[x]["preview"])}</span></a>' for x in slugs)
+        cards = "\n".join(project_card(by[x], imgs[x][0]) for x in slugs)
         s = re.sub(r'<div class="(project-grid|pj-grid pj-grid--4)">.*?\n    </div>', lambda m: f'<div class="pj-grid pj-grid--4">\n{cards}\n    </div>', s, count=1, flags=re.S)
         open(path, "w", encoding="utf-8").write(s)
 
@@ -682,7 +676,7 @@ def project_page(i, pr):
     <div class="pj-hero__text wrap">
       <a class="pj-back" href="{p}projects.html" data-i18n="pj.all">All projects</a>
       <p class="pj-hero__eyebrow">{esc(pr["sector"])}</p>
-      <h1 class="pj-hero__title">{esc(pr["title"])}</h1>
+      <h1 class="pj-hero__title">{esc(project_title(pr))}</h1>
       <p class="pj-hero__meta">{esc(project_meta(pr))}</p>
     </div>
   </section>
