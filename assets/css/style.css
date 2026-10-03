@@ -24,7 +24,7 @@
   --line-on-black: rgba(255, 253, 245, 0.16);
 
   --font-display: 'Clash Display', 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
-  --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-body: 'minion-variable-concept', 'Minion Variable Concept', 'Minion Pro', 'Crimson Pro', Georgia, serif;
 
   --container: 1440px;
   --pad: clamp(24px, 4vw, 64px);
@@ -3653,8 +3653,8 @@ body.search-open { overflow: hidden; }
 .dl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: clamp(24px, 3vw, 40px) clamp(16px, 2vw, 28px); }
 .dl-card[hidden] { display: none; }
 .dl-card a { display: flex; flex-direction: column; color: inherit; text-decoration: none; }
-.dl-card__cover { aspect-ratio: 3 / 4; background: #fff; border: 1px solid var(--line); border-radius: calc(var(--radius) * 0.5); overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.dl-card__cover img { width: 100%; height: 100%; object-fit: contain; transition: transform .5s var(--ease); }
+.dl-card__cover { aspect-ratio: 3 / 4; background: #f2f0ea; border: 0; border-radius: calc(var(--radius) * 0.5); overflow: hidden; display: block; }
+.dl-card__cover img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
 .dl-card a:hover .dl-card__cover img { transform: scale(1.03); }
 .dl-card__type { margin-top: 14px; font-family: var(--font-display); font-weight: 600; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; opacity: .55; }
 .dl-card__name { margin-top: 4px; font-family: var(--font-display); font-weight: 600; font-size: clamp(17px, 1.4vw, 20px); text-transform: uppercase; line-height: 1.15; }
@@ -3866,3 +3866,13 @@ body.nav-open .site-header, body.lang-open .site-header { background: #fff; }
   .lu-tabs { display: flex; width: 100%; }
   .lu-tab { flex: 1 1 0; padding: 10px 8px; font-size: 14px; }
 }
+
+/* Type system: descriptive copy in Minion Variable Concept Regular,
+   every title, label, button and nav item in Clash Display Semibold. */
+body, p, li, blockquote, figcaption, .lede, .pl-card__desc, .lu-card__claim, .cl-hero__claim, .cl-tile p { font-family: var(--font-body); font-weight: 400; font-variation-settings: normal; }
+h1, h2, h3, h4, h5, h6, button, label, legend, th, dt, dd,
+.btn, [class*="btn"], [class*="__cta"], .cfg-cta, [class*="__link"], [class*="__links"] a,
+[class*="title"], [class*="__name"], [class*="eyebrow"], [class*="__label"], .cfg-label,
+[class*="chip"], [class*="tab"], [class*="badge"], .pd-subnav, .pd-subnav a,
+.site-header, .nav-overlay a, .nav-overlay button, .products-mega__sub a, .lang-overlay__item, .lang-overlay button, .lang-overlay input,
+.cl-heritage__year, .cl-fig__num, .cl-spec td, .cl-model__data dd, .footer a { font-family: var(--font-display); font-weight: 600; }

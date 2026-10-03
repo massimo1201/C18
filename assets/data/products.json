@@ -216,13 +216,8 @@
   ],
   "variants": [
    {
-    "key": "desk",
-    "image": "assets/img/products/mithos-desk/v0.jpg",
-    "fit": "contain"
-   },
-   {
     "key": "desk-extension",
-    "image": "assets/img/products/mithos-desk/v1.jpg",
+    "image": "assets/img/products/mithos-desk/v0.jpg",
     "fit": "contain"
    }
   ],
@@ -277,11 +272,6 @@
    {
     "key": "desk",
     "image": "assets/img/products/cloud-desk/v0.jpg",
-    "fit": "contain"
-   },
-   {
-    "key": "desk-extension",
-    "image": "assets/img/products/cloud-desk/v1.jpg",
     "fit": "contain"
    }
   ],
@@ -969,11 +959,6 @@
     "key": "meeting-table",
     "image": "assets/img/products/mithos-meeting/v0.jpg",
     "fit": "contain"
-   },
-   {
-    "key": "boardroom",
-    "image": "assets/img/products/mithos-meeting/v1.jpg",
-    "fit": "contain"
    }
   ],
   "gallery": [
@@ -1105,47 +1090,6 @@
    "VE65",
    "H4604",
    "H0001"
-  ]
- },
- {
-  "slug": "2be-round",
-  "name": "2BE",
-  "collection": "2be",
-  "category": "tables-and-sharings",
-  "subcategories": [
-   "meeting-tables"
-  ],
-  "variants": [
-   {
-    "key": "round-table",
-    "image": "assets/img/products/2be-round/v0.jpg",
-    "fit": "contain"
-   },
-   {
-    "key": "meeting-table",
-    "image": "assets/img/products/2be-round/v1.jpg",
-    "fit": "contain"
-   }
-  ],
-  "gallery": [
-   "assets/img/products/2be-round/g0.jpg",
-   "assets/img/products/2be-round/g1.jpg",
-   "assets/img/products/2be-round/g2.jpg"
-  ],
-  "fit": "cover",
-  "catalogue": "assets/docs/Codutti-2BE-Catalogue.pdf",
-  "new": false,
-  "finishes": [
-   "MB29",
-   "MM21",
-   "ME28",
-   "MP25",
-   "MJ24",
-   "MR30",
-   "MN31",
-   "ML27",
-   "MO32",
-   "MS26"
   ]
  },
  {
@@ -1315,45 +1259,6 @@
    "MN31",
    "MP25",
    "CT86"
-  ]
- },
- {
-  "slug": "2be-sharing",
-  "name": "2BE",
-  "collection": "2be",
-  "category": "tables-and-sharings",
-  "subcategories": [
-   "sharing-tables"
-  ],
-  "variants": [
-   {
-    "key": "break",
-    "image": "assets/img/products/2be-sharing/v0.jpg",
-    "fit": "contain"
-   }
-  ],
-  "gallery": [
-   "assets/img/products/2be-sharing/g0.jpg",
-   "assets/img/products/2be-sharing/g1.jpg",
-   "assets/img/products/2be-sharing/g2.jpg",
-   "assets/img/products/2be-sharing/g3.jpg",
-   "assets/img/products/2be-sharing/g4.jpg",
-   "assets/img/products/2be-sharing/g5.jpg"
-  ],
-  "fit": "cover",
-  "catalogue": "assets/docs/Codutti-2BE-Catalogue.pdf",
-  "new": false,
-  "finishes": [
-   "MB29",
-   "MM21",
-   "ME28",
-   "MP25",
-   "MJ24",
-   "MR30",
-   "MN31",
-   "ML27",
-   "MO32",
-   "MS26"
   ]
  },
  {
@@ -1606,41 +1511,6 @@
   ]
  },
  {
-  "slug": "team-storage",
-  "name": "Team",
-  "collection": "team",
-  "category": "storage-units",
-  "subcategories": [
-   "cabinets"
-  ],
-  "variants": [
-   {
-    "key": "storage-wall",
-    "image": "assets/img/products/team-storage/v0.jpg",
-    "fit": "contain"
-   }
-  ],
-  "gallery": [
-   "assets/img/products/team-storage/g0.jpg",
-   "assets/img/products/team-storage/g1.jpg"
-  ],
-  "fit": "contain",
-  "catalogue": "assets/docs/Codutti-Team-Catalogue.pdf",
-  "new": false,
-  "finishes": [
-   "MB29",
-   "MM21",
-   "CJ83",
-   "EM41",
-   "EB48",
-   "CN72",
-   "MR30",
-   "MN31",
-   "MP25",
-   "CT86"
-  ]
- },
- {
   "slug": "mithos-storage",
   "name": "Mithos",
   "collection": "mithos",
@@ -1652,11 +1522,6 @@
    {
     "key": "bookcase",
     "image": "assets/img/products/mithos-storage/v0.jpg",
-    "fit": "contain"
-   },
-   {
-    "key": "console",
-    "image": "assets/img/products/mithos-storage/v1.jpg",
     "fit": "contain"
    }
   ],
@@ -1753,11 +1618,6 @@
     "key": "chest",
     "image": "assets/img/products/ginza-storage/v0.jpg",
     "fit": "contain"
-   },
-   {
-    "key": "cabinet",
-    "image": "assets/img/products/ginza-storage/v1.jpg",
-    "fit": "contain"
    }
   ],
   "gallery": [
@@ -1803,11 +1663,6 @@
    {
     "key": "storage-wall",
     "image": "assets/img/products/2be-storage/v0.jpg",
-    "fit": "contain"
-   },
-   {
-    "key": "bookcase",
-    "image": "assets/img/products/2be-storage/v1.jpg",
     "fit": "contain"
    }
   ],
