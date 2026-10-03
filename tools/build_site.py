@@ -315,7 +315,7 @@ def closing(p):
 
 COVER = {"desks": "genesis-desk", "tables-and-sharings": "genesis-meeting", "seatings": "seat-velar",
          "coffee-tables": "tondo", "storage-units": "one-storage", "receptions": "ciao",
-         "acoustic-solutions": "acoustic-screen"}
+         "acoustic-solutions": "desk-panels"}
 
 
 def category_tile(slug, key, label, p, products, small=False):

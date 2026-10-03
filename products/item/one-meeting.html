@@ -37,6 +37,8 @@
   </div>
 </div>
 
+
+
 <nav class="nav-overlay" id="navOverlay" aria-label="Menu">
   <div class="nav-panels">
     <div class="nav-panel nav-panel--main is-active" data-panel="main">
@@ -76,11 +78,18 @@
 </nav>
 
 <main class="pl">
+  <nav class="pd-subnav" aria-label="One">
+    <div class="pd-subnav__inner wrap">
+      <span class="pd-subnav__name">One</span>
+      <span class="pd-subnav__links"><a href="#versions" data-i18n="prod.versionsTitle">Versions</a><a href="#finishes" data-i18n="prod.finishes">Finishes</a><a href="#gallery" data-i18n="prod.ambients">In the space</a><a href="#downloads" data-i18n="nav.download">Download</a></span>
+      <a class="pd-subnav__cta" href="../../contact.html" data-i18n="tour.outro.cta">Request a quote</a>
+    </div>
+  </nav>
   <section class="pd wrap">
     <nav class="pl-crumbs" aria-label="Breadcrumb"><a href="../../products/all.html" data-i18n="nav.products">Products</a> <span aria-hidden="true">/</span> <a href="../../products/tables-and-sharings.html" data-i18n="cat.tables">Meetings</a> <span aria-hidden="true">/</span> <a href="../../products/tables-and-sharings/meeting-tables.html" data-i18n="sub.meetingTables">Meeting Tables</a></nav>
     <div class="pd__grid">
       <div class="pd__stage">
-        <div class="pd__main"><img class="fit-contain" src="../../assets/img/products/one-meeting/v0.jpg" alt="One"></div>
+        <div class="pd__main"><img src="../../assets/img/products/one-meeting/v0.jpg" alt="One"></div>
       </div>
       <div class="pd__info">
         <p class="pd__eyebrow"><span data-i18n="sub.meetingTables">Meeting Tables</span></p>
@@ -88,38 +97,67 @@
         <p class="pd__variant" aria-live="polite"><span data-i18n="var.meeting-table">Meeting table</span></p>
         <div class="pd__ctas">
           <a class="feature__btn" href="../../contact.html" data-i18n="tour.outro.cta">Request a quote</a>
-          <a class="feature__link" href="../../assets/docs/Codutti-One-Catalogue.pdf" download data-i18n="prod.catalogue">Download the catalogue</a><a class="feature__link" href="../../collections/one.html" data-i18n="prod.collection">Discover the collection</a><a class="feature__link" href="../../materials.html" data-i18n="prod.finishes">Finishes</a>
+          <a class="feature__link" href="../../collections/one.html" data-i18n="prod.collection">Discover the collection</a>
         </div>
       </div>
     </div>
   </section>
-  <section class="pd-versions wrap">
-    <h2 class="pl-others__title"><span data-i18n="prod.versionsTitle">Versions</span> <span class="pl-group__n">2</span></h2>
+  <section class="pd-section wrap" id="versions">
+    <h2 class="pd-section__title"><span data-i18n="prod.versionsTitle">Versions</span> <span class="pl-group__n">2</span></h2>
     <div class="pd-thumbs">
-        <button type="button" class="pd-thumb is-active" data-src="../../assets/img/products/one-meeting/v0.jpg" data-fit="contain" aria-pressed="true">
-          <span class="pd-thumb__media"><img class="fit-contain" src="../../assets/img/products/one-meeting/v0.jpg" alt="" loading="lazy"></span>
-          <span class="pd-thumb__label"><span data-i18n="var.meeting-table">Meeting table</span></span>
-        </button>
-        <button type="button" class="pd-thumb" data-src="../../assets/img/products/one-meeting/v1.jpg" data-fit="contain" aria-pressed="false">
-          <span class="pd-thumb__media"><img class="fit-contain" src="../../assets/img/products/one-meeting/v1.jpg" alt="" loading="lazy"></span>
-          <span class="pd-thumb__label"><span data-i18n="var.glass-meeting">Glass meeting table</span></span>
-        </button>
+        <button type="button" class="pd-thumb is-active" data-src="../../assets/img/products/one-meeting/v0.jpg" aria-pressed="true"><span class="pd-thumb__media"><img src="../../assets/img/products/one-meeting/v0.jpg" alt="" loading="lazy"></span><span class="pd-thumb__label"><span data-i18n="var.meeting-table">Meeting table</span></span></button>
+        <button type="button" class="pd-thumb" data-src="../../assets/img/products/one-meeting/v1.jpg" aria-pressed="false"><span class="pd-thumb__media"><img src="../../assets/img/products/one-meeting/v1.jpg" alt="" loading="lazy"></span><span class="pd-thumb__label"><span data-i18n="var.glass-meeting">Glass meeting table</span></span></button>
     </div>
   </section>
-  <section class="pd-gallery">
-    <h2 class="pl-others__title wrap" data-i18n="prod.ambients">In the space</h2>
+  <section class="pd-section wrap" id="finishes">
+    <h2 class="pd-section__title"><span data-i18n="prod.finishes">Finishes</span> <span class="pl-group__n">25</span></h2>
+    <p class="pd-section__note" data-i18n="prod.finishesNote">Finishes as listed in the catalogue. Further customisation on request.</p>
+      <div class="fin-group">
+        <h3 class="fin-group__title" data-i18n="fam.melamine">Melamine</h3>
+        <ul class="fin-grid"><li class="fin" title="MB29 White"><img src="../../assets/img/finishes/mb29.jpg" alt="" loading="lazy"><span class="fin__code">MB29</span><span class="fin__name" data-i18n="fin.MB29">White</span></li></ul>
+      </div>
+      <div class="fin-group">
+        <h3 class="fin-group__title" data-i18n="fam.wood">Wood veneer</h3>
+        <ul class="fin-grid"><li class="fin" title="NN27 Natural walnut"><img src="../../assets/img/finishes/nn27.jpg" alt="" loading="lazy"><span class="fin__code">NN27</span><span class="fin__name" data-i18n="fin.NN27">Natural walnut</span></li><li class="fin" title="NT29 Tobacco dyed"><img src="../../assets/img/finishes/nt29.jpg" alt="" loading="lazy"><span class="fin__code">NT29</span><span class="fin__name" data-i18n="fin.NT29">Tobacco dyed</span></li><li class="fin" title="NV26 Vintage dyed walnut"><img src="../../assets/img/finishes/nv26.jpg" alt="" loading="lazy"><span class="fin__code">NV26</span><span class="fin__name" data-i18n="fin.NV26">Vintage dyed walnut</span></li></ul>
+      </div>
+      <div class="fin-group">
+        <h3 class="fin-group__title" data-i18n="fam.lacquered">Lacquered</h3>
+        <ul class="fin-grid"><li class="fin" title="FS60 Sand"><img src="../../assets/img/finishes/fs60.jpg" alt="" loading="lazy"><span class="fin__code">FS60</span><span class="fin__name" data-i18n="fin.FS60">Sand</span></li><li class="fin" title="FB53 White"><img src="../../assets/img/finishes/fb53.jpg" alt="" loading="lazy"><span class="fin__code">FB53</span><span class="fin__name" data-i18n="fin.FB53">White</span></li></ul>
+      </div>
+      <div class="fin-group">
+        <h3 class="fin-group__title" data-i18n="fam.glass">Glass</h3>
+        <ul class="fin-grid"><li class="fin" title="VE65 Transparent"><img src="../../assets/img/finishes/ve65.jpg" alt="" loading="lazy"><span class="fin__code">VE65</span><span class="fin__name" data-i18n="fin.VE65">Transparent</span></li></ul>
+      </div>
+      <div class="fin-group">
+        <h3 class="fin-group__title" data-i18n="fam.stone">Stone</h3>
+        <ul class="fin-grid"><li class="fin" title="QW56 Piasentina"><img src="../../assets/img/finishes/qw56.jpg" alt="" loading="lazy"><span class="fin__code">QW56</span><span class="fin__name" data-i18n="fin.QW56">Piasentina</span></li></ul>
+      </div>
+      <div class="fin-group">
+        <h3 class="fin-group__title" data-i18n="fam.thick-leather">Thick leather</h3>
+        <ul class="fin-grid"><li class="fin" title="CW75 Gunmetal"><img src="../../assets/img/finishes/cw75.jpg" alt="" loading="lazy"><span class="fin__code">CW75</span><span class="fin__name" data-i18n="fin.CW75">Gunmetal</span></li><li class="fin" title="CR77 Tangerine"><img src="../../assets/img/finishes/cr77.jpg" alt="" loading="lazy"><span class="fin__code">CR77</span><span class="fin__name" data-i18n="fin.CR77">Tangerine</span></li><li class="fin" title="CX74 Brick-red"><img src="../../assets/img/finishes/cx74.jpg" alt="" loading="lazy"><span class="fin__code">CX74</span><span class="fin__name" data-i18n="fin.CX74">Brick-red</span></li><li class="fin" title="CC82 Cream"><img src="../../assets/img/finishes/cc82.jpg" alt="" loading="lazy"><span class="fin__code">CC82</span><span class="fin__name" data-i18n="fin.CC82">Cream</span></li><li class="fin" title="CY85 Pink"><img src="../../assets/img/finishes/cy85.jpg" alt="" loading="lazy"><span class="fin__code">CY85</span><span class="fin__name" data-i18n="fin.CY85">Pink</span></li><li class="fin" title="CJ83 White"><img src="../../assets/img/finishes/cj83.jpg" alt="" loading="lazy"><span class="fin__code">CJ83</span><span class="fin__name" data-i18n="fin.CJ83">White</span></li><li class="fin" title="CZ73 Blue"><img src="../../assets/img/finishes/cz73.jpg" alt="" loading="lazy"><span class="fin__code">CZ73</span><span class="fin__name" data-i18n="fin.CZ73">Blue</span></li><li class="fin" title="CL84 Coffee"><img src="../../assets/img/finishes/cl84.jpg" alt="" loading="lazy"><span class="fin__code">CL84</span><span class="fin__name" data-i18n="fin.CL84">Coffee</span></li><li class="fin" title="CF70 Red"><img src="../../assets/img/finishes/cf70.jpg" alt="" loading="lazy"><span class="fin__code">CF70</span><span class="fin__name" data-i18n="fin.CF70">Red</span></li><li class="fin" title="CA80 Aluminium"><img src="../../assets/img/finishes/ca80.jpg" alt="" loading="lazy"><span class="fin__code">CA80</span><span class="fin__name" data-i18n="fin.CA80">Aluminium</span></li><li class="fin" title="CM81 Moka"><img src="../../assets/img/finishes/cm81.jpg" alt="" loading="lazy"><span class="fin__code">CM81</span><span class="fin__name" data-i18n="fin.CM81">Moka</span></li><li class="fin" title="CB76 Natural"><img src="../../assets/img/finishes/cb76.jpg" alt="" loading="lazy"><span class="fin__code">CB76</span><span class="fin__name" data-i18n="fin.CB76">Natural</span></li><li class="fin" title="CO78 Ochre"><img src="../../assets/img/finishes/co78.jpg" alt="" loading="lazy"><span class="fin__code">CO78</span><span class="fin__name" data-i18n="fin.CO78">Ochre</span></li><li class="fin" title="CN72 Black"><img src="../../assets/img/finishes/cn72.jpg" alt="" loading="lazy"><span class="fin__code">CN72</span><span class="fin__name" data-i18n="fin.CN72">Black</span></li><li class="fin" title="CI71 Plum red"><img src="../../assets/img/finishes/ci71.jpg" alt="" loading="lazy"><span class="fin__code">CI71</span><span class="fin__name" data-i18n="fin.CI71">Plum red</span></li><li class="fin" title="CT86 Dove grey"><img src="../../assets/img/finishes/ct86.jpg" alt="" loading="lazy"><span class="fin__code">CT86</span><span class="fin__name" data-i18n="fin.CT86">Dove grey</span></li><li class="fin" title="CP79 Petroleum"><img src="../../assets/img/finishes/cp79.jpg" alt="" loading="lazy"><span class="fin__code">CP79</span><span class="fin__name" data-i18n="fin.CP79">Petroleum</span></li></ul>
+      </div>
+  </section>
+  <section class="pd-section pd-gallery" id="gallery">
+    <h2 class="pd-section__title wrap" data-i18n="prod.ambients">In the space</h2>
     <div class="pd-gallery__track" tabindex="0">
       <figure class="pd-gallery__item"><img src="../../assets/img/products/one-meeting/g0.jpg" alt="" loading="lazy"></figure>
       <figure class="pd-gallery__item"><img src="../../assets/img/products/one-meeting/g1.jpg" alt="" loading="lazy"></figure>
       <figure class="pd-gallery__item"><img src="../../assets/img/products/one-meeting/g2.jpg" alt="" loading="lazy"></figure>
     </div>
   </section>
-  <section class="pl-others wrap">
-    <h2 class="pl-others__title" data-i18n="prod.related">You may also like</h2>
+  <section class="pd-section wrap" id="downloads">
+    <h2 class="pd-section__title" data-i18n="nav.download">Download</h2>
+    <ul class="dl-list">
+      <li class="dl-row"><a href="../../assets/docs/Codutti-One-Catalogue.pdf" download><span class="dl-row__name" data-i18n="prod.catalogue">Catalogue</span><span class="dl-row__meta">PDF · 5 MB</span><span class="dl-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg></span></a></li>
+      <li class="dl-row"><a href="../../assets/docs/Codutti-Material-Book-2026.pdf" download><span class="dl-row__name" data-i18n="prod.materialBook">Material Book</span><span class="dl-row__meta">PDF · 3 MB</span><span class="dl-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg></span></a></li>
+    </ul>
+  </section>
+  <section class="pd-section wrap">
+    <h2 class="pd-section__title" data-i18n="prod.related">You may also like</h2>
     <ul class="pl-grid">
       <li class="pl-card" data-subs="meeting-tables">
         <a class="pl-card__link" href="../../products/item/isixty-meeting.html">
-          <span class="pl-card__media"><img class="fit-cover" src="../../assets/img/products/isixty-meeting/v0.jpg" alt="iSixty" loading="lazy"></span>
+          <span class="pl-card__media"><img class="fit-contain" src="../../assets/img/products/isixty-meeting/v0.jpg" alt="iSixty" loading="lazy"></span>
           <span class="pl-card__name">iSixty</span>
           <span class="pl-card__meta"><span data-i18n="sub.meetingTables">Meeting Tables</span></span>
         </a>
@@ -133,14 +171,14 @@
       </li>
       <li class="pl-card" data-subs="meeting-tables">
         <a class="pl-card__link" href="../../products/item/alfaomega-meeting.html">
-          <span class="pl-card__media"><img class="fit-cover" src="../../assets/img/products/alfaomega-meeting/v0.jpg" alt="Alfaomega" loading="lazy"></span>
+          <span class="pl-card__media"><img class="fit-contain" src="../../assets/img/products/alfaomega-meeting/v0.jpg" alt="Alfaomega" loading="lazy"></span>
           <span class="pl-card__name">Alfaomega</span>
           <span class="pl-card__meta"><span data-i18n="sub.meetingTables">Meeting Tables</span></span>
         </a>
       </li>
       <li class="pl-card" data-subs="meeting-tables">
         <a class="pl-card__link" href="../../products/item/attiva-meeting.html">
-          <span class="pl-card__media"><img class="fit-cover" src="../../assets/img/products/attiva-meeting/v0.jpg" alt="Attiva" loading="lazy"></span>
+          <span class="pl-card__media"><img class="fit-contain" src="../../assets/img/products/attiva-meeting/v0.jpg" alt="Attiva" loading="lazy"></span>
           <span class="pl-card__name">Attiva</span>
           <span class="pl-card__meta"><span data-i18n="sub.meetingTables">Meeting Tables</span></span>
         </a>
@@ -242,7 +280,9 @@
   </div>
 </footer>
 
+<script src="../../assets/js/ai-config.js"></script>
 <script src="../../assets/js/i18n.js"></script>
+<script src="../../assets/js/finish-names.js"></script>
 <script src="../../assets/js/main.js"></script>
 <script src="../../assets/js/search-index.js" defer></script>
 <script src="../../assets/js/search.js" defer></script>

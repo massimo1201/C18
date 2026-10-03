@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Download — Codutti</title>
-<meta name="description" content="Codutti catalogues and company profile.">
+<meta name="description" content="Codutti catalogues, material books and company profile.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body id="top" class="">
+<body id="top" class="page-downloads">
 
 <header class="site-header">
   <div class="header-side header-side--left">
@@ -82,90 +82,135 @@
     <h1 class="pl-title" data-i18n="nav.download">Download</h1>
     <p class="pl-intro" data-i18n="dl.intro">Catalogues and company profile, ready to download.</p>
   </section>
+  <nav class="pl-chips wrap" aria-label="Filter">
+    <button type="button" class="pl-chip is-active" data-filter="" data-i18n="prod.all">All</button><button type="button" class="pl-chip" data-filter="company" data-i18n="dl.profile">Company profile</button><button type="button" class="pl-chip" data-filter="catalogue" data-i18n="dl.catalogue">Catalogue</button><button type="button" class="pl-chip" data-filter="materials" data-i18n="dl.materials">Materials</button>
+  </nav>
   <section class="wrap pl-list">
-    <ul class="dl-list">
-      <li class="dl-row">
+    <ul class="dl-grid">
+      <li class="dl-card" data-kind="company">
         <a href="assets/docs/Codutti-Company-Profile-2026.pdf" download>
-          <span class="dl-row__name">Company Profile 2026</span>
-          <span class="dl-row__meta"><span data-i18n="dl.profile">Catalogue</span> · PDF · 7 MB</span>
-          <span class="dl-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg></span>
+          <span class="dl-card__cover"><img src="assets/img/covers/Codutti-Company-Profile-2026.jpg" alt="" loading="lazy"></span>
+          <span class="dl-card__type" data-i18n="dl.profile">Catalogue</span>
+          <span class="dl-card__name">Company Profile 2026</span>
+          <span class="dl-card__meta">PDF · 7 MB</span>
+          <span class="dl-card__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg><span data-i18n="nav.download">Download</span></span>
         </a>
       </li>
-      <li class="dl-row">
+      <li class="dl-card" data-kind="materials">
+        <a href="assets/docs/Codutti-Material-Book-2026.pdf" download>
+          <span class="dl-card__cover"><img src="assets/img/covers/Codutti-Material-Book-2026.jpg" alt="" loading="lazy"></span>
+          <span class="dl-card__type" data-i18n="dl.materials">Catalogue</span>
+          <span class="dl-card__name">Material Book 2026</span>
+          <span class="dl-card__meta">PDF · 3 MB</span>
+          <span class="dl-card__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg><span data-i18n="nav.download">Download</span></span>
+        </a>
+      </li>
+      <li class="dl-card" data-kind="materials">
+        <a href="assets/docs/Codutti-Upholstery-Material-Book-2026.pdf" download>
+          <span class="dl-card__cover"><img src="assets/img/covers/Codutti-Upholstery-Material-Book-2026.jpg" alt="" loading="lazy"></span>
+          <span class="dl-card__type" data-i18n="dl.materials">Catalogue</span>
+          <span class="dl-card__name">Upholstery Material Book 2026</span>
+          <span class="dl-card__meta">PDF · 3 MB</span>
+          <span class="dl-card__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg><span data-i18n="nav.download">Download</span></span>
+        </a>
+      </li>
+      <li class="dl-card" data-kind="catalogue">
         <a href="assets/docs/Codutti-Seating-Collection.pdf" download>
-          <span class="dl-row__name">Seating Collection</span>
-          <span class="dl-row__meta"><span data-i18n="dl.catalogue">Catalogue</span> · PDF · 25 MB</span>
-          <span class="dl-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg></span>
+          <span class="dl-card__cover"><img src="assets/img/covers/Codutti-Seating-Collection.jpg" alt="" loading="lazy"></span>
+          <span class="dl-card__type" data-i18n="dl.catalogue">Catalogue</span>
+          <span class="dl-card__name">Seating Collection</span>
+          <span class="dl-card__meta">PDF · 25 MB</span>
+          <span class="dl-card__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg><span data-i18n="nav.download">Download</span></span>
         </a>
       </li>
-      <li class="dl-row">
+      <li class="dl-card" data-kind="catalogue">
         <a href="assets/docs/Codutti-Height-Adjustable-Catalogue.pdf" download>
-          <span class="dl-row__name">Height Adjustable Desks</span>
-          <span class="dl-row__meta"><span data-i18n="dl.catalogue">Catalogue</span> · PDF · 24 MB</span>
-          <span class="dl-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg></span>
+          <span class="dl-card__cover"><img src="assets/img/covers/Codutti-Height-Adjustable-Catalogue.jpg" alt="" loading="lazy"></span>
+          <span class="dl-card__type" data-i18n="dl.catalogue">Catalogue</span>
+          <span class="dl-card__name">Height Adjustable Desks</span>
+          <span class="dl-card__meta">PDF · 24 MB</span>
+          <span class="dl-card__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg><span data-i18n="nav.download">Download</span></span>
         </a>
       </li>
-      <li class="dl-row">
+      <li class="dl-card" data-kind="catalogue">
         <a href="assets/docs/Codutti-One-Catalogue.pdf" download>
-          <span class="dl-row__name">One</span>
-          <span class="dl-row__meta"><span data-i18n="dl.catalogue">Catalogue</span> · PDF · 5 MB</span>
-          <span class="dl-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg></span>
+          <span class="dl-card__cover"><img src="assets/img/covers/Codutti-One-Catalogue.jpg" alt="" loading="lazy"></span>
+          <span class="dl-card__type" data-i18n="dl.catalogue">Catalogue</span>
+          <span class="dl-card__name">One</span>
+          <span class="dl-card__meta">PDF · 5 MB</span>
+          <span class="dl-card__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg><span data-i18n="nav.download">Download</span></span>
         </a>
       </li>
-      <li class="dl-row">
+      <li class="dl-card" data-kind="catalogue">
         <a href="assets/docs/Codutti-iSixty-Catalogue.pdf" download>
-          <span class="dl-row__name">iSixty</span>
-          <span class="dl-row__meta"><span data-i18n="dl.catalogue">Catalogue</span> · PDF · 4 MB</span>
-          <span class="dl-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg></span>
+          <span class="dl-card__cover"><img src="assets/img/covers/Codutti-iSixty-Catalogue.jpg" alt="" loading="lazy"></span>
+          <span class="dl-card__type" data-i18n="dl.catalogue">Catalogue</span>
+          <span class="dl-card__name">iSixty</span>
+          <span class="dl-card__meta">PDF · 4 MB</span>
+          <span class="dl-card__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg><span data-i18n="nav.download">Download</span></span>
         </a>
       </li>
-      <li class="dl-row">
+      <li class="dl-card" data-kind="catalogue">
         <a href="assets/docs/Codutti-Genesis-Catalogue.pdf" download>
-          <span class="dl-row__name">Genesis</span>
-          <span class="dl-row__meta"><span data-i18n="dl.catalogue">Catalogue</span> · PDF · 7 MB</span>
-          <span class="dl-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg></span>
+          <span class="dl-card__cover"><img src="assets/img/covers/Codutti-Genesis-Catalogue.jpg" alt="" loading="lazy"></span>
+          <span class="dl-card__type" data-i18n="dl.catalogue">Catalogue</span>
+          <span class="dl-card__name">Genesis</span>
+          <span class="dl-card__meta">PDF · 7 MB</span>
+          <span class="dl-card__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg><span data-i18n="nav.download">Download</span></span>
         </a>
       </li>
-      <li class="dl-row">
+      <li class="dl-card" data-kind="catalogue">
         <a href="assets/docs/Codutti-Alfaomega-Catalogue.pdf" download>
-          <span class="dl-row__name">Alfaomega</span>
-          <span class="dl-row__meta"><span data-i18n="dl.catalogue">Catalogue</span> · PDF · 5 MB</span>
-          <span class="dl-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg></span>
+          <span class="dl-card__cover"><img src="assets/img/covers/Codutti-Alfaomega-Catalogue.jpg" alt="" loading="lazy"></span>
+          <span class="dl-card__type" data-i18n="dl.catalogue">Catalogue</span>
+          <span class="dl-card__name">Alfaomega</span>
+          <span class="dl-card__meta">PDF · 5 MB</span>
+          <span class="dl-card__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg><span data-i18n="nav.download">Download</span></span>
         </a>
       </li>
-      <li class="dl-row">
+      <li class="dl-card" data-kind="catalogue">
         <a href="assets/docs/Codutti-Mithos-Catalogue.pdf" download>
-          <span class="dl-row__name">Mithos</span>
-          <span class="dl-row__meta"><span data-i18n="dl.catalogue">Catalogue</span> · PDF · 6 MB</span>
-          <span class="dl-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg></span>
+          <span class="dl-card__cover"><img src="assets/img/covers/Codutti-Mithos-Catalogue.jpg" alt="" loading="lazy"></span>
+          <span class="dl-card__type" data-i18n="dl.catalogue">Catalogue</span>
+          <span class="dl-card__name">Mithos</span>
+          <span class="dl-card__meta">PDF · 6 MB</span>
+          <span class="dl-card__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg><span data-i18n="nav.download">Download</span></span>
         </a>
       </li>
-      <li class="dl-row">
+      <li class="dl-card" data-kind="catalogue">
         <a href="assets/docs/Codutti-Attiva-Catalogue.pdf" download>
-          <span class="dl-row__name">Attiva</span>
-          <span class="dl-row__meta"><span data-i18n="dl.catalogue">Catalogue</span> · PDF · 8 MB</span>
-          <span class="dl-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg></span>
+          <span class="dl-card__cover"><img src="assets/img/covers/Codutti-Attiva-Catalogue.jpg" alt="" loading="lazy"></span>
+          <span class="dl-card__type" data-i18n="dl.catalogue">Catalogue</span>
+          <span class="dl-card__name">Attiva</span>
+          <span class="dl-card__meta">PDF · 8 MB</span>
+          <span class="dl-card__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg><span data-i18n="nav.download">Download</span></span>
         </a>
       </li>
-      <li class="dl-row">
+      <li class="dl-card" data-kind="catalogue">
         <a href="assets/docs/Codutti-Team-Catalogue.pdf" download>
-          <span class="dl-row__name">Team</span>
-          <span class="dl-row__meta"><span data-i18n="dl.catalogue">Catalogue</span> · PDF · 6 MB</span>
-          <span class="dl-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg></span>
+          <span class="dl-card__cover"><img src="assets/img/covers/Codutti-Team-Catalogue.jpg" alt="" loading="lazy"></span>
+          <span class="dl-card__type" data-i18n="dl.catalogue">Catalogue</span>
+          <span class="dl-card__name">Team</span>
+          <span class="dl-card__meta">PDF · 6 MB</span>
+          <span class="dl-card__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg><span data-i18n="nav.download">Download</span></span>
         </a>
       </li>
-      <li class="dl-row">
+      <li class="dl-card" data-kind="catalogue">
         <a href="assets/docs/Codutti-2BE-Catalogue.pdf" download>
-          <span class="dl-row__name">2BE</span>
-          <span class="dl-row__meta"><span data-i18n="dl.catalogue">Catalogue</span> · PDF · 14 MB</span>
-          <span class="dl-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg></span>
+          <span class="dl-card__cover"><img src="assets/img/covers/Codutti-2BE-Catalogue.jpg" alt="" loading="lazy"></span>
+          <span class="dl-card__type" data-i18n="dl.catalogue">Catalogue</span>
+          <span class="dl-card__name">2BE</span>
+          <span class="dl-card__meta">PDF · 14 MB</span>
+          <span class="dl-card__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg><span data-i18n="nav.download">Download</span></span>
         </a>
       </li>
-      <li class="dl-row">
+      <li class="dl-card" data-kind="catalogue">
         <a href="assets/docs/Codutti-Ciao-Reception-Catalogue.pdf" download>
-          <span class="dl-row__name">Ciao Reception</span>
-          <span class="dl-row__meta"><span data-i18n="dl.catalogue">Catalogue</span> · PDF · 2 MB</span>
-          <span class="dl-row__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg></span>
+          <span class="dl-card__cover"><img src="assets/img/covers/Codutti-Ciao-Reception-Catalogue.jpg" alt="" loading="lazy"></span>
+          <span class="dl-card__type" data-i18n="dl.catalogue">Catalogue</span>
+          <span class="dl-card__name">Ciao Reception</span>
+          <span class="dl-card__meta">PDF · 2 MB</span>
+          <span class="dl-card__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg><span data-i18n="nav.download">Download</span></span>
         </a>
       </li>
     </ul>
@@ -265,9 +310,12 @@
   </div>
 </footer>
 
+<script src="assets/js/ai-config.js"></script>
 <script src="assets/js/i18n.js"></script>
+<script src="assets/js/finish-names.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/search-index.js" defer></script>
 <script src="assets/js/search.js" defer></script>
+<script src="assets/js/products.js"></script>
 </body>
 </html>
