@@ -3663,3 +3663,16 @@ body.search-open { overflow: hidden; }
 .dl-card__btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .dl-card a:hover .dl-card__btn { background: var(--black); color: var(--white); }
 @media (max-width: 560px) { .dl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Menu: white with black text and logo */
+.nav-overlay { background: #fff; color: var(--black); }
+body.nav-open .site-header { background: #fff; color: var(--black); -webkit-backdrop-filter: none; backdrop-filter: none; }
+body.nav-open .brand img { filter: none; }
+.nav-main li { border-bottom-color: var(--line); }
+.nav-back { color: var(--black); }
+.nav-main a:hover, .nav-main__open:hover, .nav-main__open[aria-expanded="true"] { opacity: 1; }
+
+/* Downloads page on white */
+body.page-downloads, body.page-downloads main { background: #fff; }
+body.page-downloads .site-header { background: rgba(255,255,255,0.9); }
+body.page-downloads .pl-chip { background: #fff; }
