@@ -892,4 +892,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (subject) subjectField.value = subject;
   }
 
+
+  /* Prefill the contact request with a configuration sent by a collection page. */
+  const cfgText = new URLSearchParams(location.search).get('config');
+  const reqArea = document.querySelector('#request-form textarea');
+  if (cfgText && reqArea && !reqArea.value) reqArea.value = cfgText;
 });

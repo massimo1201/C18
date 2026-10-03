@@ -23,3 +23,25 @@
   window.addEventListener('resize', update);
   update();
 })();
+
+/* Range line-up tabs (keyboard: arrows move between tabs). */
+(() => {
+  const tabs = Array.from(document.querySelectorAll('.lu-tab'));
+  const show = (t) => {
+    tabs.forEach((x) => {
+      const on = x === t;
+      x.classList.toggle('is-on', on);
+      x.setAttribute('aria-selected', String(on));
+      x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+    });
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => show(t));
+    t.addEventListener('keydown', (e) => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      const n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+      show(n); n.focus();
+    });
+  });
+})();

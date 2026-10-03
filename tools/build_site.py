@@ -697,6 +697,8 @@ def main():
         write(f"products/item/{prod['slug']}.html", product_page(prod, products, fins))
     write("materials.html", materials_page(fins))
     finish_names_js(fins)
+    import build_collections
+    build_collections.main()
     write("projects.html", projects_page())
     write("downloads.html", downloads_page())
 
