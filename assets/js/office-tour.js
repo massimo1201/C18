@@ -32,8 +32,9 @@
   let vw = 0, vh = 0, iw = 0, ih = 0, scrollSpan = 1;
 
   function measure() {
-    /* The photo runs under the translucent header, so the stage starts at 0. */
-    tour.style.setProperty('--tour-top', '0px');
+    /* The landing header is solid cream: start the photo just below it. */
+    const header = document.querySelector('.site-header');
+    tour.style.setProperty('--tour-top', (header ? header.offsetHeight : 0) + 'px');
     vw = stage.clientWidth;
     vh = stage.clientHeight;
     tour.style.height = Math.round(vh + last * window.innerHeight) + 'px';

@@ -3693,3 +3693,14 @@ body.lang-open .brand img { filter: none; }
 /* Two key numbers only */
 .home-stats__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 1000px; }
 @media (max-width: 560px) { .home-stats__grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Landing: header always solid #fef7da, same height while scrolling */
+body.page-home .site-header,
+body.page-home .site-header.is-scrolled {
+  background: #fef7da;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  padding-block: var(--header-pad-y);
+}
+body.page-home .office-tour { margin-top: var(--tour-top, 0px); }
+body.page-home.nav-open .site-header, body.page-home.lang-open .site-header { background: #fff; }
