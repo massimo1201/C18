@@ -76,6 +76,8 @@ PROJECTS = [
 
 DOWNLOADS = [
     ("Codutti-Company-Profile-2026.pdf", "Company Profile 2026", "dl.profile"),
+    ("Codutti-Material-Book-2026.pdf", "Material Book 2026", "dl.materials"),
+    ("Codutti-Upholstery-Material-Book-2026.pdf", "Upholstery Material Book 2026", "dl.materials"),
     ("Codutti-Seating-Collection.pdf", "Seating Collection", "dl.catalogue"),
     ("Codutti-Height-Adjustable-Catalogue.pdf", "Height Adjustable Desks", "dl.catalogue"),
     ("Codutti-One-Catalogue.pdf", "One", "dl.catalogue"),
@@ -181,6 +183,7 @@ def nav_html(p):
 
 def scripts_html(p, extra=()):
     s = [f'<script src="{p}assets/js/i18n.js"></script>',
+         f'<script src="{p}assets/js/finish-names.js"></script>',
          f'<script src="{p}assets/js/main.js"></script>',
          f'<script src="{p}assets/js/search-index.js" defer></script>',
          f'<script src="{p}assets/js/search.js" defer></script>']
@@ -198,7 +201,7 @@ def apply_chrome(path):
     s = re.sub(r'<nav class="nav-overlay".*?</nav>', lambda m: nav_html(p), s, count=1, flags=re.S)
     if "search.js" not in s:
         s = s.replace(f'<script src="{p}assets/js/main.js"></script>',
-                      f'<script src="{p}assets/js/main.js"></script>\n<script src="{p}assets/js/search-index.js" defer></script>\n<script src="{p}assets/js/search.js" defer></script>', 1)
+                      f'<script src="{p}assets/js/finish-names.js"></script>\n<script src="{p}assets/js/main.js"></script>\n<script src="{p}assets/js/search-index.js" defer></script>\n<script src="{p}assets/js/search.js" defer></script>', 1)
     open(path, "w", encoding="utf-8").write(s)
     return True
 
@@ -321,8 +324,8 @@ def category_tile(slug, key, label, p, products, small=False):
     count = f'<span class="pl-tile__count">{n}</span>' if n else ""
     return f'''      <li class="pl-tile">
         <a href="{p}products/{slug}.html">
-          <span class="pl-tile__media">{img}</span>
           <span class="pl-tile__name"><span data-i18n="{key}">{label}</span>{count}</span>
+          <span class="pl-tile__media">{img}</span>
         </a>
       </li>'''
 
@@ -403,7 +406,38 @@ def all_page(products):
     return page(p, "Products", "Office furniture designed and built in Italy by Codutti.", main, "page-products")
 
 
-def product_page(prod, products):
+FAMILIES = [
+    ("melamine", "Melamine"), ("hpl", "HPL"), ("wood", "Wood veneer"), ("lacquered", "Lacquered"),
+    ("glass", "Glass"), ("metal", "Metal"), ("stone", "Stone"), ("thick-leather", "Thick leather"),
+    ("leather", "Leather"), ("faux-leather", "Faux leather"), ("felt", "Felt and fabric for screens"),
+    ("fabric-moon", "Fabric · Moon"), ("fabric-sirai", "Fabric · Sirai"),
+    ("fabric-nocera", "Fabric · Nocera FR"), ("fabric-montreal", "Fabric · Montreal FR"),
+]
+
+
+def load_finishes():
+    return {f["code"]: f for f in json.load(open(os.path.join(ROOT, "assets/data/finishes.json"), encoding="utf-8"))}
+
+
+def swatch(f, p):
+    name = f["en"] or f["it"]
+    return (f'<li class="fin" title="{esc(f["code"])} {esc(name)}"><img src="{p}assets/img/finishes/{f["code"].lower()}.jpg" alt="" loading="lazy">'
+            f'<span class="fin__code">{esc(f["code"])}</span><span class="fin__name" data-i18n="fin.{f["code"]}">{esc(name)}</span></li>')
+
+
+def finishes_block(codes, p, fins):
+    out = []
+    for fam, label in FAMILIES:
+        items = [fins[c] for c in codes if c in fins and fins[c]["family"] == fam]
+        if items:
+            out.append('      <div class="fin-group">\n'
+                       f'        <h3 class="fin-group__title" data-i18n="fam.{fam}">{label}</h3>\n'
+                       f'        <ul class="fin-grid">{"".join(swatch(f, p) for f in items)}</ul>\n'
+                       '      </div>')
+    return "\n".join(out)
+
+
+def product_page(prod, products, fins):
     p = "../../"
     cat = CAT[prod["category"]]
     crumbs = [f'<a href="{p}products/all.html" data-i18n="nav.products">Products</a>',
@@ -420,47 +454,75 @@ def product_page(prod, products):
         return f'<span data-i18n="var.{x["key"]}">{esc(VAR_EN.get(x["key"], x["key"]))}</span>'
 
     thumbs = "\n".join(
-        f'''        <button type="button" class="pd-thumb{" is-active" if i == 0 else ""}" data-src="{p}{x["image"]}" data-fit="{x["fit"]}" aria-pressed="{"true" if i == 0 else "false"}">
-          <span class="pd-thumb__media">{media_img(x["image"], x["fit"], p)}</span>
-          <span class="pd-thumb__label">{vlabel(x, i)}</span>
-        </button>''' for i, x in enumerate(v))
-    gallery = ""
+        f'        <button type="button" class="pd-thumb{" is-active" if i == 0 else ""}" data-src="{p}{x["image"]}" aria-pressed="{"true" if i == 0 else "false"}">'
+        f'<span class="pd-thumb__media"><img src="{p}{x["image"]}" alt="" loading="lazy"></span>'
+        f'<span class="pd-thumb__label">{vlabel(x, i)}</span></button>' for i, x in enumerate(v))
+    tabs, sections = [], []
+    n = len(v)
+    if n > 1:
+        tabs.append(("versions", "prod.versionsTitle", "Versions"))
+        sections.append(f'  <section class="pd-section wrap" id="versions">\n'
+                        f'    <h2 class="pd-section__title"><span data-i18n="prod.versionsTitle">Versions</span> <span class="pl-group__n">{n}</span></h2>\n'
+                        f'    <div class="pd-thumbs">\n{thumbs}\n    </div>\n  </section>')
+    codes = [c for c in (prod.get("finishes") or []) if c in fins]
+    if codes:
+        tabs.append(("finishes", "prod.finishes", "Finishes"))
+        sections.append(f'  <section class="pd-section wrap" id="finishes">\n'
+                        f'    <h2 class="pd-section__title"><span data-i18n="prod.finishes">Finishes</span> <span class="pl-group__n">{len(codes)}</span></h2>\n'
+                        f'    <p class="pd-section__note" data-i18n="prod.finishesNote">Finishes as listed in the catalogue. Further customisation on request.</p>\n'
+                        f'{finishes_block(codes, p, fins)}\n  </section>')
     if prod["gallery"]:
-        gallery = '''  <section class="pd-gallery">
-    <h2 class="pl-others__title wrap" data-i18n="prod.ambients">In the space</h2>
-    <div class="pd-gallery__track" tabindex="0">
-''' + "\n".join(f'      <figure class="pd-gallery__item"><img src="{p}{g}" alt="" loading="lazy"></figure>' for g in prod["gallery"]) + '''
-    </div>
-  </section>'''
+        tabs.append(("gallery", "prod.ambients", "In the space"))
+        items = "\n".join(f'      <figure class="pd-gallery__item"><img src="{p}{g}" alt="" loading="lazy"></figure>' for g in prod["gallery"])
+        sections.append('  <section class="pd-section pd-gallery" id="gallery">\n'
+                        '    <h2 class="pd-section__title wrap" data-i18n="prod.ambients">In the space</h2>\n'
+                        f'    <div class="pd-gallery__track" tabindex="0">\n{items}\n    </div>\n  </section>')
+    dls = []
+    if prod.get("catalogue") and os.path.exists(os.path.join(ROOT, prod["catalogue"])):
+        dls.append((f'{p}{prod["catalogue"]}', "prod.catalogue", "Catalogue", os.path.getsize(os.path.join(ROOT, prod["catalogue"]))))
+    if codes:
+        book = "Codutti-Upholstery-Material-Book-2026.pdf" if prod["slug"].startswith("seat-") else "Codutti-Material-Book-2026.pdf"
+        path = os.path.join(ROOT, "assets/docs", book)
+        if os.path.exists(path):
+            dls.append((f'{p}assets/docs/{book}', "prod.materialBook", "Material Book", os.path.getsize(path)))
+    if dls:
+        tabs.append(("downloads", "nav.download", "Download"))
+        rows = "\n".join(f'      <li class="dl-row"><a href="{u}" download><span class="dl-row__name" data-i18n="{k}">{l}</span>'
+                         f'<span class="dl-row__meta">PDF · {sz / 1e6:.0f} MB</span><span class="dl-row__icon">{ICON_DL}</span></a></li>'
+                         for u, k, l, sz in dls)
+        sections.append('  <section class="pd-section wrap" id="downloads">\n'
+                        '    <h2 class="pd-section__title" data-i18n="nav.download">Download</h2>\n'
+                        f'    <ul class="dl-list">\n{rows}\n    </ul>\n  </section>')
     coll = prod.get("collection")
     links = []
-    if prod.get("catalogue"):
-        links.append(f'<a class="feature__link" href="{p}{prod["catalogue"]}" download data-i18n="prod.catalogue">Download the catalogue</a>')
     if coll in COLLECTION_PAGES:
         links.append(f'<a class="feature__link" href="{p}collections/{coll}.html" data-i18n="prod.collection">Discover the collection</a>')
-    links.append(f'<a class="feature__link" href="{p}materials.html" data-i18n="prod.finishes">Finishes</a>')
     eyebrow_key, eyebrow = sub_meta(prod)
-    badge = '<span class="pd-badge" data-i18n="prod.new">New</span>' if prod.get("new") else ""
     related = [x for x in products if x["category"] == prod["category"] and x["slug"] != prod["slug"]]
     same = [x for x in related if set(x["subcategories"]) & set(prod["subcategories"])]
     related = (same + [x for x in related if x not in same])[:4]
     rel = ""
     if related:
-        rel = f'''  <section class="pl-others wrap">
-    <h2 class="pl-others__title" data-i18n="prod.related">You may also like</h2>
-    <ul class="pl-grid">
-{chr(10).join(card(x, p) for x in related)}
-    </ul>
-  </section>'''
-    n = len(v)
-    main = f'''  <section class="pd wrap">
-    <nav class="pl-crumbs" aria-label="Breadcrumb">{' <span aria-hidden="true">/</span> '.join(crumbs)}</nav>
+        rel = ('  <section class="pd-section wrap">\n'
+               '    <h2 class="pd-section__title" data-i18n="prod.related">You may also like</h2>\n'
+               f'    <ul class="pl-grid">\n{chr(10).join(card(x, p) for x in related)}\n    </ul>\n  </section>')
+    subnav = "".join(f'<a href="#{a}" data-i18n="{k}">{l}</a>' for a, k, l in tabs)
+    crumb = ' <span aria-hidden="true">/</span> '.join(crumbs)
+    main = f'''  <nav class="pd-subnav" aria-label="{esc(prod["name"])}">
+    <div class="pd-subnav__inner wrap">
+      <span class="pd-subnav__name">{esc(prod["name"])}</span>
+      <span class="pd-subnav__links">{subnav}</span>
+      <a class="pd-subnav__cta" href="{p}contact.html" data-i18n="tour.outro.cta">Request a quote</a>
+    </div>
+  </nav>
+  <section class="pd wrap">
+    <nav class="pl-crumbs" aria-label="Breadcrumb">{crumb}</nav>
     <div class="pd__grid">
       <div class="pd__stage">
-        <div class="pd__main">{media_img(first["image"], first["fit"], p, prod["name"], eager=True)}</div>
+        <div class="pd__main"><img src="{p}{first["image"]}" alt="{esc(prod["name"])}"></div>
       </div>
       <div class="pd__info">
-        <p class="pd__eyebrow"><span data-i18n="{eyebrow_key}">{esc(eyebrow)}</span>{badge}</p>
+        <p class="pd__eyebrow"><span data-i18n="{eyebrow_key}">{esc(eyebrow)}</span></p>
         <h1 class="pd__name">{esc(prod["name"])}</h1>
         <p class="pd__variant" aria-live="polite">{vlabel(first, 0)}</p>
         <div class="pd__ctas">
@@ -470,16 +532,38 @@ def product_page(prod, products):
       </div>
     </div>
   </section>
-  <section class="pd-versions wrap"{' hidden' if n < 2 else ''}>
-    <h2 class="pl-others__title"><span data-i18n="prod.versionsTitle">Versions</span> <span class="pl-group__n">{n}</span></h2>
-    <div class="pd-thumbs">
-{thumbs}
-    </div>
-  </section>
-{gallery}
+{chr(10).join(sections)}
 {rel}
 {closing(p)}'''
     return page(p, prod["name"], f'{prod["name"]} — {eyebrow} by Codutti.', main, "page-products page-product", ("products",))
+
+
+def materials_page(fins):
+    p = ""
+    by_book = {"mat": [], "uph": []}
+    for f in fins.values():
+        by_book[f["book"]].append(f["code"])
+    blocks = []
+    for book, title_key, title, pdf in [("mat", "mat.book", "Material Book", "Codutti-Material-Book-2026.pdf"),
+                                        ("uph", "mat.uphBook", "Upholstery Material Book", "Codutti-Upholstery-Material-Book-2026.pdf")]:
+        dl = (f'<a class="feature__link" href="assets/docs/{pdf}" download data-i18n="mat.download">Download the PDF</a>'
+              if os.path.exists(os.path.join(ROOT, "assets/docs", pdf)) else "")
+        blocks.append(f'  <section class="pd-section wrap">\n    <div class="mat-head"><h2 class="pd-section__title" data-i18n="{title_key}">{title}</h2>{dl}</div>\n'
+                      f'{finishes_block(by_book[book], p, fins)}\n  </section>')
+    main = f'''  <section class="pl-hero wrap">
+    <h1 class="pl-title" data-i18n="nav.finishes">Finishes</h1>
+    <p class="pl-intro" data-i18n="mat.intro">Every surface, leather and fabric we work with, with its catalogue code.</p>
+  </section>
+{chr(10).join(blocks)}
+{closing(p)}'''
+    return page(p, "Finishes", "Codutti materials and finishes: melamine, HPL, wood, lacquer, glass, metal, leather and fabrics.", main)
+
+
+def finish_names_js(fins):
+    en = {f"fin.{c}": f["en"] or f["it"] for c, f in fins.items()}
+    it = {f"fin.{c}": f["it"] or f["en"] for c, f in fins.items()}
+    write("assets/js/finish-names.js", "/* Generated by tools/build_site.py */\nObject.assign(I18N.EN, " + json.dumps(en, ensure_ascii=False)
+          + ");\nObject.assign(I18N.IT, " + json.dumps(it, ensure_ascii=False) + ");\n")
 
 
 VAR_EN = {
@@ -579,6 +663,7 @@ def search_index(products, files):
 # --------------------------------------------------------------------------
 def main():
     products = load_products()
+    fins = load_finishes()
     for f in os.listdir(os.path.join(ROOT, "products")):
         full = os.path.join(ROOT, "products", f)
         if os.path.isdir(full):
@@ -591,7 +676,9 @@ def main():
         for sub in cat[5]:
             write(f"products/{cat[0]}/{sub[0]}.html", listing(cat, sub, "../../", products))
     for prod in products:
-        write(f"products/item/{prod['slug']}.html", product_page(prod, products))
+        write(f"products/item/{prod['slug']}.html", product_page(prod, products, fins))
+    write("materials.html", materials_page(fins))
+    finish_names_js(fins)
     write("projects.html", projects_page())
     write("downloads.html", downloads_page())
 

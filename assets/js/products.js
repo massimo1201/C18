@@ -15,7 +15,6 @@
     const next = new Image();
     next.onload = next.onerror = () => {
       img.src = t.dataset.src;
-      img.className = 'fit-' + t.dataset.fit;
       main.classList.remove('is-switching');
     };
     next.src = t.dataset.src;
